@@ -1,5 +1,7 @@
 #include <signal.h>
 #include <stdlib.h> //exit
+#include <unistd.h> //getpid
+#include <time.h>
 #include <stdio.h>
 #include "common.h"
 
@@ -16,13 +18,27 @@ void catch_signals(void) {
 	sigaction(SIGPIPE, &action, 0);
 	sigaction(SIGCHLD, &action, 0);
 	sigaction(SIGTSTP, &action, 0);
+
+	sigaction(SIGUSR1, &action, 0);
 }
 
 void handler(int sig, siginfo_t *siginfo, void *ignore) {
 	(void) siginfo;
 	(void) ignore;
 
-	printf("got signal %d... exiting\n", sig);
-	cleanup();
-	exit(-1);
+	if (sig == SIGUSR1) {
+		notified(sig,siginfo->si_pid,0);
+	} else {
+		printf("%d: got signal %d... exiting\n", getpid(), sig);
+		cleanup();
+		exit(-1);
+	}
+}
+
+void nsleep(long nsecs) {
+	struct timespec delay;
+	delay.tv_sec = 0;
+	delay.tv_nsec = nsecs;
+
+	nanosleep(&delay, NULL);
 }
