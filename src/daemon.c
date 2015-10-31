@@ -72,7 +72,7 @@ void setup_memory(void) {
 
 void fetch_data(int i) {
 	char buf[BUF_SIZE];
-	snprintf(buf, BUF_SIZE, "curval: %d", i);
+	snprintf(buf, BUF_SIZE, "curval: %%{A:hello world:}%d%%{A}", i);
 	strncpy(mem->buf,buf,BUF_SIZE);
 }
 

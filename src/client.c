@@ -27,6 +27,8 @@ int main(int argc, char const *argv[]) {
 	(void) argc;
 	(void) argv;
 
+	ssize_t n_bytes;
+	char buf[1024]; //for reading lemonbar click events into
 	struct pollfd fds[1];
 
 	setup_memory();
@@ -43,6 +45,7 @@ int main(int argc, char const *argv[]) {
 
 	catch_signals();
 
+	//@todo allow an escape for when server dies
 	while (1) {
 		DEBUG_(printf("waiting for wakeup signal\n"));
 
@@ -59,12 +62,17 @@ int main(int argc, char const *argv[]) {
 		if (fds[0].revents & POLLIN) {
 			fds[0].revents = 0; //clear for next round
 			//something was clicked
+			n_bytes = read(fds[0].fd, buf, 1024);
+			if (n_bytes < 0){
+				perror("lemonbar click read");
+			}
+			buf[n_bytes-1] = 0; //ends in newline, overwrite \n with termination
+			printf("got lemonbar output: %s\n", buf);
 		} else {
 			//must have gotten pinged by server
 			update_bar();
 		}
 
-		//@todo allow an escape for when server dies
 
 
 
