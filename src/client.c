@@ -14,35 +14,28 @@
 
 #include <string.h>
 
-void setup_memory(void);
-void spawn_bar(void);
-void notify_server(void);
-void update_bar(void);
+static void setup_memory(void);
+static void spawn_bar(int *in, int *out);
+static void notify_server(void);
+static void update_bar(int fd);
+static void process_click(int fd);
 
 static shmem *mem;
-static int input;
-static int output;
 
 int main(int argc, char const *argv[]) {
 	(void) argc;
 	(void) argv;
 
-	ssize_t n_bytes;
-	char buf[1024]; //for reading lemonbar click events into
+	int lemon_in, lemon_out;
 	struct pollfd fds[1];
 
 	setup_memory();
-	DEBUG_(printf("connected to shared memory\n"));
+	spawn_bar(&lemon_in, &lemon_out);
 
-	spawn_bar();
-	DEBUG_(printf("spawned lemonbar\n"));
-
-	fds[0].fd = output;
+	fds[0].fd = lemon_out;
 	fds[0].events = POLLIN;
 	
 	notify_server();
-	DEBUG_(printf("sent ping to server\n"));
-
 	catch_signals();
 
 	//@todo allow an escape for when server dies
@@ -62,21 +55,12 @@ int main(int argc, char const *argv[]) {
 		if (fds[0].revents & POLLIN) {
 			fds[0].revents = 0; //clear for next round
 			//something was clicked
-			n_bytes = read(fds[0].fd, buf, 1024);
-			if (n_bytes < 0){
-				perror("lemonbar click read");
-			}
-			buf[n_bytes-1] = 0; //ends in newline, overwrite \n with termination
-			printf("got lemonbar output: %s\n", buf);
+			process_click(fds[0].fd);
 		} else {
 			//must have gotten pinged by server
-			update_bar();
+			//@todo verify SIGUSR1 vs other signals (which generally just exit anyway)
+			update_bar(lemon_in);
 		}
-
-
-
-
-
 	}
 
 	signal(SIGUSR1,SIG_IGN);
@@ -86,7 +70,7 @@ int main(int argc, char const *argv[]) {
 	return 0;
 }
 
-void setup_memory(void) {
+static void setup_memory(void) {
 	int mem_fd;
 	void *addr;
 
@@ -106,13 +90,15 @@ void setup_memory(void) {
 	}
 
 	mem = addr;
+	DEBUG_(printf("connected to shared memory\n"));
 }
 
-void notify_server(void) {
+static void notify_server(void) {
 	kill(mem->server,SIGUSR1); //give server our PID
+	DEBUG_(printf("sent ping to server\n"));
 }
 
-void spawn_bar(void) {
+static void spawn_bar(int *lemon_in, int *lemon_out) {
 	int child_in[2]; //could be done one 2D array, fd[2][2], but harder to read
 	int child_out[2];
 	pid_t childpid;
@@ -168,14 +154,15 @@ void spawn_bar(void) {
 			perror("parent closing intput");
 		}
 
-		input = child_in[1]; //child_in[1] is stdin to lemonbar
-		output = child_out[0]; //child_out[0] is lemonbar output
-		printf("waiting for lemonbar to start up\n");
+		*lemon_in = child_in[1]; //child_in[1] is stdin to lemonbar
+		*lemon_out = child_out[0]; //child_out[0] is lemonbar output
+		DEBUG_(printf("waiting for lemonbar to start up\n"));
 		sleep(1); //give time for lemonbar to start, pipes to be swapped
+		DEBUG_(printf("spawned lemonbar\n"));
 	}
 }
 
-void update_bar(void) {
+static void update_bar(int fd) {
 	int n_bytes;
 	char buf[BUF_SIZE];
 
@@ -183,10 +170,22 @@ void update_bar(void) {
 		fprintf(stderr, "something went wrong copying\n");
 		perror("snprintf, copying data string");
 	}
-	if ((n_bytes = write(input,buf, strlen(buf))) < 0) {
+	if ((n_bytes = write(fd, buf, strlen(buf))) < 0) {
 		fprintf(stderr, "something went wrong writing\n");
 		perror("writing to lemonbar through pipe");
 	}
+}
+
+static void process_click(int fd) {
+	char buf[1024];
+	ssize_t n_bytes;
+
+	n_bytes = read(fd, buf, 1024);
+	if (n_bytes < 0){
+		perror("lemonbar click read");
+	}
+	buf[n_bytes-1] = 0; //ends in newline, overwrite \n with termination
+	printf("got lemonbar output: %s\n", buf);
 }
 
 void cleanup(void) {
