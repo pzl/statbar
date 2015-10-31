@@ -1,13 +1,13 @@
+//#define _GNU_SOURCE  /* for ppoll */
 #include <sys/mman.h> //mmap()
 #include <sys/stat.h> //fstat
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <sys/types.h> //pid_t
-#include <sys/select.h>
-#include <sys/time.h>
 #include <errno.h>
 #include <fcntl.h> //O_* defs
 #include <unistd.h> //close()
-#include <signal.h> //sigaction, etc
+#include <signal.h> //sigaction, ppoll
+#include <poll.h>
 #include <stdlib.h> //exit()
 #include <stdio.h>
 #include "common.h"
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[]) {
 	(void) argc;
 	(void) argv;
 
-	fd_set fd_in;
+	struct pollfd fds[1];
 
 	setup_memory();
 	DEBUG_(printf("connected to shared memory\n"));
@@ -35,6 +35,8 @@ int main(int argc, char const *argv[]) {
 	spawn_bar();
 	DEBUG_(printf("spawned lemonbar\n"));
 
+	fds[0].fd = output;
+	fds[0].events = POLLIN;
 	
 	notify_server();
 	DEBUG_(printf("sent ping to server\n"));
@@ -44,20 +46,18 @@ int main(int argc, char const *argv[]) {
 	while (1) {
 		DEBUG_(printf("waiting for wakeup signal\n"));
 
-		FD_ZERO(&fd_in);
-		FD_SET(output, &fd_in);
-
 		//block. wait here for lemonbar click output, or update signal from server
 		//we could block with read() or something, but let's plan for multiple
 		//sources for the future.
-		if (pselect(output+1, &fd_in, NULL, NULL, NULL, NULL) < 0){
+		if (poll(fds, 1, -1) < 0){
 			if (errno != EINTR){
 				perror("select");
 				break;
 			}
 		}
 
-		if (FD_ISSET(output, &fd_in)) {
+		if (fds[0].revents & POLLIN) {
+			fds[0].revents = 0; //clear for next round
 			//something was clicked
 		} else {
 			//must have gotten pinged by server
