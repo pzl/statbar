@@ -4,9 +4,13 @@
 #include <sys/types.h> //pid_t
 #include <signal.h>
 
+#ifdef DEBUG
+#define DEBUG_(x) do { x; } while (0)
+#else
+#define DEBUG_(x)
+#endif
 
 #define BUF_SIZE 4096
-
 #define SHM_PATH "/statbar"
 
 typedef struct shmem {

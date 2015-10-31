@@ -27,28 +27,23 @@ int main(int argc, char const *argv[]) {
 	int n_bytes;
 
 	setup_memory();
-#ifdef DEBUG
-	printf("connected to shared memory\n");
-#endif
+	DEBUG_(printf("connected to shared memory\n"));
 
 	spawn_bar();
-#ifdef DEBUG
-	printf("spawned lemonbar\n");
-#endif
+	DEBUG_(printf("spawned lemonbar\n"));
 
 	
 	notify_server();
-#ifdef DEBUG
-	printf("sent ping to server\n");
-#endif
+	DEBUG_(printf("sent ping to server\n"));
 
 	catch_signals();
 
 	while (1) {
+		DEBUG_(printf("waiting for wakeup signal\n"));
 		//@todo allow an escape for when server dies
-#ifdef DEBUG
-		printf("waiting for wakeup signal\n");
-#endif
+
+
+
 		pause();
 		if ((n_bytes = snprintf(buf, BUF_SIZE, "%s\n", mem->buf)) < 0){
 			fprintf(stderr, "something went wrong copying\n");
@@ -61,9 +56,7 @@ int main(int argc, char const *argv[]) {
 	}
 
 	signal(SIGUSR1,SIG_IGN);
-#ifdef DEBUG
-	printf("USR1 should be ignored now\n");
-#endif
+	DEBUG_(printf("USR1 should be ignored now\n"));
 
 	cleanup();
 	return 0;
@@ -169,7 +162,5 @@ void notified(int sig, pid_t pid, int value) {
 	(void) sig;
 	(void) pid;
 	(void) value;
-#ifdef DEBUG
-	printf("server woke us up!\n");
-#endif
+	DEBUG_(printf("server woke us up!\n"));
 }
