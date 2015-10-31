@@ -2,6 +2,9 @@
 #include <sys/stat.h> //fstat
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <sys/types.h> //pid_t
+#include <sys/select.h>
+#include <sys/time.h>
+#include <errno.h>
 #include <fcntl.h> //O_* defs
 #include <unistd.h> //close()
 #include <signal.h> //sigaction, etc
@@ -14,6 +17,7 @@
 void setup_memory(void);
 void spawn_bar(void);
 void notify_server(void);
+void update_bar(void);
 
 static shmem *mem;
 static int input;
@@ -23,8 +27,7 @@ int main(int argc, char const *argv[]) {
 	(void) argc;
 	(void) argv;
 
-	char buf[BUF_SIZE];
-	int n_bytes;
+	fd_set fd_in;
 
 	setup_memory();
 	DEBUG_(printf("connected to shared memory\n"));
@@ -40,19 +43,32 @@ int main(int argc, char const *argv[]) {
 
 	while (1) {
 		DEBUG_(printf("waiting for wakeup signal\n"));
+
+		FD_ZERO(&fd_in);
+		FD_SET(output, &fd_in);
+
+		//block. wait here for lemonbar click output, or update signal from server
+		//we could block with read() or something, but let's plan for multiple
+		//sources for the future.
+		if (pselect(output+1, &fd_in, NULL, NULL, NULL, NULL) < 0){
+			if (errno != EINTR){
+				perror("select");
+				break;
+			}
+		}
+
+		if (FD_ISSET(output, &fd_in)) {
+			//something was clicked
+		} else {
+			//must have gotten pinged by server
+			update_bar();
+		}
+
 		//@todo allow an escape for when server dies
 
 
 
-		pause();
-		if ((n_bytes = snprintf(buf, BUF_SIZE, "%s\n", mem->buf)) < 0){
-			fprintf(stderr, "something went wrong copying\n");
-			perror("snprintf, copying data string");
-		}
-		if ((n_bytes = write(input,buf, strlen(buf))) < 0) {
-			fprintf(stderr, "something went wrong writing\n");
-			perror("writing to lemonbar through pipe");
-		}
+
 	}
 
 	signal(SIGUSR1,SIG_IGN);
@@ -148,6 +164,20 @@ void spawn_bar(void) {
 		output = child_out[0]; //child_out[0] is lemonbar output
 		printf("waiting for lemonbar to start up\n");
 		sleep(1); //give time for lemonbar to start, pipes to be swapped
+	}
+}
+
+void update_bar(void) {
+	int n_bytes;
+	char buf[BUF_SIZE];
+
+	if ((n_bytes = snprintf(buf, BUF_SIZE, "%s\n", mem->buf)) < 0){
+		fprintf(stderr, "something went wrong copying\n");
+		perror("snprintf, copying data string");
+	}
+	if ((n_bytes = write(input,buf, strlen(buf))) < 0) {
+		fprintf(stderr, "something went wrong writing\n");
+		perror("writing to lemonbar through pipe");
 	}
 }
 
