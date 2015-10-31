@@ -27,20 +27,28 @@ int main(int argc, char const *argv[]) {
 	int n_bytes;
 
 	setup_memory();
+#ifdef DEBUG
 	printf("connected to shared memory\n");
+#endif
 
 	spawn_bar();
+#ifdef DEBUG
 	printf("spawned lemonbar\n");
+#endif
 
 	
 	notify_server();
+#ifdef DEBUG
 	printf("sent ping to server\n");
+#endif
 
 	catch_signals();
 
 	while (1) {
 		//@todo allow an escape for when server dies
+#ifdef DEBUG
 		printf("waiting for wakeup signal\n");
+#endif
 		pause();
 		if ((n_bytes = snprintf(buf, BUF_SIZE, "%s\n", mem->buf)) < 0){
 			fprintf(stderr, "something went wrong copying\n");
@@ -53,9 +61,10 @@ int main(int argc, char const *argv[]) {
 	}
 
 	signal(SIGUSR1,SIG_IGN);
+#ifdef DEBUG
 	printf("USR1 should be ignored now\n");
-	
-	sleep(2);
+#endif
+
 	cleanup();
 	return 0;
 }
@@ -122,9 +131,16 @@ void spawn_bar(void) {
 
 		signal(SIGUSR1,SIG_IGN);
 
+		//if pgrep -x compton; then #ee383a3b else #383a3b fi
+
 		execlp("lemonbar", "lemonbar",
-		       "-g","1920x22+0+200","-B","#383a3b","-F","#ffffff",
-		       "-u","3", NULL);
+		       "-g","1920x22+0+200","-B","#ee383a3b","-F","#ffffff",
+		       "-u","3",
+		       "-f","-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*",
+		       "-f","-*-lemon-medium-*-*-*-10-*-75-75-*-*-iso10646-*",
+		       "-f","-*-uushi-*-*-*-*-*-*-75-75-*-*-iso10646-*",
+		       "-f","-*-siji-*-*-*-*-10-*-75-75-*-*-iso10646-*",
+		       NULL);
 		exit(0); //if lemonbar exits, don't continue running C code. DIE!
 	} else {
 		//parent
@@ -138,7 +154,7 @@ void spawn_bar(void) {
 		input = child_in[1]; //child_in[1] is stdin to lemonbar
 		output = child_out[0]; //child_out[0] is lemonbar output
 		printf("waiting for lemonbar to start up\n");
-		sleep(2); //give time for lemonbar to start, pipes to be swapped
+		sleep(1); //give time for lemonbar to start, pipes to be swapped
 	}
 }
 
@@ -153,5 +169,7 @@ void notified(int sig, pid_t pid, int value) {
 	(void) sig;
 	(void) pid;
 	(void) value;
+#ifdef DEBUG
 	printf("server woke us up!\n");
+#endif
 }

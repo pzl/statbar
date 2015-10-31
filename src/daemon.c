@@ -28,6 +28,8 @@ int main(int argc, char const *argv[]) {
 
 	setup_memory();
 
+	signal(SIGUSR1,SIG_IGN);
+
 	catch_signals();
 
 	for (int i=0; i<15; i++){
@@ -36,7 +38,6 @@ int main(int argc, char const *argv[]) {
 		notify_watchers();
 	}
 
-	sleep(2);
 	printf("exiting\n");
 	cleanup();
 	return 0;
