@@ -12,10 +12,10 @@
 
 #define MAX_CLIENTS 15
 
-void setup_semaphore(void);
-void setup_memory(void);
-void fetch_data(int);
-void notify_watchers(void);
+static void setup_memory(void);
+static void fetch_data(status *);
+static void notify_watchers(void);
+static void update_status(status *);
 
 
 static shmem * mem;
@@ -26,15 +26,15 @@ int main(int argc, char const *argv[]) {
 	(void) argc;
 	(void) argv;
 
+	status stats;
+
 	setup_memory();
-
-	signal(SIGUSR1,SIG_IGN);
-
 	catch_signals();
 
 	for (int i=0; i<15; i++){
 		sleep(1);
-		fetch_data(i);
+		fetch_data(&stats);
+		update_status(&stats);
 		notify_watchers();
 	}
 
@@ -43,7 +43,7 @@ int main(int argc, char const *argv[]) {
 	return 0;
 }
 
-void setup_memory(void) {
+static void setup_memory(void) {
 	int mem_fd;
 	void * addr;
 
@@ -70,10 +70,18 @@ void setup_memory(void) {
 }
 
 
-void fetch_data(int i) {
-	char buf[BUF_SIZE];
-	snprintf(buf, BUF_SIZE, "curval: %%{A:hello world:}%d%%{A}", i);
-	strncpy(mem->buf,buf,BUF_SIZE);
+static void fetch_data(status *stats) {
+	snprintf(stats->datetime, SMALL_BUF, "10:18 AM Sat 10/31");
+	snprintf(stats->network, SMALL_BUF, "192.168.1.32");
+	snprintf(stats->net_tx, SMALL_BUF, "61.27 B/s 87.36 B/s");
+	snprintf(stats->bluetooth, SMALL_BUF, "0");
+	snprintf(stats->memory, SMALL_BUF, "14%%");
+	snprintf(stats->cpu, SMALL_BUF, "3%% 5%% 17%% 1%%");
+	snprintf(stats->gpu, SMALL_BUF, "28C | 10%% | 1350RPM");
+	snprintf(stats->packages, SMALL_BUF, "3|2");
+	snprintf(stats->runtime, SMALL_BUF, "3d");
+	snprintf(stats->weather, SMALL_BUF, "40F");
+	snprintf(stats->linux, SMALL_BUF, "4.2.4-1 ^");
 }
 
 void cleanup(void) {
@@ -85,11 +93,34 @@ void cleanup(void) {
 	}
 }
 
-void notify_watchers(void) {
+static void update_status(status *stats) {
+	int n_bytes;
+	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l}%s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
+			stats->datetime,
+			stats->network,
+			stats->net_tx,
+			stats->bluetooth,
+			stats->memory,
+			stats->cpu,
+			stats->gpu,
+			stats->packages,
+			stats->runtime,
+			stats->weather,
+			stats->linux);
+	if (n_bytes < 0){
+		perror("snprintf, update_status");
+		mem->buf[0] = '\0'; //manual super-truncation because something hit the fan
+	} else if (n_bytes >= BUF_SIZE){
+		fprintf(stderr, "update status was truncated. info longer than %d\n", BUF_SIZE);
+	}
+}
+
+static void notify_watchers(void) {
 	int i;
 
 	for (i=0; i<n_clients; i++){
 		kill(clients[i],SIGUSR1);
+		//or use sigqueue to send an int
 	}
 }
 

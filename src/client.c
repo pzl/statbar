@@ -177,10 +177,10 @@ static void update_bar(int fd) {
 }
 
 static void process_click(int fd) {
-	char buf[1024];
+	char buf[SMALL_BUF];
 	ssize_t n_bytes;
 
-	n_bytes = read(fd, buf, 1024);
+	n_bytes = read(fd, buf, SMALL_BUF);
 	if (n_bytes < 0){
 		perror("lemonbar click read");
 	}
