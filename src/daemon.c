@@ -4,7 +4,7 @@
 #include <fcntl.h> //O_* defines
 #include <unistd.h> //ftruncate, getpid
 #include <poll.h> //poll, pollfd
-#include <string.h> //strncpy
+#include <string.h> //strncpy, memset
 #include <libgen.h> //dirname
 #include <stdlib.h> //exit
 #include <errno.h> //errno
@@ -35,6 +35,7 @@ int main(int argc, char const *argv[]) {
 	struct pollfd fds[MAX_MODULES];
 	int n_modules, response;
 
+	memset(&stats,0,sizeof(stats));
 
 	setup_memory();
 	catch_signals();
