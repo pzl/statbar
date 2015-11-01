@@ -47,7 +47,7 @@ int main(int argc, char const *argv[]) {
 		//sources for the future.
 		if (poll(fds, 1, -1) < 0){
 			if (errno != EINTR){
-				perror("select");
+				perror("poll");
 				break;
 			}
 		}
@@ -95,7 +95,7 @@ static void setup_memory(void) {
 
 static void notify_server(void) {
 	kill(mem->server,SIGUSR1); //give server our PID
-	DEBUG_(printf("sent ping to server\n"));
+	DEBUG_(printf("sent ping to server (we are %d)\n",getpid()));
 }
 
 static void spawn_bar(int *lemon_in, int *lemon_out) {

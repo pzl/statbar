@@ -34,6 +34,7 @@ typedef struct status {
 	char linux[SMALL_BUF];
 } status;
 
+void die(int sig, siginfo_t *siginfo, void *ignore);
 void handler(int sig, siginfo_t *siginfo, void *ignore);
 void catch_signals(void);
 void nsleep(long nsecs);
