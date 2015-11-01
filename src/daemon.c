@@ -1,8 +1,11 @@
 #include <sys/mman.h> //mmap and shm functions
 #include <sys/types.h> //pid_t
+#include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <fcntl.h> //O_* defines
 #include <unistd.h> //ftruncate, getpid
+#include <poll.h> //poll, pollfd
 #include <string.h> //strncpy
+#include <libgen.h> //dirname
 #include <stdlib.h> //exit
 #include <errno.h> //errno
 #include <signal.h> //kill
@@ -11,12 +14,14 @@
 
 
 #define MAX_CLIENTS 15
+#define MAX_MODULES 15
 
 static void setup_memory(void);
-static void fetch_data(status *);
+static void read_data(status *, int fd, int i);
 static void notify_watchers(void);
 static void update_status(status *);
-
+static int launch_modules(struct pollfd[]);
+static int spawn(const char *);
 
 static shmem * mem;
 static pid_t clients[MAX_CLIENTS];
@@ -27,15 +32,61 @@ int main(int argc, char const *argv[]) {
 	(void) argv;
 
 	status stats;
+	struct pollfd fds[MAX_MODULES];
+	int n_modules, response;
+
 
 	setup_memory();
 	catch_signals();
 
-	for (int i=0; i<15; i++){
-		sleep(1);
-		fetch_data(&stats);
-		update_status(&stats);
-		notify_watchers();
+	n_modules = launch_modules(fds);
+
+	while (1) {
+		DEBUG_(printf("waiting for wakeup\n"));
+
+		if ((response = poll(fds, n_modules, -1)) < 0){
+			if (errno != EINTR) {
+				perror("poll");
+				exit(1);
+			} else {
+				DEBUG_(printf("poll interrupted\n"));
+				errno = 0;
+				continue;
+			}
+		}
+		DEBUG_(printf("woke up. response: %d\n", response));
+
+		if (response > 0){
+			//one or more FDs ready
+			for (int i=0; i<n_modules; i++) {
+				if (fds[i].revents) {
+					DEBUG_(printf("due to module # %d\n", i));
+
+					switch(fds[i].revents){
+						case POLLIN:
+							read_data(&stats, fds[i].fd, i);
+							update_status(&stats);
+							notify_watchers();
+							break;
+						case POLLERR:
+							fprintf(stderr,"module # %d, error occurred trying to poll\n", i);
+							fds[i].fd = -1;
+							break;
+						case POLLHUP:
+							fprintf(stderr,"module # %d, hang up on poll\n", i);
+							fds[i].fd = -1;
+							break;
+						case POLLNVAL:
+							fprintf(stderr,"module # %d, fd not open\n", i);
+							fds[i].fd = -1;
+							break;
+					}
+					fds[i].revents = 0; //clear events received
+				}
+			}
+		} else {
+			fprintf(stderr, "poll exited, unknown reasons\n");
+		}
 	}
 
 	printf("exiting\n");
@@ -67,21 +118,97 @@ static void setup_memory(void) {
 
 	mem = addr;
 	mem->server = getpid();
+	DEBUG_(printf("created shared memory segment\n"));
 }
 
+static int launch_modules(struct pollfd fds[]){
+	fds[0].fd = spawn("date");/*
+	fds[1].fd = spawn("network");
+	fds[2].fd = spawn("net_tx");
+	fds[3].fd = spawn("bluetooth");
+	fds[4].fd = spawn("memory");
+	fds[5].fd = spawn("cpu");
+	fds[6].fd = spawn("gpu");
+	fds[7].fd = spawn("packages");
+	fds[8].fd = spawn("runtime");
+	fds[9].fd = spawn("weather");
+	fds[10].fd = spawn("linux");*/
 
-static void fetch_data(status *stats) {
-	snprintf(stats->datetime, SMALL_BUF, "10:18 AM Sat 10/31");
-	snprintf(stats->network, SMALL_BUF, "192.168.1.32");
-	snprintf(stats->net_tx, SMALL_BUF, "61.27 B/s 87.36 B/s");
-	snprintf(stats->bluetooth, SMALL_BUF, "0");
-	snprintf(stats->memory, SMALL_BUF, "14%%");
-	snprintf(stats->cpu, SMALL_BUF, "3%% 5%% 17%% 1%%");
-	snprintf(stats->gpu, SMALL_BUF, "28C | 10%% | 1350RPM");
-	snprintf(stats->packages, SMALL_BUF, "3|2");
-	snprintf(stats->runtime, SMALL_BUF, "3d");
-	snprintf(stats->weather, SMALL_BUF, "40F");
-	snprintf(stats->linux, SMALL_BUF, "4.2.4-1 ^");
+	fds[0].events = POLLIN;/*
+	fds[1].events = POLLIN;
+	fds[2].events = POLLIN;
+	fds[3].events = POLLIN;
+	fds[4].events = POLLIN;
+	fds[5].events = POLLIN;
+	fds[6].events = POLLIN;
+	fds[7].events = POLLIN;
+	fds[8].events = POLLIN;
+	fds[9].events = POLLIN;
+	fds[10].events = POLLIN;*/
+
+	return 1;
+}
+
+static int spawn(const char *module) {
+	int fds[2];
+	pid_t childpid;
+
+	pipe(fds);
+
+	if ((childpid = fork()) == -1) {
+		perror("fork");
+		exit(-1);
+	}
+
+	if (childpid == 0) { //child
+		if (close(fds[0]) < 0){ //close read end of pipe
+			perror("closing child input");
+		}
+		if (dup2(fds[1],1) < 0){ //send script output through pipe write end
+			perror("setting module stdout");
+		}
+
+		//send SIGHUP to us when parent dies
+		if (prctl(PR_SET_PDEATHSIG, SIGHUP) < 0){ //Linux only
+			perror("setting up deathsig");
+		}
+		signal(SIGUSR1,SIG_IGN);
+
+		execlp(module, module, NULL);
+		exit(1); //if script fails, die
+	} else { //parent
+		if (close(fds[1]) < 0){ //close write end of pipe
+			perror("parent closing output");
+		}
+
+		return fds[0];
+	}
+}
+
+static void read_data(status *stats, int fd, int i) {
+	char * bufp;
+	ssize_t n_bytes;
+
+	switch (i) {
+		case 0: bufp = stats->datetime; break;
+		case 1: bufp = stats->network; break;
+		case 2: bufp = stats->net_tx; break;
+		case 3: bufp = stats->bluetooth; break;
+		case 4: bufp = stats->memory; break;
+		case 5: bufp = stats->cpu; break;
+		case 6: bufp = stats->gpu; break;
+		case 7: bufp = stats->packages; break;
+		case 8: bufp = stats->runtime; break;
+		case 9: bufp = stats->weather; break;
+		case 10: bufp = stats->linux; break;
+	}
+
+	n_bytes = read(fd, bufp, SMALL_BUF);
+	if (n_bytes < 0){
+		perror("module data read");
+	}
+	bufp[n_bytes] = 0; //ends in newline, overwrite \n with termination
+	DEBUG_(printf("got data in: %s\n", bufp));
 }
 
 void cleanup(void) {
@@ -119,6 +246,7 @@ static void notify_watchers(void) {
 	int i;
 
 	for (i=0; i<n_clients; i++){
+		DEBUG_(printf("notifying client %d (%d) of new input\n", i, clients[i]));
 		kill(clients[i],SIGUSR1);
 		//or use sigqueue to send an int
 	}
@@ -129,5 +257,6 @@ void notified(int sig, pid_t pid, int value) {
 	(void) value;
 	//@todo check against MAX_CLIENTS
 	//@todo prune dead clients
+	DEBUG_(printf("adding client %d, client total: %d\n", pid, n_clients+1));
 	clients[n_clients++] = pid;
 }
