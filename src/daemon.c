@@ -21,7 +21,7 @@ static void read_data(status *, int fd, int i);
 static void notify_watchers(void);
 static void update_status(status *);
 static int launch_modules(struct pollfd[]);
-static int spawn(const char *);
+static int spawn(char * path, const char * program);
 
 static shmem * mem;
 static pid_t clients[MAX_CLIENTS];
@@ -65,8 +65,6 @@ int main(int argc, char const *argv[]) {
 					switch(fds[i].revents){
 						case POLLIN:
 							read_data(&stats, fds[i].fd, i);
-							update_status(&stats);
-							notify_watchers();
 							break;
 						case POLLERR:
 							fprintf(stderr,"module # %d, error occurred trying to poll\n", i);
@@ -84,6 +82,8 @@ int main(int argc, char const *argv[]) {
 					fds[i].revents = 0; //clear events received
 				}
 			}
+			update_status(&stats);
+			notify_watchers();
 		} else {
 			fprintf(stderr, "poll exited, unknown reasons\n");
 		}
@@ -122,20 +122,36 @@ static void setup_memory(void) {
 }
 
 static int launch_modules(struct pollfd fds[]){
-	fds[0].fd = spawn("date");/*
-	fds[1].fd = spawn("network");
-	fds[2].fd = spawn("net_tx");
-	fds[3].fd = spawn("bluetooth");
-	fds[4].fd = spawn("memory");
-	fds[5].fd = spawn("cpu");
-	fds[6].fd = spawn("gpu");
-	fds[7].fd = spawn("packages");
-	fds[8].fd = spawn("runtime");
-	fds[9].fd = spawn("weather");
-	fds[10].fd = spawn("linux");*/
+	char buf[SMALL_BUF]; //note that dirname() may/will modify this! copy if it will be used afterwards
+	char * dir;
+	ssize_t len;
 
-	fds[0].events = POLLIN;/*
-	fds[1].events = POLLIN;
+	len = readlink("/proc/self/exe",buf,SMALL_BUF);
+	if (len < 0){
+		perror("readlink");
+		exit(1);
+	}
+	buf[len] = 0;
+
+	//dirname() may modify it's given param, so make a copy
+	//snprintf(bufcpy, SMALL_BUF, "%s", buf);
+
+	dir = dirname(buf);
+
+	fds[0].fd = spawn(dir,"datetime");
+	fds[1].fd = spawn(dir,"network");/*
+	fds[2].fd = spawn(dir,"net_tx");
+	fds[3].fd = spawn(dir,"bluetooth");
+	fds[4].fd = spawn(dir,"memory");
+	fds[5].fd = spawn(dir,"cpu");
+	fds[6].fd = spawn(dir,"gpu");
+	fds[7].fd = spawn(dir,"packages");
+	fds[8].fd = spawn(dir,"runtime");
+	fds[9].fd = spawn(dir,"weather");
+	fds[10].fd = spawn(dir,"linux");*/
+
+	fds[0].events = POLLIN;
+	fds[1].events = POLLIN;/*
 	fds[2].events = POLLIN;
 	fds[3].events = POLLIN;
 	fds[4].events = POLLIN;
@@ -146,12 +162,17 @@ static int launch_modules(struct pollfd fds[]){
 	fds[9].events = POLLIN;
 	fds[10].events = POLLIN;*/
 
-	return 1;
+	return 2;
 }
 
-static int spawn(const char *module) {
+static int spawn(char * dir, const char *module) {
 	int fds[2];
 	pid_t childpid;
+	char path[SMALL_BUF];
+
+	snprintf(path, SMALL_BUF, "%s/modules/%s",dir,module);
+
+	printf("will be calling %s\n", path);
 
 	pipe(fds);
 
@@ -174,7 +195,7 @@ static int spawn(const char *module) {
 		}
 		signal(SIGUSR1,SIG_IGN);
 
-		execlp(module, module, NULL);
+		execlp(path, module, NULL);
 		exit(1); //if script fails, die
 	} else { //parent
 		if (close(fds[1]) < 0){ //close write end of pipe
@@ -207,7 +228,12 @@ static void read_data(status *stats, int fd, int i) {
 	if (n_bytes < 0){
 		perror("module data read");
 	}
-	bufp[n_bytes] = 0; //ends in newline, overwrite \n with termination
+	if (bufp[n_bytes-1] == '\n'){
+		//@todo what if output ends in multiple newlines? or has them in th middle?
+		bufp[n_bytes-1] = 0;
+	} else {
+		bufp[n_bytes] = 0;
+	}
 	DEBUG_(printf("got data in: %s\n", bufp));
 }
 
