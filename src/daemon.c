@@ -183,7 +183,7 @@ static int spawn(char * dir, const char *module) {
 
 	snprintf(path, SMALL_BUF, "%s/modules/%s",dir,module);
 
-	printf("will be calling %s\n", path);
+	DEBUG_(printf("will be calling %s\n", path));
 
 	pipe(fds);
 
@@ -261,7 +261,7 @@ void cleanup(void) {
 
 static void update_status(status *stats) {
 	int n_bytes;
-	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l}%s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
+	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
 			stats->datetime,
 			stats->network,
 			stats->net_tx,
