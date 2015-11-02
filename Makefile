@@ -13,8 +13,8 @@ CFLAGS += -Wstrict-prototypes -Wwrite-strings -ftrapv -Wpadded
 CFLAGS += -fsanitize=address
 #CFLAGS += -march=native
 CFLAGS += -DVERSION=\"$(VERSION)\"
-SFLAGS = -std=c99 -pedantic -D_XOPEN_SOURCE=500
-#_XOPEN_SOURCE to use ftruncate in C99
+SFLAGS = -std=c99 -pedantic -D_XOPEN_SOURCE=600
+#_XOPEN_SOURCE >=500 to use ftruncate in C99, >=600 for setenv
 INCLUDES = -I.
 LIBS = -lrt -lpthread
 

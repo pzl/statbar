@@ -6,7 +6,7 @@
 #include <poll.h> //poll, pollfd
 #include <string.h> //strncpy, memset
 #include <libgen.h> //dirname
-#include <stdlib.h> //exit
+#include <stdlib.h> //exit, setenv
 #include <errno.h> //errno
 #include <signal.h> //kill
 #include <stdio.h>
@@ -16,12 +16,22 @@
 #define MAX_CLIENTS 15
 #define MAX_MODULES 15
 
+#define _FRESET "%{T-}"
+#define _FTERM "%{T1}"
+#define _FLEMON "%{T2}"
+#define _FUUSHI "%{T3}"
+#define _FSIJI "%{T4}"
+
+#define SENV(e,v) do { if (setenv(e,v,1) < 0) { perror("setenv"); } } while (0)
+
+
 static void setup_memory(void);
 static void read_data(status *, int fd, int i);
 static void notify_watchers(void);
 static void update_status(status *);
 static int launch_modules(struct pollfd[]);
 static int spawn(char * path, const char * program);
+static void set_environment(void);
 
 static shmem * mem;
 static pid_t clients[MAX_CLIENTS];
@@ -196,6 +206,8 @@ static int spawn(char * dir, const char *module) {
 		}
 		signal(SIGUSR1,SIG_IGN);
 
+		set_environment();
+
 		execlp(path, module, NULL);
 		exit(1); //if script fails, die
 	} else { //parent
@@ -286,4 +298,67 @@ void notified(int sig, pid_t pid, int value) {
 	//@todo prune dead clients
 	DEBUG_(printf("adding client %d, client total: %d\n", pid, n_clients+1));
 	clients[n_clients++] = pid;
+}
+
+static void set_environment(void) {
+
+	if (setenv("C_RST","%{F-}",1) < 0){
+		perror("setenv");
+	}
+
+	SENV("C_RST","%{F-}");
+	SENV("C_BG","%{F#383a3b}");
+	SENV("C_TITLE","%{F#708090}");
+	SENV("C_DISABLE","%{F#222222}");
+	SENV("C_WARN","%{F#aa0000}");
+	SENV("C_CAUTION","%{F#CA8B18}");
+//export readonly C_CPU=("%{F#CD5BBD}" "%{F#63C652}" "%{F#7684D0}" "%{F#B8B02C}")
+//cannot export arrays
+
+
+
+
+	SENV("F_RESET",_FRESET);
+	SENV("F_TERM",_FTERM);
+	SENV("F_LEMON",_FLEMON);
+	SENV("F_UUSHI",_FUUSHI);
+	SENV("F_SIJI",_FSIJI);
+
+	SENV("ic_lock","\ue0a2");
+	//lemon & uushi lock: 2b46 (lemon also 2baa)
+	SENV("ic_fail","\u2717");
+	SENV("ic_discon","\u2300");
+	SENV("ic_warn",_FSIJI "\ue077" _FRESET );
+
+	SENV("ic_arch",_FSIJI "\ue00e" _FRESET );
+
+	SENV("ic_pacman",_FSIJI "\ue00f" _FRESET );
+	SENV("ic_pacman_small",_FSIJI "\ue14d" _FRESET );
+	SENV("ic_pacman_tiny",_FSIJI "\ue0a0" _FRESET );
+	SENV("ic_pacman_puny",_FLEMON "\u2ba2" _FRESET );
+
+	SENV("ic_clock", _FSIJI "\ue015" _FRESET);
+	SENV("ic_clock_small",_FSIJI "\ue0a3" _FRESET );
+	SENV("ic_clock_tiny",_FSIJI "\ue0a2" _FRESET );
+
+	SENV("ic_chip",_FSIJI "\ue021" _FRESET );
+	SENV("ic_chip_small",_FSIJI "\ue020" _FRESET );
+	SENV("ic_chip_small_inv",_FSIJI "\ue0c5" _FRESET );
+	SENV("ic_chip_tiny",_FSIJI "\ue028" _FRESET );
+	SENV("ic_chip_tiny_inv",_FSIJI "\ue0c4" _FRESET );
+	SENV("ic_chip_puny",_FUUSHI "\u2b66" _FRESET );
+	SENV("ic_chip_micro",_FLEMON "\u2ba1" _FRESET );
+	SENV("ic_chip_micro_vert",_FLEMON "\u2bbd" _FRESET );
+
+	SENV("ic_network",_FSIJI "\ue0f3" _FRESET );
+	SENV("ic_blth",_FSIJI "\ue00b" _FRESET );
+	SENV("ic_blth_small",_FSIJI "\ue1b5" _FRESET );
+	SENV("ic_blth_tiny",_FSIJI "\ue0b0" _FRESET );
+
+	SENV("ic_cpu",_FSIJI "\ue026" _FRESET );
+
+	SENV("ic_transfer",_FSIJI "\ue13f" _FRESET );
+	SENV("ic_transfer_vert",_FSIJI "\ue10f" _FRESET );
+
+
 }
