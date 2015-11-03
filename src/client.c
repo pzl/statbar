@@ -200,6 +200,10 @@ static void update_bar(int fd) {
 		perror("snprintf, copying data string");
 	}
 	if ((n_bytes = write(fd, buf, strlen(buf))) < 0) {
+		if (errno == EPIPE) {
+			fprintf(stderr, "broken pipe. Lemonbar may have died\n");
+			exit(1);
+		}
 		fprintf(stderr, "something went wrong writing\n");
 		perror("writing to lemonbar through pipe");
 	}
