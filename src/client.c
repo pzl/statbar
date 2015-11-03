@@ -14,7 +14,7 @@
 
 #define DEFAULT_GEOM "1920x22+0+0"
 
-static void setup_memory(void);
+static int setup_memory(void);
 static void spawn_bar(int *in, int *out, const char *geometry);
 static int validate_geometry(const char *);
 static void notify_server(void);
@@ -29,7 +29,6 @@ int main(int argc, char const *argv[]) {
 	int lemon_in, lemon_out;
 	struct pollfd fds[1];
 
-	setup_memory();
 
 	geometry = (argc < 2) ? DEFAULT_GEOM : argv[1];
 	if (validate_geometry(geometry) < 0){
@@ -37,6 +36,11 @@ int main(int argc, char const *argv[]) {
 		return -1;
 	}
 
+	if (setup_memory() < 0){
+		//daemon may not be running
+		fprintf(stderr, "Error: daemon may not be running. please start first\n");
+		return -1;
+	}
 	spawn_bar(&lemon_in, &lemon_out, geometry);
 
 	fds[0].fd = lemon_out;
@@ -94,13 +98,13 @@ static int validate_geometry(const char *geometry) {
 	return 0;
 }
 
-static void setup_memory(void) {
+static int setup_memory(void) {
 	int mem_fd;
 	void *addr;
 
 	if ((mem_fd = shm_open(SHM_PATH, O_RDONLY, 0)) < 0){
 		perror("accessing shared mem");
-		exit(-1);
+		return -1;
 	}
 
 	addr = mmap(NULL, sizeof(shmem), PROT_READ, MAP_SHARED, mem_fd, 0);
@@ -115,6 +119,7 @@ static void setup_memory(void) {
 
 	mem = addr;
 	DEBUG_(printf("connected to shared memory\n"));
+	return 0;
 }
 
 static void notify_server(void) {
