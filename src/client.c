@@ -1,6 +1,5 @@
 //#define _GNU_SOURCE  /* for ppoll */
 #include <sys/mman.h> //mmap()
-#include <sys/stat.h> //fstat
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <sys/types.h> //pid_t
 #include <errno.h>
@@ -9,13 +8,15 @@
 #include <signal.h> //sigaction, ppoll
 #include <poll.h>
 #include <stdlib.h> //exit()
+#include <string.h>
 #include <stdio.h>
 #include "common.h"
 
-#include <string.h>
+#define DEFAULT_GEOM "1920x22+0+0"
 
 static void setup_memory(void);
-static void spawn_bar(int *in, int *out);
+static void spawn_bar(int *in, int *out, const char *geometry);
+static int validate_geometry(const char *);
 static void notify_server(void);
 static void update_bar(int fd);
 static void process_click(int fd);
@@ -23,14 +24,20 @@ static void process_click(int fd);
 static shmem *mem;
 
 int main(int argc, char const *argv[]) {
-	(void) argc;
-	(void) argv;
 
+	const char *geometry;
 	int lemon_in, lemon_out;
 	struct pollfd fds[1];
 
 	setup_memory();
-	spawn_bar(&lemon_in, &lemon_out);
+
+	geometry = (argc < 2) ? DEFAULT_GEOM : argv[1];
+	if (validate_geometry(geometry) < 0){
+		fprintf(stderr, "please provide a valid window geometry. E.g. 1920x22+0+0  (widthxheight+X+Y)\n");
+		return -1;
+	}
+
+	spawn_bar(&lemon_in, &lemon_out, geometry);
 
 	fds[0].fd = lemon_out;
 	fds[0].events = POLLIN;
@@ -70,6 +77,23 @@ int main(int argc, char const *argv[]) {
 	return 0;
 }
 
+static int validate_geometry(const char *geometry) {
+	int len;
+	int w,h,x,y;
+
+	len=strlen(geometry);
+	if (len > 25){
+		fprintf(stderr, "invalid geometry string: too long\n");
+		return -1;
+	}
+
+	if (sscanf(geometry,"%dx%d+%d+%d",&w,&h,&x,&y) != 4){
+		fprintf(stderr, "invalid geometry string\n");
+		return -2;
+	}
+	return 0;
+}
+
 static void setup_memory(void) {
 	int mem_fd;
 	void *addr;
@@ -98,7 +122,7 @@ static void notify_server(void) {
 	DEBUG_(printf("sent ping to server (we are %d)\n",getpid()));
 }
 
-static void spawn_bar(int *lemon_in, int *lemon_out) {
+static void spawn_bar(int *lemon_in, int *lemon_out, const char *geometry) {
 	int child_in[2]; //could be done one 2D array, fd[2][2], but harder to read
 	int child_out[2];
 	pid_t childpid;
@@ -137,7 +161,7 @@ static void spawn_bar(int *lemon_in, int *lemon_out) {
 		//if pgrep -x compton; then #ee383a3b else #383a3b fi
 
 		execlp("lemonbar", "lemonbar",
-		       "-g","1920x22+0+22","-B","#ee383a3b","-F","#ffffff",
+		       "-g",geometry,"-B","#ee383a3b","-F","#ffffff",
 		       "-u","3",
 		       "-f","-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*",
 		       "-f","-*-lemon-medium-*-*-*-10-*-75-75-*-*-iso10646-*",
