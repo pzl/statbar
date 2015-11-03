@@ -137,7 +137,7 @@ static void spawn_bar(int *lemon_in, int *lemon_out) {
 		//if pgrep -x compton; then #ee383a3b else #383a3b fi
 
 		execlp("lemonbar", "lemonbar",
-		       "-g","1920x22+0+200","-B","#ee383a3b","-F","#ffffff",
+		       "-g","1920x22+0+22","-B","#ee383a3b","-F","#ffffff",
 		       "-u","3",
 		       "-f","-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*",
 		       "-f","-*-lemon-medium-*-*-*-10-*-75-75-*-*-iso10646-*",

@@ -89,6 +89,10 @@ int main(int argc, char const *argv[]) {
 							fprintf(stderr,"module # %d, fd not open\n", i);
 							fds[i].fd = -1;
 							break;
+						default:
+							fprintf(stderr, "for unknown reasons: %d\n", fds[i].revents);
+							fds[i].fd = -1;
+							break;
 					}
 					fds[i].revents = 0; //clear events received
 				}
