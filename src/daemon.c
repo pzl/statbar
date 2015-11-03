@@ -150,19 +150,19 @@ static int launch_modules(struct pollfd fds[]){
 	dir = dirname(buf);
 
 	fds[0].fd = spawn(dir,"datetime");
-	fds[1].fd = spawn(dir,"network");/*
-	fds[2].fd = spawn(dir,"net_tx");
+	fds[1].fd = spawn(dir,"network");
+	fds[2].fd = spawn(dir,"transfer");
 	fds[3].fd = spawn(dir,"bluetooth");
-	fds[4].fd = spawn(dir,"memory");
+	fds[4].fd = spawn(dir,"mem");
 	fds[5].fd = spawn(dir,"cpu");
 	fds[6].fd = spawn(dir,"gpu");
 	fds[7].fd = spawn(dir,"packages");
 	fds[8].fd = spawn(dir,"runtime");
 	fds[9].fd = spawn(dir,"weather");
-	fds[10].fd = spawn(dir,"linux");*/
+	fds[10].fd = spawn(dir,"linux");
 
 	fds[0].events = POLLIN;
-	fds[1].events = POLLIN;/*
+	fds[1].events = POLLIN;
 	fds[2].events = POLLIN;
 	fds[3].events = POLLIN;
 	fds[4].events = POLLIN;
@@ -171,9 +171,9 @@ static int launch_modules(struct pollfd fds[]){
 	fds[7].events = POLLIN;
 	fds[8].events = POLLIN;
 	fds[9].events = POLLIN;
-	fds[10].events = POLLIN;*/
+	fds[10].events = POLLIN;
 
-	return 2;
+	return 11;
 }
 
 static int spawn(char * dir, const char *module) {
