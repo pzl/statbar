@@ -1,7 +1,8 @@
+#include <sys/mman.h>
+#include <fcntl.h> //O_* defs
 #include <signal.h>
 #include <stdlib.h> //exit
 #include <unistd.h> //getpid
-#include <time.h>
 #include <stdio.h>
 #include "common.h"
 
@@ -32,7 +33,6 @@ void die(int sig, siginfo_t *siginfo, void *ignore) {
 	(void) ignore;
 
 	DEBUG_(printf("Received signal %d, exiting\n", sig));
-	cleanup();
 	exit(1);
 }
 
@@ -47,16 +47,33 @@ void handler(int sig, siginfo_t *siginfo, void *ignore) {
 	} else if (sig == SIGCHLD){
 		DEBUG_(printf("%d got SIGCHLD from %d\n", getpid(), siginfo->si_pid));
 	} else {
-		DEBUG_(printf("%d: got signal %d... exiting\n", getpid(), sig));
-		//cleanup();
-		//exit(-1);
+		DEBUG_(printf("%d: got signal %d, nothing to do about it\n", getpid(), sig));
 	}
 }
 
-void nsleep(long nsecs) {
-	struct timespec delay;
-	delay.tv_sec = 0;
-	delay.tv_nsec = nsecs;
+void * setup_memory(int create) {
+	int mem_fd;
+	void * addr;
 
-	nanosleep(&delay, NULL);
+	mem_fd = create ? shm_open(SHM_PATH, O_CREAT|O_TRUNC|O_RDWR, 0600) : shm_open(SHM_PATH, O_RDONLY, 0);
+	if (mem_fd < 0){
+		perror("creating or accessing shared memory");
+		return MEM_FAILED;
+	}
+	if (create && ftruncate(mem_fd, sizeof(shmem)) < 0){
+		perror("resizing shared mem");
+		return MEM_FAILED;
+	}
+
+	addr = create ? mmap(NULL, sizeof(shmem), PROT_READ|PROT_WRITE, MAP_SHARED, mem_fd, 0) : mmap(NULL, sizeof(shmem), PROT_READ, MAP_SHARED, mem_fd, 0);
+	if (addr == MAP_FAILED){
+		perror("mmapping");
+		return MEM_FAILED;
+	}
+	if (close(mem_fd) < 0){
+		perror("closing memory file");
+	}
+
+	DEBUG_(printf("created/connected to shared memory segment\n"));
+	return addr;
 }

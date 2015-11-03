@@ -15,6 +15,8 @@
 
 #define SMALL_BUF 1024
 
+#define MEM_FAILED (void *)-1
+
 typedef struct shmem {
 	pid_t server;
 	char buf[BUF_SIZE];
@@ -37,10 +39,9 @@ typedef struct status {
 void die(int sig, siginfo_t *siginfo, void *ignore);
 void handler(int sig, siginfo_t *siginfo, void *ignore);
 void catch_signals(void);
-void nsleep(long nsecs);
+void *setup_memory(int create);
 
 //implemented in client and daemon
-void cleanup(void);
 void notified(int sig, pid_t pid, int value);
 
 #endif

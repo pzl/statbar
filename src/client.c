@@ -3,7 +3,6 @@
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <sys/types.h> //pid_t
 #include <errno.h>
-#include <fcntl.h> //O_* defs
 #include <unistd.h> //close()
 #include <signal.h> //sigaction, ppoll
 #include <poll.h>
@@ -14,21 +13,21 @@
 
 #define DEFAULT_GEOM "1920x22+0+0"
 
-static int setup_memory(void);
 static void spawn_bar(int *in, int *out, const char *geometry);
 static int validate_geometry(const char *);
-static void notify_server(void);
-static void update_bar(int fd);
+static void notify_server(pid_t server);
+static void update_bar(shmem *mem, int fd);
 static void process_click(int fd);
 
-static shmem *mem;
 
 int main(int argc, char const *argv[]) {
 
+	shmem *mem;
 	const char *geometry;
 	int lemon_in, lemon_out;
 	struct pollfd fds[1];
 
+	fds[0].events = POLLIN;
 
 	geometry = (argc < 2) ? DEFAULT_GEOM : argv[1];
 	if (validate_geometry(geometry) < 0){
@@ -36,17 +35,15 @@ int main(int argc, char const *argv[]) {
 		return -1;
 	}
 
-	if (setup_memory() < 0){
-		//daemon may not be running
+	if ((mem = setup_memory(0)) == MEM_FAILED){
 		fprintf(stderr, "Error: daemon may not be running. please start first\n");
 		return -1;
 	}
-	spawn_bar(&lemon_in, &lemon_out, geometry);
 
+	spawn_bar(&lemon_in, &lemon_out, geometry);
 	fds[0].fd = lemon_out;
-	fds[0].events = POLLIN;
 	
-	notify_server();
+	notify_server(mem->server);
 	catch_signals();
 
 	//@todo allow an escape for when server dies
@@ -70,15 +67,11 @@ int main(int argc, char const *argv[]) {
 		} else {
 			//must have gotten pinged by server
 			//@todo verify SIGUSR1 vs other signals (which generally just exit anyway)
-			update_bar(lemon_in);
+			update_bar(mem,lemon_in);
 		}
 	}
 
-	signal(SIGUSR1,SIG_IGN);
-	DEBUG_(printf("USR1 should be ignored now\n"));
-
-	cleanup();
-	return 0;
+	return -1;
 }
 
 static int validate_geometry(const char *geometry) {
@@ -98,32 +91,8 @@ static int validate_geometry(const char *geometry) {
 	return 0;
 }
 
-static int setup_memory(void) {
-	int mem_fd;
-	void *addr;
-
-	if ((mem_fd = shm_open(SHM_PATH, O_RDONLY, 0)) < 0){
-		perror("accessing shared mem");
-		return -1;
-	}
-
-	addr = mmap(NULL, sizeof(shmem), PROT_READ, MAP_SHARED, mem_fd, 0);
-	if (addr == MAP_FAILED){
-		perror("memmapping");
-		exit(-1);
-	}
-	if (close(mem_fd) < 0){
-		perror("closing memory FD");
-		exit(-1);
-	}
-
-	mem = addr;
-	DEBUG_(printf("connected to shared memory\n"));
-	return 0;
-}
-
-static void notify_server(void) {
-	kill(mem->server,SIGUSR1); //give server our PID
+static void notify_server(pid_t server) {
+	kill(server,SIGUSR1); //give server our PID
 	DEBUG_(printf("sent ping to server (we are %d)\n",getpid()));
 }
 
@@ -191,7 +160,7 @@ static void spawn_bar(int *lemon_in, int *lemon_out, const char *geometry) {
 	}
 }
 
-static void update_bar(int fd) {
+static void update_bar(shmem *mem,int fd) {
 	int n_bytes;
 	char buf[BUF_SIZE];
 
@@ -221,12 +190,6 @@ static void process_click(int fd) {
 	printf("got lemonbar output: %s\n", buf);
 }
 
-void cleanup(void) {
-	if (munmap(mem,sizeof(shmem)) < 0){
-		perror("unmapping mem");
-	}
-	printf("cleaned up\n");
-}
 
 void notified(int sig, pid_t pid, int value) {
 	(void) sig;

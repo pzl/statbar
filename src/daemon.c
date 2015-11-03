@@ -6,7 +6,7 @@
 #include <poll.h> //poll, pollfd
 #include <string.h> //strncpy, memset
 #include <libgen.h> //dirname
-#include <stdlib.h> //exit, setenv
+#include <stdlib.h> //exit, setenv, atexit
 #include <errno.h> //errno
 #include <signal.h> //kill
 #include <stdio.h>
@@ -25,15 +25,14 @@
 #define SENV(e,v) do { if (setenv(e,v,1) < 0) { perror("setenv"); } } while (0)
 
 
-static void setup_memory(void);
 static void read_data(status *, int fd, int i);
 static void notify_watchers(void);
-static void update_status(status *);
+static void update_status(shmem *,status *);
 static int launch_modules(struct pollfd[]);
 static int spawn(char * path, const char * program);
 static void set_environment(void);
+static void onexit(void);
 
-static shmem * mem;
 static pid_t clients[MAX_CLIENTS];
 static int n_clients=0;
 
@@ -41,13 +40,24 @@ int main(int argc, char const *argv[]) {
 	(void) argc;
 	(void) argv;
 
+	shmem *mem;
 	status stats;
 	struct pollfd fds[MAX_MODULES];
 	int n_modules, response;
 
 	memset(&stats,0,sizeof(stats));
 
-	setup_memory();
+	if ((mem = setup_memory(1)) == MEM_FAILED){
+		fprintf(stderr, "couldn't initialize shared memory\n");
+		exit(-1);
+	}
+	mem->server = getpid();
+
+	if (atexit(onexit) != 0) {
+		perror("atexit");
+		exit(-1);
+	}
+
 	catch_signals();
 
 	n_modules = launch_modules(fds);
@@ -97,7 +107,7 @@ int main(int argc, char const *argv[]) {
 					fds[i].revents = 0; //clear events received
 				}
 			}
-			update_status(&stats);
+			update_status(mem,&stats);
 			notify_watchers();
 		} else {
 			fprintf(stderr, "poll exited, unknown reasons\n");
@@ -105,35 +115,7 @@ int main(int argc, char const *argv[]) {
 	}
 
 	printf("exiting\n");
-	cleanup();
 	return 0;
-}
-
-static void setup_memory(void) {
-	int mem_fd;
-	void * addr;
-
-	if ((mem_fd = shm_open(SHM_PATH, O_CREAT|O_TRUNC|O_RDWR, 0600)) < 0){
-		perror("creating shared memory");
-		exit(-1);
-	}
-	if (ftruncate(mem_fd, sizeof(shmem)) < 0){
-		perror("resizing shared mem");
-		exit(-1);
-	}
-
-	addr = mmap(NULL, sizeof(shmem), PROT_READ|PROT_WRITE, MAP_SHARED, mem_fd, 0);
-	if (addr == MAP_FAILED){
-		perror("mmapping");
-		exit(-1);
-	}
-	if (close(mem_fd) < 0){
-		perror("closing memory file");
-	}
-
-	mem = addr;
-	mem->server = getpid();
-	DEBUG_(printf("created shared memory segment\n"));
 }
 
 static int launch_modules(struct pollfd fds[]){
@@ -254,16 +236,8 @@ static void read_data(status *stats, int fd, int i) {
 	DEBUG_(printf("got data in: %s\n", bufp));
 }
 
-void cleanup(void) {
-	if (munmap(mem,sizeof(shmem)) < 0){
-		perror("unmapping memory");
-	}
-	if (shm_unlink(SHM_PATH) < 0){
-		perror("unlinking shared mem");
-	}
-}
 
-static void update_status(status *stats) {
+static void update_status(shmem *mem, status *stats) {
 	int n_bytes;
 	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
 			stats->datetime,
@@ -286,9 +260,7 @@ static void update_status(status *stats) {
 }
 
 static void notify_watchers(void) {
-	int i;
-
-	for (i=0; i<n_clients; i++){
+	for (int i=0; i<n_clients; i++){
 		DEBUG_(printf("notifying client %d (%d) of new input\n", i, clients[i]));
 		kill(clients[i],SIGUSR1);
 		//or use sigqueue to send an int
@@ -318,9 +290,6 @@ static void set_environment(void) {
 	SENV("C_CAUTION","%{F#CA8B18}");
 //export readonly C_CPU=("%{F#CD5BBD}" "%{F#63C652}" "%{F#7684D0}" "%{F#B8B02C}")
 //cannot export arrays
-
-
-
 
 	SENV("F_RESET",_FRESET);
 	SENV("F_TERM",_FTERM);
@@ -363,6 +332,11 @@ static void set_environment(void) {
 
 	SENV("ic_transfer",_FSIJI "\ue13f" _FRESET );
 	SENV("ic_transfer_vert",_FSIJI "\ue10f" _FRESET );
+}
 
-
+static void onexit(void) {
+	if (shm_unlink(SHM_PATH) < 0){
+		perror("unlinking shared mem");
+	}
+	printf("cleaned up\n");
 }
