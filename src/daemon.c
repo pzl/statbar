@@ -200,7 +200,7 @@ static int spawn(char * dir, const char *module) {
 		if (close(fds[0]) < 0){ //close read end of pipe
 			perror("closing child input");
 		}
-		if (dup2(fds[1],1) < 0){ //send script output through pipe write end
+		if (dup2(fds[1],STDOUT_FILENO) < 0){ //send script output through pipe write end
 			perror("setting module stdout");
 		}
 

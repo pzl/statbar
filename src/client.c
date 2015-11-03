@@ -125,10 +125,10 @@ static void spawn_bar(int *lemon_in, int *lemon_out) {
 			perror("setting up deathsig");
 		}
 
-		if (dup2(child_in[0],0) < 0){ //replace lemon stdin with pipe output
+		if (dup2(child_in[0],STDIN_FILENO) < 0){ //replace lemon stdin with pipe output
 			perror("setting lemon stdin");
 		}
-		if (dup2(child_out[1],1) < 0){ //send lemon output through pipe2 input
+		if (dup2(child_out[1],STDOUT_FILENO) < 0){ //send lemon output through pipe2 input
 			perror("setting lemon stdout");
 		}
 
