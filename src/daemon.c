@@ -4,7 +4,7 @@
 #include <fcntl.h> //O_* defines
 #include <unistd.h> //ftruncate, getpid
 #include <poll.h> //poll, pollfd
-#include <string.h> //strncpy, memset
+#include <string.h> //strncpy, memset, strndup
 #include <libgen.h> //dirname
 #include <stdlib.h> //exit, setenv, atexit
 #include <errno.h> //errno
@@ -29,6 +29,8 @@ static void read_data(status *, int fd, int i);
 static void notify_watchers(void);
 static void update_status(shmem *,status *);
 static int launch_modules(struct pollfd[]);
+static int launch_module(int i, char *dir);
+static char * curdir(void);
 static int spawn(char * path, const char * program);
 static void set_environment(void);
 static void onexit(void);
@@ -119,8 +121,46 @@ int main(int argc, char const *argv[]) {
 }
 
 static int launch_modules(struct pollfd fds[]){
-	char buf[SMALL_BUF]; //note that dirname() may/will modify this! copy if it will be used afterwards
+	int i;
+	char *path = curdir();
+
+	for (i=0; i<11; i++){
+		fds[i].fd = launch_module(i,path);
+		fds[i].events=POLLIN;
+	}
+
+	free(path);
+	return i;
+}
+
+static int launch_module(int i, char *path){
 	char * dir;
+	const char * module;
+
+	dir = ( path == NULL ) ? curdir() : path;
+
+	switch (i){
+		case 0: module = "datetime"; break;
+		case 1: module = "network"; break;
+		case 2: module = "transfer"; break;
+		case 3: module = "bluetooth"; break;
+		case 4: module = "mem"; break;
+		case 5: module = "cpu"; break;
+		case 6: module = "gpu"; break;
+		case 7: module = "packages"; break;
+		case 8: module = "runtime"; break;
+		case 9: module = "weather"; break;
+		case 10: module = "linux"; break;
+	}
+	return spawn(dir, module);
+}
+
+/*
+ * returned pointer should be freed when done!
+ */
+static char *curdir(void){
+	char buf[SMALL_BUF];
+	char *dir;
 	ssize_t len;
 
 	len = readlink("/proc/self/exe",buf,SMALL_BUF);
@@ -130,36 +170,8 @@ static int launch_modules(struct pollfd fds[]){
 	}
 	buf[len] = 0;
 
-	//dirname() may modify it's given param, so make a copy
-	//snprintf(bufcpy, SMALL_BUF, "%s", buf);
-
 	dir = dirname(buf);
-
-	fds[0].fd = spawn(dir,"datetime");
-	fds[1].fd = spawn(dir,"network");
-	fds[2].fd = spawn(dir,"transfer");
-	fds[3].fd = spawn(dir,"bluetooth");
-	fds[4].fd = spawn(dir,"mem");
-	fds[5].fd = spawn(dir,"cpu");
-	fds[6].fd = spawn(dir,"gpu");
-	fds[7].fd = spawn(dir,"packages");
-	fds[8].fd = spawn(dir,"runtime");
-	fds[9].fd = spawn(dir,"weather");
-	fds[10].fd = spawn(dir,"linux");
-
-	fds[0].events = POLLIN;
-	fds[1].events = POLLIN;
-	fds[2].events = POLLIN;
-	fds[3].events = POLLIN;
-	fds[4].events = POLLIN;
-	fds[5].events = POLLIN;
-	fds[6].events = POLLIN;
-	fds[7].events = POLLIN;
-	fds[8].events = POLLIN;
-	fds[9].events = POLLIN;
-	fds[10].events = POLLIN;
-
-	return 11;
+	return strndup(dir,SMALL_BUF);
 }
 
 static int spawn(char * dir, const char *module) {
