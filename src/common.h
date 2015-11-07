@@ -17,6 +17,15 @@
 
 #define MEM_FAILED (void *)-1
 
+#define _FRESET "%{T-}"
+#define _FTERM "%{T1}"
+#define _FLEMON "%{T2}"
+#define _FUUSHI "%{T3}"
+#define _FSIJI "%{T4}"
+
+#define SENV(e,v) do { if (setenv(e,v,1) < 0) { perror("setenv"); } } while (0)
+
+
 typedef struct shmem {
 	pid_t server;
 	char buf[BUF_SIZE];
@@ -40,6 +49,8 @@ void die(int sig, siginfo_t *siginfo, void *ignore);
 void handler(int sig, siginfo_t *siginfo, void *ignore);
 void catch_signals(void);
 void *setup_memory(int create);
+void set_environment(void);
+
 
 //implemented in client and daemon
 void notified(int sig, pid_t pid, int value);
