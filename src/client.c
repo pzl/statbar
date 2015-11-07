@@ -172,16 +172,57 @@ static void update_bar(shmem *mem,int fd) {
 
 static void process_click(int fd) {
 	char buf[SMALL_BUF];
+	char *args[MAX_CLICK_ARGS];
 	ssize_t n_bytes;
+	pid_t childpid;
 
 	n_bytes = read(fd, buf, SMALL_BUF);
 	if (n_bytes < 0){
 		perror("lemonbar click read");
 	}
 	buf[n_bytes-1] = 0; //ends in newline, overwrite \n with termination
+
+	if ((childpid = fork()) == -1) {
+		perror("fork");
+		return;
+	}
+
+	if (childpid == 0) {
+		DEBUG_(printf("got command string: %s\n",buf));
+		process_args(buf, args);
+		set_environment();
+		execvp(args[0],args);
+	} else {
+		return;
+	}
+
 	printf("got lemonbar output: %s\n", buf);
 }
 
+static void process_args(char *command, char **args) {
+	int len = strlen(command);
+	int i=0,
+		j=0;
+
+	args[j++] = command; //first one always command name
+	while (i < len && j < MAX_CLICK_ARGS) {
+		if (command[i] == ' ') {
+			command[i] = '\0';
+			args[j++] = command+i+1;
+		}
+		i++;
+	}
+	args[j] = NULL;
+
+	DEBUG_(printf("here's what we processed:\n");
+			i=0;
+			while (args[i] != NULL) {
+				printf("\targs[%d] = %s\n", i,args[i]);
+				i++;
+			}
+			printf("\targs[%d] = %p\n",i,args[i]));
+
+}
 
 void notified(int sig, pid_t pid, int value) {
 	(void) sig;
