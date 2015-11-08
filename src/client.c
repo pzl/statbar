@@ -2,6 +2,7 @@
 #include <sys/mman.h> //mmap()
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <sys/types.h> //pid_t
+#include <sys/wait.h> //waitpid
 #include <errno.h>
 #include <unistd.h> //close()
 #include <signal.h> //sigaction, ppoll
@@ -173,6 +174,7 @@ static void update_bar(shmem *mem,int fd) {
 static void process_click(int fd) {
 	char buf[SMALL_BUF];
 	char *args[MAX_CLICK_ARGS];
+	int x,y;
 	ssize_t n_bytes;
 	pid_t childpid;
 
@@ -190,6 +192,12 @@ static void process_click(int fd) {
 	if (childpid == 0) {
 		DEBUG_(printf("got command string: %s\n",buf));
 		process_args(buf, args);
+		mouseloc(&x,&y);
+		if (x != -1 && y != -1){
+			set_env_coords(x,y);
+		} else {
+			fprintf(stderr, "mouse location determination failed\n");
+		}
 		set_environment();
 		execvp(args[0],args);
 	} else {
@@ -228,6 +236,65 @@ static void process_args(char *command, char **args) {
 			}
 			printf("\targs[%d] = %p\n",i,args[i]));
 
+}
+
+static void mouseloc(int *x, int *y) {
+	char buf[SMALL_BUF];
+	int fds[2];
+	int n_bytes;
+	pid_t childpid;
+
+	pipe(fds);
+
+
+	DEBUG_(printf("spawning mouse location reading command\n"));
+	if ((childpid = fork()) == -1) {
+		perror("fork");
+		*x=-1;
+		*y=-1;
+		return;
+	}
+
+	if (childpid == 0){
+		if (close(fds[0]) < 0){
+			perror("close");
+		}
+		if (dup2(fds[1],STDOUT_FILENO) < 0){
+			perror("dup2");
+		}
+		execlp("xdotool","xdotool","getmouselocation",NULL);
+		exit(0);
+	} else {
+		if (close(fds[1]) < 0){
+			perror("parent close");
+		}
+		DEBUG_(printf("parent, waiting for xdotool %d to exit\n", childpid));
+		if (waitpid(childpid, NULL, 0) < 0){
+			perror("wait");
+		}
+		DEBUG_(printf("parent, done waiting on xdotool %d, reading output\n", childpid));
+		if ((n_bytes = read(fds[0],buf,SMALL_BUF)) < 0){
+			perror("mouse read");
+			*x=-1;
+			*y=-1;
+			return;
+		}
+		DEBUG_(printf("read: %s\n", buf));
+		convert_mouseloc(buf,x,y);
+	}
+}
+
+static void convert_mouseloc(char * buf, int *x, int *y) {
+	int retval;
+	errno = 0;
+	if ( (retval = sscanf(buf,"x:%d y:%d screen:%*d window:%*u",x,y)) != 2){
+		DEBUG_(printf("sscanf returned %d\n", retval));
+		perror("xdotool conversion");
+		*x=-1;
+		*y=-1;
+		return;
+	}
+	DEBUG_(printf("xdotool conversion complete, got %d,%d\n", *x,*y));
 }
 
 void notified(int sig, pid_t pid, int value) {

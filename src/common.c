@@ -135,3 +135,20 @@ void set_environment(void) {
 	SENV("ic_transfer",_FSIJI "\ue13f" _FRESET );
 	SENV("ic_transfer_vert",_FSIJI "\ue10f" _FRESET );
 }
+
+void set_env_coords(int x, int y){
+	char mousex[200];
+	char mousey[200];
+
+	if (snprintf(mousex, 200, "%d", x) < 0){
+		perror("snprintf");
+		return;
+	}
+	if (snprintf(mousey, 200, "%d", y) < 0){
+		perror("snprintf");
+		return;
+	}
+
+	SENV("MOUSE_X",mousex);
+	SENV("MOUSE_Y",mousey);
+}

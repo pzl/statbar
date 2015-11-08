@@ -50,6 +50,7 @@ void handler(int sig, siginfo_t *siginfo, void *ignore);
 void catch_signals(void);
 void *setup_memory(int create);
 void set_environment(void);
+void set_env_coords(int x, int y);
 
 
 //implemented in client and daemon
