@@ -202,11 +202,17 @@ static void process_click(int fd) {
 static void process_args(char *command, char **args) {
 	int len = strlen(command);
 	int i=0,
-		j=0;
+		j=0,
+		in_sing_quo=0,
+		in_dbl_quo=0;
 
 	args[j++] = command; //first one always command name
 	while (i < len && j < MAX_CLICK_ARGS) {
-		if (command[i] == ' ') {
+		if (command[i] == '\''){
+			in_sing_quo ^= 1;
+		} else if (command[i] == '"'){
+			in_dbl_quo ^= 1;
+		} else if ( !in_sing_quo && !in_dbl_quo && command[i] == ' ') {
 			command[i] = '\0';
 			args[j++] = command+i+1;
 		}
