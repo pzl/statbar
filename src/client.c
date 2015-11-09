@@ -214,11 +214,24 @@ static void process_args(char *command, char **args) {
 		in_sing_quo=0,
 		in_dbl_quo=0;
 
+	//@todo: support "$partial"/quoted/args ?
 	args[j++] = command; //first one always command name
 	while (i < len && j < MAX_CLICK_ARGS) {
 		if (command[i] == '\''){
+			if (!in_sing_quo && !in_dbl_quo){
+				args[j-1] = command+i+1; //remove opening quote mark
+			} else if (in_sing_quo && !in_dbl_quo){
+				command[i] = '\0'; //remove closing quote
+				args[j++] = command+i+1;
+			}
 			in_sing_quo ^= 1;
 		} else if (command[i] == '"'){
+			if (!in_dbl_quo && !in_sing_quo){
+				args[j-1] = command+i+1; //remove opening quote mark
+			} else if (in_dbl_quo && !in_sing_quo){
+				command[i]='\0'; //remove closing quote
+				args[j++] = command+i+1;
+			}
 			in_dbl_quo ^= 1;
 		} else if ( !in_sing_quo && !in_dbl_quo && command[i] == ' ') {
 			command[i] = '\0';
