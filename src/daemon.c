@@ -61,28 +61,22 @@ int main(int argc, char const *argv[]) {
 			//one or more FDs ready
 			for (int i=0; i<n_modules; i++) {
 				if (fds[i].revents) {
-					DEBUG_(printf("due to module # %d\n", i));
+					DEBUG_(printf("due to module # %d, got %d\n", i,fds[i].revents));
 
-					switch(fds[i].revents){
-						case POLLIN:
-							read_data(&stats, fds[i].fd, i);
-							break;
-						case POLLERR:
-							fprintf(stderr,"module # %d, error occurred trying to poll\n", i);
-							fds[i].fd = -1;
-							break;
-						case POLLHUP:
-							fprintf(stderr,"module # %d, hang up on poll\n", i);
-							fds[i].fd = -1;
-							break;
-						case POLLNVAL:
-							fprintf(stderr,"module # %d, fd not open\n", i);
-							fds[i].fd = -1;
-							break;
-						default:
-							fprintf(stderr, "for unknown reasons: %d\n", fds[i].revents);
-							fds[i].fd = -1;
-							break;
+					if (fds[i].revents & POLLIN){
+						read_data(&stats, fds[i].fd, i);
+					}
+					if (fds[i].revents & POLLERR){
+						fprintf(stderr,"module # %d, error occurred trying to poll\n", i);
+						fds[i].fd = -1;
+					}
+					if (fds[i].revents & POLLHUP){
+						fprintf(stderr,"module # %d, hang up on poll\n", i);
+						fds[i].fd = -1;
+					}
+					if (fds[i].revents & POLLNVAL){
+						fprintf(stderr,"module # %d, fd not open\n", i);
+						fds[i].fd = -1;
 					}
 					fds[i].revents = 0; //clear events received
 				}
