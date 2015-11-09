@@ -204,7 +204,7 @@ static void process_click(int fd) {
 		return;
 	}
 
-	printf("got lemonbar output: %s\n", buf);
+	DEBUG_(printf("got lemonbar output: %s\n", buf));
 }
 
 static void process_args(char *command, char **args) {
