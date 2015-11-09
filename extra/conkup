@@ -1,0 +1,28 @@
+#!/bin/bash
+# Show a conky popup window
+
+# Usage: conkup TEXT [DELAY] [UPDATE]
+#   TEXT: what to display on the window
+#   DELAY: how long the window remains visible, in seconds. Default: 5
+#   UPDATE: How often the popup window should refresh, in seconds. Default: 1
+#
+# Environment Variables:
+#   MOUSE_X - set to the X coordination on your X11 display for where the popup should appear
+
+# Any text provided as $<something> will get transformed into ${something} when being passed to conky
+
+curdir=$(dirname $(readlink "$0"))
+
+time_delay="5"
+if [ ! -z "$2" ]; then
+    time_delay="$2"
+fi
+
+update_rate="1"
+if [ ! -z "$3" ]; then
+	update_rate="$3"
+fi
+
+text=$(echo "$1" | sed -e 's/$<\([^>]\+\)>/${\1}/g') # change $<name> to ${name}
+
+timeout "$time_delay" conky -q -c "$curdir"/conkup-config -u "$update_rate" -t "$text" -x "$MOUSE_X" -y 32 &
