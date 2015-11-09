@@ -12,5 +12,6 @@ static void process_click(int fd);
 static void process_args(char *command, char **args);
 static void mouseloc(int *x, int *y);
 static void convert_mouseloc(char * buf, int *x, int *y);
+static int spawn_daemon(void);
 
 #endif

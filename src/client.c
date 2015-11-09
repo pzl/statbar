@@ -29,8 +29,21 @@ int main(int argc, char const *argv[]) {
 	}
 
 	if ((mem = setup_memory(0)) == MEM_FAILED){
-		fprintf(stderr, "Error: daemon may not be running. please start first\n");
-		return -1;
+		printf("Spawning data daemon\n");
+
+		if (spawn_daemon() < 0){
+			fprintf(stderr, "failed to start daemon\n");
+			exit(-1);
+		}
+
+		if ((mem = setup_memory(0)) == MEM_FAILED){
+			fprintf(stderr, "Error connecting to daemon.\n");
+			exit(-1);
+		}
+
+		printf("connected to new data source\n");
+	} else {
+		printf("Connected to running data source.\n");
 	}
 
 	spawn_bar(&lemon_in, &lemon_out, geometry);
@@ -312,6 +325,29 @@ static void convert_mouseloc(char * buf, int *x, int *y) {
 		return;
 	}
 	DEBUG_(printf("xdotool conversion complete, got %d,%d\n", *x,*y));
+}
+
+static int spawn_daemon(void) {
+	pid_t childpid;
+
+	if ((childpid = fork()) == -1){
+		perror("fork");
+		return -1;
+	}
+
+	if (childpid == 0){
+
+		//send SIGHUP to us when parent dies
+		if (prctl(PR_SET_PDEATHSIG, SIGHUP) < 0){ //Linux only
+			perror("setting up daemon deathsig");
+		}
+
+		execlp("./statd","./statd",NULL);
+		exit(0);
+	} else {
+		sleep(2);
+		return 0;
+	}
 }
 
 void notified(int sig, pid_t pid, int value) {
