@@ -182,7 +182,11 @@ static void process_click(int fd) {
 	if (n_bytes < 0){
 		perror("lemonbar click read");
 	}
-	buf[n_bytes-1] = 0; //ends in newline, overwrite \n with termination
+	if (buf[n_bytes-1] == '\n'){
+		buf[n_bytes-1] = '\0'; //ends in newline, overwrite \n with termination
+	} else {
+		buf[n_bytes] = 0;
+	}
 
 	if ((childpid = fork()) == -1) {
 		perror("fork");
