@@ -4,6 +4,15 @@ Statbar
 `statbar` is a Linux status bar using [lemonbar](https://github.com/LemonBoy/bar) as a viewer, and optionally [conky](https://github.com/brndnmtthws/conky) for clickable popups. It allows for multiple visible bars, sharing the same data sources. I use this to put a status bar on multiple monitors, where each might have the CPU usage, without having to run `top` for each. Instead they share the output of one call to `top`.
 
 
+Requirements
+------------
+- **Linux**: There are a few Linux-specific commands. Could be modified to run on other platforms. Open an issue on github if you'd like support.
+- **Lemonbar**: [github](https://github.com/LemonBoy/bar) or [XFT fork](https://github.com/krypt-n/bar).
+- **Conky** _[optional]_: used as multi-line popup windows.
+
+That's all that's needed for the status client itself. Individual modules may depend on certain commands being installed. But modules can be easily tailored to whatever your system uses. Or disabled (like, in the case of GPU if you have integrated graphics, or bluetooth if you don't have it).
+
+
 Usage
 -----
 
