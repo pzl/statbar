@@ -80,18 +80,12 @@ void * setup_memory(int create) {
 
 void set_environment(void) {
 
-	if (setenv("C_RST","%{F-}",1) < 0){
-		perror("setenv");
-	}
-
 	SENV("C_RST","%{F-}");
 	SENV("C_BG","%{F#383a3b}");
 	SENV("C_TITLE","%{F#708090}");
 	SENV("C_DISABLE","%{F#222222}");
 	SENV("C_WARN","%{F#aa0000}");
 	SENV("C_CAUTION","%{F#CA8B18}");
-//export readonly C_CPU=("%{F#CD5BBD}" "%{F#63C652}" "%{F#7684D0}" "%{F#B8B02C}")
-//cannot export arrays
 
 	SENV("F_RESET",_FRESET);
 	SENV("F_TERM",_FTERM);
