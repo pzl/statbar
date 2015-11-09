@@ -1,0 +1,16 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+
+main() {
+	local ut
+
+	while :; do
+		ut="$(uptime -p | sed s'/up //' | cut -d',' -f1 | awk '{print $1substr($2,0,1)}')"
+		echo -e "${C_TITLE}%{A:conkup $<uptime>:}Uptime:%{A}${C_RST} ${ut}"
+		sleep 15m
+	done
+}
+
+main $@

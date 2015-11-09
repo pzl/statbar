@@ -1,0 +1,24 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+
+main() {
+	local temp
+	local memused
+	local memtotal
+	local fanspeed
+	local memperc
+
+	while :; do
+
+		read -r temp memused memtotal fanspeed <<< "$(nvidia-settings -t -q [gpu:0]/gpucoretemp -q [gpu:0]/useddedicatedgpumemory -q [gpu:0]/totaldedicatedgpumemory -q [fan:0]/gpucurrentfanspeedrpm | tr '\n' ' ')"
+		memperc="$(echo "$memused $memtotal" | awk '{printf("%2.0f", $1/$2 * 100)}')"
+		echo -e "${C_TITLE}%{A:$curdir/popups/gpu:}GPU:%{A}${C_RST} ${temp}°C ${C_TITLE}|${C_RST} ${memperc}% ${C_TITLE}|${C_RST} ${fanspeed}RPM"
+
+
+		sleep 21
+	done
+}
+
+main $@

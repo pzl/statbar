@@ -1,0 +1,28 @@
+#!/bin/bash
+
+get_iface(){
+	local wireless_up="$(cat /proc/net/wireless | wc -l)"
+	local net_iface
+	if [ $wireless_up -ge 3 ]; then
+		net_iface="$(tail -n1 /proc/net/wireless | cut -d':' -f1)"
+	else
+		net_iface="$(ip route ls | grep "default via 192.168.1.1" | awk '{print $5}')"
+		#readonly WIFI_INTERFACE="wlp11s0"
+	fi
+	echo -n "$net_iface"
+}
+
+NET_INTERFACE=$(get_iface)
+net_state=$(</sys/class/net/$NET_INTERFACE/operstate) #whether the network is connected
+
+if [ "$net_state" = "up" ]; then
+    if pgrep -x openvpn >/dev/null 2>&1; then
+        buf="$(ip route show dev $NET_INTERFACE | grep via | grep -v default | awk '{print $1}')"
+    else
+        buf="$(dig @resolver1.opendns.com myip.opendns.com +short)"
+    fi
+else
+    buf="down"
+fi  
+
+conkup "\${alignc}\${color 708090}Public IP:\${color} $buf"

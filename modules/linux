@@ -1,0 +1,8 @@
+#!/bin/bash
+
+main(){
+	local buf="$(echo "${C_TITLE}$(uname -r)${C_RST}" | sed "s/-ARCH//")"
+	echo -e "${buf} %{A:lock -w:}${C_TITLE}${ic_arch}${C_RST}%{A} ${C_BG}."
+}
+
+main $@

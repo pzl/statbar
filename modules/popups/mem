@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# get amount (in GiB) of memory free and used
+MEMFREE="$(free -bw | head -n2 | tail -n1)"
+BUF="\${color 708090}Used  Free\${color}\n"
+BUF="${BUF}$(echo "$MEMFREE" | awk '{printf "%4.1f", $3/2^30}')G $(echo "$MEMFREE" | awk '{printf "%4.1f", $8/2^30 }')G\n\n"
+
+
+#print top 8 memory users
+#   ps-based method:
+#   $(ps aux | sort -bnrk 4 | head -n 6 | tail -n +2 | awk '{print $4, $11}' | sed 's/\/.*\///g')
+
+BUF="${BUF}\${alignc}\${color 708090}Memory Usage\${color}\n"
+BUF="${BUF}$(top -b -n 1 -w 512 | tail -n +11 | sort -bnrk 8 | head -n 8 | awk '{print $8"%", $12}' | column -t)"
+
+conkup "$BUF"

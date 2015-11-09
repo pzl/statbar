@@ -1,0 +1,24 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+#lemonbar chokes on having curly braces, ${var}, inside click area definitions,
+#so standard conky vars would break the bar. Conkup will replace any
+# $<thing> as ${thing} which happens *after* lemonbar click.
+readonly pop_text="$<color 708090>$<time %Z\:>$<color>$<time %l\:%M\:%S %p %a, %b %e >\\\n$<color 708090>$<utime %Z\:>$<color>$<utime %H\:%M\:%S    %a, %b %e >"
+
+showdate() {
+	echo -e "${C_TITLE}%{A:conkup '$pop_text':}${ic_clock}%{A}${C_RST} $(date +"%-l:%M %p %a %-m/%-e")"
+}
+
+showdate # give current time while waiting for minute change
+
+#sync to the minute
+until [ "$(date +%S)" = "00" ]; do
+	sleep 0.75
+done
+
+while :; do
+	showdate &
+	sleep 60
+done

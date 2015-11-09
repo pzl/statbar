@@ -1,0 +1,54 @@
+#!/bin/bash
+
+#arrays do not seem to be exportable in bash
+readonly C_CPU=("%{F#CD5BBD}" "%{F#63C652}" "%{F#7684D0}" "%{F#B8B02C}")
+readonly threshold_busy="70"
+readonly threshold_temp="48"
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+
+
+main() {
+	local percs
+	local buf
+	local i
+	local temps
+
+	while :; do
+		#per-core percentage
+		percs="$(top -bn 2 -w 512 | grep "%Cpu" | tail -n 4 | awk '{print $4}' | tr -d '\:\|\[\],')"
+		buf="${C_TITLE}%{A:$curdir/popups/cpu:}${ic_cpu}%{A}${C_RST} "
+
+		i=0 
+		for proc in $percs; do
+			color="${C_CPU[$i]}"
+			if [ "$proc" -gt $threshold_busy ]; then
+				color="${C_WARN}"
+			fi
+		    buf="${buf}${color}$(printf "%2s" "$proc")% "
+		    i=$((i + 1))
+		done
+
+		#per-core temperatures
+		temps=$(sensors -u "coretemp-isa-0000" | awk '/Core/{getline; printf("%2.0f\n", $2) }')
+
+		i=0 
+		for temp in $temps; do
+			color="${C_CPU[$i]}"
+			if [ "$temp" -gt $threshold_temp ]; then
+				color="${C_WARN}"
+			fi
+		    buf="${buf}${color}${temp}°C "
+		    i=$((i + 1))
+		done
+
+		buf="${buf}${C_RST}"
+
+		echo -e "$buf"
+
+		sleep 2.1
+	done
+}
+
+main $@

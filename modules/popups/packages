@@ -1,0 +1,51 @@
+#!/bin/bash
+
+readonly PKG_CACHE_FILE="/tmp/pkg-updates"
+refresh=false
+
+if [ -s "$PKG_CACHE_FILE" ]; then
+	conkup "$(<"$PKG_CACHE_FILE")" 8
+
+	sec_since_updated="$( echo "$(date +%s) - $(date +%s -r "$PKG_CACHE_FILE")" | bc )"
+	if [ "$sec_since_updated" -gt 300 ]; then
+		refresh=true
+	fi
+else
+	conkup "fetching list..."
+	refresh=true
+fi
+
+if [ "$1" = "-f" ]; then
+	refresh=true
+fi
+
+if [ "$refresh" = true ]; then
+
+	echo "refreshing package update lists"
+
+	#fetch update lists and list lengths
+	_pacman="$(pacman -Qqu)"
+	_pacaur="$(pacaur -Qqau)"
+	_n_pacman="$(wc -l <<< "${_pacman}")"
+	_n_pacaur="$(wc -l <<< "${_pacaur}")"
+
+	#get length of longest list to loop over
+	if [ "${_n_pacman}" -gt "${_n_pacaur}" ]; then
+		max="${_n_pacman}"
+	else
+		max="${_n_pacaur}"
+	fi
+
+	#just format lists as table so pacman is left column, AUR is right
+	readarray -t _pacman <<<"${_pacman}"
+	readarray -t _pacaur <<<"${_pacaur}"
+	buf=""
+	for ((i=0;i<max;i++)); do
+		buf="${buf}${_pacman[$i]}:${_pacaur[$i]}\n"
+	done
+	buf="$(echo -e "$buf" | column -t -s':')"
+
+
+	echo "$buf" > "$PKG_CACHE_FILE"
+	conkup "$buf" 8
+fi

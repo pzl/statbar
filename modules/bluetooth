@@ -1,0 +1,28 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+main(){
+    local info
+    local buf
+    local devices
+    local n_devices
+
+    while :; do
+        info="$(hciconfig)"
+
+        if echo "$info" | grep "UP RUNNING" >/dev/null 2>&1; then
+            n_devices="$(hcitool con | tail -n +2 | wc -l)"
+            buf="${C_TITLE}%{A:$curdir/popups/bluetooth:}${ic_blth}%{A}${C_RST} ${n_devices}"
+
+        elif echo "$info" | grep "DOWN" >/dev/null 2>&1; then
+            buf="${C_DISABLE}${ic_blth}${C_RST}"
+        else
+            buf="${C_CAUTION}${ic_blth}${C_RST}"
+        fi
+        echo -e "$buf"
+        sleep 17m
+    done
+}
+
+main $@

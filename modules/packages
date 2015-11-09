@@ -1,0 +1,33 @@
+#!/bin/bash
+
+readonly THRESHOLD=8
+curdir="$(dirname "$(readlink -f "$0")")"
+
+
+main(){
+	local pacman_updates
+	local pacaur_updates
+	local ic_color
+
+	while :; do
+		ic_color="${C_TITLE}"
+
+		pacman_updates=$(pacman -Qqu 2>/dev/null | wc -l)
+		pacaur_updates=$(pacaur -Qqau 2>/dev/null | wc -l)
+
+
+		if [ "$pacman_updates" -gt "$THRESHOLD" ]; then
+		    pacman_updates="${C_WARN}${PACMAN_UPDATES}${C_RST}"
+		    ic_color="${C_WARN}"
+		fi
+		if [ "$pacaur_updates" -gt "$THRESHOLD" ]; then
+		    pacaur_updates="${C_WARN}${PACAUR_UPDATES}${C_RST}"
+		    ic_color="${C_WARN}"
+		fi
+		echo -e "${ic_color}%{A:$curdir/popups/packages:}${ic_pacman}%{A}${C_RST} ${pacman_updates}|${pacaur_updates}"
+
+		sleep 4h
+	done
+}
+
+main $@

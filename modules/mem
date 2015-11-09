@@ -1,0 +1,23 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+main(){
+	local mem_used
+	local ic_color
+
+	while :; do
+		mem_used="$(free | grep Mem | awk '{ printf("%3.0f", $3/$2 * 100.0) }')"
+		ic_color="${C_TITLE}"
+
+		if [ "$mem_used" -gt 65 ]; then
+			ic_color="${C_WARN}"
+		fi
+
+		echo -e "${ic_color}%{A:$curdir/popups/mem:}${ic_chip_small}%{A}${C_RST}${mem_used}%"
+
+		sleep 18
+	done
+}
+
+main $@

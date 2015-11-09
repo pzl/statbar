@@ -1,0 +1,78 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+get_iface(){
+    local wireless_up="$(cat /proc/net/wireless | wc -l)"
+    local net_iface
+    if [ $wireless_up -ge 3 ]; then
+        net_iface="$(tail -n1 /proc/net/wireless | cut -d':' -f1)"
+    else
+        net_iface="$(ip route ls | grep "default via 192.168.1.1" | awk '{print $5}')"
+        #readonly WIFI_INTERFACE="wlp11s0"
+    fi
+    echo -n "$net_iface"
+}
+
+net_scale(){
+    local val="$1"
+    local labels=("B" "KB" "MB" "GB" "TB" "PB" "EB" "ZB" "YB")
+    local label_scale=0
+    while [ "$(echo "$val > 2^10" | bc)" -eq 1 ]; do
+        val="$(echo "scale=2; $val/2^10" | bc)"
+        label_scale=$(( label_scale + 1 ))
+    done
+    echo "$val ${labels[$label_scale]}"
+}
+
+
+main(){
+    local interface
+    local rx
+    local tx
+    local curtime
+    local prevtime
+    local prevrx
+    local prevtx
+    local time_delta
+    local drx
+    local dtx
+    local drx_units
+    local dtx_units
+
+    while :; do
+        interface="$(get_iface)"
+
+        # Fetch network data
+        #stats also accessible with `ifconfig $NET_INTERFACE | grep bytes`
+        read -r rx tx <<< "$(cat /proc/net/dev | grep $interface | awk '{print $2, $10}' )"
+        curtime="$(date +%s)" #get current time to calculate delta since last run
+
+        if [ -n "$prevtime" ]; then
+            time_delta="$(echo "$curtime - $prevtime" | bc)"
+
+            #get byte difference since last run, average over elapsed time
+            drx="$(echo "scale=2; (${rx} - ${prevrx})/${time_delta}" | bc)"
+            dtx="$(echo "scale=2; (${tx} - ${prevtx})/${time_delta}" | bc)"
+
+            #translate from bytes to KB/MB/whatever
+            read -r drx drx_units <<< "$(net_scale "$drx")"
+            read -r dtx dtx_units <<< "$(net_scale "$dtx")"
+
+        else
+            drx=0
+            drx_units="B"
+            dtx=0
+            dtx_units="B"
+        fi
+        echo -e "${C_TITLE}%{A:$curdir/popups/transfer:}${ic_transfer_vert}%{A}${C_RST} %{F#CB83BB}$(printf "%6.2f%2s" "${drx}" "${drx_units}")/s${C_RST} %{F#83C4CB}$(printf "%6.2f%2s" "${dtx}" "${dtx_units}")/s${C_RST}"
+
+        prevrx="$rx"
+        prevtx="$tx"
+        prevtime="$curtime"
+
+        sleep 11
+    done
+}
+
+main $@
