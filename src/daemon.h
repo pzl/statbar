@@ -9,7 +9,6 @@ static void notify_watchers(void);
 static void update_status(shmem *,status *);
 static int launch_modules(struct pollfd[]);
 static int launch_module(int i, char *dir);
-static char * curdir(void);
 static int spawn(char * path, const char * program);
 static void onexit(void);
 

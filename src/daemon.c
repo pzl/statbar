@@ -127,25 +127,6 @@ static int launch_module(int i, char *path){
 	return spawn(dir, module);
 }
 
-/*
- * returned pointer should be freed when done!
- */
-static char *curdir(void){
-	char buf[SMALL_BUF];
-	char *dir;
-	ssize_t len;
-
-	len = readlink("/proc/self/exe",buf,SMALL_BUF);
-	if (len < 0){
-		perror("readlink");
-		exit(1);
-	}
-	buf[len] = 0;
-
-	dir = dirname(buf);
-	return strndup(dir,SMALL_BUF);
-}
-
 static int spawn(char * dir, const char *module) {
 	int fds[2];
 	pid_t childpid;

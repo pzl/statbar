@@ -328,6 +328,8 @@ static void convert_mouseloc(char * buf, int *x, int *y) {
 }
 
 static int spawn_daemon(void) {
+	char statd_path[SMALL_BUF];
+	char *dir;
 	pid_t childpid;
 
 	if ((childpid = fork()) == -1){
@@ -342,7 +344,11 @@ static int spawn_daemon(void) {
 			perror("setting up daemon deathsig");
 		}
 
-		execlp("./statd","./statd",NULL);
+		dir = curdir();
+		snprintf(statd_path, SMALL_BUF, "%s/statd",dir);
+		free(dir);
+
+		execlp(statd_path,statd_path,NULL);
 		exit(0);
 	} else {
 		sleep(2);

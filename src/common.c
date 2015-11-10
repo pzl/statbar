@@ -1,6 +1,8 @@
 #include <sys/mman.h>
 #include <fcntl.h> //O_* defs
+#include <libgen.h> //dirname
 #include <signal.h>
+#include <string.h> //strndup
 #include <stdlib.h> //exit, setenv
 #include <unistd.h> //getpid
 #include <stdio.h>
@@ -76,6 +78,25 @@ void * setup_memory(int create) {
 
 	DEBUG_(printf("created/connected to shared memory segment\n"));
 	return addr;
+}
+
+/*
+ * returned pointer should be freed when done!
+ */
+char *curdir(void){
+	char buf[SMALL_BUF];
+	char *dir;
+	ssize_t len;
+
+	len = readlink("/proc/self/exe",buf,SMALL_BUF);
+	if (len < 0){
+		perror("readlink");
+		exit(1);
+	}
+	buf[len] = 0;
+
+	dir = dirname(buf);
+	return strndup(dir,SMALL_BUF);
 }
 
 void set_environment(void) {
