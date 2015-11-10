@@ -25,6 +25,7 @@ OBJ_D=$(SRC_D:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 PREFIX ?= /usr
 BINDIR = $(DESTDIR)$(PREFIX)/bin
+SHRDIR = $(DESTDIR)$(PREFIX)/share/statbar/
 MANDIR = $(DESTDIR)$(PREFIX)/share/man/man1
 
 
@@ -56,12 +57,18 @@ $(OBJ_D): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(SFLAGS) $(INCLUDES) -c -o $@ $< $(LIBS)
 
 install:
-	install -D -m 755 $(TARGET) "$(BINDIR)/$(TARGET)"
-	install -D -m 644 doc/$(TARGET).1 "$(MANDIR)/$(TARGET).1"
+	install -Dm 755 $(TARGET_CLIENT) "$(BINDIR)/$(TARGET_CLIENT)"
+	install -Dm 755 $(TARGET_DAEMON) "$(BINDIR)/$(TARGET_DAEMON)"
+	#install -D -m 644 doc/$(TARGET).1 "$(MANDIR)/$(TARGET).1"
+	install -d "$(SHRDIR)"
+	cp -r extra "$(SHRDIR)"
+	cp -r modules "$(SHRDIR)"
 
 uninstall:
-	$(RM) "$(BINDIR)/$(TARGET)"
-	$(RM) "$(MANDIR)/$(TARGET).1"
+	$(RM) "$(BINDIR)/$(TARGET_CLIENT)"
+	$(RM) "$(BINDIR)/$(TARGET_DAEMON)"
+	#$(RM) "$(MANDIR)/$(TARGET).1"
+	$(RM) -r "$(SHRDIR)"
 
 doc:
 	a2x -v -d manpage -f manpage -a revnumber=$(VERSION) doc/$(TARGET).1.txt
