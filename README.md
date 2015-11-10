@@ -10,6 +10,18 @@ Requirements
 - **Lemonbar**: [github](https://github.com/LemonBoy/bar) or [XFT fork](https://github.com/krypt-n/bar).
 - **Conky** _[optional]_: used as multi-line popup windows.
 
+Fonts I'm using:
+
+- Terminus (for text)
+- [Lemon](https://github.com/phallus/fonts) for icons (not related to lemonboy/lemonbar)
+- [Uushi](https://github.com/phallus/fonts) for more icons
+- [Siji](https://github.com/gstk/siji) for even more icons.
+
+Fonts are specified in `src/client.c` when spawning lemonbar. Change to whatever font string you'd use.
+
+Icons are specified in `src/common.c` in `set_environment` call. The icon strings are passed as environment variables to the modules and popups.
+
+
 That's all that's needed for the status client itself. Individual modules may depend on certain commands being installed. But modules can be easily tailored to whatever your system uses. Or disabled (like, in the case of GPU if you have integrated graphics, or bluetooth if you don't have it).
 
 
