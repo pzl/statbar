@@ -21,6 +21,23 @@ Call `statbar` to start a viewable statusbar. The data source daemon will start 
 Call `statd` if you want to start the daemon manually.
 
 
+Screenshots
+-----------
+
+default statbar:
+
+![statbar](http://pzl.github.io/statbar/base.png)
+
+
+with a few modules clicked on:
+
+![clicks](http://pzl.github.io/statbar/clicks.png)
+
+
+For fun, on my machine clicking the Arch logo at the end triggers a command adapted from [this reddit thread](https://www.reddit.com/r/unixporn/comments/35m141/i3lock_why_blur_the_beauty/) that locks the screen. Currently, this script isn't shipped with statbar
+
+![locked](http://pzl.github.io/statbar/locked.png)
+
 
 
 License
