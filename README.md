@@ -16,7 +16,7 @@ That's all that's needed for the status client itself. Individual modules may de
 Usage
 -----
 
-Call `statbar` to start a viewable statusbar. The data source daemon will start automatically. Call `statbar` again to start another viewable bar, and it will share the same data source, without starting any more.
+Call `statbar` to start a viewable statusbar. The data source daemon will start automatically. Call `statbar` again to start another viewable bar, and it will share the same data source, without starting any more. `statbar` may optionally take one argument, which is the size and position of the bar, specified like common window geometry in X11:  WIDTHxHEIGHT+X+Y. This defaults to `1920x22+0+0` when unspecified.
 
 Call `statd` if you want to start the daemon manually.
 
