@@ -18,6 +18,7 @@ int main(int argc, char const *argv[]) {
 	shmem *mem;
 	const char *geometry;
 	int lemon_in, lemon_out;
+	int tries=0;
 	struct pollfd fds[1];
 
 	fds[0].events = POLLIN;
@@ -36,9 +37,12 @@ int main(int argc, char const *argv[]) {
 			exit(-1);
 		}
 
-		if ((mem = setup_memory(0)) == MEM_FAILED){
-			fprintf(stderr, "Error connecting to daemon.\n");
-			exit(-1);
+		while ((mem = setup_memory(0)) == MEM_FAILED){
+			if (tries++ > 10){
+				fprintf(stderr, "failed to connect to daemon\n");
+				exit(-1);
+			}
+			sleep(1);
 		}
 
 		printf("connected to new data source\n");
@@ -351,7 +355,6 @@ static int spawn_daemon(void) {
 		execlp(statd_path,statd_path,NULL);
 		exit(0);
 	} else {
-		sleep(2);
 		return 0;
 	}
 }
