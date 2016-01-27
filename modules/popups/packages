@@ -24,7 +24,7 @@ if [ "$refresh" = true ]; then
 	echo "refreshing package update lists"
 
 	#fetch update lists and list lengths
-	_pacman="$(pacman -Qqu)"
+	_pacman="$(checkupdates)"
 	_pacaur="$(pacaur -Qqau)"
 	_n_pacman="$(wc -l <<< "${_pacman}")"
 	_n_pacaur="$(wc -l <<< "${_pacaur}")"

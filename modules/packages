@@ -12,7 +12,7 @@ main(){
 	while :; do
 		ic_color="${C_TITLE}"
 
-		pacman_updates=$(pacman -Qqu 2>/dev/null | wc -l)
+		pacman_updates=$(checkupdates 2>/dev/null | wc -l)
 		pacaur_updates=$(pacaur -Qqau 2>/dev/null | wc -l)
 
 
