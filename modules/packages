@@ -26,7 +26,7 @@ main(){
 		fi
 		echo -e "${ic_color}%{A:$curdir/popups/packages:}${ic_pacman}%{A}${C_RST} ${pacman_updates}|${pacaur_updates}"
 
-		sleep 4h
+		sleep 1h
 	done
 }
 
