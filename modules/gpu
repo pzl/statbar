@@ -3,6 +3,26 @@
 curdir="$(dirname "$(readlink -f "$0")")"
 
 
+
+gettemps(){
+    local temp
+    local memused
+    local memtotal
+    local fanspeed
+
+
+    if command -v nvidia-settings >/dev/null 2>&1; then
+		read -r temp memused memtotal fanspeed <<< "$(nvidia-settings -t -q [gpu:0]/gpucoretemp -q [gpu:0]/useddedicatedgpumemory -q [gpu:0]/totaldedicatedgpumemory -q [fan:0]/gpucurrentfanspeedrpm | tr '\n' ' ')"
+        fanspeed="${fanspeed}RPM"
+    else
+        read -r temp memused memtotal fanspeed <<< "$(nvidia-smi --query-gpu=temperature.gpu,memory.used,memory.total,fan.speed --format=csv,noheader,nounits | tr -d ',')"
+        fanspeed="${fanspeed}%"
+    fi
+
+    echo "$temp $memused $memtotal $fanspeed"
+}
+
+
 main() {
 	local temp
 	local memused
@@ -12,9 +32,10 @@ main() {
 
 	while :; do
 
-		read -r temp memused memtotal fanspeed <<< "$(nvidia-settings -t -q [gpu:0]/gpucoretemp -q [gpu:0]/useddedicatedgpumemory -q [gpu:0]/totaldedicatedgpumemory -q [fan:0]/gpucurrentfanspeedrpm | tr '\n' ' ')"
+        read -r temp memused memtotal fanspeed <<< "$(gettemps)"
+
 		memperc="$(echo "$memused $memtotal" | awk '{printf("%2.0f", $1/$2 * 100)}')"
-		echo -e "${C_TITLE}%{A:$curdir/popups/gpu:}GPU:%{A}${C_RST} ${temp}°C ${C_TITLE}|${C_RST} ${memperc}% ${C_TITLE}|${C_RST} ${fanspeed}RPM"
+		echo -e "${C_TITLE}%{A:$curdir/popups/gpu:}GPU:%{A}${C_RST} ${temp}°C ${C_TITLE}|M${C_RST} ${memperc}% ${C_TITLE}|F${C_RST} ${fanspeed}"
 
 
 		sleep 21
