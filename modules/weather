@@ -151,18 +151,17 @@ while True:
 		data = urllib2.urlopen(NOAA_URL % params)
 		data = json.loads(data.read().decode())
 		output = "{title}{link_start}{icon}{link_end}{color_reset} {temp}°F".format(**{
-		      	'title': os.environ['C_TITLE'],
-		      	'icon': Icon.map(data['currentobservation']['Weatherimage']),
-		      	'color_reset': os.environ['C_RST'],
-		      	'temp': data['currentobservation']['Temp'],
-		      	'link_start': "%{A:"+os.path.join(os.path.dirname(os.path.realpath(__file__)),"popups/weather")+":}",
-		      	'link_end': '%{A}'
-		      })
+				'title': os.environ['C_TITLE'],
+				'icon': Icon.map(data['currentobservation']['Weatherimage']),
+				'color_reset': os.environ['C_RST'],
+				'temp': data['currentobservation']['Temp'],
+				'link_start': "%{A:"+os.path.join(os.path.dirname(os.path.realpath(__file__)),"popups/weather")+":}",
+				'link_end': '%{A}'
+			})
 
 		print(output)
 		sys.stdout.flush()
 
-		time.sleep(60*40)
 	except Exception as e:
 		import datetime
 		import traceback
@@ -170,3 +169,5 @@ while True:
 		f.write("Exception at %s\n" % (datetime.datetime.now().strftime("%c"),) )
 		traceback.print_exception(*sys.exc_info(),file=f)
 		f.close()
+	
+	time.sleep(60*40)
