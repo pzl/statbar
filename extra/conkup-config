@@ -1,28 +1,30 @@
+conky.config = {
+	alignment = 'top_left',
+	border_inner_margin = 5,
+	default_bar_height = 15,
+	default_bar_width = 8,
 
-alignment top_left
-border_inner_margin 5
-default_bar_size 15 8
+	default_color = 'white',
 
-default_color white
+	double_buffer = false,
 
-double_buffer no
+	minimum_height = 10,
+	minimum_width  = 10,
+	maximum_width =  1920,
 
-minimum_size 10 10
-maximum_width 1920
+	override_utf8_locale = true,
+	use_xft = true,
+	font =  'Terminus:size=8',
 
-override_utf8_locale yes
-use_xft yes
-xftfont Terminus:size=8
+	own_window = true,
+	own_window_type = 'panel',
+	own_window_transparent = false,
+	own_window_colour = '383a3b',
+	own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',
 
-own_window yes
-own_window_type panel
-own_window_transparent no
-own_window_colour 383a3b
-own_window_hints undecorated,above,sticky,skip_taskbar,skip_pager
+	color1 = 'FFFFFF',
+}
 
-
-color1 FFFFFF
-
-
-TEXT
+conky.text = [[
 text
+]]
