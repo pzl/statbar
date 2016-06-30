@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #arrays do not seem to be exportable in bash
-readonly C_CPU=("%{F#CD5BBD}" "%{F#63C652}" "%{F#7684D0}" "%{F#B8B02C}")
+readonly C_CPU=("%{F#CE4072}" "%{F#6AB84C}" "%{F#C358B9}" "%{F#BEAB45}" "%{F#7E66CC}" "%{F#DD8037}" "%{F#678CCC}" "%{F#CA5544}" "%{F#4EB699}" "%{F#BF7096}" "%{F#5F803B}" "%{F#A4773F}")
 readonly threshold_busy="70"
 readonly threshold_temp="48"
 
@@ -10,14 +10,17 @@ curdir="$(dirname "$(readlink -f "$0")")"
 
 
 main() {
+    local cpucount
 	local percs
 	local buf
 	local i
 	local temps
 
+    cpucount="$(lscpu | grep "^CPU(s):" | awk '{print $2}')"
+
 	while :; do
 		#per-core percentage
-		percs="$(top -bn 2 -w 512 | grep "%Cpu" | tail -n 4 | awk '{print $4}' | tr -d '\:\|\[\],')"
+		percs="$(top -bn 2 -w 512 | grep "%Cpu" | tail -n $cpucount | awk '{print $4}' | tr -d '\:\|\[\],')"
 		buf="${C_TITLE}%{A:$curdir/popups/cpu:}${ic_cpu}%{A}${C_RST} "
 
 		i=0 
