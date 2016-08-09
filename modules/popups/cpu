@@ -3,6 +3,11 @@
 #ps-based method:
 # $(ps aux | sort -rk 3,3 | head -n 6 | tail -n +2 | awk '{print $3, $11}' | sed 's/\/.*\///g')
 
-proclist="$(top -b -n 1 -w 512 | tail -n +11 | sort -bnrk 7 | head -n 8 | awk '{print $7"%", $12, "${color 708090}("$2")${color }" }' | column -t)"
+proclist="$(top -b -n 1 -w 512 -o +%CPU)"
+proc_line_start="$( echo "$proclist" | grep -n PID | cut -d':' -f1 )"
 
-conkup "$proclist"
+proc_line_start=$((proc_line_start+1))
+
+sorted="$( echo "$proclist" | tail -n +${proc_line_start} | head -n 8 | awk '{print $7"%", $11, "${color 708090}("$2")${color }" }' | column -t)"
+
+conkup "$sorted"
