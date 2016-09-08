@@ -47,7 +47,7 @@ main(){
 			fi
 
 			#text="$(popup_script "network" "${icon}") $(ifconfig $NET_INTERFACE | grep inet | grep -v inet6 | awk '{print $2}')"
-			text="%{A:$curdir/popups/network:}${icon}%{A} $(ifconfig $interface | grep inet | grep -v inet6 | awk '{print $2}')"
+			text="%{A:$curdir/popups/network:}${icon}%{A} $(ifconfig $interface | grep 'inet ' | awk '{print $2}')"
 		else
 			text="${ic_fail}"
 		fi
