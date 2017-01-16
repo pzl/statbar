@@ -32,6 +32,7 @@ class Precip(object):
 		return make("F_SIJI","\ue230")
 
 class Danger(object):
+	""" 🌀  🌁 🌂 🌊 🌤 🌥 🌦 🌨 🌩 🌪 """
 	water_spout=make("F_SIJI","\ue083")
 	tornado=make("F_SIJI","\ue027")
 	rot_watch=make("F_SIJI","\ue1c0")
