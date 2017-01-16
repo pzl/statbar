@@ -8,6 +8,11 @@ main(){
     local devices
     local n_devices
 
+    #turn off for non-bluetooth machines
+    if ! type -v hciconfig >/dev/null 2>&1; then
+        exit 0
+    fi
+
     while :; do
         info="$(hciconfig)"
 
