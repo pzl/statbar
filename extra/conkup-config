@@ -14,7 +14,7 @@ conky.config = {
 
 	override_utf8_locale = true,
 	use_xft = true,
-	font =  'Terminus:size=8',
+	font =  'xos4 Terminus:size=9',
 
 	own_window = true,
 	own_window_type = 'panel',
