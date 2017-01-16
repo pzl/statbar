@@ -195,7 +195,7 @@ buf += "{title}{icon}{reset} {temp}°F {condition}\n".format(**{
         })
 buf += "${alignc}${color 708090}Forecast${color}\n"
 for idx,item in enumerate(data['time']['startPeriodName']):
-	buf += "{icolor}{icon}{reset}{tcolor}{time:15}{reset} {hl}{reset}{temp}°F\n{icolor}{dualicon}{reset}{condition}\n{bar}\n".format(**{
+	buf += "{icolor}{icon}{reset}{tcolor}{time:15}{reset} {hl}{temp}{reset}°F\n{icolor}{dualicon}{reset}{condition}\n{bar}\n".format(**{
 	        	'icon': Icon.map(data['data']['iconLink'][idx]),
 	        	'dualicon': Icon.map(data['data']['iconLink'][idx],True) if Icon.map(data['data']['iconLink'][idx],True) else '   ',
 	        	'time': item,
@@ -208,10 +208,11 @@ for idx,item in enumerate(data['time']['startPeriodName']):
 	        	'bar': '${hr}'
 	        })
 
-buf = buf[:-6] #remove last "\n${hr}"
+#buf = buf[:-6] #remove last "\n${hr}"
+buf += "\n\n\n${hr}" #add padding to the end, since things were getting cut off at the bottom
 
 #skooch the X coord left a bit since it's a wide window
 X=int(os.environ['MOUSE_X'])
-os.environ['MOUSE_X'] = str(X-55)
+os.environ['MOUSE_X'] = str(X-85)
 
 subprocess.call(["conkup",buf,"20","20"])
