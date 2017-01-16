@@ -26,5 +26,5 @@ net_scale(){
 
 NET_INTERFACE="$(get_iface)"
 
-read -r rx tx <<< "$(cat /proc/net/dev | grep $NET_INTERFACE | awk '{print $2, $10}' )"
+read -r rx tx <<< "$(cat /proc/net/dev | grep " $NET_INTERFACE:" | awk '{print $2, $10}' )"
 conkup "\${alignc}\${color 708090}Totals:\${color}\n\${color 708090}RX:\${color} $(net_scale "$rx")\n\${color 708090}TX:\${color} $(net_scale "$tx")"
