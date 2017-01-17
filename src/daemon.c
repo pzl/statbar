@@ -96,7 +96,7 @@ static int launch_modules(struct pollfd fds[]){
 	int i;
 	char *path = curdir();
 
-	for (i=0; i<11; i++){
+	for (i=0; i<12; i++){
 		fds[i].fd = launch_module(i,path);
 		fds[i].events=POLLIN;
 	}
@@ -123,6 +123,7 @@ static int launch_module(int i, char *path){
 		case 8: module = "runtime"; break;
 		case 9: module = "weather"; break;
 		case 10: module = "linux"; break;
+		case 11: module = "desktop"; break;
 	}
 	return spawn(dir, module);
 }
@@ -186,6 +187,7 @@ static void read_data(status *stats, int fd, int i) {
 		case 8: bufp = stats->runtime; break;
 		case 9: bufp = stats->weather; break;
 		case 10: bufp = stats->linux; break;
+		case 11: bufp = stats->desktop; break;
 	}
 
 	n_bytes = read(fd, bufp, SMALL_BUF);
@@ -204,8 +206,9 @@ static void read_data(status *stats, int fd, int i) {
 
 static void update_status(shmem *mem, status *stats) {
 	int n_bytes;
-	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
+	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s    %s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
 			stats->datetime,
+			stats->desktop,
 			stats->network,
 			stats->net_tx,
 			stats->bluetooth,

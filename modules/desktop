@@ -1,0 +1,18 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+
+print_desktop(){
+	local desktop_num="$( xprop -root _NET_CURRENT_DESKTOP | awk '{print $3+1}' )"
+	echo -e "${C_TITLE}%{A:$curdir/popups/desktop:}${ic_desktop}%{A}${C_RST} $desktop_num"
+}
+
+main(){
+	print_desktop # to print on startup, so we dont wait for first switch
+	bspc subscribe desktop_focus | while read -r output; do
+		print_desktop
+	done
+}
+
+main $@

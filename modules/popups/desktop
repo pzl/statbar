@@ -1,0 +1,5 @@
+#!/bin/bash
+
+NODE_ID="$(bspc query -N -n)"
+
+conkup "$(xprop -id $NODE_ID WM_NAME | cut -d '=' -f2 | tr -d '"')"

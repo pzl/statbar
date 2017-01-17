@@ -149,6 +149,12 @@ void set_environment(void) {
 
 	SENV("ic_transfer",_FSIJI "\ue13f" _FRESET );
 	SENV("ic_transfer_vert",_FSIJI "\ue10f" _FRESET );
+
+
+	SENV("ic_monitor", _FSIJI "\ue09f" _FRESET );
+
+	SENV("ic_desktop", _FSIJI "\ue0b1" _FRESET );
+
 }
 
 void set_env_coords(int x, int y){

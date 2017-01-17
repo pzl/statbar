@@ -43,6 +43,7 @@ typedef struct status {
 	char runtime[SMALL_BUF];
 	char weather[SMALL_BUF];
 	char linux[SMALL_BUF];
+	char desktop[SMALL_BUF];
 } status;
 
 void die(int sig, siginfo_t *siginfo, void *ignore);
