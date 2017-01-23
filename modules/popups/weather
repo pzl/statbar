@@ -12,55 +12,55 @@ import re
 import subprocess
 
 def make(font, character):
-	return "{}{}{}".format("${font "+font.split('_')[1].lower()+"}",character,'${font }')
+    return "{}{}{}".format("${font "+' '.join(font.split('_')[1:]).title()+"}",character,'${font }')
 
 
 class Sun(object):
-	#small = make("F_UUSHI","\u2600")
-	#tiny = make("F_LEMON","\u2600")
-	night=make("F_SIJI","\ue233")
+	#small = make("F_benis_uushi","\u2600")
+	#tiny = make("F_artwiz_lemon","\u2600")
+	night=make("F_Wuncon_Siji","\ue233")
 	def __str__(self):
-		return make('F_SIJI',"\ue234")
+		return make('F_Wuncon_Siji',"\ue234")
 
 class Precip(object):
-	thunder = make("F_SIJI","\ue22c")
-	hard = make("F_SIJI","\ue22f")
-	snow = make("F_SIJI","\ue22e")
-	alt = make("F_SIJI","\ue22d")
-	#umbrella=make("F_UUSHI","\u2602")
+	thunder = make("F_Wuncon_Siji","\ue22c")
+	hard = make("F_Wuncon_Siji","\ue22f")
+	snow = make("F_Wuncon_Siji","\ue22e")
+	alt = make("F_Wuncon_Siji","\ue22d")
+	#umbrella=make("F_benis_uushi","\u2602")
 	def __str__(self):
-		return make("F_SIJI","\ue230")
+		return make("F_Wuncon_Siji","\ue230")
 
 class Danger(object):
-	water_spout=make("F_SIJI","\ue083")
-	tornado=make("F_SIJI","\ue027")
-	rot_watch=make("F_SIJI","\ue1c0")
-	rot_warn=make("F_SIJI","\ue1c1")
-	rot_doom=make("F_SIJI","\ue100")
+	water_spout=make("F_Wuncon_Siji","\ue083")
+	tornado=make("F_Wuncon_Siji","\ue027")
+	rot_watch=make("F_Wuncon_Siji","\ue1c0")
+	rot_warn=make("F_Wuncon_Siji","\ue1c1")
+	rot_doom=make("F_Wuncon_Siji","\ue100")
 
-	#low_vis=make("F_UUSHI","\u2b5f")
-	low_vis=make("F_SIJI","\ue196")
-	heat=make("F_SIJI","\ue01b")
-	cold=make("F_SIJI","\ue0cf")
-	blizzard="{}{}".format(make("F_SIJI","\ue0ae"),Precip.snow)
+	#low_vis=make("F_benis_uushi","\u2b5f")
+	low_vis=make("F_Wuncon_Siji","\ue196")
+	heat=make("F_Wuncon_Siji","\ue01b")
+	cold=make("F_Wuncon_Siji","\ue0cf")
+	blizzard="{}{}".format(make("F_Wuncon_Siji","\ue0ae"),Precip.snow)
 
 class Cloudy(object):
-	partial = make("F_SIJI","\ue231")
-	partial_night= make("F_SIJI","\ue232")
-	#small = make("F_UUSHI","\u2601")
-	#tiny = make("F_LEMON","\u2601")
+	partial = make("F_Wuncon_Siji","\ue231")
+	partial_night= make("F_Wuncon_Siji","\ue232")
+	#small = make("F_benis_uushi","\u2601")
+	#tiny = make("F_artwiz_lemon","\u2601")
 	def __str__(self):
-		return make("F_SIJI","\ue22b")
+		return make("F_Wuncon_Siji","\ue22b")
 
 class Icon(object):
 	sun = Sun()
 	cloudy = Cloudy()
-	windy = make("F_SIJI","\ue235")
+	windy = make("F_Wuncon_Siji","\ue235")
 	precip = Precip()
 	danger = Danger()
-	unknown=make("F_SIJI","\ue1b6") #it's a bug!
-	up=make("F_SIJI","\ue12b")
-	down=make("F_SIJI","\ue12c")
+	unknown=make("F_Wuncon_Siji","\ue1b6") #it's a bug!
+	up=make("F_Wuncon_Siji","\ue12b")
+	down=make("F_Wuncon_Siji","\ue12c")
 
 	@classmethod
 	def map(cls,status,second=False):
