@@ -1,3 +1,48 @@
 #!/bin/bash
 
-conkup "not done yet"
+curdir="$(dirname "$(readlink -f "$0")")"
+. "$(dirname $curdir)/common/gpu"
+
+
+pad(){
+	if [ $1 -lt $2 ]; then
+		cat - | tr -d '\n' | xargs -0 printf "%-24s"
+	else
+		cat - | tr -d '\n'
+	fi
+}
+
+num="$(numgpus)"
+num=$((num-1))
+
+names="$(printf "%-7s" "model") | "
+driver="$(printf "%-7s" "v.") | "
+cuda="$(printf "%-7s" "cores") | "
+linksp="$(printf "%-7s" "link") | "
+power="$(printf "%-7s" "power") | "
+clock="$(printf "%-7s" "clock") | "
+memclock="$(printf "%-7s" "memclk") | "
+vidclock="$(printf "%-7s" "vidclk") | "
+mem="$(printf "%-7s" "mem") | "
+temp="$(printf "%-7s" "temp") | "
+fanperc="$(printf "%-7s" "fan") | "
+fanrpm="$(printf "%-7s" "fan") | "
+usage="$(printf "%-7s" "usage") | "
+
+for i in $(seq 0 $num); do
+	names="${names}$(gpu_name $i | pad $i $num)"
+	driver="${driver}$(gpu_driver_ver $i | pad $i $num)"
+	cuda="${cuda}$(gpu_cuda_cores $i | pad $i $num)"
+	linksp="${linksp}$(echo -n "$(gpu_current_link $i)x/$(gpu_max_link $i)x" | pad $i $num)"
+	power="${power}$(gpu_power $i | awk '{print $1" W"}' | pad $i $num)"
+	clock="${clock}$(echo -n "$(gpu_current_clock $i) / $(gpu_max_clock $i) MHz" | pad $i $num)"
+	memclock="${memclock}$(echo -n "$(gpu_current_memclock $i) / $(gpu_max_memclock $i) MHz" | pad $i $num)"
+	vidclock="${vidclock}$(gpu_current_vidclock $i | awk '{print $1," MHz"}' | pad $i $num)"
+	mem="${mem}$(echo -n "$(gpu_memused $i) / $(gpu_memtotal $i) MB" | pad $i $num)"
+	usage="${usage}$(gpu_usage_perc $i | awk '{print $1,"%"}' | pad $i $num)"
+	fanrpm="${fanrpm}$(gpu_fan_rpm $i | awk '{print $1," RPM"}' | pad $i $num)"
+	fanperc="${fanperc}$(gpu_fan_percent $i | awk '{print $1"%"}' | pad $i $num)"
+	temp="${temp}$(gpu_temp $i | awk '{print $1" C"}' | pad $i $num)"
+done
+
+conkup "$names\n$<hr>\n$driver\n$cuda\n$linksp\n$power\n$clock\n$memclock\n$vidclock\n$mem\n$usage\n$fanrpm\n$fanperc\n$temp" 20 20

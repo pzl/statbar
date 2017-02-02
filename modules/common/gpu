@@ -1,0 +1,90 @@
+#!/bin/bash
+
+command -v nvidia-settings >/dev/null 2>&1
+NVST_INSTALLED=$?
+command -v nvidia-smi >/dev/null 2>&1
+NVSM_INSTALLED=$?
+
+percent(){
+    awk '{printf("%2d", $1/$2 * 100)}' <<< "$1 $2"
+}
+
+numgpus(){
+    nvsmi 0 count || nvst gpus | head -n 1 | awk '{print $1}'
+}
+
+nvst(){
+    [ $NVST_INSTALLED -eq 0 ] || return 1
+    nvidia-settings -q $1 -t
+}
+nvsmi(){
+    [ $NVSM_INSTALLED -eq 0 ] || return 1
+    local val="$(nvidia-smi -i $1 --query-gpu=$2 --format=csv,noheader,nounits)"
+    if [ "$val" == "[Not Supported]" ]; then
+        return 1
+    else
+        echo "$val"
+    fi
+}
+# gpu_query <GPUID> <SETTINGS BLOCK> <SETTINGS FIELD> <SMI QUERY>
+gpu_query(){
+    nvsmi $1 $4 || nvst "[$2:$1]/$3"
+}
+
+gpu_name(){
+    local gpuid="$1"
+    gpuid=$((gpuid+1))
+    nvsmi $1 gpu_name || grep Model "/proc/driver/nvidia/gpus/0000:0${gpuid}:00.0/information"  | cut -f3
+}
+
+gpu_driver_ver() {
+    gpu_query $1 gpu NvidiaDriverVersion driver_version
+}
+gpu_memtotal() {
+    gpu_query $1 gpu TotalDedicatedGPUMemory memory.total
+}
+gpu_memused(){
+    gpu_query $1 gpu UsedDedicatedGPUMemory memory.used
+}
+gpu_cuda_cores() {
+    nvst "[gpu:$1]/CUDACores"
+}
+gpu_temp(){
+    gpu_query $1 gpu GPUCoreTemp temperature.gpu
+}
+gpu_max_link(){
+    gpu_query $1 gpu PCIEMaxLinkWidth pcie.link.width.max
+}
+gpu_current_link(){
+    gpu_query $1 gpu PCIECurrentLinkWidth pcie.link.width.current
+}
+gpu_fan_percent(){
+    gpu_query $1 fan GPUCurrentFanSpeed fan.speed
+}
+gpu_fan_rpm(){
+    nvst "[fan:$1]/GPUCurrentFanSpeedRPM"
+}
+gpu_usage_perc(){
+    nvsmi $1 utilization.gpu || nvst "[gpu:$1]/GPUUtilization" | grep -o -E graphics=[0-9]+ | cut -d'=' -f2
+}
+gpu_power(){
+    nvsmi $1 power.draw
+}
+gpu_current_clock(){
+    nvsmi $1 clocks.gr || nvst "[gpu:$1]/GPUCurrentClockFreqsString" | grep -o -E nvclock=[0-9]+ | cut -d'=' -f2
+}
+gpu_max_clock(){
+    nvsmi $1 clocks.max.gr || nvst "[gpu:$1]/GPUCurrentClockFreqsString" | grep -o -E nvclockmax=[0-9]+ | cut -d'=' -f2
+}
+gpu_current_memclock() {
+    nvsmi $1 clocks.mem || nvst "[gpu:$1]/GPUCurrentClockFreqsString" | grep -o -E memclock=[0-9]+ | cut -d'=' -f2
+}
+gpu_max_memclock() {
+    nvsmi $1 clocks.max.mem || nvst "[gpu:$1]/GPUCurrentClockFreqsString" | grep -o -E memclockmax=[0-9]+ | cut -d'=' -f2
+}
+gpu_current_vidclock() {
+    nvsmi $1 clocks.video
+}
+gpu_metamode(){
+    nvst currentmetamode
+}

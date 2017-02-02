@@ -1,42 +1,39 @@
 #!/bin/bash
 
+# This script works best if BOTH nvidia-settings and nvidia-smi are installed. Some of the information is only available in one or the other.
+
+
 curdir="$(dirname "$(readlink -f "$0")")"
+. "$curdir/common/gpu"
 
 
+graph(){
+    local rounded=$(printf "%.0f" $(echo "scale=2;$1/10"|bc))
 
-gettemps(){
-    local temp
-    local memused
-    local memtotal
-    local fanspeed
-
-
-    if command -v nvidia-settings >/dev/null 2>&1; then
-		read -r temp memused memtotal fanspeed <<< "$(nvidia-settings -t -q [gpu:0]/gpucoretemp -q [gpu:0]/useddedicatedgpumemory -q [gpu:0]/totaldedicatedgpumemory -q [fan:0]/gpucurrentfanspeedrpm | tr '\n' ' ')"
-        fanspeed="${fanspeed}RPM"
-    else
-        read -r temp memused memtotal fanspeed <<< "$(nvidia-smi --query-gpu=temperature.gpu,memory.used,memory.total,fan.speed --format=csv,noheader,nounits | tr -d ',')"
-        fanspeed="${fanspeed}%"
-    fi
-
-    echo "$temp $memused $memtotal $fanspeed"
+    case $rounded in
+        0) echo -e "\u23bd";;
+        [1-7]) echo -e "\u258${rounded}";;
+        8) echo -e "\u2592";;
+        9) echo -e "\u2593";;
+        10) echo -e "\u2588";;
+    esac
 }
 
 
 main() {
-	local temp
-	local memused
-	local memtotal
-	local fanspeed
-	local memperc
+    if [ $NVST_INSTALLED -ne 0 ] && [ $NVSM_INSTALLED -ne 0 ]; then
+        echo "Either nvidia-settings or nvidia-smi must be installed to use this (preferably both)" >&2
+        exit 1
+    fi
+
+    local num="$(numgpus)"
 
 	while :; do
-
-        read -r temp memused memtotal fanspeed <<< "$(gettemps)"
-
-		memperc="$(echo "$memused $memtotal" | awk '{printf("%2.0f", $1/$2 * 100)}')"
-		echo -e "${C_TITLE}%{A:$curdir/popups/gpu:}GPU:%{A}${C_RST} ${temp}°C ${C_TITLE}|M${C_RST} ${memperc}% ${C_TITLE}|F${C_RST} ${fanspeed}"
-
+        line="${C_TITLE}%{A:$curdir/popups/gpu:}${ic_graphics}%{A}${C_RST} "
+        for i in $(seq 0 $((num-1)) ); do
+            line="${line}${C_TITLE}$(gpu_name $i | rev | cut -d' ' -f1 | rev)${C_RST} $(gpu_temp $i)°C ${C_TITLE}U${C_RST}$(graph $(gpu_usage_perc $i)) ${C_TITLE}M${C_RST}$(graph $(percent $(gpu_memused $i) $(gpu_memtotal $i))) ${C_TITLE}F${C_RST}$(graph $(gpu_fan_percent $i)) "
+        done
+        echo -e "$line"
 
 		sleep 21
 	done

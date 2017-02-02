@@ -155,6 +155,8 @@ void set_environment(void) {
 
 	SENV("ic_desktop", _FSIJI "\ue0b1" _FRESET );
 
+	SENV("ic_graphics", _FSIJI "\ue1f5" _FRESET);
+
 }
 
 void set_env_coords(int x, int y){
