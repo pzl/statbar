@@ -2,17 +2,8 @@
 
 curdir="$(dirname "$(readlink -f "$0")")"
 
-get_iface(){
-	local wireless_up="$(cat /proc/net/wireless | wc -l)"
-	local net_iface
-	if [ $wireless_up -ge 3 ]; then
-		net_iface="$(tail -n1 /proc/net/wireless | cut -d':' -f1)"
-	else
-		net_iface="$(ip route ls | grep "default via 192.168.1.1" | awk '{print $5}')"
-		#readonly WIFI_INTERFACE="wlp11s0"
-	fi
-	echo -n "$net_iface"
-}
+. "$curdir/common/network"
+
 
 net_up(){
 	if [ "$#" -lt 1 ]; then

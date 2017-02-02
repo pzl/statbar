@@ -2,29 +2,7 @@
 
 curdir="$(dirname "$(readlink -f "$0")")"
 
-get_iface(){
-    local wireless_up="$(cat /proc/net/wireless | wc -l)"
-    local net_iface
-    if [ $wireless_up -ge 3 ]; then
-        net_iface="$(tail -n1 /proc/net/wireless | cut -d':' -f1)"
-    else
-        net_iface="$(ip route ls | grep "default via 192.168.1.1" | awk '{print $5}')"
-        #readonly WIFI_INTERFACE="wlp11s0"
-    fi
-    echo -n "$net_iface"
-}
-
-net_scale(){
-    local val="$1"
-    local labels=("B" "KB" "MB" "GB" "TB" "PB" "EB" "ZB" "YB")
-    local label_scale=0
-    while [ "$(echo "$val > 2^10" | bc)" -eq 1 ]; do
-        val="$(echo "scale=2; $val/2^10" | bc)"
-        label_scale=$(( label_scale + 1 ))
-    done
-    echo "$val ${labels[$label_scale]}"
-}
-
+. "$curdir/common/network"
 
 main(){
     local interface
