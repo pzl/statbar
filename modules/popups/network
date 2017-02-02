@@ -17,4 +17,4 @@ else
     buf="down"
 fi  
 
-conkup "\${alignc}\${color 708090}Public IP:\${color} $buf"
+conkup "\${alignc}\${color 708090}Public IP:\${color} $buf" 8 8

@@ -7,4 +7,4 @@ for item in $devices; do
     info="${info}$(hcitool name "$item"), $(hcitool rssi "$item" | sed 's/ return value//'), $(hcitool lq "$item"), $(hcitool tpl "$item")\n"
 done
 
-conkup "$info"
+conkup "$info" 5 5

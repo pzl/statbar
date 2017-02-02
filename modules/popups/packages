@@ -47,5 +47,5 @@ if [ "$refresh" = true ]; then
 
 
 	echo "$buf" > "$PKG_CACHE_FILE"
-	conkup "$buf" 8
+	conkup "$buf" 8 8
 fi
