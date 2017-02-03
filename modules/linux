@@ -1,8 +1,10 @@
 #!/bin/bash
 
+curdir="$(dirname "$(readlink -f "$0")")"
+
 main(){
 	local buf="$(echo "${C_TITLE}$(uname -r)${C_RST}" | sed "s/-ARCH//")"
-	echo -e "${buf} %{A:lock -w:}${C_TITLE}${ic_arch}${C_RST}%{A} ${C_BG}."
+	echo -e "${buf} %{A:lock -w:}%{A3:$curdir/popups/tray:}${C_TITLE}${ic_arch}${C_RST}%{A}%{A} ${C_BG}."
 }
 
 main $@

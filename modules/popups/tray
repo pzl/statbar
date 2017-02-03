@@ -1,0 +1,10 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+
+
+if ps aux | grep [s]talonetray >/dev/null 2>&1; then
+	killall stalonetray
+else
+	stalonetray -c ~/.config/stalonetray/stalonetrayrc --geometry 1x1+${MOUSE_X}+40 &
+fi
