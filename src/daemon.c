@@ -171,11 +171,12 @@ static int spawn(char * dir, const char *module) {
 	}
 }
 
-static void read_data(status *stats, int fd, int i) {
+static void read_data(status *stats, int fd, int moduleno) {
 	char * bufp;
+	int i;
 	ssize_t n_bytes;
 
-	switch (i) {
+	switch (moduleno) {
 		case 0: bufp = stats->datetime; break;
 		case 1: bufp = stats->network; break;
 		case 2: bufp = stats->net_tx; break;
@@ -190,23 +191,34 @@ static void read_data(status *stats, int fd, int i) {
 		case 11: bufp = stats->desktop; break;
 	}
 
-	n_bytes = read(fd, bufp, SMALL_BUF);
+	n_bytes = read(fd, bufp, SMALL_BUF-4);
 	if (n_bytes < 0){
 		perror("module data read");
 	}
-	if (bufp[n_bytes-1] == '\n'){
-		//@todo what if output ends in multiple newlines? or has them in th middle?
-		bufp[n_bytes-1] = 0;
-	} else {
-		bufp[n_bytes] = 0;
+
+	//strip any newlines
+	for (i=0; i<n_bytes; i++){
+		if (bufp[i] == '\n') {
+			bufp[i] = ' ';
+		}
 	}
+	if (moduleno != 10){
+		bufp[n_bytes] = ' '; //add space padding
+		bufp[n_bytes+1] = ' ';
+		bufp[n_bytes+2] = ' ';
+		bufp[n_bytes+3] = ' ';
+		bufp[n_bytes+4]='\0'; // force null termination
+	} else {
+		bufp[n_bytes] = '\0';
+	}
+
 	DEBUG_(printf("got data in: %s\n", bufp));
 }
 
 
 static void update_status(shmem *mem, status *stats) {
 	int n_bytes;
-	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s    %s    %s    %s    %s    %s    %s    %s    %s    %s %%{r} %s    %s\n",
+	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s%s%s%s%s%s%s%s%s%s%%{r}%s%s\n",
 			stats->datetime,
 			stats->desktop,
 			stats->network,

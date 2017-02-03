@@ -10,7 +10,7 @@
 #define DEBUG_(x)
 #endif
 
-#define BUF_SIZE 4096
+#define BUF_SIZE 8192
 #define SHM_PATH "/statbar"
 
 #define SMALL_BUF 1024

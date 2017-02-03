@@ -4,7 +4,7 @@
 #define MAX_CLIENTS 15
 #define MAX_MODULES 15
 
-static void read_data(status *, int fd, int i);
+static void read_data(status *, int fd, int moduleno);
 static void notify_watchers(void);
 static void update_status(shmem *,status *);
 static int launch_modules(struct pollfd[]);
