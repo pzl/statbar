@@ -6,7 +6,7 @@ conky.config = {
 
 	default_color = 'white',
 
-	double_buffer = false,
+	double_buffer = true,
 
 	minimum_height = 10,
 	minimum_width  = 10,
