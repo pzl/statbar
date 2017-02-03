@@ -157,6 +157,21 @@ void set_environment(void) {
 
 	SENV("ic_graphics", _FSIJI "\ue1f5" _FRESET);
 
+	SENV("ic_music", _FSIJI "\ue1a6" _FRESET);
+	SENV("ic_headphones", _FSIJI "\ue04d" _FRESET);
+	SENV("ic_quarter_note", _FUUSHI "\u2669" _FRESET);
+	SENV("ic_eighth_note", _FUUSHI "\u266a" _FRESET);
+	SENV("ic_dbl_quarter_note", _FSIJI "\ue05c" _FRESET);
+	SENV("ic_dbl_eighth_note", _FUUSHI "\u266c" _FRESET);
+	SENV("ic_play", _FSIJI "\ue058" _FRESET);
+	SENV("ic_pause", _FSIJI "\ue059" _FRESET);
+	SENV("ic_playpause", _FUUSHI "\u23ef" _FRESET);
+	SENV("ic_stop", _FSIJI "\ue057" _FRESET);
+	SENV("ic_ffwd", _FSIJI "\ue05b" _FRESET);
+	SENV("ic_rwd", _FSIJI "\ue055" _FRESET);
+	SENV("ic_skip", _FSIJI "\ue05a" _FRESET);
+	SENV("ic_back", _FSIJI "\ue054" _FRESET);
+
 }
 
 void set_env_coords(int x, int y){

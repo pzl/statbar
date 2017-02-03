@@ -1,0 +1,77 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+. "$curdir/common/music"
+
+
+getstatus(){
+	local info="$(mocp -M ~/.config/moc -Q %state 2>/dev/null)"
+	case $info in
+		STOP) echo "0";;
+		PLAY) echo "1";;
+		PAUSE) echo "2";;
+		*) echo "-1";;
+	esac
+}
+
+cleanup(){
+	rm -rf "$MUSIC_FIFO"
+	killall -q moc_poll
+}
+geticon(){
+	case $1 in
+		0) echo "%{A:$curdir/popups/music quit:}${ic_stop}%{A}" ;;
+		1) echo "%{A3:$curdir/popups/music next:}%{A:$curdir/popups/music pause:}${ic_play}%{A}%{A}" ;;
+		2) echo "%{A3:$curdir/popups/music stop:}%{A:$curdir/popups/music play:}${ic_pause}%{A}%{A}" ;;
+	esac
+}
+
+getinfo(){
+	local mocoutput song artist
+
+	if [ $playing -le 0 ]; then
+		return 0
+	fi
+
+	mocoutput="$(mocp -M ~/.config/moc -i 2>/dev/null)"
+	song="$(echo "$mocoutput" | grep SongTitle | cut -d: -f2 | awk '{$1=$1};1')"
+	artist="$(echo "$mocoutput" | grep Artist | cut -d: -f2 | awk '{$1=$1};1')"
+
+	printf " %-15.15s" "$song - $artist"
+}
+
+main(){
+	local playing
+	local desc
+	[ -p "$$MUSIC_FIFO" ] && rm "$MUSIC_FIFO"
+	mkfifo "$MUSIC_FIFO" # mocp OnSongChange and OnStop should both be configured to send info to this pipe
+
+	playing=$(getstatus)
+	echo -e "${C_TITLE}%{A:$curdir/popups/music:}%{A3:$curdir/popups/music quit:}%{A2:$curdir/popups/music mute:}${ic_music}%{A}%{A}%{A}$(geticon $playing)${C_RST}$(getinfo $playing)"
+
+	tail -f "$MUSIC_FIFO" | while read -r output; do
+		desc="$(echo "$output" | cut -d: -f1)"
+		case "$desc" in
+			onstop)
+				if mocp -M ~/.config/moc -Q %state >/dev/null 2>&1; then
+					playing=0
+				else
+					playing=-1
+				fi
+				killall -q moc_poll
+				;;
+			onchange)
+				playing=1
+				( "$curdir"/common/moc_poll "$MUSIC_FIFO" ) & disown
+				;;
+			onpause) playing=2 ;;
+			unpause) playing=1 ;;
+			ded) playing=-1 ;;
+		esac
+		echo -e "${C_TITLE}%{A:$curdir/popups/music:}%{A3:$curdir/popups/music quit:}%{A2:$curdir/popups/music mute:}${ic_music}%{A}%{A}%{A}$(geticon $playing)${C_RST}$(getinfo $playing)"
+	done
+	# we use tail instead of piping in the file <$MUSIC_FIFO  to continue a blocking read after each echo
+}
+
+trap cleanup INT TERM QUIT EXIT
+main $@

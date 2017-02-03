@@ -1,0 +1,45 @@
+#!/bin/bash
+
+curdir="$(dirname "$(readlink -f "$0")")"
+. "$(dirname $curdir)/common/music"
+
+
+
+
+case "$1" in
+	pause)
+		mocp -M ~/.config/moc -P >/dev/null 2>&1
+		echo "onpause:" > "$MUSIC_FIFO"
+		;;
+	play)
+		mocp -M ~/.config/moc -U >/dev/null 2>&1
+		echo "unpause:" > "$MUSIC_FIFO"
+		;;
+	stop) mocp -M ~/.config/moc -s >/dev/null 2>&1 ;;
+	quit)
+		mocp -M ~/.config/moc -x >/dev/null 2>&1
+		echo "ded:" > "$MUSIC_FIFO"
+		;;
+	next) mocp -M ~/.config/moc -f >/dev/null 2>&1 ;;
+	up)
+		if mocp -M ~/.config/moc -Q %state >/dev/null 2>&1; then
+			mocp -M ~/.config/moc -v +10%
+		else
+			pactl set-sink-volume "@DEFAULT_SINK@" +10%
+		fi
+		;;
+	down)
+		if mocp -M ~/.config/moc -Q %state >/dev/null 2>&1; then
+			mocp -M ~/.config/moc -v -10%
+		else
+			pactl set-sink-volume "@DEFAULT_SINK@" -10%
+		fi
+		;;
+	mute) pactl set-sink-mute "@DEFAULT_SINK@" toggle ;;
+	*)
+		ln -sf ~/.config/moc ~/.moc
+		conkup "$(mocp -M ~/.config/moc -Q "%state\n%song\n%artist\n%album")\n$<moc_curtime>/$<moc_totaltime>" 15 1
+		sleep 15
+		rm -rf ~/.moc
+		;;
+esac

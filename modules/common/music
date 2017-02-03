@@ -1,0 +1,3 @@
+#!/bin/bash
+
+MUSIC_FIFO="/tmp/mocp_status"

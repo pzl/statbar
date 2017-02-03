@@ -44,6 +44,7 @@ typedef struct status {
 	char weather[SMALL_BUF];
 	char linux[SMALL_BUF];
 	char desktop[SMALL_BUF];
+	char music[SMALL_BUF];
 } status;
 
 void die(int sig, siginfo_t *siginfo, void *ignore);

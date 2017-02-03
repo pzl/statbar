@@ -96,7 +96,7 @@ static int launch_modules(struct pollfd fds[]){
 	int i;
 	char *path = curdir();
 
-	for (i=0; i<12; i++){
+	for (i=0; i<13; i++){
 		fds[i].fd = launch_module(i,path);
 		fds[i].events=POLLIN;
 	}
@@ -124,6 +124,7 @@ static int launch_module(int i, char *path){
 		case 9: module = "weather"; break;
 		case 10: module = "linux"; break;
 		case 11: module = "desktop"; break;
+		case 12: module = "music"; break;
 	}
 	return spawn(dir, module);
 }
@@ -189,6 +190,7 @@ static void read_data(status *stats, int fd, int moduleno) {
 		case 9: bufp = stats->weather; break;
 		case 10: bufp = stats->linux; break;
 		case 11: bufp = stats->desktop; break;
+		case 12: bufp = stats->music; break;
 	}
 
 	n_bytes = read(fd, bufp, SMALL_BUF-4);
@@ -218,7 +220,7 @@ static void read_data(status *stats, int fd, int moduleno) {
 
 static void update_status(shmem *mem, status *stats) {
 	int n_bytes;
-	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s%s%s%s%s%s%s%s%s%s%%{r}%s%s\n",
+	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s%s%s%s%s%s%s%s%s%s%s%%{r}%s%s\n",
 			stats->datetime,
 			stats->desktop,
 			stats->network,
@@ -227,6 +229,7 @@ static void update_status(shmem *mem, status *stats) {
 			stats->memory,
 			stats->cpu,
 			stats->gpu,
+			stats->music,
 			stats->packages,
 			stats->runtime,
 			stats->weather,
