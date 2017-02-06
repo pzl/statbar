@@ -13,9 +13,9 @@ graph(){
     case $rounded in
         0) echo -e "\u23bd";;
         [1-7]) echo -e "\u258${rounded}";;
-        8) echo -e "\u2592";;
-        9) echo -e "\u2593";;
-        10) echo -e "\u2588";;
+        8) echo -e "\u2591";;
+        9) echo -e "\u2588";;
+        10) echo -e "${C_WARN}\u25d9${C_RST}";;
     esac
 }
 
@@ -28,15 +28,15 @@ main() {
 
     local num="$(numgpus)"
 
-	while :; do
+    while :; do
         line="${C_TITLE}%{A:$curdir/popups/gpu:}${ic_graphics}%{A}${C_RST} "
         for i in $(seq 0 $((num-1)) ); do
             line="${line}${C_TITLE}$(gpu_name $i | rev | cut -d' ' -f1 | rev)${C_RST} $(gpu_temp $i)°C ${C_TITLE}U${C_RST}$(graph $(gpu_usage_perc $i)) ${C_TITLE}M${C_RST}$(graph $(percent $(gpu_memused $i) $(gpu_memtotal $i))) ${C_TITLE}F${C_RST}$(graph $(gpu_fan_percent $i)) "
         done
         echo -e "$line"
 
-		sleep 21
-	done
+        sleep 21
+    done
 }
 
 main $@
