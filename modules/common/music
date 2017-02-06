@@ -1,3 +1,11 @@
 #!/bin/bash
 
 MUSIC_FIFO="/tmp/mocp_status"
+
+moc_running(){
+	if mocp -M ~/.config/moc -i >/dev/null 2>&1; then
+		return 0
+	else
+		return 1
+	fi
+}

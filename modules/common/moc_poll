@@ -4,11 +4,12 @@ curdir="$(dirname "$(readlink -f "$0")")"
 . "$curdir/music"
 
 while :; do
-	output="$(mocp -M ~/.config/moc -Q %state 2>/dev/null)"
-	if [ $? -ne 0 ]; then
+	if ! moc_running; then
 		echo "ded:" > "$MUSIC_FIFO"
 		exit 0
 	fi
+	
+	output="$(mocp -M ~/.config/moc -Q %state 2>/dev/null)"
 	case "$output" in
 		PAUSE) echo "onpause:" > "$MUSIC_FIFO" ;;
 		PLAY) echo "unpause:" > "$MUSIC_FIFO" ;;

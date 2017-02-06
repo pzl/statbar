@@ -3,6 +3,14 @@
 curdir="$(dirname "$(readlink -f "$0")")"
 . "$curdir/common/music"
 
+strlen(){
+	local oLang=$LANG
+	local len
+	LANG=C
+	len="${#1}"
+	LANG=$oLang
+	echo "$len"
+}
 
 getstatus(){
 	local info="$(mocp -M ~/.config/moc -Q %state 2>/dev/null)"
@@ -27,6 +35,7 @@ geticon(){
 }
 
 getinfo(){
+	local displen="15"
 	local mocoutput song artist
 
 	if [ $playing -le 0 ]; then
@@ -37,7 +46,7 @@ getinfo(){
 	song="$(echo "$mocoutput" | grep SongTitle | cut -d: -f2 | awk '{$1=$1};1')"
 	artist="$(echo "$mocoutput" | grep Artist | cut -d: -f2 | awk '{$1=$1};1')"
 
-	printf " %-15.15s" "$song - $artist"
+	printf " %-${displen}.${displen}s" "$song - $artist"
 }
 
 main(){
@@ -53,7 +62,7 @@ main(){
 		desc="$(echo "$output" | cut -d: -f1)"
 		case "$desc" in
 			onstop)
-				if mocp -M ~/.config/moc -Q %state >/dev/null 2>&1; then
+				if moc_running; then
 					playing=0
 				else
 					playing=-1

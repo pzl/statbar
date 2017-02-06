@@ -22,14 +22,14 @@ case "$1" in
 		;;
 	next) mocp -M ~/.config/moc -f >/dev/null 2>&1 ;;
 	up)
-		if mocp -M ~/.config/moc -Q %state >/dev/null 2>&1; then
+		if moc_running; then
 			mocp -M ~/.config/moc -v +10%
 		else
 			pactl set-sink-volume "@DEFAULT_SINK@" +10%
 		fi
 		;;
 	down)
-		if mocp -M ~/.config/moc -Q %state >/dev/null 2>&1; then
+		if moc_running; then
 			mocp -M ~/.config/moc -v -10%
 		else
 			pactl set-sink-volume "@DEFAULT_SINK@" -10%
@@ -37,6 +37,7 @@ case "$1" in
 		;;
 	mute) pactl set-sink-mute "@DEFAULT_SINK@" toggle ;;
 	*)
+		if ! moc_running; then conkup "moc not running"; exit 0; fi
 		ln -sf ~/.config/moc ~/.moc
 		conkup "$(mocp -M ~/.config/moc -Q "%state\n%song\n%artist\n%album")\n$<moc_curtime>/$<moc_totaltime>" 15 1
 		sleep 15
