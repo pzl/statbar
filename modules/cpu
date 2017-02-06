@@ -5,23 +5,45 @@ readonly C_CPU=("%{F#CE4072}" "%{F#6AB84C}" "%{F#C358B9}" "%{F#BEAB45}" "%{F#7E6
 readonly threshold_busy="70"
 readonly threshold_temp="48"
 
+
+
 curdir="$(dirname "$(readlink -f "$0")")"
 
+#cpu temp conversion
+scale_temp(){
+	local temp_low="20"
+	local temp_high="75"
+	echo "scale=2; (($1-$temp_low)/($temp_high-$temp_low)) * 100 " | bc | xargs printf "%.0f"
+}
+
+
+# to_bar <NUMBER>
+to_bar(){
+	local rounded=$(echo "scale=2;$1/10"|bc|xargs printf "%.0f")
+
+	case $rounded in
+		0) echo -e "\u23bd";;
+		[1-7]) echo -e "\u258${rounded}";;
+		8) echo -e "\u2591";;
+		9) echo -e "\u2588";;
+		10) echo -e "\u25d9";;
+	esac
+}
 
 
 main() {
-    local cpucount
+	local cpucount
 	local percs
 	local buf
 	local i
 	local temps
 
-    cpucount="$(lscpu | grep "^CPU(s):" | awk '{print $2}')"
+	cpucount="$(lscpu | grep "^CPU(s):" | awk '{print $2}')"
 
 	while :; do
 		#per-core percentage
 		percs="$(top -bn 2 -w 512 | grep "%Cpu" | tail -n $cpucount | awk '{print $4}' | tr -d '\:\|\[\],')"
-		buf="${C_TITLE}%{A:$curdir/popups/cpu:}${ic_cpu}%{A}${C_RST} "
+		buf="${C_TITLE}%{A:$curdir/popups/cpu:}%{A3:$curdir/popups/cpu q:}${ic_cpu}%{A}%{A}${C_RST} "
 
 		i=0 
 		for proc in $percs; do
@@ -29,9 +51,11 @@ main() {
 			if [ "$proc" -gt $threshold_busy ]; then
 				color="${C_WARN}"
 			fi
-		    buf="${buf}${color}$(printf "%2s" "$proc")% "
-		    i=$((i + 1))
+			buf="${buf}${color}$(to_bar $proc)"
+			i=$((i + 1))
 		done
+
+		buf="${buf}${C_RST}\u19"
 
 		#per-core temperatures
 		temps=$(sensors -u "coretemp-isa-0000" | awk '/Core/{getline; printf("%2.0f\n", $2) }')
@@ -42,8 +66,8 @@ main() {
 			if [ "$temp" -gt $threshold_temp ]; then
 				color="${C_WARN}"
 			fi
-		    buf="${buf}${color}${temp}°C "
-		    i=$((i + 1))
+			buf="${buf}${color}$(to_bar $(scale_temp $temp))"
+			i=$((i + 1))
 		done
 
 		buf="${buf}${C_RST}"

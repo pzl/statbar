@@ -1,8 +1,42 @@
 #!/bin/bash
 
-lines=""
-for i in {1..8}; do
-	lines="${lines}$<top cpu $i>    $<top name $i>    $<color 708090>($<top user $i>)$<color>\n"
-done
+#arrays do not seem to be exportable in bash
+readonly C_CPU=("$<color CE4072>" "$<color 6AB84C>" "$<color C358B9>" "$<color BEAB45>" "$<color 7E66CC>" "$<color DD8037>" "$<color 678CCC>" "$<color CA5544>" "$<color 4EB699>" "$<color BF7096>" "$<color 5F803B>" "$<color A4773F>")
+readonly threshold_busy="70"
+readonly threshold_temp="48"
 
-conkup "$lines" 10 1
+if [ "$1" = "q" ]; then
+	cpucount="$(lscpu | grep "^CPU(s):" | awk '{print $2}')"
+
+	#per-core percentage
+	i=0 
+	for proc in `seq 1 $cpucount`; do
+		color="${C_CPU[$i]}"
+		buf="${buf}${color}$<cpu cpu${i}>% "
+		i=$((i + 1))
+	done
+
+	#per-core temperatures
+	temps=$(sensors -u "coretemp-isa-0000" | awk '/Core/{getline; printf("%2.0f\n", $2) }')
+
+	i=0 
+	for temp in $temps; do
+		color="${C_CPU[$i]}"
+		if [ "$temp" -gt $threshold_temp ]; then
+			color="${C_WARN}"
+		fi
+		buf="${buf}${color}${temp}°C "
+		i=$((i + 1))
+	done
+
+	buf="${buf}$<color >"
+
+	conkup "$buf" 10 1
+else
+	lines=""
+	for i in {1..8}; do
+		lines="${lines}$<top cpu $i>    $<top name $i>    $<color 708090>($<top user $i>)$<color>\n"
+	done
+
+	conkup "$lines" 10 1
+fi
