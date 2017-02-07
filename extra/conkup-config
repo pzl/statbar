@@ -17,7 +17,7 @@ conky.config = {
 	font =  'xos4 Terminus:size=9',
 
 	own_window = true,
-	own_window_type = 'panel',
+	own_window_type = 'dock',
 	own_window_transparent = false,
 	own_window_colour = '383a3b',
 	own_window_hints = 'undecorated,above,sticky,skip_taskbar,skip_pager',
