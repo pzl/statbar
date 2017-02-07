@@ -13,7 +13,7 @@ main(){
 		ic_color="${C_TITLE}"
 
 		pacman_updates=$(checkupdates 2>/dev/null | wc -l)
-		pacaur_updates=$(pacaur -Qqau 2>/dev/null | wc -l)
+		pacaur_updates=$(pacaur -Qqum 2>/dev/null | wc -l)
 
 
 		if [ "$pacman_updates" -gt "$THRESHOLD" ]; then
