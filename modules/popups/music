@@ -39,8 +39,8 @@ case "$1" in
 	*)
 		if ! moc_running; then conkup "moc not running"; exit 0; fi
 		ln -sf ~/.config/moc ~/.moc
-		conkup "$(mocp -M ~/.config/moc -Q "%state\n%song\n%artist\n%album")\n$<moc_curtime>/$<moc_totaltime>" 15 1
-		sleep 15
+		conkup "$(mocp -M ~/.config/moc -Q "%state\n%song\n%artist\n%album")\n$<moc_curtime>/$<moc_totaltime>" 4 1
+		sleep 5
 		rm -rf ~/.moc
 		;;
 esac
