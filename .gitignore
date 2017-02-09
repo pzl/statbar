@@ -1,4 +1,5 @@
 *~
+*.sw[po]
 build/
 statbar
 statd
