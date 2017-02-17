@@ -146,7 +146,7 @@ static void spawn_bar(int *lemon_in, int *lemon_out, const char *geometry) {
 
 		execlp("lemonbar", "lemonbar",
 		       "-g",geometry,"-B","#ee383a3b","-F","#ffffff",
-		       "-u","3","-a","20",
+		       "-u","3","-a","50",
 		       "-f","-*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*",
 		       "-f","-*-lemon-medium-*-*-*-10-*-75-75-*-*-iso10646-*",
 		       "-f","-*-uushi-*-*-*-*-*-*-75-75-*-*-iso10646-*",
