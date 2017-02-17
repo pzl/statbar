@@ -10,10 +10,11 @@
 #define DEBUG_(x)
 #endif
 
-#define BUF_SIZE 8192
+#define SMALL_BUF 1024
+
+#define BUF_SIZE SMALL_BUF*12
 #define SHM_PATH "/statbar"
 
-#define SMALL_BUF 1024
 
 #define MEM_FAILED (void *)-1
 
