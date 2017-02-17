@@ -3,16 +3,8 @@ import subprocess
 import sys
 import os
 import json
+import re
 
-"""
-def make(font, character):
-	return "{}{}{}".format(os.environ[font],character,os.environ['F_RESET'])
-
-
-def map_clients(node):
-	if node is None:
-		return
-"""
 
 def icon(font,codepoint):
 	return "%s%s%s" % (os.environ[font],codepoint,os.environ['F_RESET'])
@@ -55,6 +47,44 @@ def parse_desktop(d,focused_d,focused_m):
 
 	#single node
 	if d['root']['client'] is not None:
+		node = subprocess.run(["bspc","query","-N","-d",str(d['id'])],stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+		xprop = subprocess.run(["xprop","-id",node],stdout=subprocess.PIPE).stdout.decode('utf-8')
+
+		window = re.findall("^WM_CLASS.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+		title = re.findall("^WM_NAME.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+
+		if window:
+			window = window.lower()
+		if title:
+			title = title.lower()
+
+		if window == "google-chrome":
+			if "reddit" in title:
+				return s % (os.environ["F_SIJI"],"\ue1e9",os.environ["F_RESET"])
+			elif "at master" in title:
+				return s % (os.environ["F_SIJI"],"\ue1d3",os.environ["F_RESET"])
+			elif "youtube" in title:
+				return s % (os.environ["F_SIJI"],"\ue1eb",os.environ["F_RESET"])
+			elif "inbox" in title or "mail" in title:
+				return s % (os.environ["F_SIJI"],"\ue229",os.environ["F_RESET"])
+			else:
+				return s % (os.environ["F_SIJI"],"\ue1a0",os.environ["F_RESET"])
+		elif window == "terminator":
+			return s % (os.environ["F_SIJI"],"\ue1ef",os.environ["F_RESET"])
+		elif window == "blender":
+			return s % (os.environ["F_SIJI"],"\ue1c0",os.environ["F_RESET"])
+		elif window == "thunar":
+			return s % (os.environ["F_SIJI"],"\ue1e1",os.environ["F_RESET"])
+		elif window == "darktable":
+			return s % (os.environ["F_SIJI"],"\ue1e7",os.environ["F_RESET"])
+		elif window == "viewnior" or window == "sxiv":
+			return s % (os.environ["F_SIJI"],"\ue1da",os.environ["F_RESET"])
+		elif window == "evince":
+			return s % (os.environ["F_SIJI"],"\ue1ed",os.environ["F_RESET"])
+		elif window == "vlc" or window == "gl": #mplayer
+			return s % (os.environ["F_SIJI"],"\ue1dd",os.environ["F_RESET"])
+
+		#did not find any app-specific icons, go with generic
 		if d['root']['client']['state'] == 'floating':
 			return s % (os.environ["F_SIJI"],"\ue001",os.environ["F_RESET"])
 		else:
