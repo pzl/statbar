@@ -1,14 +1,7 @@
 #!/bin/bash
 
 get_iface(){
-	local wireless_up="$(cat /proc/net/wireless | wc -l)"
-	local net_iface
-	if [ $wireless_up -ge 3 ]; then
-		net_iface="$(tail -n1 /proc/net/wireless | cut -d':' -f1)"
-	else
-        net_iface="$(ip route show to root 192.168.1/24 | awk '{print $3}')"
-	fi
-	echo -n "$net_iface"
+	echo -n "$(ip route show to root 192.168.1/24 src 192.168.1/24 | awk '{print $3}')"
 }
 
 net_scale(){
