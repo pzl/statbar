@@ -76,6 +76,15 @@ def parse_desktop(d,focused_d,focused_m):
 			else:
 				return s % (os.environ["F_SIJI"],"\ue004",os.environ["F_RESET"])
 
+	if n_clients == 3 and n_floaters == 0:
+		if d['root']['splitType'] == 'vertical':
+			if d['root']['firstChild']['client']:
+				return s % (os.environ["F_UUSHI"],"\u2b98",os.environ["F_RESET"])
+			else:
+				return s % (os.environ["F_UUSHI"],"\u2b99",os.environ["F_RESET"])
+		elif d['root']['firstChild']['client'] and d['root']['secondChild']['splitType'] == 'vertical':
+			return s % (os.environ["F_UUSHI"],"\u2b9a",os.environ["F_RESET"])
+
 	# everything below is 3+ clients, with at least some tiled
 	if d['root']['splitType'] == 'horizontal':
 		if d['root']['firstChild']['client']:
