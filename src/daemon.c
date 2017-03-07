@@ -168,53 +168,64 @@ static int spawn(char * dir, const char *module) {
 			perror("parent closing output");
 		}
 
+		// set nonblocking so we don't get blocked reading any one client past the end
+		fcntl(fds[0], F_SETFL, fcntl(fds[0], F_GETFL, 0) | O_NONBLOCK);
+
 		return fds[0];
 	}
 }
 
 static void read_data(status *stats, int fd, int moduleno) {
-	char * bufp;
+	char *module_buf,
+		  buf[SMALL_BUF];
 	int i;
-	ssize_t n_bytes;
+	ssize_t bytes_read=0,
+			total_bytes=0;
 
 	switch (moduleno) {
-		case 0: bufp = stats->datetime; break;
-		case 1: bufp = stats->network; break;
-		case 2: bufp = stats->net_tx; break;
-		case 3: bufp = stats->bluetooth; break;
-		case 4: bufp = stats->memory; break;
-		case 5: bufp = stats->cpu; break;
-		case 6: bufp = stats->gpu; break;
-		case 7: bufp = stats->packages; break;
-		case 8: bufp = stats->runtime; break;
-		case 9: bufp = stats->weather; break;
-		case 10: bufp = stats->linux; break;
-		case 11: bufp = stats->desktop; break;
-		case 12: bufp = stats->music; break;
+		case 0: module_buf = stats->datetime; break;
+		case 1: module_buf = stats->network; break;
+		case 2: module_buf = stats->net_tx; break;
+		case 3: module_buf = stats->bluetooth; break;
+		case 4: module_buf = stats->memory; break;
+		case 5: module_buf = stats->cpu; break;
+		case 6: module_buf = stats->gpu; break;
+		case 7: module_buf = stats->packages; break;
+		case 8: module_buf = stats->runtime; break;
+		case 9: module_buf = stats->weather; break;
+		case 10: module_buf = stats->linux; break;
+		case 11: module_buf = stats->desktop; break;
+		case 12: module_buf = stats->music; break;
 	}
 
-	n_bytes = read(fd, bufp, SMALL_BUF-4);
-	if (n_bytes < 0){
-		perror("module data read");
-	}
+	do {
+		bytes_read = read(fd, &buf[total_bytes], SMALL_BUF-total_bytes-4);
+		if (bytes_read > 0){
+			total_bytes += bytes_read;
+		}
+		if (bytes_read < 0 && bytes_read != EAGAIN){
+			perror("module data read");
+		}
+	} while (bytes_read > 0);
 
 	//strip any newlines
-	for (i=0; i<n_bytes; i++){
-		if (bufp[i] == '\n') {
-			bufp[i] = ' ';
+	for (i=0; i<total_bytes; i++){
+		if (buf[i] == '\n') {
+			buf[i] = ' ';
 		}
 	}
 	if (moduleno != 10){
-		bufp[n_bytes] = ' '; //add space padding
-		bufp[n_bytes+1] = ' ';
-		bufp[n_bytes+2] = ' ';
-		bufp[n_bytes+3] = ' ';
-		bufp[n_bytes+4]='\0'; // force null termination
+		buf[total_bytes] = ' '; //add space padding
+		buf[total_bytes+1] = ' ';
+		buf[total_bytes+2] = ' ';
+		buf[total_bytes+3] = ' ';
+		buf[total_bytes+4]='\0'; // force null termination
 	} else {
-		bufp[n_bytes] = '\0';
+		buf[total_bytes] = '\0';
 	}
 
-	DEBUG_(printf("got data in: %s\n", bufp));
+	DEBUG_(printf("got data in: %s\n", buf));
+	memcpy(module_buf,buf,strlen(buf));
 }
 
 
