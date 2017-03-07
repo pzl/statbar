@@ -203,7 +203,7 @@ static void read_data(status *stats, int fd, int moduleno) {
 		if (bytes_read > 0){
 			total_bytes += bytes_read;
 		}
-		if (bytes_read < 0 && bytes_read != EAGAIN){
+		if (bytes_read < 0 && errno != EAGAIN){
 			perror("module data read");
 		}
 	} while (bytes_read > 0);
