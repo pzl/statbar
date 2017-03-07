@@ -50,8 +50,14 @@ def parse_desktop(d,focused_d,focused_m):
 		node = subprocess.run(["bspc","query","-N","-d",str(d['id'])],stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 		xprop = subprocess.run(["xprop","-id",node],stdout=subprocess.PIPE).stdout.decode('utf-8')
 
-		window = re.findall("^WM_CLASS.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
-		title = re.findall("^WM_NAME.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+		try:
+			window = re.findall("^WM_CLASS.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+		except IndexError:
+			window = ""
+		try:
+			title = re.findall("^WM_NAME.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+		except IndexError:
+			title = ""
 
 		if window:
 			window = window.lower()
