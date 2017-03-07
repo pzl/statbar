@@ -225,7 +225,7 @@ static void read_data(status *stats, int fd, int moduleno) {
 	}
 
 	DEBUG_(printf("got data in: %s\n", buf));
-	memcpy(module_buf,buf,strlen(buf));
+	memcpy(module_buf,buf,strlen(buf)+1);
 }
 
 
