@@ -89,6 +89,8 @@ def parse_desktop(d,focused_d,focused_m):
 			return s % (os.environ["F_SIJI"],"\ue1ed",os.environ["F_RESET"])
 		elif window == "vlc" or window == "gl": #mplayer
 			return s % (os.environ["F_SIJI"],"\ue1dd",os.environ["F_RESET"])
+		elif window == "inkscape":
+			return s % (os.environ["F_SIJI"],"\ue153",os.environ["F_RESET"])
 
 		#did not find any app-specific icons, go with generic
 		if d['root']['client']['state'] == 'floating':
