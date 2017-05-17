@@ -15,12 +15,13 @@ numgpus(){
 
 nvst(){
     [ $NVST_INSTALLED -eq 0 ] || return 1
-    nvidia-settings -q $1 -t
+    nvidia-settings -q $1 -t 2>/dev/null
 }
 nvsmi(){
     [ $NVSM_INSTALLED -eq 0 ] || return 1
     local val="$(nvidia-smi -i $1 --query-gpu=$2 --format=csv,noheader,nounits)"
-    if [ "$val" == "[Not Supported]" ]; then
+    local retval=$?
+    if [ "$val" == "[Not Supported]" -o $retval -ne 0 -o "$val" == "Failed to initialize NVML: Driver/library version mismatch" ]; then
         return 1
     else
         echo "$val"
