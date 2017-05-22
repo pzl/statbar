@@ -5,5 +5,5 @@ curdir="$(dirname "$(readlink -f "$0")")"
 
 NET_INTERFACE="$(get_iface)"
 
-read -r rx tx <<< "$(cat /proc/net/dev | grep " $NET_INTERFACE:" | awk '{print $2, $10}' )"
-conkup "\${alignc}\${color 708090}Totals:\${color}\n\${color 708090}RX:\${color} $(net_scale "$rx")\n\${color 708090}TX:\${color} $(net_scale "$tx")" 10 10
+read -r rx tx <<< "$(grep " $NET_INTERFACE:" /proc/net/dev | awk '{print $2, $10}' | numfmt --to=iec --field=- --format=%4.1f )"
+conkup "\${alignc}\${color 708090}Totals:\${color}\n\${color 708090}RX:\${color} $rx\n\${color 708090}TX:\${color} $tx" 10 10

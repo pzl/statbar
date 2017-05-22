@@ -23,7 +23,7 @@ main(){
 
         # Fetch network data
         #stats also accessible with `ifconfig $NET_INTERFACE | grep bytes`
-        read -r rx tx <<< "$(cat /proc/net/dev | grep " $interface:" | awk '{print $2, $10}' )"
+        read -r rx tx <<< "$(grep " $interface:" /proc/net/dev | awk '{print $2, $10}' )"
         curtime="$(date +%s)" #get current time to calculate delta since last run
 
         if [ -n "$prevtime" ]; then
