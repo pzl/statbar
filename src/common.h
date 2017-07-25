@@ -3,6 +3,7 @@
 
 #include <sys/types.h> //pid_t
 #include <signal.h>
+#include "icons-in-terminal.h"
 
 #ifdef DEBUG
 #define DEBUG_(x) do { x; } while (0)
@@ -23,6 +24,7 @@
 #define _FLEMON "%{T2}"
 #define _FUUSHI "%{T3}"
 #define _FSIJI "%{T4}"
+#define _FICON "%{T5}"
 
 #define SENV(e,v) do { if (setenv(e,v,1) < 0) { perror("setenv"); } } while (0)
 

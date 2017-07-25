@@ -151,6 +151,7 @@ static void spawn_bar(int *lemon_in, int *lemon_out, const char *geometry) {
 		       "-f","-*-lemon-medium-*-*-*-10-*-75-75-*-*-iso10646-*",
 		       "-f","-*-uushi-*-*-*-*-*-*-75-75-*-*-iso10646-*",
 		       "-f","-*-siji-*-*-*-*-10-*-75-75-*-*-iso10646-*",
+		       "-f","icons\\-in\\-terminal:style=in-terminal",
 		       NULL);
 		exit(0); //if lemonbar exits, don't continue running C code. DIE!
 	} else {
