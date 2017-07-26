@@ -3,7 +3,6 @@
 
 #include <sys/types.h> //pid_t
 #include <signal.h>
-#include "icons-in-terminal.h"
 
 #ifdef DEBUG
 #define DEBUG_(x) do { x; } while (0)

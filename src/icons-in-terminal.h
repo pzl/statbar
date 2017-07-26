@@ -1,3736 +1,3732 @@
-#ifndef ICONS_IN_TERMINAL
-# define ICONS_IN_TERMINAL
-
-# define POWERLINE_BRANCH "\ue0a0"
-# define POWERLINE_LINE_NUMBER "\ue0a1"
-# define POWERLINE_READONLY "\ue0a2"
-# define POWERLINE_EXTRA_COLUMN_NUMBER "\ue0a3"
-# define POWERLINE_LEFT_HARD_DIVIDER "\ue0b0"
-# define POWERLINE_LEFT_SOFT_DIVIDER "\ue0b1"
-# define POWERLINE_RIGHT_HARD_DIVIDER "\ue0b2"
-# define POWERLINE_RIGHT_SOFT_DIVIDER "\ue0b3"
-# define POWERLINE_EXTRA_RIGHT_HALF_CIRCLE_THICK "\ue0b4"
-# define POWERLINE_EXTRA_RIGHT_HALF_CIRCLE_THIN "\ue0b5"
-# define POWERLINE_EXTRA_LEFT_HALF_CIRCLE_THICK "\ue0b6"
-# define POWERLINE_EXTRA_LEFT_HALF_CIRCLE_THIN "\ue0b7"
-# define POWERLINE_EXTRA_LOWER_LEFT_TRIANGLE "\ue0b8"
-# define POWERLINE_EXTRA_BACKSLASH_SEPARATOR "\ue0b9"
-# define POWERLINE_EXTRA_LOWER_RIGHT_TRIANGLE "\ue0ba"
-# define POWERLINE_EXTRA_FORWARDSLASH_SEPARATOR "\ue0bb"
-# define POWERLINE_EXTRA_UPPER_LEFT_TRIANGLE "\ue0bc"
-# define POWERLINE_EXTRA_FORWARDSLASH_SEPARATOR_REDUNDANT "\ue0bd"
-# define POWERLINE_EXTRA_UPPER_RIGHT_TRIANGLE "\ue0be"
-# define POWERLINE_EXTRA_BACKSLASH_SEPARATOR_REDUNDANT "\ue0bf"
-# define POWERLINE_EXTRA_FLAME_THICK "\ue0c0"
-# define POWERLINE_EXTRA_FLAME_THIN "\ue0c1"
-# define POWERLINE_EXTRA_FLAME_THICK_MIRRORED "\ue0c2"
-# define POWERLINE_EXTRA_FLAME_THIN_MIRRORED "\ue0c3"
-# define POWERLINE_EXTRA_PIXELATED_SQUARES_SMALL "\ue0c4"
-# define POWERLINE_EXTRA_PIXELATED_SQUARES_SMALL_MIRRORED "\ue0c5"
-# define POWERLINE_EXTRA_PIXELATED_SQUARES_BIG "\ue0c6"
-# define POWERLINE_EXTRA_PIXELATED_SQUARES_BIG_MIRRORED "\ue0c7"
-# define POWERLINE_EXTRA_ICE_WAVEFORM "\ue0c8"
-# define POWERLINE_EXTRA_ICE_WAVEFORM_MIRRORED "\ue0ca"
-# define POWERLINE_EXTRA_HONEYCOMB "\ue0cc"
-# define POWERLINE_EXTRA_HONEYCOMB_OUTLINE "\ue0cd"
-# define POWERLINE_EXTRA_LEGO_SEPARATOR "\ue0ce"
-# define POWERLINE_EXTRA_LEGO_SEPARATOR_THIN "\ue0cf"
-# define POWERLINE_EXTRA_LEGO_BLOCK_FACING "\ue0d0"
-# define POWERLINE_EXTRA_LEGO_BLOCK_SIDEWAYS "\ue0d1"
-# define POWERLINE_EXTRA_TRAPEZOID_TOP_BOTTOM "\ue0d2"
-# define POWERLINE_EXTRA_TRAPEZOID_TOP_BOTTOM_MIRRORED "\ue0d4"
-# define OCT_HEART "\ue000"
-# define OCT_ZAP "\ue001"
-# define OCT_LIGHT_BULB "\ue002"
-# define OCT_REPO "\ue003"
-# define OCT_REPO_FORKED "\ue004"
-# define OCT_REPO_PUSH "\ue005"
-# define OCT_REPO_PULL "\ue006"
-# define OCT_BOOK "\ue007"
-# define OCT_OCTOFACE "\ue008"
-# define OCT_GIT_PULL_REQUEST "\ue009"
-# define OCT_MARK_GITHUB "\ue00a"
-# define OCT_CLOUD_DOWNLOAD "\ue00b"
-# define OCT_CLOUD_UPLOAD "\ue00c"
-# define OCT_KEYBOARD "\ue00d"
-# define OCT_GIST "\ue00e"
-# define OCT_FILE_CODE "\ue00f"
-# define OCT_FILE_TEXT "\ue010"
-# define OCT_FILE_MEDIA "\ue011"
-# define OCT_FILE_ZIP "\ue012"
-# define OCT_FILE_PDF "\ue013"
-# define OCT_TAG "\ue014"
-# define OCT_FILE_DIRECTORY "\ue015"
-# define OCT_FILE_SUBMODULE "\ue016"
-# define OCT_PERSON "\ue017"
-# define OCT_JERSEY "\ue018"
-# define OCT_GIT_COMMIT "\ue019"
-# define OCT_GIT_BRANCH "\ue01a"
-# define OCT_GIT_MERGE "\ue01b"
-# define OCT_MIRROR "\ue01c"
-# define OCT_ISSUE_OPENED "\ue01d"
-# define OCT_ISSUE_REOPENED "\ue01e"
-# define OCT_ISSUE_CLOSED "\ue01f"
-# define OCT_STAR "\ue020"
-# define OCT_COMMENT "\ue021"
-# define OCT_QUESTION "\ue022"
-# define OCT_ALERT "\ue023"
-# define OCT_SEARCH "\ue024"
-# define OCT_GEAR "\ue025"
-# define OCT_RADIO_TOWER "\ue026"
-# define OCT_TOOLS "\ue027"
-# define OCT_SIGN_OUT "\ue028"
-# define OCT_ROCKET "\ue029"
-# define OCT_RSS "\ue02a"
-# define OCT_CLIPPY "\ue02b"
-# define OCT_SIGN_IN "\ue02c"
-# define OCT_ORGANIZATION "\ue02d"
-# define OCT_DEVICE_MOBILE "\ue02e"
-# define OCT_UNFOLD "\ue02f"
-# define OCT_CHECK "\ue030"
-# define OCT_MAIL "\ue031"
-# define OCT_MAIL_READ "\ue032"
-# define OCT_ARROW_UP "\ue033"
-# define OCT_ARROW_RIGHT "\ue034"
-# define OCT_ARROW_DOWN "\ue035"
-# define OCT_ARROW_LEFT "\ue036"
-# define OCT_PIN "\ue037"
-# define OCT_GIFT "\ue038"
-# define OCT_GRAPH "\ue039"
-# define OCT_TRIANGLE_LEFT "\ue03a"
-# define OCT_CREDIT_CARD "\ue03b"
-# define OCT_CLOCK "\ue03c"
-# define OCT_RUBY "\ue03d"
-# define OCT_BROADCAST "\ue03e"
-# define OCT_KEY "\ue03f"
-# define OCT_REPO_FORCE_PUSH "\ue040"
-# define OCT_REPO_CLONE "\ue041"
-# define OCT_DIFF "\ue042"
-# define OCT_EYE "\ue043"
-# define OCT_COMMENT_DISCUSSION "\ue044"
-# define OCT_MAIL_REPLY "\ue045"
-# define OCT_PRIMITIVE_DOT "\ue046"
-# define OCT_PRIMITIVE_SQUARE "\ue047"
-# define OCT_DEVICE_CAMERA "\ue048"
-# define OCT_DEVICE_CAMERA_VIDEO "\ue049"
-# define OCT_PENCIL "\ue04a"
-# define OCT_INFO "\ue04b"
-# define OCT_TRIANGLE_RIGHT "\ue04c"
-# define OCT_TRIANGLE_DOWN "\ue04d"
-# define OCT_LINK "\ue04e"
-# define OCT_PLUS "\ue04f"
-# define OCT_THREE_BARS "\ue050"
-# define OCT_CODE "\ue051"
-# define OCT_LOCATION "\ue052"
-# define OCT_LIST_UNORDERED "\ue053"
-# define OCT_LIST_ORDERED "\ue054"
-# define OCT_QUOTE "\ue055"
-# define OCT_VERSIONS "\ue056"
-# define OCT_CALENDAR "\ue057"
-# define OCT_LOCK "\ue058"
-# define OCT_DIFF_ADDED "\ue059"
-# define OCT_DIFF_REMOVED "\ue05a"
-# define OCT_DIFF_MODIFIED "\ue05b"
-# define OCT_DIFF_RENAMED "\ue05c"
-# define OCT_HORIZONTAL_RULE "\ue05d"
-# define OCT_ARROW_SMALL_RIGHT "\ue05e"
-# define OCT_MILESTONE "\ue05f"
-# define OCT_CHECKLIST "\ue060"
-# define OCT_MEGAPHONE "\ue061"
-# define OCT_CHEVRON_RIGHT "\ue062"
-# define OCT_BOOKMARK "\ue063"
-# define OCT_SETTINGS "\ue064"
-# define OCT_DASHBOARD "\ue065"
-# define OCT_HISTORY "\ue066"
-# define OCT_LINK_EXTERNAL "\ue067"
-# define OCT_MUTE "\ue068"
-# define OCT_X "\ue069"
-# define OCT_CIRCLE_SLASH "\ue06a"
-# define OCT_PULSE "\ue06b"
-# define OCT_SYNC "\ue06c"
-# define OCT_TELESCOPE "\ue06d"
-# define OCT_GIST_SECRET "\ue06e"
-# define OCT_HOME "\ue06f"
-# define OCT_STOP "\ue070"
-# define OCT_BUG "\ue071"
-# define OCT_LOGO_GITHUB "\ue072"
-# define OCT_FILE_BINARY "\ue073"
-# define OCT_DATABASE "\ue074"
-# define OCT_SERVER "\ue075"
-# define OCT_DIFF_IGNORED "\ue076"
-# define OCT_ELLIPSIS "\ue077"
-# define OCT_NO_NEWLINE "\ue078"
-# define OCT_HUBOT "\ue079"
-# define OCT_ARROW_SMALL_UP "\ue07a"
-# define OCT_ARROW_SMALL_DOWN "\ue07b"
-# define OCT_ARROW_SMALL_LEFT "\ue07c"
-# define OCT_CHEVRON_UP "\ue07d"
-# define OCT_CHEVRON_DOWN "\ue07e"
-# define OCT_CHEVRON_LEFT "\ue07f"
-# define OCT_TRIANGLE_UP "\ue080"
-# define OCT_GIT_COMPARE "\ue081"
-# define OCT_LOGO_GIST "\ue082"
-# define OCT_FILE_SYMLINK_FILE "\ue083"
-# define OCT_FILE_SYMLINK_DIRECTORY "\ue084"
-# define OCT_SQUIRREL "\ue085"
-# define OCT_GLOBE "\ue086"
-# define OCT_UNMUTE "\ue087"
-# define OCT_MENTION "\ue088"
-# define OCT_PACKAGE "\ue089"
-# define OCT_BROWSER "\ue08a"
-# define OCT_TERMINAL "\ue08b"
-# define OCT_MARKDOWN "\ue08c"
-# define OCT_DASH "\ue08d"
-# define OCT_FOLD "\ue08e"
-# define OCT_INBOX "\ue08f"
-# define OCT_TRASHCAN "\ue090"
-# define OCT_PAINTCAN "\ue091"
-# define OCT_FLAME "\ue092"
-# define OCT_BRIEFCASE "\ue093"
-# define OCT_PLUG "\ue094"
-# define OCT_CIRCUIT_BOARD "\ue095"
-# define OCT_MORTAR_BOARD "\ue096"
-# define OCT_LAW "\ue097"
-# define OCT_THUMBSUP "\ue098"
-# define OCT_THUMBSDOWN "\ue099"
-# define OCT_DESKTOP_DOWNLOAD "\ue09a"
-# define OCT_BEAKER "\ue09b"
-# define OCT_BELL "\ue09c"
-# define OCT_WATCH "\ue09d"
-# define OCT_SHIELD "\ue09e"
-# define OCT_BOLD "\ue09f"
-# define OCT_TEXT_SIZE "\ue0d5"
-# define OCT_ITALIC "\ue0d6"
-# define OCT_TASKLIST "\ue0d7"
-# define OCT_VERIFIED "\ue0d8"
-# define OCT_SMILEY "\ue0d9"
-# define OCT_UNVERIFIED "\ue0da"
-# define OCT_ELLIPSES "\ue0db"
-# define OCT_FILE "\ue0dc"
-# define OCT_GRABBER "\ue0dd"
-# define OCT_PLUS_SMALL "\ue0de"
-# define OCT_REPLY "\ue0df"
-# define OCT_DEVICE_DESKTOP "\ue0e0"
-# define FA_GLASS "\ue0e1"
-# define FA_MUSIC "\ue0e2"
-# define FA_SEARCH "\ue0e3"
-# define FA_ENVELOPE_O "\ue0e4"
-# define FA_HEART "\ue0e5"
-# define FA_STAR "\ue0e6"
-# define FA_STAR_O "\ue0e7"
-# define FA_USER "\ue0e8"
-# define FA_FILM "\ue0e9"
-# define FA_TH_LARGE "\ue0ea"
-# define FA_TH "\ue0eb"
-# define FA_TH_LIST "\ue0ec"
-# define FA_CHECK "\ue0ed"
-# define FA_CLOSE "\ue0ee"
-# define FA_SEARCH_PLUS "\ue0ef"
-# define FA_SEARCH_MINUS "\ue0f0"
-# define FA_POWER_OFF "\ue0f1"
-# define FA_SIGNAL "\ue0f2"
-# define FA_COG "\ue0f3"
-# define FA_TRASH_O "\ue0f4"
-# define FA_HOME "\ue0f5"
-# define FA_FILE_O "\ue0f6"
-# define FA_CLOCK_O "\ue0f7"
-# define FA_ROAD "\ue0f8"
-# define FA_DOWNLOAD "\ue0f9"
-# define FA_ARROW_CIRCLE_O_DOWN "\ue0fa"
-# define FA_ARROW_CIRCLE_O_UP "\ue0fb"
-# define FA_INBOX "\ue0fc"
-# define FA_PLAY_CIRCLE_O "\ue0fd"
-# define FA_REPEAT "\ue0fe"
-# define FA_REFRESH "\ue0ff"
-# define FA_LIST_ALT "\ue100"
-# define FA_LOCK "\ue101"
-# define FA_FLAG "\ue102"
-# define FA_HEADPHONES "\ue103"
-# define FA_VOLUME_OFF "\ue104"
-# define FA_VOLUME_DOWN "\ue105"
-# define FA_VOLUME_UP "\ue106"
-# define FA_QRCODE "\ue107"
-# define FA_BARCODE "\ue108"
-# define FA_TAG "\ue109"
-# define FA_TAGS "\ue10a"
-# define FA_BOOK "\ue10b"
-# define FA_BOOKMARK "\ue10c"
-# define FA_PRINT "\ue10d"
-# define FA_CAMERA "\ue10e"
-# define FA_FONT "\ue10f"
-# define FA_BOLD "\ue110"
-# define FA_ITALIC "\ue111"
-# define FA_TEXT_HEIGHT "\ue112"
-# define FA_TEXT_WIDTH "\ue113"
-# define FA_ALIGN_LEFT "\ue114"
-# define FA_ALIGN_CENTER "\ue115"
-# define FA_ALIGN_RIGHT "\ue116"
-# define FA_ALIGN_JUSTIFY "\ue117"
-# define FA_LIST "\ue118"
-# define FA_DEDENT "\ue119"
-# define FA_INDENT "\ue11a"
-# define FA_VIDEO_CAMERA "\ue11b"
-# define FA_IMAGE "\ue11c"
-# define FA_PENCIL "\ue11d"
-# define FA_MAP_MARKER "\ue11e"
-# define FA_ADJUST "\ue11f"
-# define FA_TINT "\ue120"
-# define FA_EDIT "\ue121"
-# define FA_SHARE_SQUARE_O "\ue122"
-# define FA_CHECK_SQUARE_O "\ue123"
-# define FA_ARROWS "\ue124"
-# define FA_STEP_BACKWARD "\ue125"
-# define FA_FAST_BACKWARD "\ue126"
-# define FA_BACKWARD "\ue127"
-# define FA_PLAY "\ue128"
-# define FA_PAUSE "\ue129"
-# define FA_STOP "\ue12a"
-# define FA_FORWARD "\ue12b"
-# define FA_FAST_FORWARD "\ue12c"
-# define FA_STEP_FORWARD "\ue12d"
-# define FA_EJECT "\ue12e"
-# define FA_CHEVRON_LEFT "\ue12f"
-# define FA_CHEVRON_RIGHT "\ue130"
-# define FA_PLUS_CIRCLE "\ue131"
-# define FA_MINUS_CIRCLE "\ue132"
-# define FA_TIMES_CIRCLE "\ue133"
-# define FA_CHECK_CIRCLE "\ue134"
-# define FA_QUESTION_CIRCLE "\ue135"
-# define FA_INFO_CIRCLE "\ue136"
-# define FA_CROSSHAIRS "\ue137"
-# define FA_TIMES_CIRCLE_O "\ue138"
-# define FA_CHECK_CIRCLE_O "\ue139"
-# define FA_BAN "\ue13a"
-# define FA_ARROW_LEFT "\ue13b"
-# define FA_ARROW_RIGHT "\ue13c"
-# define FA_ARROW_UP "\ue13d"
-# define FA_ARROW_DOWN "\ue13e"
-# define FA_MAIL_FORWARD "\ue13f"
-# define FA_EXPAND "\ue140"
-# define FA_COMPRESS "\ue141"
-# define FA_PLUS "\ue142"
-# define FA_MINUS "\ue143"
-# define FA_ASTERISK "\ue144"
-# define FA_EXCLAMATION_CIRCLE "\ue145"
-# define FA_GIFT "\ue146"
-# define FA_LEAF "\ue147"
-# define FA_FIRE "\ue148"
-# define FA_EYE "\ue149"
-# define FA_EYE_SLASH "\ue14a"
-# define FA_EXCLAMATION_TRIANGLE "\ue14b"
-# define FA_PLANE "\ue14c"
-# define FA_CALENDAR "\ue14d"
-# define FA_RANDOM "\ue14e"
-# define FA_COMMENT "\ue14f"
-# define FA_MAGNET "\ue150"
-# define FA_CHEVRON_UP "\ue151"
-# define FA_CHEVRON_DOWN "\ue152"
-# define FA_RETWEET "\ue153"
-# define FA_SHOPPING_CART "\ue154"
-# define FA_FOLDER "\ue155"
-# define FA_FOLDER_OPEN "\ue156"
-# define FA_ARROWS_V "\ue157"
-# define FA_ARROWS_H "\ue158"
-# define FA_BAR_CHART "\ue159"
-# define FA_TWITTER_SQUARE "\ue15a"
-# define FA_FACEBOOK_SQUARE "\ue15b"
-# define FA_CAMERA_RETRO "\ue15c"
-# define FA_KEY "\ue15d"
-# define FA_COGS "\ue15e"
-# define FA_COMMENTS "\ue15f"
-# define FA_THUMBS_O_UP "\ue160"
-# define FA_THUMBS_O_DOWN "\ue161"
-# define FA_STAR_HALF "\ue162"
-# define FA_HEART_O "\ue163"
-# define FA_SIGN_OUT "\ue164"
-# define FA_LINKEDIN_SQUARE "\ue165"
-# define FA_THUMB_TACK "\ue166"
-# define FA_EXTERNAL_LINK "\ue167"
-# define FA_SIGN_IN "\ue168"
-# define FA_TROPHY "\ue169"
-# define FA_GITHUB_SQUARE "\ue16a"
-# define FA_UPLOAD "\ue16b"
-# define FA_LEMON_O "\ue16c"
-# define FA_PHONE "\ue16d"
-# define FA_SQUARE_O "\ue16e"
-# define FA_BOOKMARK_O "\ue16f"
-# define FA_PHONE_SQUARE "\ue170"
-# define FA_TWITTER "\ue171"
-# define FA_FACEBOOK "\ue172"
-# define FA_GITHUB "\ue173"
-# define FA_UNLOCK "\ue174"
-# define FA_CREDIT_CARD "\ue175"
-# define FA_FEED "\ue176"
-# define FA_HDD_O "\ue177"
-# define FA_BULLHORN "\ue178"
-# define FA_BELL_O "\ue179"
-# define FA_CERTIFICATE "\ue17a"
-# define FA_HAND_O_RIGHT "\ue17b"
-# define FA_HAND_O_LEFT "\ue17c"
-# define FA_HAND_O_UP "\ue17d"
-# define FA_HAND_O_DOWN "\ue17e"
-# define FA_ARROW_CIRCLE_LEFT "\ue17f"
-# define FA_ARROW_CIRCLE_RIGHT "\ue180"
-# define FA_ARROW_CIRCLE_UP "\ue181"
-# define FA_ARROW_CIRCLE_DOWN "\ue182"
-# define FA_GLOBE "\ue183"
-# define FA_WRENCH "\ue184"
-# define FA_TASKS "\ue185"
-# define FA_FILTER "\ue186"
-# define FA_BRIEFCASE "\ue187"
-# define FA_ARROWS_ALT "\ue188"
-# define FA_GROUP "\ue189"
-# define FA_CHAIN "\ue18a"
-# define FA_CLOUD "\ue18b"
-# define FA_FLASK "\ue18c"
-# define FA_CUT "\ue18d"
-# define FA_COPY "\ue18e"
-# define FA_PAPERCLIP "\ue18f"
-# define FA_FLOPPY_O "\ue190"
-# define FA_SQUARE "\ue191"
-# define FA_BARS "\ue192"
-# define FA_LIST_UL "\ue193"
-# define FA_LIST_OL "\ue194"
-# define FA_STRIKETHROUGH "\ue195"
-# define FA_UNDERLINE "\ue196"
-# define FA_TABLE "\ue197"
-# define FA_MAGIC "\ue198"
-# define FA_TRUCK "\ue199"
-# define FA_PINTEREST "\ue19a"
-# define FA_PINTEREST_SQUARE "\ue19b"
-# define FA_GOOGLE_PLUS_SQUARE "\ue19c"
-# define FA_GOOGLE_PLUS "\ue19d"
-# define FA_MONEY "\ue19e"
-# define FA_CARET_DOWN "\ue19f"
-# define FA_CARET_UP "\ue1a0"
-# define FA_CARET_LEFT "\ue1a1"
-# define FA_CARET_RIGHT "\ue1a2"
-# define FA_COLUMNS "\ue1a3"
-# define FA_SORT "\ue1a4"
-# define FA_SORT_DESC "\ue1a5"
-# define FA_SORT_ASC "\ue1a6"
-# define FA_ENVELOPE "\ue1a7"
-# define FA_LINKEDIN "\ue1a8"
-# define FA_ROTATE_LEFT "\ue1a9"
-# define FA_GAVEL "\ue1aa"
-# define FA_DASHBOARD "\ue1ab"
-# define FA_COMMENT_O "\ue1ac"
-# define FA_COMMENTS_O "\ue1ad"
-# define FA_BOLT "\ue1ae"
-# define FA_SITEMAP "\ue1af"
-# define FA_UMBRELLA "\ue1b0"
-# define FA_CLIPBOARD "\ue1b1"
-# define FA_LIGHTBULB_O "\ue1b2"
-# define FA_EXCHANGE "\ue1b3"
-# define FA_CLOUD_DOWNLOAD "\ue1b4"
-# define FA_CLOUD_UPLOAD "\ue1b5"
-# define FA_USER_MD "\ue1b6"
-# define FA_STETHOSCOPE "\ue1b7"
-# define FA_SUITCASE "\ue1b8"
-# define FA_BELL "\ue1b9"
-# define FA_COFFEE "\ue1ba"
-# define FA_CUTLERY "\ue1bb"
-# define FA_FILE_TEXT_O "\ue1bc"
-# define FA_BUILDING_O "\ue1bd"
-# define FA_HOSPITAL_O "\ue1be"
-# define FA_AMBULANCE "\ue1bf"
-# define FA_MEDKIT "\ue1c0"
-# define FA_FIGHTER_JET "\ue1c1"
-# define FA_BEER "\ue1c2"
-# define FA_H_SQUARE "\ue1c3"
-# define FA_PLUS_SQUARE "\ue1c4"
-# define FA_ANGLE_DOUBLE_LEFT "\ue1c5"
-# define FA_ANGLE_DOUBLE_RIGHT "\ue1c6"
-# define FA_ANGLE_DOUBLE_UP "\ue1c7"
-# define FA_ANGLE_DOUBLE_DOWN "\ue1c8"
-# define FA_ANGLE_LEFT "\ue1c9"
-# define FA_ANGLE_RIGHT "\ue1ca"
-# define FA_ANGLE_UP "\ue1cb"
-# define FA_ANGLE_DOWN "\ue1cc"
-# define FA_DESKTOP "\ue1cd"
-# define FA_LAPTOP "\ue1ce"
-# define FA_TABLET "\ue1cf"
-# define FA_MOBILE "\ue1d0"
-# define FA_CIRCLE_O "\ue1d1"
-# define FA_QUOTE_LEFT "\ue1d2"
-# define FA_QUOTE_RIGHT "\ue1d3"
-# define FA_SPINNER "\ue1d4"
-# define FA_CIRCLE "\ue1d5"
-# define FA_MAIL_REPLY "\ue1d6"
-# define FA_GITHUB_ALT "\ue1d7"
-# define FA_FOLDER_O "\ue1d8"
-# define FA_FOLDER_OPEN_O "\ue1d9"
-# define FA_EXPAND_ALT "\ue1da"
-# define FA_COLLAPSE_ALT "\ue1db"
-# define FA_SMILE_O "\ue1dc"
-# define FA_FROWN_O "\ue1dd"
-# define FA_MEH_O "\ue1de"
-# define FA_GAMEPAD "\ue1df"
-# define FA_KEYBOARD_O "\ue1e0"
-# define FA_FLAG_O "\ue1e1"
-# define FA_FLAG_CHECKERED "\ue1e2"
-# define FA_TERMINAL "\ue1e3"
-# define FA_CODE "\ue1e4"
-# define FA_MAIL_REPLY_ALL "\ue1e5"
-# define FA_STAR_HALF_EMPTY "\ue1e6"
-# define FA_LOCATION_ARROW "\ue1e7"
-# define FA_CROP "\ue1e8"
-# define FA_CODE_FORK "\ue1e9"
-# define FA_CHAIN_BROKEN "\ue1ea"
-# define FA_QUESTION "\ue1eb"
-# define FA_INFO "\ue1ec"
-# define FA_EXCLAMATION "\ue1ed"
-# define FA_SUPERSCRIPT "\ue1ee"
-# define FA_SUBSCRIPT "\ue1ef"
-# define FA_ERASER "\ue1f0"
-# define FA_PUZZLE_PIECE "\ue1f1"
-# define FA_MICROPHONE "\ue1f2"
-# define FA_MICROPHONE_SLASH "\ue1f3"
-# define FA_SHIELD "\ue1f4"
-# define FA_CALENDAR_O "\ue1f5"
-# define FA_FIRE_EXTINGUISHER "\ue1f6"
-# define FA_ROCKET "\ue1f7"
-# define FA_MAXCDN "\ue1f8"
-# define FA_CHEVRON_CIRCLE_LEFT "\ue1f9"
-# define FA_CHEVRON_CIRCLE_RIGHT "\ue1fa"
-# define FA_CHEVRON_CIRCLE_UP "\ue1fb"
-# define FA_CHEVRON_CIRCLE_DOWN "\ue1fc"
-# define FA_HTML5 "\ue1fd"
-# define FA_CSS3 "\ue1fe"
-# define FA_ANCHOR "\ue1ff"
-# define FA_UNLOCK_ALT "\ue200"
-# define FA_BULLSEYE "\ue201"
-# define FA_ELLIPSIS_H "\ue202"
-# define FA_ELLIPSIS_V "\ue203"
-# define FA_RSS_SQUARE "\ue204"
-# define FA_PLAY_CIRCLE "\ue205"
-# define FA_TICKET "\ue206"
-# define FA_MINUS_SQUARE "\ue207"
-# define FA_MINUS_SQUARE_O "\ue208"
-# define FA_LEVEL_UP "\ue209"
-# define FA_LEVEL_DOWN "\ue20a"
-# define FA_CHECK_SQUARE "\ue20b"
-# define FA_PENCIL_SQUARE "\ue20c"
-# define FA_EXTERNAL_LINK_SQUARE "\ue20d"
-# define FA_SHARE_SQUARE "\ue20e"
-# define FA_COMPASS "\ue20f"
-# define FA_CARET_SQUARE_O_DOWN "\ue210"
-# define FA_CARET_SQUARE_O_UP "\ue211"
-# define FA_CARET_SQUARE_O_RIGHT "\ue212"
-# define FA_EUR "\ue213"
-# define FA_GBP "\ue214"
-# define FA_DOLLAR "\ue215"
-# define FA_INR "\ue216"
-# define FA_CNY "\ue217"
-# define FA_ROUBLE "\ue218"
-# define FA_KRW "\ue219"
-# define FA_BITCOIN "\ue21a"
-# define FA_FILE "\ue21b"
-# define FA_FILE_TEXT "\ue21c"
-# define FA_SORT_ALPHA_ASC "\ue21d"
-# define FA_SORT_ALPHA_DESC "\ue21e"
-# define FA_SORT_AMOUNT_ASC "\ue21f"
-# define FA_SORT_AMOUNT_DESC "\ue220"
-# define FA_SORT_NUMERIC_ASC "\ue221"
-# define FA_SORT_NUMERIC_DESC "\ue222"
-# define FA_THUMBS_UP "\ue223"
-# define FA_THUMBS_DOWN "\ue224"
-# define FA_YOUTUBE_SQUARE "\ue225"
-# define FA_YOUTUBE "\ue226"
-# define FA_XING "\ue227"
-# define FA_XING_SQUARE "\ue228"
-# define FA_YOUTUBE_PLAY "\ue229"
-# define FA_DROPBOX "\ue22a"
-# define FA_STACK_OVERFLOW "\ue22b"
-# define FA_INSTAGRAM "\ue22c"
-# define FA_FLICKR "\ue22d"
-# define FA_ADN "\ue22e"
-# define FA_BITBUCKET "\ue22f"
-# define FA_BITBUCKET_SQUARE "\ue230"
-# define FA_TUMBLR "\ue231"
-# define FA_TUMBLR_SQUARE "\ue232"
-# define FA_LONG_ARROW_DOWN "\ue233"
-# define FA_LONG_ARROW_UP "\ue234"
-# define FA_LONG_ARROW_LEFT "\ue235"
-# define FA_LONG_ARROW_RIGHT "\ue236"
-# define FA_APPLE "\ue237"
-# define FA_WINDOWS "\ue238"
-# define FA_ANDROID "\ue239"
-# define FA_LINUX "\ue23a"
-# define FA_DRIBBBLE "\ue23b"
-# define FA_SKYPE "\ue23c"
-# define FA_FOURSQUARE "\ue23d"
-# define FA_TRELLO "\ue23e"
-# define FA_FEMALE "\ue23f"
-# define FA_MALE "\ue240"
-# define FA_GITTIP "\ue241"
-# define FA_SUN_O "\ue242"
-# define FA_MOON_O "\ue243"
-# define FA_ARCHIVE "\ue244"
-# define FA_BUG "\ue245"
-# define FA_VK "\ue246"
-# define FA_WEIBO "\ue247"
-# define FA_RENREN "\ue248"
-# define FA_PAGELINES "\ue249"
-# define FA_STACK_EXCHANGE "\ue24a"
-# define FA_ARROW_CIRCLE_O_RIGHT "\ue24b"
-# define FA_ARROW_CIRCLE_O_LEFT "\ue24c"
-# define FA_CARET_SQUARE_O_LEFT "\ue24d"
-# define FA_DOT_CIRCLE_O "\ue24e"
-# define FA_WHEELCHAIR "\ue24f"
-# define FA_VIMEO_SQUARE "\ue250"
-# define FA_TRY "\ue251"
-# define FA_PLUS_SQUARE_O "\ue252"
-# define FA_SPACE_SHUTTLE "\ue253"
-# define FA_SLACK "\ue254"
-# define FA_ENVELOPE_SQUARE "\ue255"
-# define FA_WORDPRESS "\ue256"
-# define FA_OPENID "\ue257"
-# define FA_BANK "\ue258"
-# define FA_GRADUATION_CAP "\ue259"
-# define FA_YAHOO "\ue25a"
-# define FA_GOOGLE "\ue25b"
-# define FA_REDDIT "\ue25c"
-# define FA_REDDIT_SQUARE "\ue25d"
-# define FA_STUMBLEUPON_CIRCLE "\ue25e"
-# define FA_STUMBLEUPON "\ue25f"
-# define FA_DELICIOUS "\ue260"
-# define FA_DIGG "\ue261"
-# define FA_PIED_PIPER_PP "\ue262"
-# define FA_PIED_PIPER_ALT "\ue263"
-# define FA_DRUPAL "\ue264"
-# define FA_JOOMLA "\ue265"
-# define FA_LANGUAGE "\ue266"
-# define FA_FAX "\ue267"
-# define FA_BUILDING "\ue268"
-# define FA_CHILD "\ue269"
-# define FA_PAW "\ue26a"
-# define FA_SPOON "\ue26b"
-# define FA_CUBE "\ue26c"
-# define FA_CUBES "\ue26d"
-# define FA_BEHANCE "\ue26e"
-# define FA_BEHANCE_SQUARE "\ue26f"
-# define FA_STEAM "\ue270"
-# define FA_STEAM_SQUARE "\ue271"
-# define FA_RECYCLE "\ue272"
-# define FA_AUTOMOBILE "\ue273"
-# define FA_CAB "\ue274"
-# define FA_TREE "\ue275"
-# define FA_SPOTIFY "\ue276"
-# define FA_DEVIANTART "\ue277"
-# define FA_SOUNDCLOUD "\ue278"
-# define FA_DATABASE "\ue279"
-# define FA_FILE_PDF_O "\ue27a"
-# define FA_FILE_WORD_O "\ue27b"
-# define FA_FILE_EXCEL_O "\ue27c"
-# define FA_FILE_POWERPOINT_O "\ue27d"
-# define FA_FILE_IMAGE_O "\ue27e"
-# define FA_FILE_ARCHIVE_O "\ue27f"
-# define FA_FILE_AUDIO_O "\ue280"
-# define FA_FILE_MOVIE_O "\ue281"
-# define FA_FILE_CODE_O "\ue282"
-# define FA_VINE "\ue283"
-# define FA_CODEPEN "\ue284"
-# define FA_JSFIDDLE "\ue285"
-# define FA_LIFE_BOUY "\ue286"
-# define FA_CIRCLE_O_NOTCH "\ue287"
-# define FA_RA "\ue288"
-# define FA_EMPIRE "\ue289"
-# define FA_GIT_SQUARE "\ue28a"
-# define FA_GIT "\ue28b"
-# define FA_HACKER_NEWS "\ue28c"
-# define FA_TENCENT_WEIBO "\ue28d"
-# define FA_QQ "\ue28e"
-# define FA_WECHAT "\ue28f"
-# define FA_PAPER_PLANE "\ue290"
-# define FA_PAPER_PLANE_O "\ue291"
-# define FA_HISTORY "\ue292"
-# define FA_CIRCLE_THIN "\ue293"
-# define FA_HEADER "\ue294"
-# define FA_PARAGRAPH "\ue295"
-# define FA_SLIDERS "\ue296"
-# define FA_SHARE_ALT "\ue297"
-# define FA_SHARE_ALT_SQUARE "\ue298"
-# define FA_BOMB "\ue299"
-# define FA_FUTBOL_O "\ue29a"
-# define FA_TTY "\ue29b"
-# define FA_BINOCULARS "\ue29c"
-# define FA_PLUG "\ue29d"
-# define FA_SLIDESHARE "\ue29e"
-# define FA_TWITCH "\ue29f"
-# define FA_YELP "\ue2a0"
-# define FA_NEWSPAPER_O "\ue2a1"
-# define FA_WIFI "\ue2a2"
-# define FA_CALCULATOR "\ue2a3"
-# define FA_PAYPAL "\ue2a4"
-# define FA_GOOGLE_WALLET "\ue2a5"
-# define FA_CC_VISA "\ue2a6"
-# define FA_CC_MASTERCARD "\ue2a7"
-# define FA_CC_DISCOVER "\ue2a8"
-# define FA_CC_AMEX "\ue2a9"
-# define FA_CC_PAYPAL "\ue2aa"
-# define FA_CC_STRIPE "\ue2ab"
-# define FA_BELL_SLASH "\ue2ac"
-# define FA_BELL_SLASH_O "\ue2ad"
-# define FA_TRASH "\ue2ae"
-# define FA_COPYRIGHT "\ue2af"
-# define FA_AT "\ue2b0"
-# define FA_EYEDROPPER "\ue2b1"
-# define FA_PAINT_BRUSH "\ue2b2"
-# define FA_BIRTHDAY_CAKE "\ue2b3"
-# define FA_AREA_CHART "\ue2b4"
-# define FA_PIE_CHART "\ue2b5"
-# define FA_LINE_CHART "\ue2b6"
-# define FA_LASTFM "\ue2b7"
-# define FA_LASTFM_SQUARE "\ue2b8"
-# define FA_TOGGLE_OFF "\ue2b9"
-# define FA_TOGGLE_ON "\ue2ba"
-# define FA_BICYCLE "\ue2bb"
-# define FA_BUS "\ue2bc"
-# define FA_IOXHOST "\ue2bd"
-# define FA_ANGELLIST "\ue2be"
-# define FA_CC "\ue2bf"
-# define FA_ILS "\ue2c0"
-# define FA_MEANPATH "\ue2c1"
-# define FA_BUYSELLADS "\ue2c2"
-# define FA_CONNECTDEVELOP "\ue2c3"
-# define FA_DASHCUBE "\ue2c4"
-# define FA_FORUMBEE "\ue2c5"
-# define FA_LEANPUB "\ue2c6"
-# define FA_SELLSY "\ue2c7"
-# define FA_SHIRTSINBULK "\ue2c8"
-# define FA_SIMPLYBUILT "\ue2c9"
-# define FA_SKYATLAS "\ue2ca"
-# define FA_CART_PLUS "\ue2cb"
-# define FA_CART_ARROW_DOWN "\ue2cc"
-# define FA_DIAMOND "\ue2cd"
-# define FA_SHIP "\ue2ce"
-# define FA_USER_SECRET "\ue2cf"
-# define FA_MOTORCYCLE "\ue2d0"
-# define FA_STREET_VIEW "\ue2d1"
-# define FA_HEARTBEAT "\ue2d2"
-# define FA_VENUS "\ue2d3"
-# define FA_MARS "\ue2d4"
-# define FA_MERCURY "\ue2d5"
-# define FA_INTERSEX "\ue2d6"
-# define FA_TRANSGENDER_ALT "\ue2d7"
-# define FA_VENUS_DOUBLE "\ue2d8"
-# define FA_MARS_DOUBLE "\ue2d9"
-# define FA_VENUS_MARS "\ue2da"
-# define FA_MARS_STROKE "\ue2db"
-# define FA_MARS_STROKE_V "\ue2dc"
-# define FA_MARS_STROKE_H "\ue2dd"
-# define FA_NEUTER "\ue2de"
-# define FA_GENDERLESS "\ue2df"
-# define FA__523 "\ue2e0"
-# define FA__524 "\ue2e1"
-# define FA_FACEBOOK_OFFICIAL "\ue2e2"
-# define FA_PINTEREST_P "\ue2e3"
-# define FA_WHATSAPP "\ue2e4"
-# define FA_SERVER "\ue2e5"
-# define FA_USER_PLUS "\ue2e6"
-# define FA_USER_TIMES "\ue2e7"
-# define FA_BED "\ue2e8"
-# define FA_VIACOIN "\ue2e9"
-# define FA_TRAIN "\ue2ea"
-# define FA_SUBWAY "\ue2eb"
-# define FA_MEDIUM "\ue2ec"
-# define FA_Y_COMBINATOR "\ue2ed"
-# define FA_OPTIN_MONSTER "\ue2ee"
-# define FA_OPENCART "\ue2ef"
-# define FA_EXPEDITEDSSL "\ue2f0"
-# define FA_BATTERY "\ue2f1"
-# define FA_BATTERY_3 "\ue2f2"
-# define FA_BATTERY_2 "\ue2f3"
-# define FA_BATTERY_1 "\ue2f4"
-# define FA_BATTERY_0 "\ue2f5"
-# define FA_MOUSE_POINTER "\ue2f6"
-# define FA_I_CURSOR "\ue2f7"
-# define FA_OBJECT_GROUP "\ue2f8"
-# define FA_OBJECT_UNGROUP "\ue2f9"
-# define FA_STICKY_NOTE "\ue2fa"
-# define FA_STICKY_NOTE_O "\ue2fb"
-# define FA_CC_JCB "\ue2fc"
-# define FA_CC_DINERS_CLUB "\ue2fd"
-# define FA_CLONE "\ue2fe"
-# define FA_BALANCE_SCALE "\ue2ff"
-# define FA_HOURGLASS_O "\ue300"
-# define FA_HOURGLASS_1 "\ue301"
-# define FA_HOURGLASS_2 "\ue302"
-# define FA_HOURGLASS_3 "\ue303"
-# define FA_HOURGLASS "\ue304"
-# define FA_HAND_GRAB_O "\ue305"
-# define FA_HAND_PAPER_O "\ue306"
-# define FA_HAND_SCISSORS_O "\ue307"
-# define FA_HAND_LIZARD_O "\ue308"
-# define FA_HAND_SPOCK_O "\ue309"
-# define FA_HAND_POINTER_O "\ue30a"
-# define FA_HAND_PEACE_O "\ue30b"
-# define FA_TRADEMARK "\ue30c"
-# define FA_REGISTERED "\ue30d"
-# define FA_CREATIVE_COMMONS "\ue30e"
-# define FA_GG "\ue30f"
-# define FA_GG_CIRCLE "\ue310"
-# define FA_TRIPADVISOR "\ue311"
-# define FA_ODNOKLASSNIKI "\ue312"
-# define FA_ODNOKLASSNIKI_SQUARE "\ue313"
-# define FA_GET_POCKET "\ue314"
-# define FA_WIKIPEDIA_W "\ue315"
-# define FA_SAFARI "\ue316"
-# define FA_CHROME "\ue317"
-# define FA_FIREFOX "\ue318"
-# define FA_OPERA "\ue319"
-# define FA_INTERNET_EXPLORER "\ue31a"
-# define FA_TELEVISION "\ue31b"
-# define FA_CONTAO "\ue31c"
-# define FA_500PX "\ue31d"
-# define FA_AMAZON "\ue31e"
-# define FA_CALENDAR_PLUS_O "\ue31f"
-# define FA_CALENDAR_MINUS_O "\ue320"
-# define FA_CALENDAR_TIMES_O "\ue321"
-# define FA_CALENDAR_CHECK_O "\ue322"
-# define FA_INDUSTRY "\ue323"
-# define FA_MAP_PIN "\ue324"
-# define FA_MAP_SIGNS "\ue325"
-# define FA_MAP_O "\ue326"
-# define FA_MAP "\ue327"
-# define FA_COMMENTING "\ue328"
-# define FA_COMMENTING_O "\ue329"
-# define FA_HOUZZ "\ue32a"
-# define FA_VIMEO "\ue32b"
-# define FA_BLACK_TIE "\ue32c"
-# define FA_FONTICONS "\ue32d"
-# define FA_REDDIT_ALIEN "\ue32e"
-# define FA_EDGE "\ue32f"
-# define FA_CREDIT_CARD_ALT "\ue330"
-# define FA_CODIEPIE "\ue331"
-# define FA_MODX "\ue332"
-# define FA_FORT_AWESOME "\ue333"
-# define FA_USB "\ue334"
-# define FA_PRODUCT_HUNT "\ue335"
-# define FA_MIXCLOUD "\ue336"
-# define FA_SCRIBD "\ue337"
-# define FA_PAUSE_CIRCLE "\ue338"
-# define FA_PAUSE_CIRCLE_O "\ue339"
-# define FA_STOP_CIRCLE "\ue33a"
-# define FA_STOP_CIRCLE_O "\ue33b"
-# define FA_SHOPPING_BAG "\ue33c"
-# define FA_SHOPPING_BASKET "\ue33d"
-# define FA_HASHTAG "\ue33e"
-# define FA_BLUETOOTH "\ue33f"
-# define FA_BLUETOOTH_B "\ue340"
-# define FA_PERCENT "\ue341"
-# define FA_GITLAB "\ue342"
-# define FA_WPBEGINNER "\ue343"
-# define FA_WPFORMS "\ue344"
-# define FA_ENVIRA "\ue345"
-# define FA_UNIVERSAL_ACCESS "\ue346"
-# define FA_WHEELCHAIR_ALT "\ue347"
-# define FA_QUESTION_CIRCLE_O "\ue348"
-# define FA_BLIND "\ue349"
-# define FA_AUDIO_DESCRIPTION "\ue34a"
-# define FA_VOLUME_CONTROL_PHONE "\ue34b"
-# define FA_BRAILLE "\ue34c"
-# define FA_ASSISTIVE_LISTENING_SYSTEMS "\ue34d"
-# define FA_AMERICAN_SIGN_LANGUAGE_INTERPRETING "\ue34e"
-# define FA_DEAF "\ue34f"
-# define FA_GLIDE "\ue350"
-# define FA_GLIDE_G "\ue351"
-# define FA_SIGN_LANGUAGE "\ue352"
-# define FA_LOW_VISION "\ue353"
-# define FA_VIADEO "\ue354"
-# define FA_VIADEO_SQUARE "\ue355"
-# define FA_SNAPCHAT "\ue356"
-# define FA_SNAPCHAT_GHOST "\ue357"
-# define FA_SNAPCHAT_SQUARE "\ue358"
-# define FA_PIED_PIPER "\ue359"
-# define FA_FIRST_ORDER "\ue35a"
-# define FA_YOAST "\ue35b"
-# define FA_THEMEISLE "\ue35c"
-# define FA_GOOGLE_PLUS_CIRCLE "\ue35d"
-# define FA_FA "\ue35e"
-# define FA_HANDSHAKE_O "\ue35f"
-# define FA_ENVELOPE_OPEN "\ue360"
-# define FA_ENVELOPE_OPEN_O "\ue361"
-# define FA_LINODE "\ue362"
-# define FA_ADDRESS_BOOK "\ue363"
-# define FA_ADDRESS_BOOK_O "\ue364"
-# define FA_ADDRESS_CARD "\ue365"
-# define FA_ADDRESS_CARD_O "\ue366"
-# define FA_USER_CIRCLE "\ue367"
-# define FA_USER_CIRCLE_O "\ue368"
-# define FA_USER_O "\ue369"
-# define FA_ID_BADGE "\ue36a"
-# define FA_DRIVERS_LICENSE "\ue36b"
-# define FA_DRIVERS_LICENSE_O "\ue36c"
-# define FA_QUORA "\ue36d"
-# define FA_FREE_CODE_CAMP "\ue36e"
-# define FA_TELEGRAM "\ue36f"
-# define FA_THERMOMETER "\ue370"
-# define FA_THERMOMETER_3 "\ue371"
-# define FA_THERMOMETER_2 "\ue372"
-# define FA_THERMOMETER_1 "\ue373"
-# define FA_THERMOMETER_0 "\ue374"
-# define FA_SHOWER "\ue375"
-# define FA_BATH "\ue376"
-# define FA_PODCAST "\ue377"
-# define FA_WINDOW_MAXIMIZE "\ue378"
-# define FA_WINDOW_MINIMIZE "\ue379"
-# define FA_WINDOW_RESTORE "\ue37a"
-# define FA_TIMES_RECTANGLE "\ue37b"
-# define FA_TIMES_RECTANGLE_O "\ue37c"
-# define FA_BANDCAMP "\ue37d"
-# define FA_GRAV "\ue37e"
-# define FA_ETSY "\ue37f"
-# define FA_IMDB "\ue380"
-# define FA_RAVELRY "\ue381"
-# define FA_EERCAST "\ue382"
-# define FA_MICROCHIP "\ue383"
-# define FA_SNOWFLAKE_O "\ue384"
-# define FA_SUPERPOWERS "\ue385"
-# define FA_WPEXPLORER "\ue386"
-# define FA_MEETUP "\ue387"
-# define MD_ERROR "\ue388"
-# define MD_ERROR_OUTLINE "\ue389"
-# define MD_WARNING "\ue38a"
-# define MD_ADD_ALERT "\ue38b"
-# define MD_ALBUM "\ue38c"
-# define MD_AV_TIMER "\ue38d"
-# define MD_CLOSED_CAPTION "\ue38e"
-# define MD_EQUALIZER "\ue38f"
-# define MD_EXPLICIT "\ue390"
-# define MD_FAST_FORWARD "\ue391"
-# define MD_FAST_REWIND "\ue392"
-# define MD_GAMES "\ue393"
-# define MD_HEARING "\ue394"
-# define MD_HIGH_QUALITY "\ue395"
-# define MD_LOOP "\ue396"
-# define MD_MIC "\ue397"
-# define MD_MIC_NONE "\ue398"
-# define MD_MIC_OFF "\ue399"
-# define MD_MOVIE "\ue39a"
-# define MD_LIBRARY_ADD "\ue39b"
-# define MD_LIBRARY_BOOKS "\ue39c"
-# define MD_LIBRARY_MUSIC "\ue39d"
-# define MD_NEW_RELEASES "\ue39e"
-# define MD_NOT_INTERESTED "\ue39f"
-# define MD_PAUSE "\ue3a0"
-# define MD_PAUSE_CIRCLE_FILLED "\ue3a1"
-# define MD_PAUSE_CIRCLE_OUTLINE "\ue3a2"
-# define MD_PLAY_ARROW "\ue3a3"
-# define MD_PLAY_CIRCLE_FILLED "\ue3a4"
-# define MD_PLAY_CIRCLE_OUTLINE "\ue3a5"
-# define MD_PLAYLIST_ADD "\ue3a6"
-# define MD_QUEUE "\ue3a7"
-# define MD_QUEUE_MUSIC "\ue3a8"
-# define MD_RADIO "\ue3a9"
-# define MD_RECENT_ACTORS "\ue3aa"
-# define MD_REPEAT "\ue3ab"
-# define MD_REPEAT_ONE "\ue3ac"
-# define MD_REPLAY "\ue3ad"
-# define MD_SHUFFLE "\ue3ae"
-# define MD_SKIP_NEXT "\ue3af"
-# define MD_SKIP_PREVIOUS "\ue3b0"
-# define MD_SNOOZE "\ue3b1"
-# define MD_STOP "\ue3b2"
-# define MD_SUBTITLES "\ue3b3"
-# define MD_SURROUND_SOUND "\ue3b4"
-# define MD_VIDEO_LIBRARY "\ue3b5"
-# define MD_VIDEOCAM "\ue3b6"
-# define MD_VIDEOCAM_OFF "\ue3b7"
-# define MD_VOLUME_DOWN "\ue3b8"
-# define MD_VOLUME_MUTE "\ue3b9"
-# define MD_VOLUME_OFF "\ue3ba"
-# define MD_VOLUME_UP "\ue3bb"
-# define MD_WEB "\ue3bc"
-# define MD_HD "\ue3bd"
-# define MD_SORT_BY_ALPHA "\ue3be"
-# define MD_AIRPLAY "\ue3bf"
-# define MD_FORWARD_10 "\ue3c0"
-# define MD_FORWARD_30 "\ue3c1"
-# define MD_FORWARD_5 "\ue3c2"
-# define MD_REPLAY_10 "\ue3c3"
-# define MD_REPLAY_30 "\ue3c4"
-# define MD_REPLAY_5 "\ue3c5"
-# define MD_ADD_TO_QUEUE "\ue3c6"
-# define MD_FIBER_DVR "\ue3c7"
-# define MD_FIBER_NEW "\ue3c8"
-# define MD_PLAYLIST_PLAY "\ue3c9"
-# define MD_ART_TRACK "\ue3ca"
-# define MD_FIBER_MANUAL_RECORD "\ue3cb"
-# define MD_FIBER_SMART_RECORD "\ue3cc"
-# define MD_MUSIC_VIDEO "\ue3cd"
-# define MD_SUBSCRIPTIONS "\ue3ce"
-# define MD_PLAYLIST_ADD_CHECK "\ue3cf"
-# define MD_QUEUE_PLAY_NEXT "\ue3d0"
-# define MD_REMOVE_FROM_QUEUE "\ue3d1"
-# define MD_SLOW_MOTION_VIDEO "\ue3d2"
-# define MD_WEB_ASSET "\ue3d3"
-# define MD_FIBER_PIN "\ue3d4"
-# define MD_BRANDING_WATERMARK "\ue3d5"
-# define MD_CALL_TO_ACTION "\ue3d6"
-# define MD_FEATURED_PLAY_LIST "\ue3d7"
-# define MD_FEATURED_VIDEO "\ue3d8"
-# define MD_NOTE "\ue3d9"
-# define MD_VIDEO_CALL "\ue3da"
-# define MD_VIDEO_LABEL "\ue3db"
-# define MD_BUSINESS "\ue3dc"
-# define MD_CALL "\ue3dd"
-# define MD_CALL_END "\ue3de"
-# define MD_CALL_MADE "\ue3df"
-# define MD_CALL_MERGE "\ue3e0"
-# define MD_CALL_MISSED "\ue3e1"
-# define MD_CALL_RECEIVED "\ue3e2"
-# define MD_CALL_SPLIT "\ue3e3"
-# define MD_CHAT "\ue3e4"
-# define MD_CLEAR_ALL "\ue3e5"
-# define MD_COMMENT "\ue3e6"
-# define MD_CONTACTS "\ue3e7"
-# define MD_DIALER_SIP "\ue3e8"
-# define MD_DIALPAD "\ue3e9"
-# define MD_EMAIL "\ue3ea"
-# define MD_FORUM "\ue3eb"
-# define MD_IMPORT_EXPORT "\ue3ec"
-# define MD_INVERT_COLORS_OFF "\ue3ed"
-# define MD_LIVE_HELP "\ue3ee"
-# define MD_LOCATION_OFF "\ue3ef"
-# define MD_LOCATION_ON "\ue3f0"
-# define MD_MESSAGE "\ue3f1"
-# define MD_CHAT_BUBBLE "\ue3f2"
-# define MD_CHAT_BUBBLE_OUTLINE "\ue3f3"
-# define MD_NO_SIM "\ue3f4"
-# define MD_PHONE "\ue3f5"
-# define MD_PORTABLE_WIFI_OFF "\ue3f6"
-# define MD_CONTACT_PHONE "\ue3f7"
-# define MD_CONTACT_MAIL "\ue3f8"
-# define MD_RING_VOLUME "\ue3f9"
-# define MD_SPEAKER_PHONE "\ue3fa"
-# define MD_STAY_CURRENT_LANDSCAPE "\ue3fb"
-# define MD_STAY_CURRENT_PORTRAIT "\ue3fc"
-# define MD_STAY_PRIMARY_LANDSCAPE "\ue3fd"
-# define MD_STAY_PRIMARY_PORTRAIT "\ue3fe"
-# define MD_SWAP_CALLS "\ue3ff"
-# define MD_TEXTSMS "\ue400"
-# define MD_VOICEMAIL "\ue401"
-# define MD_VPN_KEY "\ue402"
-# define MD_PHONELINK_ERASE "\ue403"
-# define MD_PHONELINK_LOCK "\ue404"
-# define MD_PHONELINK_RING "\ue405"
-# define MD_PHONELINK_SETUP "\ue406"
-# define MD_PRESENT_TO_ALL "\ue407"
-# define MD_IMPORT_CONTACTS "\ue408"
-# define MD_MAIL_OUTLINE "\ue409"
-# define MD_SCREEN_SHARE "\ue40a"
-# define MD_STOP_SCREEN_SHARE "\ue40b"
-# define MD_CALL_MISSED_OUTGOING "\ue40c"
-# define MD_RSS_FEED "\ue40d"
-# define MD_ADD "\ue40e"
-# define MD_ADD_BOX "\ue40f"
-# define MD_ADD_CIRCLE "\ue410"
-# define MD_ADD_CIRCLE_OUTLINE "\ue411"
-# define MD_ARCHIVE "\ue412"
-# define MD_BACKSPACE "\ue413"
-# define MD_BLOCK "\ue414"
-# define MD_CLEAR "\ue415"
-# define MD_CONTENT_COPY "\ue416"
-# define MD_CONTENT_CUT "\ue417"
-# define MD_CONTENT_PASTE "\ue418"
-# define MD_CREATE "\ue419"
-# define MD_DRAFTS "\ue41a"
-# define MD_FILTER_LIST "\ue41b"
-# define MD_FLAG "\ue41c"
-# define MD_FORWARD "\ue41d"
-# define MD_GESTURE "\ue41e"
-# define MD_INBOX "\ue41f"
-# define MD_LINK "\ue420"
-# define MD_MAIL "\ue421"
-# define MD_MARKUNREAD "\ue422"
-# define MD_REDO "\ue423"
-# define MD_REMOVE "\ue424"
-# define MD_REMOVE_CIRCLE "\ue425"
-# define MD_REMOVE_CIRCLE_OUTLINE "\ue426"
-# define MD_REPLY "\ue427"
-# define MD_REPLY_ALL "\ue428"
-# define MD_REPORT "\ue429"
-# define MD_SAVE "\ue42a"
-# define MD_SELECT_ALL "\ue42b"
-# define MD_SEND "\ue42c"
-# define MD_SORT "\ue42d"
-# define MD_TEXT_FORMAT "\ue42e"
-# define MD_UNDO "\ue42f"
-# define MD_FONT_DOWNLOAD "\ue430"
-# define MD_MOVE_TO_INBOX "\ue431"
-# define MD_UNARCHIVE "\ue432"
-# define MD_NEXT_WEEK "\ue433"
-# define MD_WEEKEND "\ue434"
-# define MD_DELETE_SWEEP "\ue435"
-# define MD_LOW_PRIORITY "\ue436"
-# define MD_ACCESS_ALARM "\ue437"
-# define MD_ACCESS_ALARMS "\ue438"
-# define MD_ACCESS_TIME "\ue439"
-# define MD_ADD_ALARM "\ue43a"
-# define MD_AIRPLANEMODE_INACTIVE "\ue43b"
-# define MD_AIRPLANEMODE_ACTIVE "\ue43c"
-# define MD_BATTERY_ALERT "\ue43d"
-# define MD_BATTERY_CHARGING_FULL "\ue43e"
-# define MD_BATTERY_FULL "\ue43f"
-# define MD_BATTERY_STD "\ue440"
-# define MD_BATTERY_UNKNOWN "\ue441"
-# define MD_BLUETOOTH "\ue442"
-# define MD_BLUETOOTH_CONNECTED "\ue443"
-# define MD_BLUETOOTH_DISABLED "\ue444"
-# define MD_BLUETOOTH_SEARCHING "\ue445"
-# define MD_BRIGHTNESS_AUTO "\ue446"
-# define MD_BRIGHTNESS_HIGH "\ue447"
-# define MD_BRIGHTNESS_LOW "\ue448"
-# define MD_BRIGHTNESS_MEDIUM "\ue449"
-# define MD_DATA_USAGE "\ue44a"
-# define MD_DEVELOPER_MODE "\ue44b"
-# define MD_DEVICES "\ue44c"
-# define MD_DVR "\ue44d"
-# define MD_GPS_FIXED "\ue44e"
-# define MD_GPS_NOT_FIXED "\ue44f"
-# define MD_GPS_OFF "\ue450"
-# define MD_LOCATION_DISABLED "\ue451"
-# define MD_LOCATION_SEARCHING "\ue452"
-# define MD_GRAPHIC_EQ "\ue453"
-# define MD_NETWORK_CELL "\ue454"
-# define MD_NETWORK_WIFI "\ue455"
-# define MD_NFC "\ue456"
-# define MD_WALLPAPER "\ue457"
-# define MD_WIDGETS "\ue458"
-# define MD_SCREEN_LOCK_LANDSCAPE "\ue459"
-# define MD_SCREEN_LOCK_PORTRAIT "\ue45a"
-# define MD_SCREEN_LOCK_ROTATION "\ue45b"
-# define MD_SCREEN_ROTATION "\ue45c"
-# define MD_SD_STORAGE "\ue45d"
-# define MD_SETTINGS_SYSTEM_DAYDREAM "\ue45e"
-# define MD_SIGNAL_CELLULAR_4_BAR "\ue45f"
-# define MD_SIGNAL_CELLULAR_CONNECTED_NO_INTERNET_4_BAR "\ue460"
-# define MD_SIGNAL_CELLULAR_NO_SIM "\ue461"
-# define MD_SIGNAL_CELLULAR_NULL "\ue462"
-# define MD_SIGNAL_CELLULAR_OFF "\ue463"
-# define MD_SIGNAL_WIFI_4_BAR "\ue464"
-# define MD_SIGNAL_WIFI_4_BAR_LOCK "\ue465"
-# define MD_SIGNAL_WIFI_OFF "\ue466"
-# define MD_STORAGE "\ue467"
-# define MD_USB "\ue468"
-# define MD_WIFI_LOCK "\ue469"
-# define MD_WIFI_TETHERING "\ue46a"
-# define MD_ATTACH_FILE "\ue46b"
-# define MD_ATTACH_MONEY "\ue46c"
-# define MD_BORDER_ALL "\ue46d"
-# define MD_BORDER_BOTTOM "\ue46e"
-# define MD_BORDER_CLEAR "\ue46f"
-# define MD_BORDER_COLOR "\ue470"
-# define MD_BORDER_HORIZONTAL "\ue471"
-# define MD_BORDER_INNER "\ue472"
-# define MD_BORDER_LEFT "\ue473"
-# define MD_BORDER_OUTER "\ue474"
-# define MD_BORDER_RIGHT "\ue475"
-# define MD_BORDER_STYLE "\ue476"
-# define MD_BORDER_TOP "\ue477"
-# define MD_BORDER_VERTICAL "\ue478"
-# define MD_FORMAT_ALIGN_CENTER "\ue479"
-# define MD_FORMAT_ALIGN_JUSTIFY "\ue47a"
-# define MD_FORMAT_ALIGN_LEFT "\ue47b"
-# define MD_FORMAT_ALIGN_RIGHT "\ue47c"
-# define MD_FORMAT_BOLD "\ue47d"
-# define MD_FORMAT_CLEAR "\ue47e"
-# define MD_FORMAT_COLOR_FILL "\ue47f"
-# define MD_FORMAT_COLOR_RESET "\ue480"
-# define MD_FORMAT_COLOR_TEXT "\ue481"
-# define MD_FORMAT_INDENT_DECREASE "\ue482"
-# define MD_FORMAT_INDENT_INCREASE "\ue483"
-# define MD_FORMAT_ITALIC "\ue484"
-# define MD_FORMAT_LINE_SPACING "\ue485"
-# define MD_FORMAT_LIST_BULLETED "\ue486"
-# define MD_FORMAT_LIST_NUMBERED "\ue487"
-# define MD_FORMAT_PAINT "\ue488"
-# define MD_FORMAT_QUOTE "\ue489"
-# define MD_FORMAT_SIZE "\ue48a"
-# define MD_FORMAT_STRIKETHROUGH "\ue48b"
-# define MD_FORMAT_TEXTDIRECTION_L_TO_R "\ue48c"
-# define MD_FORMAT_TEXTDIRECTION_R_TO_L "\ue48d"
-# define MD_FORMAT_UNDERLINED "\ue48e"
-# define MD_FUNCTIONS "\ue48f"
-# define MD_INSERT_CHART "\ue490"
-# define MD_INSERT_COMMENT "\ue491"
-# define MD_INSERT_DRIVE_FILE "\ue492"
-# define MD_INSERT_EMOTICON "\ue493"
-# define MD_INSERT_INVITATION "\ue494"
-# define MD_INSERT_LINK "\ue495"
-# define MD_INSERT_PHOTO "\ue496"
-# define MD_MERGE_TYPE "\ue497"
-# define MD_MODE_COMMENT "\ue498"
-# define MD_MODE_EDIT "\ue499"
-# define MD_PUBLISH "\ue49a"
-# define MD_SPACE_BAR "\ue49b"
-# define MD_STRIKETHROUGH_S "\ue49c"
-# define MD_VERTICAL_ALIGN_BOTTOM "\ue49d"
-# define MD_VERTICAL_ALIGN_CENTER "\ue49e"
-# define MD_VERTICAL_ALIGN_TOP "\ue49f"
-# define MD_WRAP_TEXT "\ue4a0"
-# define MD_MONEY_OFF "\ue4a1"
-# define MD_DRAG_HANDLE "\ue4a2"
-# define MD_FORMAT_SHAPES "\ue4a3"
-# define MD_HIGHLIGHT "\ue4a4"
-# define MD_LINEAR_SCALE "\ue4a5"
-# define MD_SHORT_TEXT "\ue4a6"
-# define MD_TEXT_FIELDS "\ue4a7"
-# define MD_MONETIZATION_ON "\ue4a8"
-# define MD_TITLE "\ue4a9"
-# define MD_ATTACHMENT "\ue4aa"
-# define MD_CLOUD "\ue4ab"
-# define MD_CLOUD_CIRCLE "\ue4ac"
-# define MD_CLOUD_DONE "\ue4ad"
-# define MD_CLOUD_DOWNLOAD "\ue4ae"
-# define MD_CLOUD_OFF "\ue4af"
-# define MD_CLOUD_QUEUE "\ue4b0"
-# define MD_CLOUD_UPLOAD "\ue4b1"
-# define MD_FILE_DOWNLOAD "\ue4b2"
-# define MD_FILE_UPLOAD "\ue4b3"
-# define MD_FOLDER "\ue4b4"
-# define MD_FOLDER_OPEN "\ue4b5"
-# define MD_FOLDER_SHARED "\ue4b6"
-# define MD_CREATE_NEW_FOLDER "\ue4b7"
-# define MD_CAST "\ue4b8"
-# define MD_CAST_CONNECTED "\ue4b9"
-# define MD_COMPUTER "\ue4ba"
-# define MD_DESKTOP_MAC "\ue4bb"
-# define MD_DESKTOP_WINDOWS "\ue4bc"
-# define MD_DEVELOPER_BOARD "\ue4bd"
-# define MD_DOCK "\ue4be"
-# define MD_GAMEPAD "\ue4bf"
-# define MD_HEADSET "\ue4c0"
-# define MD_HEADSET_MIC "\ue4c1"
-# define MD_KEYBOARD "\ue4c2"
-# define MD_KEYBOARD_ARROW_DOWN "\ue4c3"
-# define MD_KEYBOARD_ARROW_LEFT "\ue4c4"
-# define MD_KEYBOARD_ARROW_RIGHT "\ue4c5"
-# define MD_KEYBOARD_ARROW_UP "\ue4c6"
-# define MD_KEYBOARD_BACKSPACE "\ue4c7"
-# define MD_KEYBOARD_CAPSLOCK "\ue4c8"
-# define MD_KEYBOARD_HIDE "\ue4c9"
-# define MD_KEYBOARD_RETURN "\ue4ca"
-# define MD_KEYBOARD_TAB "\ue4cb"
-# define MD_KEYBOARD_VOICE "\ue4cc"
-# define MD_LAPTOP "\ue4cd"
-# define MD_LAPTOP_CHROMEBOOK "\ue4ce"
-# define MD_LAPTOP_MAC "\ue4cf"
-# define MD_LAPTOP_WINDOWS "\ue4d0"
-# define MD_MEMORY "\ue4d1"
-# define MD_MOUSE "\ue4d2"
-# define MD_PHONE_ANDROID "\ue4d3"
-# define MD_PHONE_IPHONE "\ue4d4"
-# define MD_PHONELINK "\ue4d5"
-# define MD_PHONELINK_OFF "\ue4d6"
-# define MD_ROUTER "\ue4d7"
-# define MD_SCANNER "\ue4d8"
-# define MD_SECURITY "\ue4d9"
-# define MD_SIM_CARD "\ue4da"
-# define MD_SMARTPHONE "\ue4db"
-# define MD_SPEAKER "\ue4dc"
-# define MD_SPEAKER_GROUP "\ue4dd"
-# define MD_TABLET "\ue4de"
-# define MD_TABLET_ANDROID "\ue4df"
-# define MD_TABLET_MAC "\ue4e0"
-# define MD_TOYS "\ue4e1"
-# define MD_TV "\ue4e2"
-# define MD_WATCH "\ue4e3"
-# define MD_DEVICE_HUB "\ue4e4"
-# define MD_POWER_INPUT "\ue4e5"
-# define MD_DEVICES_OTHER "\ue4e6"
-# define MD_VIDEOGAME_ASSET "\ue4e7"
-# define MD_ADD_TO_PHOTOS "\ue4e8"
-# define MD_ADJUST "\ue4e9"
-# define MD_ASSISTANT "\ue4ea"
-# define MD_ASSISTANT_PHOTO "\ue4eb"
-# define MD_AUDIOTRACK "\ue4ec"
-# define MD_BLUR_CIRCULAR "\ue4ed"
-# define MD_BLUR_LINEAR "\ue4ee"
-# define MD_BLUR_OFF "\ue4ef"
-# define MD_BLUR_ON "\ue4f0"
-# define MD_BRIGHTNESS_1 "\ue4f1"
-# define MD_BRIGHTNESS_2 "\ue4f2"
-# define MD_BRIGHTNESS_3 "\ue4f3"
-# define MD_BRIGHTNESS_4 "\ue4f4"
-# define MD_BRIGHTNESS_5 "\ue4f5"
-# define MD_BRIGHTNESS_6 "\ue4f6"
-# define MD_BRIGHTNESS_7 "\ue4f7"
-# define MD_BROKEN_IMAGE "\ue4f8"
-# define MD_BRUSH "\ue4f9"
-# define MD_CAMERA "\ue4fa"
-# define MD_CAMERA_ALT "\ue4fb"
-# define MD_CAMERA_FRONT "\ue4fc"
-# define MD_CAMERA_REAR "\ue4fd"
-# define MD_CAMERA_ROLL "\ue4fe"
-# define MD_CENTER_FOCUS_STRONG "\ue4ff"
-# define MD_CENTER_FOCUS_WEAK "\ue500"
-# define MD_COLLECTIONS "\ue501"
-# define MD_COLOR_LENS "\ue502"
-# define MD_COLORIZE "\ue503"
-# define MD_COMPARE "\ue504"
-# define MD_CONTROL_POINT "\ue505"
-# define MD_CONTROL_POINT_DUPLICATE "\ue506"
-# define MD_CROP_16_9 "\ue507"
-# define MD_CROP_3_2 "\ue508"
-# define MD_CROP "\ue509"
-# define MD_CROP_5_4 "\ue50a"
-# define MD_CROP_7_5 "\ue50b"
-# define MD_CROP_DIN "\ue50c"
-# define MD_CROP_FREE "\ue50d"
-# define MD_CROP_LANDSCAPE "\ue50e"
-# define MD_CROP_ORIGINAL "\ue50f"
-# define MD_CROP_PORTRAIT "\ue510"
-# define MD_CROP_SQUARE "\ue511"
-# define MD_DEHAZE "\ue512"
-# define MD_DETAILS "\ue513"
-# define MD_EDIT "\ue514"
-# define MD_EXPOSURE "\ue515"
-# define MD_EXPOSURE_NEG_1 "\ue516"
-# define MD_EXPOSURE_NEG_2 "\ue517"
-# define MD_EXPOSURE_PLUS_1 "\ue518"
-# define MD_EXPOSURE_PLUS_2 "\ue519"
-# define MD_EXPOSURE_ZERO "\ue51a"
-# define MD_FILTER_1 "\ue51b"
-# define MD_FILTER_2 "\ue51c"
-# define MD_FILTER_3 "\ue51d"
-# define MD_FILTER "\ue51e"
-# define MD_FILTER_4 "\ue51f"
-# define MD_FILTER_5 "\ue520"
-# define MD_FILTER_6 "\ue521"
-# define MD_FILTER_7 "\ue522"
-# define MD_FILTER_8 "\ue523"
-# define MD_FILTER_9 "\ue524"
-# define MD_FILTER_9_PLUS "\ue525"
-# define MD_FILTER_B_AND_W "\ue526"
-# define MD_FILTER_CENTER_FOCUS "\ue527"
-# define MD_FILTER_DRAMA "\ue528"
-# define MD_FILTER_FRAMES "\ue529"
-# define MD_FILTER_HDR "\ue52a"
-# define MD_FILTER_NONE "\ue52b"
-# define MD_FILTER_TILT_SHIFT "\ue52c"
-# define MD_FILTER_VINTAGE "\ue52d"
-# define MD_FLARE "\ue52e"
-# define MD_FLASH_AUTO "\ue52f"
-# define MD_FLASH_OFF "\ue530"
-# define MD_FLASH_ON "\ue531"
-# define MD_FLIP "\ue532"
-# define MD_GRADIENT "\ue533"
-# define MD_GRAIN "\ue534"
-# define MD_GRID_OFF "\ue535"
-# define MD_GRID_ON "\ue536"
-# define MD_HDR_OFF "\ue537"
-# define MD_HDR_ON "\ue538"
-# define MD_HDR_STRONG "\ue539"
-# define MD_HDR_WEAK "\ue53a"
-# define MD_HEALING "\ue53b"
-# define MD_IMAGE "\ue53c"
-# define MD_IMAGE_ASPECT_RATIO "\ue53d"
-# define MD_ISO "\ue53e"
-# define MD_LANDSCAPE "\ue53f"
-# define MD_LEAK_ADD "\ue540"
-# define MD_LEAK_REMOVE "\ue541"
-# define MD_LENS "\ue542"
-# define MD_LOOKS_3 "\ue543"
-# define MD_LOOKS "\ue544"
-# define MD_LOOKS_4 "\ue545"
-# define MD_LOOKS_5 "\ue546"
-# define MD_LOOKS_6 "\ue547"
-# define MD_LOOKS_ONE "\ue548"
-# define MD_LOOKS_TWO "\ue549"
-# define MD_LOUPE "\ue54a"
-# define MD_MONOCHROME_PHOTOS "\ue54b"
-# define MD_MOVIE_CREATION "\ue54c"
-# define MD_MUSIC_NOTE "\ue54d"
-# define MD_NATURE "\ue54e"
-# define MD_NATURE_PEOPLE "\ue54f"
-# define MD_NAVIGATE_BEFORE "\ue550"
-# define MD_NAVIGATE_NEXT "\ue551"
-# define MD_PALETTE "\ue552"
-# define MD_PANORAMA "\ue553"
-# define MD_PANORAMA_FISH_EYE "\ue554"
-# define MD_PANORAMA_HORIZONTAL "\ue555"
-# define MD_PANORAMA_VERTICAL "\ue556"
-# define MD_PANORAMA_WIDE_ANGLE "\ue557"
-# define MD_PHOTO "\ue558"
-# define MD_PHOTO_ALBUM "\ue559"
-# define MD_PHOTO_CAMERA "\ue55a"
-# define MD_PHOTO_LIBRARY "\ue55b"
-# define MD_PICTURE_AS_PDF "\ue55c"
-# define MD_PORTRAIT "\ue55d"
-# define MD_REMOVE_RED_EYE "\ue55e"
-# define MD_ROTATE_90_DEGREES_CCW "\ue55f"
-# define MD_ROTATE_LEFT "\ue560"
-# define MD_ROTATE_RIGHT "\ue561"
-# define MD_SLIDESHOW "\ue562"
-# define MD_STRAIGHTEN "\ue563"
-# define MD_STYLE "\ue564"
-# define MD_SWITCH_CAMERA "\ue565"
-# define MD_SWITCH_VIDEO "\ue566"
-# define MD_TAG_FACES "\ue567"
-# define MD_TEXTURE "\ue568"
-# define MD_TIMELAPSE "\ue569"
-# define MD_TIMER_10 "\ue56a"
-# define MD_TIMER_3 "\ue56b"
-# define MD_TIMER "\ue56c"
-# define MD_TIMER_OFF "\ue56d"
-# define MD_TONALITY "\ue56e"
-# define MD_TRANSFORM "\ue56f"
-# define MD_TUNE "\ue570"
-# define MD_VIEW_COMFY "\ue571"
-# define MD_VIEW_COMPACT "\ue572"
-# define MD_WB_AUTO "\ue573"
-# define MD_WB_CLOUDY "\ue574"
-# define MD_WB_INCANDESCENT "\ue575"
-# define MD_WB_SUNNY "\ue576"
-# define MD_COLLECTIONS_BOOKMARK "\ue577"
-# define MD_PHOTO_SIZE_SELECT_ACTUAL "\ue578"
-# define MD_PHOTO_SIZE_SELECT_LARGE "\ue579"
-# define MD_PHOTO_SIZE_SELECT_SMALL "\ue57a"
-# define MD_VIGNETTE "\ue57b"
-# define MD_WB_IRIDESCENT "\ue57c"
-# define MD_CROP_ROTATE "\ue57d"
-# define MD_LINKED_CAMERA "\ue57e"
-# define MD_ADD_A_PHOTO "\ue57f"
-# define MD_MOVIE_FILTER "\ue580"
-# define MD_PHOTO_FILTER "\ue581"
-# define MD_BURST_MODE "\ue582"
-# define MD_BEENHERE "\ue583"
-# define MD_DIRECTIONS "\ue584"
-# define MD_DIRECTIONS_BIKE "\ue585"
-# define MD_DIRECTIONS_BUS "\ue586"
-# define MD_DIRECTIONS_CAR "\ue587"
-# define MD_DIRECTIONS_BOAT "\ue588"
-# define MD_DIRECTIONS_SUBWAY "\ue589"
-# define MD_DIRECTIONS_RAILWAY "\ue58a"
-# define MD_DIRECTIONS_TRANSIT "\ue58b"
-# define MD_DIRECTIONS_WALK "\ue58c"
-# define MD_FLIGHT "\ue58d"
-# define MD_HOTEL "\ue58e"
-# define MD_LAYERS "\ue58f"
-# define MD_LAYERS_CLEAR "\ue590"
-# define MD_LOCAL_AIRPORT "\ue591"
-# define MD_LOCAL_ATM "\ue592"
-# define MD_LOCAL_ACTIVITY "\ue593"
-# define MD_LOCAL_BAR "\ue594"
-# define MD_LOCAL_CAFE "\ue595"
-# define MD_LOCAL_CAR_WASH "\ue596"
-# define MD_LOCAL_CONVENIENCE_STORE "\ue597"
-# define MD_LOCAL_DRINK "\ue598"
-# define MD_LOCAL_FLORIST "\ue599"
-# define MD_LOCAL_GAS_STATION "\ue59a"
-# define MD_LOCAL_GROCERY_STORE "\ue59b"
-# define MD_LOCAL_HOSPITAL "\ue59c"
-# define MD_LOCAL_HOTEL "\ue59d"
-# define MD_LOCAL_LAUNDRY_SERVICE "\ue59e"
-# define MD_LOCAL_LIBRARY "\ue59f"
-# define MD_LOCAL_MALL "\ue5a0"
-# define MD_LOCAL_MOVIES "\ue5a1"
-# define MD_LOCAL_OFFER "\ue5a2"
-# define MD_LOCAL_PARKING "\ue5a3"
-# define MD_LOCAL_PHARMACY "\ue5a4"
-# define MD_LOCAL_PHONE "\ue5a5"
-# define MD_LOCAL_PIZZA "\ue5a6"
-# define MD_LOCAL_PLAY "\ue5a7"
-# define MD_LOCAL_POST_OFFICE "\ue5a8"
-# define MD_LOCAL_PRINTSHOP "\ue5a9"
-# define MD_LOCAL_DINING "\ue5aa"
-# define MD_LOCAL_SEE "\ue5ab"
-# define MD_LOCAL_SHIPPING "\ue5ac"
-# define MD_LOCAL_TAXI "\ue5ad"
-# define MD_PERSON_PIN "\ue5ae"
-# define MD_MAP "\ue5af"
-# define MD_MY_LOCATION "\ue5b0"
-# define MD_NAVIGATION "\ue5b1"
-# define MD_PIN_DROP "\ue5b2"
-# define MD_PLACE "\ue5b3"
-# define MD_RATE_REVIEW "\ue5b4"
-# define MD_RESTAURANT_MENU "\ue5b5"
-# define MD_SATELLITE "\ue5b6"
-# define MD_STORE_MALL_DIRECTORY "\ue5b7"
-# define MD_TERRAIN "\ue5b8"
-# define MD_TRAFFIC "\ue5b9"
-# define MD_DIRECTIONS_RUN "\ue5ba"
-# define MD_ADD_LOCATION "\ue5bb"
-# define MD_EDIT_LOCATION "\ue5bc"
-# define MD_NEAR_ME "\ue5bd"
-# define MD_PERSON_PIN_CIRCLE "\ue5be"
-# define MD_ZOOM_OUT_MAP "\ue5bf"
-# define MD_RESTAURANT "\ue5c0"
-# define MD_EV_STATION "\ue5c1"
-# define MD_STREETVIEW "\ue5c2"
-# define MD_SUBWAY "\ue5c3"
-# define MD_TRAIN "\ue5c4"
-# define MD_TRAM "\ue5c5"
-# define MD_TRANSFER_WITHIN_A_STATION "\ue5c6"
-# define MD_APPS "\ue5c7"
-# define MD_ARROW_BACK "\ue5c8"
-# define MD_ARROW_DROP_DOWN "\ue5c9"
-# define MD_ARROW_DROP_DOWN_CIRCLE "\ue5ca"
-# define MD_ARROW_DROP_UP "\ue5cb"
-# define MD_ARROW_FORWARD "\ue5cc"
-# define MD_CANCEL "\ue5cd"
-# define MD_CHECK "\ue5ce"
-# define MD_CHEVRON_LEFT "\ue5cf"
-# define MD_CHEVRON_RIGHT "\ue5d0"
-# define MD_CLOSE "\ue5d1"
-# define MD_EXPAND_LESS "\ue5d2"
-# define MD_EXPAND_MORE "\ue5d3"
-# define MD_FULLSCREEN "\ue5d4"
-# define MD_FULLSCREEN_EXIT "\ue5d5"
-# define MD_MENU "\ue5d6"
-# define MD_MORE_HORIZ "\ue5d7"
-# define MD_MORE_VERT "\ue5d8"
-# define MD_REFRESH "\ue5d9"
-# define MD_UNFOLD_LESS "\ue5da"
-# define MD_UNFOLD_MORE "\ue5db"
-# define MD_ARROW_UPWARD "\ue5dc"
-# define MD_SUBDIRECTORY_ARROW_LEFT "\ue5dd"
-# define MD_SUBDIRECTORY_ARROW_RIGHT "\ue5de"
-# define MD_ARROW_DOWNWARD "\ue5df"
-# define MD_FIRST_PAGE "\ue5e0"
-# define MD_LAST_PAGE "\ue5e1"
-# define MD_ADB "\ue5e2"
-# define MD_BLUETOOTH_AUDIO "\ue5e3"
-# define MD_DISC_FULL "\ue5e4"
-# define MD_DO_NOT_DISTURB_ALT "\ue5e5"
-# define MD_DO_NOT_DISTURB "\ue5e6"
-# define MD_DRIVE_ETA "\ue5e7"
-# define MD_EVENT_AVAILABLE "\ue5e8"
-# define MD_EVENT_BUSY "\ue5e9"
-# define MD_EVENT_NOTE "\ue5ea"
-# define MD_FOLDER_SPECIAL "\ue5eb"
-# define MD_MMS "\ue5ec"
-# define MD_MORE "\ue5ed"
-# define MD_NETWORK_LOCKED "\ue5ee"
-# define MD_PHONE_BLUETOOTH_SPEAKER "\ue5ef"
-# define MD_PHONE_FORWARDED "\ue5f0"
-# define MD_PHONE_IN_TALK "\ue5f1"
-# define MD_PHONE_LOCKED "\ue5f2"
-# define MD_PHONE_MISSED "\ue5f3"
-# define MD_PHONE_PAUSED "\ue5f4"
-# define MD_SD_CARD "\ue5f5"
-# define MD_SIM_CARD_ALERT "\ue5f6"
-# define MD_SMS "\ue5f7"
-# define MD_SMS_FAILED "\ue5f8"
-# define MD_SYNC "\ue5f9"
-# define MD_SYNC_DISABLED "\ue5fa"
-# define MD_SYNC_PROBLEM "\ue5fb"
-# define MD_SYSTEM_UPDATE "\ue5fc"
-# define MD_TAP_AND_PLAY "\ue5fd"
-# define MD_TIME_TO_LEAVE "\ue5fe"
-# define MD_VIBRATION "\ue5ff"
-# define MD_VOICE_CHAT "\ue600"
-# define MD_VPN_LOCK "\ue601"
-# define MD_AIRLINE_SEAT_FLAT "\ue602"
-# define MD_AIRLINE_SEAT_FLAT_ANGLED "\ue603"
-# define MD_AIRLINE_SEAT_INDIVIDUAL_SUITE "\ue604"
-# define MD_AIRLINE_SEAT_LEGROOM_EXTRA "\ue605"
-# define MD_AIRLINE_SEAT_LEGROOM_NORMAL "\ue606"
-# define MD_AIRLINE_SEAT_LEGROOM_REDUCED "\ue607"
-# define MD_AIRLINE_SEAT_RECLINE_EXTRA "\ue608"
-# define MD_AIRLINE_SEAT_RECLINE_NORMAL "\ue609"
-# define MD_CONFIRMATION_NUMBER "\ue60a"
-# define MD_LIVE_TV "\ue60b"
-# define MD_ONDEMAND_VIDEO "\ue60c"
-# define MD_PERSONAL_VIDEO "\ue60d"
-# define MD_POWER "\ue60e"
-# define MD_WC "\ue60f"
-# define MD_WIFI "\ue610"
-# define MD_ENHANCED_ENCRYPTION "\ue611"
-# define MD_NETWORK_CHECK "\ue612"
-# define MD_NO_ENCRYPTION "\ue613"
-# define MD_RV_HOOKUP "\ue614"
-# define MD_DO_NOT_DISTURB_OFF "\ue615"
-# define MD_DO_NOT_DISTURB_ON "\ue616"
-# define MD_PRIORITY_HIGH "\ue617"
-# define MD_PIE_CHART "\ue618"
-# define MD_PIE_CHART_OUTLINED "\ue619"
-# define MD_BUBBLE_CHART "\ue61a"
-# define MD_MULTILINE_CHART "\ue61b"
-# define MD_SHOW_CHART "\ue61c"
-# define MD_CAKE "\ue61d"
-# define MD_DOMAIN "\ue61e"
-# define MD_GROUP "\ue61f"
-# define MD_GROUP_ADD "\ue620"
-# define MD_LOCATION_CITY "\ue621"
-# define MD_MOOD "\ue622"
-# define MD_MOOD_BAD "\ue623"
-# define MD_NOTIFICATIONS "\ue624"
-# define MD_NOTIFICATIONS_NONE "\ue625"
-# define MD_NOTIFICATIONS_OFF "\ue626"
-# define MD_NOTIFICATIONS_ACTIVE "\ue627"
-# define MD_NOTIFICATIONS_PAUSED "\ue628"
-# define MD_PAGES "\ue629"
-# define MD_PARTY_MODE "\ue62a"
-# define MD_PEOPLE "\ue62b"
-# define MD_PEOPLE_OUTLINE "\ue62c"
-# define MD_PERSON "\ue62d"
-# define MD_PERSON_ADD "\ue62e"
-# define MD_PERSON_OUTLINE "\ue62f"
-# define MD_PLUS_ONE "\ue630"
-# define MD_POLL "\ue631"
-# define MD_PUBLIC "\ue632"
-# define MD_SCHOOL "\ue633"
-# define MD_SHARE "\ue634"
-# define MD_WHATSHOT "\ue635"
-# define MD_SENTIMENT_DISSATISFIED "\ue636"
-# define MD_SENTIMENT_NEUTRAL "\ue637"
-# define MD_SENTIMENT_SATISFIED "\ue638"
-# define MD_SENTIMENT_VERY_DISSATISFIED "\ue639"
-# define MD_SENTIMENT_VERY_SATISFIED "\ue63a"
-# define MD_CHECK_BOX "\ue63b"
-# define MD_CHECK_BOX_OUTLINE_BLANK "\ue63c"
-# define MD_RADIO_BUTTON_UNCHECKED "\ue63d"
-# define MD_RADIO_BUTTON_CHECKED "\ue63e"
-# define MD_STAR "\ue63f"
-# define MD_STAR_HALF "\ue640"
-# define MD_STAR_BORDER "\ue641"
-# define MD_3D_ROTATION "\ue642"
-# define MD_ACCESSIBILITY "\ue643"
-# define MD_ACCOUNT_BALANCE "\ue644"
-# define MD_ACCOUNT_BALANCE_WALLET "\ue645"
-# define MD_ACCOUNT_BOX "\ue646"
-# define MD_ACCOUNT_CIRCLE "\ue647"
-# define MD_ADD_SHOPPING_CART "\ue648"
-# define MD_ALARM "\ue649"
-# define MD_ALARM_ADD "\ue64a"
-# define MD_ALARM_OFF "\ue64b"
-# define MD_ALARM_ON "\ue64c"
-# define MD_ANDROID "\ue64d"
-# define MD_ANNOUNCEMENT "\ue64e"
-# define MD_ASPECT_RATIO "\ue64f"
-# define MD_ASSESSMENT "\ue650"
-# define MD_ASSIGNMENT "\ue651"
-# define MD_ASSIGNMENT_IND "\ue652"
-# define MD_ASSIGNMENT_LATE "\ue653"
-# define MD_ASSIGNMENT_RETURN "\ue654"
-# define MD_ASSIGNMENT_RETURNED "\ue655"
-# define MD_ASSIGNMENT_TURNED_IN "\ue656"
-# define MD_AUTORENEW "\ue657"
-# define MD_BACKUP "\ue658"
-# define MD_BOOK "\ue659"
-# define MD_BOOKMARK "\ue65a"
-# define MD_BOOKMARK_BORDER "\ue65b"
-# define MD_BUG_REPORT "\ue65c"
-# define MD_BUILD "\ue65d"
-# define MD_CACHED "\ue65e"
-# define MD_CHANGE_HISTORY "\ue65f"
-# define MD_CHECK_CIRCLE "\ue660"
-# define MD_CHROME_READER_MODE "\ue661"
-# define MD_CLASS "\ue662"
-# define MD_CODE "\ue663"
-# define MD_CREDIT_CARD "\ue664"
-# define MD_DASHBOARD "\ue665"
-# define MD_DELETE "\ue666"
-# define MD_DESCRIPTION "\ue667"
-# define MD_DNS "\ue668"
-# define MD_DONE "\ue669"
-# define MD_DONE_ALL "\ue66a"
-# define MD_EVENT "\ue66b"
-# define MD_EXIT_TO_APP "\ue66c"
-# define MD_EXPLORE "\ue66d"
-# define MD_EXTENSION "\ue66e"
-# define MD_FACE "\ue66f"
-# define MD_FAVORITE "\ue670"
-# define MD_FAVORITE_BORDER "\ue671"
-# define MD_FEEDBACK "\ue672"
-# define MD_FIND_IN_PAGE "\ue673"
-# define MD_FIND_REPLACE "\ue674"
-# define MD_FLIP_TO_BACK "\ue675"
-# define MD_FLIP_TO_FRONT "\ue676"
-# define MD_GET_APP "\ue677"
-# define MD_GRADE "\ue678"
-# define MD_GROUP_WORK "\ue679"
-# define MD_HELP "\ue67a"
-# define MD_HIGHLIGHT_OFF "\ue67b"
-# define MD_HISTORY "\ue67c"
-# define MD_HOME "\ue67d"
-# define MD_HOURGLASS_EMPTY "\ue67e"
-# define MD_HOURGLASS_FULL "\ue67f"
-# define MD_HTTPS "\ue680"
-# define MD_INFO "\ue681"
-# define MD_INFO_OUTLINE "\ue682"
-# define MD_INPUT "\ue683"
-# define MD_INVERT_COLORS "\ue684"
-# define MD_LABEL "\ue685"
-# define MD_LABEL_OUTLINE "\ue686"
-# define MD_LANGUAGE "\ue687"
-# define MD_LAUNCH "\ue688"
-# define MD_LIST "\ue689"
-# define MD_LOCK "\ue68a"
-# define MD_LOCK_OPEN "\ue68b"
-# define MD_LOCK_OUTLINE "\ue68c"
-# define MD_LOYALTY "\ue68d"
-# define MD_MARKUNREAD_MAILBOX "\ue68e"
-# define MD_NOTE_ADD "\ue68f"
-# define MD_OPEN_IN_BROWSER "\ue690"
-# define MD_OPEN_IN_NEW "\ue691"
-# define MD_OPEN_WITH "\ue692"
-# define MD_PAGEVIEW "\ue693"
-# define MD_PAYMENT "\ue694"
-# define MD_PERM_CAMERA_MIC "\ue695"
-# define MD_PERM_CONTACT_CALENDAR "\ue696"
-# define MD_PERM_DATA_SETTING "\ue697"
-# define MD_PERM_DEVICE_INFORMATION "\ue698"
-# define MD_PERM_IDENTITY "\ue699"
-# define MD_PERM_MEDIA "\ue69a"
-# define MD_PERM_PHONE_MSG "\ue69b"
-# define MD_PERM_SCAN_WIFI "\ue69c"
-# define MD_PICTURE_IN_PICTURE "\ue69d"
-# define MD_POLYMER "\ue69e"
-# define MD_POWER_SETTINGS_NEW "\ue69f"
-# define MD_PRINT "\ue6a0"
-# define MD_QUERY_BUILDER "\ue6a1"
-# define MD_QUESTION_ANSWER "\ue6a2"
-# define MD_RECEIPT "\ue6a3"
-# define MD_REDEEM "\ue6a4"
-# define MD_REPORT_PROBLEM "\ue6a5"
-# define MD_RESTORE "\ue6a6"
-# define MD_ROOM "\ue6a7"
-# define MD_SCHEDULE "\ue6a8"
-# define MD_SEARCH "\ue6a9"
-# define MD_SETTINGS "\ue6aa"
-# define MD_SETTINGS_APPLICATIONS "\ue6ab"
-# define MD_SETTINGS_BACKUP_RESTORE "\ue6ac"
-# define MD_SETTINGS_BLUETOOTH "\ue6ad"
-# define MD_SETTINGS_CELL "\ue6ae"
-# define MD_SETTINGS_BRIGHTNESS "\ue6af"
-# define MD_SETTINGS_ETHERNET "\ue6b0"
-# define MD_SETTINGS_INPUT_ANTENNA "\ue6b1"
-# define MD_SETTINGS_INPUT_COMPONENT "\ue6b2"
-# define MD_SETTINGS_INPUT_COMPOSITE "\ue6b3"
-# define MD_SETTINGS_INPUT_HDMI "\ue6b4"
-# define MD_SETTINGS_INPUT_SVIDEO "\ue6b5"
-# define MD_SETTINGS_OVERSCAN "\ue6b6"
-# define MD_SETTINGS_PHONE "\ue6b7"
-# define MD_SETTINGS_POWER "\ue6b8"
-# define MD_SETTINGS_REMOTE "\ue6b9"
-# define MD_SETTINGS_VOICE "\ue6ba"
-# define MD_SHOP "\ue6bb"
-# define MD_SHOP_TWO "\ue6bc"
-# define MD_SHOPPING_BASKET "\ue6bd"
-# define MD_SHOPPING_CART "\ue6be"
-# define MD_SPEAKER_NOTES "\ue6bf"
-# define MD_SPELLCHECK "\ue6c0"
-# define MD_STARS "\ue6c1"
-# define MD_STORE "\ue6c2"
-# define MD_SUBJECT "\ue6c3"
-# define MD_SUPERVISOR_ACCOUNT "\ue6c4"
-# define MD_SWAP_HORIZ "\ue6c5"
-# define MD_SWAP_VERT "\ue6c6"
-# define MD_SWAP_VERTICAL_CIRCLE "\ue6c7"
-# define MD_SYSTEM_UPDATE_ALT "\ue6c8"
-# define MD_TAB "\ue6c9"
-# define MD_TAB_UNSELECTED "\ue6ca"
-# define MD_THEATERS "\ue6cb"
-# define MD_THUMB_DOWN "\ue6cc"
-# define MD_THUMB_UP "\ue6cd"
-# define MD_THUMBS_UP_DOWN "\ue6ce"
-# define MD_TOC "\ue6cf"
-# define MD_TODAY "\ue6d0"
-# define MD_TOLL "\ue6d1"
-# define MD_TRACK_CHANGES "\ue6d2"
-# define MD_TRANSLATE "\ue6d3"
-# define MD_TRENDING_DOWN "\ue6d4"
-# define MD_TRENDING_FLAT "\ue6d5"
-# define MD_TRENDING_UP "\ue6d6"
-# define MD_TURNED_IN "\ue6d7"
-# define MD_TURNED_IN_NOT "\ue6d8"
-# define MD_VERIFIED_USER "\ue6d9"
-# define MD_VIEW_AGENDA "\ue6da"
-# define MD_VIEW_ARRAY "\ue6db"
-# define MD_VIEW_CAROUSEL "\ue6dc"
-# define MD_VIEW_COLUMN "\ue6dd"
-# define MD_VIEW_DAY "\ue6de"
-# define MD_VIEW_HEADLINE "\ue6df"
-# define MD_VIEW_LIST "\ue6e0"
-# define MD_VIEW_MODULE "\ue6e1"
-# define MD_VIEW_QUILT "\ue6e2"
-# define MD_VIEW_STREAM "\ue6e3"
-# define MD_VIEW_WEEK "\ue6e4"
-# define MD_VISIBILITY "\ue6e5"
-# define MD_VISIBILITY_OFF "\ue6e6"
-# define MD_CARD_GIFTCARD "\ue6e7"
-# define MD_CARD_MEMBERSHIP "\ue6e8"
-# define MD_CARD_TRAVEL "\ue6e9"
-# define MD_WORK "\ue6ea"
-# define MD_YOUTUBE_SEARCHED_FOR "\ue6eb"
-# define MD_EJECT "\ue6ec"
-# define MD_CAMERA_ENHANCE "\ue6ed"
-# define MD_HELP_OUTLINE "\ue6ee"
-# define MD_REORDER "\ue6ef"
-# define MD_ZOOM_IN "\ue6f0"
-# define MD_ZOOM_OUT "\ue6f1"
-# define MD_HTTP "\ue6f2"
-# define MD_EVENT_SEAT "\ue6f3"
-# define MD_FLIGHT_LAND "\ue6f4"
-# define MD_FLIGHT_TAKEOFF "\ue6f5"
-# define MD_PLAY_FOR_WORK "\ue6f6"
-# define MD_GIF "\ue6f7"
-# define MD_INDETERMINATE_CHECK_BOX "\ue6f8"
-# define MD_OFFLINE_PIN "\ue6f9"
-# define MD_ALL_OUT "\ue6fa"
-# define MD_COPYRIGHT "\ue6fb"
-# define MD_FINGERPRINT "\ue6fc"
-# define MD_GAVEL "\ue6fd"
-# define MD_LIGHTBULB_OUTLINE "\ue6fe"
-# define MD_PICTURE_IN_PICTURE_ALT "\ue6ff"
-# define MD_IMPORTANT_DEVICES "\ue700"
-# define MD_TOUCH_APP "\ue701"
-# define MD_ACCESSIBLE "\ue702"
-# define MD_COMPARE_ARROWS "\ue703"
-# define MD_DATE_RANGE "\ue704"
-# define MD_DONUT_LARGE "\ue705"
-# define MD_DONUT_SMALL "\ue706"
-# define MD_LINE_STYLE "\ue707"
-# define MD_LINE_WEIGHT "\ue708"
-# define MD_MOTORCYCLE "\ue709"
-# define MD_OPACITY "\ue70a"
-# define MD_PETS "\ue70b"
-# define MD_PREGNANT_WOMAN "\ue70c"
-# define MD_RECORD_VOICE_OVER "\ue70d"
-# define MD_ROUNDED_CORNER "\ue70e"
-# define MD_ROWING "\ue70f"
-# define MD_TIMELINE "\ue710"
-# define MD_UPDATE "\ue711"
-# define MD_WATCH_LATER "\ue712"
-# define MD_PAN_TOOL "\ue713"
-# define MD_EURO_SYMBOL "\ue714"
-# define MD_G_TRANSLATE "\ue715"
-# define MD_REMOVE_SHOPPING_CART "\ue716"
-# define MD_RESTORE_PAGE "\ue717"
-# define MD_SPEAKER_NOTES_OFF "\ue718"
-# define MD_DELETE_FOREVER "\ue719"
-# define MD_AC_UNIT "\ue71a"
-# define MD_AIRPORT_SHUTTLE "\ue71b"
-# define MD_ALL_INCLUSIVE "\ue71c"
-# define MD_BEACH_ACCESS "\ue71d"
-# define MD_BUSINESS_CENTER "\ue71e"
-# define MD_CASINO "\ue71f"
-# define MD_CHILD_CARE "\ue720"
-# define MD_CHILD_FRIENDLY "\ue721"
-# define MD_FITNESS_CENTER "\ue722"
-# define MD_FREE_BREAKFAST "\ue723"
-# define MD_GOLF_COURSE "\ue724"
-# define MD_HOT_TUB "\ue725"
-# define MD_KITCHEN "\ue726"
-# define MD_POOL "\ue727"
-# define MD_ROOM_SERVICE "\ue728"
-# define MD_SMOKE_FREE "\ue729"
-# define MD_SMOKING_ROOMS "\ue72a"
-# define MD_SPA "\ue72b"
-# define MD_U10FFFD "\ue72c"
-# define FILE_REGEX "\ue72d"
-# define FILE_ARCH_LINUX "\ue72e"
-# define FILE_E "\ue72f"
-# define FILE_GLYPHS "\ue730"
-# define FILE_KNOCKOUT "\ue731"
-# define FILE_LEAN "\ue732"
-# define FILE_METAL "\ue733"
-# define FILE_POVRAY "\ue734"
-# define FILE_S "\ue735"
-# define FILE_TT "\ue736"
-# define FILE_VAGRANT "\ue737"
-# define FILE_XMOS "\ue738"
-# define FILE_A "\ue739"
-# define FILE_CHAI "\ue73a"
-# define FILE_STYLUS "\ue73b"
-# define FILE_TEXTILE "\ue73c"
-# define FILE_UNREAL "\ue73d"
-# define FILE_PUREBASIC "\ue73e"
-# define FILE_TS "\ue73f"
-# define FILE_SCHEME "\ue740"
-# define FILE_TEXTMATE "\ue741"
-# define FILE_X10 "\ue742"
-# define FILE_APL "\ue743"
-# define FILE_ANSIBLE "\ue744"
-# define FILE_ARTTEXT "\ue745"
-# define FILE_ANTWAR "\ue746"
-# define FILE_OPA "\ue747"
-# define FILE_CODECOV "\ue748"
-# define FILE_YANG "\ue749"
-# define FILE_PM2 "\ue74a"
-# define FILE_HG "\ue74b"
-# define FILE_PAWN "\ue74c"
-# define FILE_JULIA "\ue74d"
-# define FILE_SHIPIT "\ue74e"
-# define FILE_MOCHA "\ue74f"
-# define FILE_NIB "\ue750"
-# define FILE_SHURIKEN "\ue751"
-# define FILE_ALEX "\ue752"
-# define FILE_TWIG "\ue753"
-# define FILE_1C "\ue754"
-# define FILE_TEX "\ue755"
-# define FILE_BIBTEX "\ue756"
-# define FILE_MUSTACHE "\ue757"
-# define FILE_GULP "\ue758"
-# define FILE_GRUNT "\ue759"
-# define FILE_EMBER "\ue75a"
-# define FILE_GO "\ue75b"
-# define FILE_JENKINS "\ue75c"
-# define FILE_GNU "\ue75d"
-# define FILE_COMPOSER "\ue75e"
-# define FILE_METEOR "\ue75f"
-# define FILE_AI "\ue760"
-# define FILE_PSD "\ue761"
-# define FILE_SILVERSTRIPE "\ue762"
-# define FILE_MAXSCRIPT "\ue763"
-# define FILE_KIVY "\ue764"
-# define FILE_CRYSTAL "\ue765"
-# define FILE_GRADLE "\ue766"
-# define FILE_GROOVY "\ue767"
-# define FILE_R "\ue768"
-# define FILE_VUE "\ue769"
-# define FILE_HAXE "\ue76a"
-# define FILE_LISP "\ue76b"
-# define FILE_E909 "\ue76c"
-# define FILE_FORTRAN "\ue76d"
-# define FILE_ADA "\ue76e"
-# define FILE_DYALOG "\ue76f"
-# define FILE_JADE "\ue770"
-# define FILE_E90E "\ue771"
-# define FILE_FONT "\ue772"
-# define FILE_POSTCSS "\ue773"
-# define FILE_SCAD "\ue774"
-# define FILE_E912 "\ue775"
-# define FILE_RAML "\ue776"
-# define FILE_LS "\ue777"
-# define FILE_SALTSTACK "\ue778"
-# define FILE_TERRAFORM "\ue779"
-# define FILE_ORG "\ue77a"
-# define FILE_ASCIIDOC "\ue77b"
-# define FILE_RIOT "\ue77c"
-# define FILE_OCAML "\ue77d"
-# define FILE_LUA "\ue77e"
-# define FILE_NPM "\ue77f"
-# define FILE_LLVM "\ue780"
-# define FILE_E91E "\ue781"
-# define FILE_BABEL "\ue782"
-# define FILE_MARKO "\ue783"
-# define FILE_FLOW "\ue784"
-# define FILE_BROCCOLI "\ue785"
-# define FILE_APPVEYOR "\ue786"
-# define FILE_CAKEFILE "\ue787"
-# define FILE_APPLE "\ue788"
-# define FILE_EMACS "\ue789"
-# define FILE_SKETCH "\ue78a"
-# define FILE_DOXYGEN "\ue78b"
-# define FILE_CF "\ue78c"
-# define FILE_PASCAL "\ue78d"
-# define FILE_ABAP "\ue78e"
-# define FILE_ANTLR "\ue78f"
-# define FILE_API "\ue790"
-# define FILE_AS "\ue791"
-# define FILE_ARC "\ue792"
-# define FILE_ARDUINO "\ue793"
-# define FILE_AUGEAS "\ue794"
-# define FILE_AHK "\ue795"
-# define FILE_AUTOIT "\ue796"
-# define FILE_ATS "\ue797"
-# define FILE_ALLOY "\ue798"
-# define FILE_MANPAGE "\ue799"
-# define FILE_J "\ue79a"
-# define FILE_GLADE "\ue79b"
-# define FILE_BOO "\ue79c"
-# define FILE_BRAIN "\ue79d"
-# define FILE_BRO "\ue79e"
-# define FILE_BLUESPEC "\ue79f"
-# define FILE_STYLELINT "\ue7a0"
-# define FILE_ANT "\ue7a1"
-# define FILE_CMAKE "\ue7a2"
-# define FILE_CLIPS "\ue7a3"
-# define FILE_MAPBOX "\ue7a4"
-# define FILE_CP "\ue7a5"
-# define FILE_CHUCK "\ue7a6"
-# define FILE_JINJA "\ue7a7"
-# define FILE_ISABELLE "\ue7a8"
-# define FILE_DOGE "\ue7a9"
-# define FILE_IDL "\ue7aa"
-# define FILE_JAKE "\ue7ab"
-# define FILE_VERILOG "\ue7ac"
-# define FILE_PHALCON "\ue7ad"
-# define FILE_FABFILE "\ue7ae"
-# define FILE_LFE "\ue7af"
-# define FILE_NMAP "\ue7b0"
-# define FILE_AMPL "\ue7b1"
-# define FILE_CEYLON "\ue7b2"
-# define FILE_CHAPEL "\ue7b3"
-# define FILE_CIRRU "\ue7b4"
-# define FILE_CLARION "\ue7b5"
-# define FILE_NUNJUCKS "\ue7b6"
-# define FILE_MEDIAWIKI "\ue7b7"
-# define FILE_POSTSCRIPT "\ue7b8"
-# define FILE_TCL "\ue7b9"
-# define FILE_OWL "\ue7ba"
-# define FILE_JSONLD "\ue7bb"
-# define FILE_SPARQL "\ue7bc"
-# define FILE_SAS "\ue7bd"
-# define FILE_CLEAN "\ue7be"
-# define FILE_CLICK "\ue7bf"
-# define FILE_NVIDIA "\ue7c0"
-# define FILE_CREOLE "\ue7c1"
-# define FILE_COQ "\ue7c2"
-# define FILE_DIFF "\ue7c3"
-# define FILE_PATCH "\ue7c4"
-# define FILE_BYOND "\ue7c5"
-# define FILE_CYTHON "\ue7c6"
-# define FILE_DARCS "\ue7c7"
-# define FILE_EAGLE "\ue7c8"
-# define FILE_ECERE "\ue7c9"
-# define FILE_EIFFEL "\ue7ca"
-# define FILE_EM "\ue7cb"
-# define FILE_FLUX "\ue7cc"
-# define FILE_FACTOR "\ue7cd"
-# define FILE_FANCY "\ue7ce"
-# define FILE_PERL6 "\ue7cf"
-# define FILE_GENTOO "\ue7d0"
-# define FILE_FREGE "\ue7d1"
-# define FILE_FANTOM "\ue7d2"
-# define FILE_FREEMARKER "\ue7d3"
-# define FILE_GAP "\ue7d4"
-# define FILE_CL "\ue7d5"
-# define FILE_GAMS "\ue7d6"
-# define FILE_GODOT "\ue7d7"
-# define FILE_GML "\ue7d8"
-# define FILE_GENSHI "\ue7d9"
-# define FILE_POINTWISE "\ue7da"
-# define FILE_GF "\ue7db"
-# define FILE_GOLO "\ue7dc"
-# define FILE_GOSU "\ue7dd"
-# define FILE_HARBOUR "\ue7de"
-# define FILE_GRAPHQL "\ue7df"
-# define FILE_GRAPHVIZ "\ue7e0"
-# define FILE_HASHICORP "\ue7e1"
-# define FILE_HY "\ue7e2"
-# define FILE_IGORPRO "\ue7e3"
-# define FILE_IO "\ue7e4"
-# define FILE_IOKE "\ue7e5"
-# define FILE_IDRIS "\ue7e6"
-# define FILE_INFORM7 "\ue7e7"
-# define FILE_INNO "\ue7e8"
-# define FILE_SUBLIME "\ue7e9"
-# define FILE_JUPYTER "\ue7ea"
-# define FILE_KRL "\ue7eb"
-# define FILE_KOTLIN "\ue7ec"
-# define FILE_LABVIEW "\ue7ed"
-# define FILE_LSL "\ue7ee"
-# define FILE_LASSO "\ue7ef"
-# define FILE_LOGTALK "\ue7f0"
-# define FILE_LOOKML "\ue7f1"
-# define FILE_MAKO "\ue7f2"
-# define FILE_MATHEMATICA "\ue7f3"
-# define FILE_MATLAB "\ue7f4"
-# define FILE_E992 "\ue7f5"
-# define FILE_MAX "\ue7f6"
-# define FILE_MERCURY "\ue7f7"
-# define FILE_MIRAH "\ue7f8"
-# define FILE_MODULA2 "\ue7f9"
-# define FILE_MONKEY "\ue7fa"
-# define FILE_NIMROD "\ue7fb"
-# define FILE_NIT "\ue7fc"
-# define FILE_NIX "\ue7fd"
-# define FILE_AMX "\ue7fe"
-# define FILE_NETLOGO "\ue7ff"
-# define FILE_NUMPY "\ue800"
-# define FILE_OBJJ "\ue801"
-# define FILE_OPENCL "\ue802"
-# define FILE_PROCESSING "\ue803"
-# define FILE_OX "\ue804"
-# define FILE_SCD "\ue805"
-# define FILE_STATA "\ue806"
-# define FILE_STAN "\ue807"
-# define FILE_SQF "\ue808"
-# define FILE_SLASH "\ue809"
-# define FILE_SHEN "\ue80a"
-# define FILE_SELF "\ue80b"
-# define FILE_SCILAB "\ue80c"
-# define FILE_VHDL "\ue80d"
-# define FILE_SAGE "\ue80e"
-# define FILE_ROBOT "\ue80f"
-# define FILE_RED "\ue810"
-# define FILE_REBOL "\ue811"
-# define FILE_XOJO "\ue812"
-# define FILE_RDOC "\ue813"
-# define FILE_RACKET "\ue814"
-# define FILE_PURESCRIPT "\ue815"
-# define FILE_UNO "\ue816"
-# define FILE_VARNISH "\ue817"
-# define FILE_PROPELLER "\ue818"
-# define FILE_TURING "\ue819"
-# define FILE_PONY "\ue81a"
-# define FILE_POGO "\ue81b"
-# define FILE_PIKE "\ue81c"
-# define FILE_URWEB "\ue81d"
-# define FILE_PARROT "\ue81e"
-# define FILE_PAPYRUS "\ue81f"
-# define FILE_PAN "\ue820"
-# define FILE_OZ "\ue821"
-# define FILE_OXYGENE "\ue822"
-# define FILE_PROGRESS "\ue823"
-# define FILE_TXL "\ue824"
-# define FILE_CABAL "\ue825"
-# define FILE_SYSVERILOG "\ue826"
-# define FILE_PICKLE "\ue827"
-# define FILE_XPAGES "\ue828"
-# define FILE_XTEND "\ue829"
-# define FILE_ZEPHIR "\ue82a"
-# define FILE_ZIMPL "\ue82b"
-# define FILE_EC "\ue82c"
-# define FILE_MUPAD "\ue82d"
-# define FILE_OOC "\ue82e"
-# define FILE_RST "\ue82f"
-# define FILE_KARMA "\ue830"
-# define FILE_HACK "\ue831"
-# define FILE_SHOPIFY "\ue832"
-# define FILE_PUG_ALT "\ue833"
-# define FILE_E9D1 "\ue834"
-# define FILE_SBT "\ue835"
-# define FILE_E9D3 "\ue836"
-# define FILE_SCRUTINIZER "\ue837"
-# define FILE_CC "\ue838"
-# define FILE_BRAKEMAN "\ue839"
-# define FILE_NEWRELIC "\ue83a"
-# define FILE_THOR "\ue83b"
-# define FILE_NUGET "\ue83c"
-# define FILE_POWERSHELL "\ue83d"
-# define FILE_SF "\ue83e"
-# define FILE_MINECRAFT "\ue83f"
-# define FILE_SQLITE "\ue840"
-# define FILE_PROTRACTOR "\ue841"
-# define FILE_TYPINGS "\ue842"
-# define FILE_STRINGS "\ue843"
-# define FILE_NANT "\ue844"
-# define FILE_CSSCRIPT "\ue845"
-# define FILE_CAKE "\ue846"
-# define FILE_OPENOFFICE "\ue847"
-# define FILE_KEYNOTE "\ue848"
-# define FILE_JSX "\ue849"
-# define FILE_TSX "\ue84a"
-# define FILE_MODEL "\ue84b"
-# define FILE_FINDER "\ue84c"
-# define FILE_ACCESS "\ue84d"
-# define FILE_ONENOTE "\ue84e"
-# define FILE_POWERPOINT "\ue84f"
-# define FILE_WORD "\ue850"
-# define FILE_EXCEL "\ue851"
-# define FILE_STORYIST "\ue852"
-# define FILE_CSOUND "\ue853"
-# define FILE_DBASE "\ue854"
-# define FILE_ZBRUSH "\ue855"
-# define FILE_AE "\ue856"
-# define FILE_INDESIGN "\ue857"
-# define FILE_PREMIERE "\ue858"
-# define FILE_MAYA "\ue859"
-# define FILE_E9F7 "\ue85a"
-# define FILE_KHRONOS "\ue85b"
-# define FILE_AUDACITY "\ue85c"
-# define FILE_BLENDER "\ue85d"
-# define FILE_LIGHTWAVE "\ue85e"
-# define FILE_FBX "\ue85f"
-# define FILE_E9FD "\ue860"
-# define FILE_TYPEDOC "\ue861"
-# define FILE_ALPINE "\ue862"
-# define FILE_YUI "\ue863"
-# define FILE_EA01 "\ue864"
-# define FILE_EA02 "\ue865"
-# define FILE_EA03 "\ue866"
-# define FILE_NORMALIZE "\ue867"
-# define FILE_NEKO "\ue868"
-# define FILE_MATHJAX "\ue869"
-# define FILE_LEAFLET "\ue86a"
-# define FILE_GDB "\ue86b"
-# define FILE_FUELUX "\ue86c"
-# define FILE_EQ "\ue86d"
-# define FILE_CHARTJS "\ue86e"
-# define FILE_EA0C "\ue86f"
-# define FILE_EA0D "\ue870"
-# define FILE_EA0E "\ue871"
-# define FILE_ESLINT "\ue872"
-# define FILE_D3 "\ue873"
-# define FILE_CORDOVA "\ue874"
-# define FILE_CIRCLECI "\ue875"
-# define FILE_PUG "\ue876"
-# define FILE_POWERBUILDER "\ue877"
-# define FILE_DYLIB "\ue878"
-# define FILE_REXX "\ue879"
-# define FILE_SVN "\ue87a"
-# define FILE_MRUBY "\ue87b"
-# define FILE_WERCKER "\ue87c"
-# define FILE_YARN "\ue87d"
-# define FILE_EDITORCONFIG "\ue87e"
-# define FILE_SNYK "\ue87f"
-# define FILE_REASON "\ue880"
-# define FILE_NSIS "\ue881"
-# define FILE_V8 "\ue882"
-# define FILE_ROLLUP "\ue883"
-# define FILE_EA21 "\ue884"
-# define FILE_EA22 "\ue885"
-# define FILE_EA23 "\ue886"
-# define FILE_RASCAL "\ue887"
-# define FILE_GN "\ue888"
-# define FILE_NODEMON "\ue889"
-# define FILE_ELECTRON "\ue88a"
-# define FILE_1C_ALT "\ue88b"
-# define FILE_SWAGGER "\ue88c"
-# define FILE_BITHOUND "\ue88d"
-# define FILE_POLYMER "\ue88e"
-# define FILE_PLATFORMIO "\ue88f"
-# define FILE_SHIPPABLE "\ue890"
-# define FILE_EA2E "\ue891"
-# define FILE_SEQUELIZE "\ue892"
-# define FILE_REDUX "\ue893"
-# define FILE_RSPEC "\ue894"
-# define FILE_PHPUNIT "\ue895"
-# define FILE_OCTAVE "\ue896"
-# define FILE_NUCLIDE "\ue897"
-# define FILE_INFOPATH "\ue898"
-# define FILE_LIME "\ue899"
-# define FILE_LERNA "\ue89a"
-# define FILE_KITCHENCI "\ue89b"
-# define FILE_JEST "\ue89c"
-# define FILE_JASMINE "\ue89d"
-# define FILE_HAXEDEVELOP "\ue89e"
-# define FILE_GITLAB "\ue89f"
-# define FILE_DRONE "\ue8a0"
-# define FILE_VIRTUALBOX "\ue8a1"
-# define FILE_DOCLETS "\ue8a2"
-# define FILE_DELPHI "\ue8a3"
-# define FILE_CODEKIT "\ue8a4"
-# define FILE_CHEF "\ue8a5"
-# define FILE_CAKEPHP "\ue8a6"
-# define FILE_COBOL "\ue8a7"
-# define FILE_BUNDLER "\ue8a8"
-# define FILE_BUCK "\ue8a9"
-# define FILE_BRUNCH "\ue8aa"
-# define FILE_AURELIA "\ue8ab"
-# define FILE_VMWARE "\ue8ac"
-# define FILE_RHINO "\ue8ad"
-# define FILE_EJS "\ue8ae"
-# define FILE_KICAD "\ue8af"
-# define FILE_HOPLON "\ue8b0"
-# define FILE_ABIF "\ue8b1"
-# define FILE_WATCHMAN "\ue8b2"
-# define FILE_P4 "\ue8b3"
-# define FILE_NANOC "\ue8b4"
-# define FILE_MIRANDA "\ue8b5"
-# define FILE_MINIZINC "\ue8b6"
-# define FILE_MESON "\ue8b7"
-# define FILE_JISON "\ue8b8"
-# define FILE_FRANCA "\ue8b9"
-# define FILE_DEVICETREE "\ue8ba"
-# define FILE_CADDY "\ue8bb"
-# define FILE_BEM "\ue8bc"
-# define FILE_BAZEL "\ue8bd"
-# define FILE_ANGELSCRIPT "\ue8be"
-# define FILE_ESDOC "\ue8bf"
-# define FILE_TWINE "\ue8c0"
-# define FILE_SQUARESPACE "\ue8c1"
-# define FILE_PHOENIX "\ue8c2"
-# define FILE_TEST_DIR "\ue8c3"
-# define FILE_WEBPACK "\ue8c4"
-# define FILE_TEST_COFFEE "\ue8c5"
-# define FILE_TEST_GENERIC "\ue8c6"
-# define FILE_TEST_JS "\ue8c7"
-# define FILE_TEST_PERL "\ue8c8"
-# define FILE_TEST_PYTHON "\ue8c9"
-# define FILE_TEST_REACT "\ue8ca"
-# define FILE_TEST_RUBY "\ue8cb"
-# define FILE_TEST_TS "\ue8cc"
-# define FILE_CODESHIP "\ue8cd"
-# define FILE_NXC "\ue8ce"
-# define FILE_BROTLI "\ue8cf"
-# define FILE_PROSELINT "\ue8d0"
-# define FILE_BINTRAY "\ue8d1"
-# define FILE_MJML "\ue8d2"
-# define FILE_WASM "\ue8d3"
-# define FILE_EA71 "\ue8d4"
-# define FILE_NASM "\ue8d5"
-# define FILE_EA73 "\ue8d6"
-# define FILE_PEG "\ue8d7"
-# define FILE_JOLIE "\ue8d8"
-# define FILE_NANO "\ue8d9"
-# define FILE_XAMARIN "\ue8da"
-# define FILE_F012 "\ue8db"
-# define FILE_TAG "\ue8dc"
-# define FILE_CUCUMBER "\ue8dd"
-# define FILE_VIDEO "\ue8de"
-# define FILE_CONFIG "\ue8df"
-# define FILE_DASHBOARD "\ue8e0"
-# define FILE_PUPPET "\ue8e1"
-# define FILE_TERMINAL "\ue8e2"
-# define FILE_MARKDOWNLINT "\ue8e3"
-# define FILE_REACT "\ue8e4"
-# define FILE_F101 "\ue8e5"
-# define FILE_ELM "\ue8e6"
-# define FILE_BOOT "\ue8e7"
-# define FILE_CLJS "\ue8e8"
-# define FILE_LEIN "\ue8e9"
-# define FILE_DOCKER "\ue8ea"
-# define FILE_PHP "\ue8eb"
-# define FILE_IONIC "\ue8ec"
-# define FILE_HAML "\ue8ed"
-# define FILE_F17B "\ue8ee"
-# define FILE_FF "\ue8ef"
-# define FILE_U1F3C1 "\ue8f0"
-# define FILE_TERN "\ue8f1"
-# define FILE_DEFAULT "\ue8f2"
-# define FILE_SIGILS "\ue8f3"
-# define FILE_NGINX "\ue8f4"
-# define WEATHER_DAY_CLOUDY_GUSTS "\ue8f5"
-# define WEATHER_DAY_CLOUDY_WINDY "\ue8f6"
-# define WEATHER_DAY_CLOUDY "\ue8f7"
-# define WEATHER_DAY_FOG "\ue8f8"
-# define WEATHER_DAY_HAIL "\ue8f9"
-# define WEATHER_DAY_LIGHTNING "\ue8fa"
-# define WEATHER_DAY_RAIN_MIX "\ue8fb"
-# define WEATHER_DAY_RAIN_WIND "\ue8fc"
-# define WEATHER_DAY_RAIN "\ue8fd"
-# define WEATHER_DAY_SHOWERS "\ue8fe"
-# define WEATHER_DAY_SNOW "\ue8ff"
-# define WEATHER_DAY_SPRINKLE "\ue900"
-# define WEATHER_DAY_SUNNY_OVERCAST "\ue901"
-# define WEATHER_DAY_SUNNY "\ue902"
-# define WEATHER_DAY_STORM_SHOWERS "\ue903"
-# define WEATHER_DAY_THUNDERSTORM "\ue904"
-# define WEATHER_CLOUDY_GUSTS "\ue905"
-# define WEATHER_CLOUDY_WINDY "\ue906"
-# define WEATHER_CLOUDY "\ue907"
-# define WEATHER_FOG "\ue908"
-# define WEATHER_HAIL "\ue909"
-# define WEATHER_LIGHTNING "\ue90a"
-# define WEATHER_RAIN_MIX "\ue90b"
-# define WEATHER_RAIN_WIND "\ue90c"
-# define WEATHER_RAIN "\ue90d"
-# define WEATHER_SHOWERS "\ue90e"
-# define WEATHER_SNOW "\ue90f"
-# define WEATHER_SPRINKLE "\ue910"
-# define WEATHER_STORM_SHOWERS "\ue911"
-# define WEATHER_THUNDERSTORM "\ue912"
-# define WEATHER_WINDY "\ue913"
-# define WEATHER_NIGHT_ALT_CLOUDY_GUSTS "\ue914"
-# define WEATHER_NIGHT_ALT_CLOUDY_WINDY "\ue915"
-# define WEATHER_NIGHT_ALT_HAIL "\ue916"
-# define WEATHER_NIGHT_ALT_LIGHTNING "\ue917"
-# define WEATHER_NIGHT_ALT_RAIN_MIX "\ue918"
-# define WEATHER_NIGHT_ALT_RAIN_WIND "\ue919"
-# define WEATHER_NIGHT_ALT_RAIN "\ue91a"
-# define WEATHER_NIGHT_ALT_SHOWERS "\ue91b"
-# define WEATHER_NIGHT_ALT_SNOW "\ue91c"
-# define WEATHER_NIGHT_ALT_SPRINKLE "\ue91d"
-# define WEATHER_NIGHT_ALT_STORM_SHOWERS "\ue91e"
-# define WEATHER_NIGHT_ALT_THUNDERSTORM "\ue91f"
-# define WEATHER_NIGHT_CLEAR "\ue920"
-# define WEATHER_NIGHT_CLOUDY_GUSTS "\ue921"
-# define WEATHER_NIGHT_CLOUDY_WINDY "\ue922"
-# define WEATHER_NIGHT_CLOUDY "\ue923"
-# define WEATHER_NIGHT_HAIL "\ue924"
-# define WEATHER_NIGHT_LIGHTNING "\ue925"
-# define WEATHER_NIGHT_RAIN_MIX "\ue926"
-# define WEATHER_NIGHT_RAIN_WIND "\ue927"
-# define WEATHER_NIGHT_RAIN "\ue928"
-# define WEATHER_NIGHT_SHOWERS "\ue929"
-# define WEATHER_NIGHT_SNOW "\ue92a"
-# define WEATHER_NIGHT_SPRINKLE "\ue92b"
-# define WEATHER_NIGHT_STORM_SHOWERS "\ue92c"
-# define WEATHER_NIGHT_THUNDERSTORM "\ue92d"
-# define WEATHER_CELSIUS "\ue92e"
-# define WEATHER_CLOUD_DOWN "\ue92f"
-# define WEATHER_CLOUD_REFRESH "\ue930"
-# define WEATHER_CLOUD_UP "\ue931"
-# define WEATHER_CLOUD "\ue932"
-# define WEATHER_DEGREES "\ue933"
-# define WEATHER_DIRECTION_DOWN_LEFT "\ue934"
-# define WEATHER_DIRECTION_DOWN "\ue935"
-# define WEATHER_FAHRENHEIT "\ue936"
-# define WEATHER_HORIZON_ALT "\ue937"
-# define WEATHER_HORIZON "\ue938"
-# define WEATHER_DIRECTION_LEFT "\ue939"
-# define WEATHER_F049 "\ue93a"
-# define WEATHER_NIGHT_FOG "\ue93b"
-# define WEATHER_REFRESH_ALT "\ue93c"
-# define WEATHER_REFRESH "\ue93d"
-# define WEATHER_DIRECTION_RIGHT "\ue93e"
-# define WEATHER_RAINDROPS "\ue93f"
-# define WEATHER_STRONG_WIND "\ue940"
-# define WEATHER_SUNRISE "\ue941"
-# define WEATHER_SUNSET "\ue942"
-# define WEATHER_THERMOMETER_EXTERIOR "\ue943"
-# define WEATHER_THERMOMETER_INTERNAL "\ue944"
-# define WEATHER_THERMOMETER "\ue945"
-# define WEATHER_TORNADO "\ue946"
-# define WEATHER_DIRECTION_UP_RIGHT "\ue947"
-# define WEATHER_DIRECTION_UP "\ue948"
-# define WEATHER_F059 "\ue949"
-# define WEATHER_F05A "\ue94a"
-# define WEATHER_F05B "\ue94b"
-# define WEATHER_F05C "\ue94c"
-# define WEATHER_F05D "\ue94d"
-# define WEATHER_F05E "\ue94e"
-# define WEATHER_F060 "\ue94f"
-# define WEATHER_F061 "\ue950"
-# define WEATHER_SMOKE "\ue951"
-# define WEATHER_DUST "\ue952"
-# define WEATHER_SNOW_WIND "\ue953"
-# define WEATHER_DAY_SNOW_WIND "\ue954"
-# define WEATHER_NIGHT_SNOW_WIND "\ue955"
-# define WEATHER_NIGHT_ALT_SNOW_WIND "\ue956"
-# define WEATHER_DAY_SLEET_STORM "\ue957"
-# define WEATHER_NIGHT_SLEET_STORM "\ue958"
-# define WEATHER_NIGHT_ALT_SLEET_STORM "\ue959"
-# define WEATHER_DAY_SNOW_THUNDERSTORM "\ue95a"
-# define WEATHER_NIGHT_SNOW_THUNDERSTORM "\ue95b"
-# define WEATHER_NIGHT_ALT_SNOW_THUNDERSTORM "\ue95c"
-# define WEATHER_SOLAR_ECLIPSE "\ue95d"
-# define WEATHER_LUNAR_ECLIPSE "\ue95e"
-# define WEATHER_METEOR "\ue95f"
-# define WEATHER_HOT "\ue960"
-# define WEATHER_HURRICANE "\ue961"
-# define WEATHER_SMOG "\ue962"
-# define WEATHER_ALIEN "\ue963"
-# define WEATHER_SNOWFLAKE_COLD "\ue964"
-# define WEATHER_STARS "\ue965"
-# define WEATHER_RAINDROP "\ue966"
-# define WEATHER_BAROMETER "\ue967"
-# define WEATHER_HUMIDITY "\ue968"
-# define WEATHER_NA "\ue969"
-# define WEATHER_FLOOD "\ue96a"
-# define WEATHER_DAY_CLOUDY_HIGH "\ue96b"
-# define WEATHER_NIGHT_ALT_CLOUDY_HIGH "\ue96c"
-# define WEATHER_NIGHT_CLOUDY_HIGH "\ue96d"
-# define WEATHER_NIGHT_ALT_PARTLY_CLOUDY "\ue96e"
-# define WEATHER_SANDSTORM "\ue96f"
-# define WEATHER_NIGHT_PARTLY_CLOUDY "\ue970"
-# define WEATHER_UMBRELLA "\ue971"
-# define WEATHER_DAY_WINDY "\ue972"
-# define WEATHER_NIGHT_ALT_CLOUDY "\ue973"
-# define WEATHER_DIRECTION_UP_LEFT "\ue974"
-# define WEATHER_DIRECTION_DOWN_RIGHT "\ue975"
-# define WEATHER_TIME_12 "\ue976"
-# define WEATHER_TIME_1 "\ue977"
-# define WEATHER_TIME_2 "\ue978"
-# define WEATHER_TIME_3 "\ue979"
-# define WEATHER_TIME_4 "\ue97a"
-# define WEATHER_TIME_5 "\ue97b"
-# define WEATHER_TIME_6 "\ue97c"
-# define WEATHER_TIME_7 "\ue97d"
-# define WEATHER_TIME_8 "\ue97e"
-# define WEATHER_TIME_9 "\ue97f"
-# define WEATHER_TIME_10 "\ue980"
-# define WEATHER_TIME_11 "\ue981"
-# define WEATHER_MOON_NEW "\ue982"
-# define WEATHER_MOON_WAXING_CRESCENT_1 "\ue983"
-# define WEATHER_MOON_WAXING_CRESCENT_2 "\ue984"
-# define WEATHER_MOON_WAXING_CRESCENT_3 "\ue985"
-# define WEATHER_MOON_WAXING_CRESCENT_4 "\ue986"
-# define WEATHER_MOON_WAXING_CRESCENT_5 "\ue987"
-# define WEATHER_MOON_WAXING_CRESCENT_6 "\ue988"
-# define WEATHER_MOON_FIRST_QUARTER "\ue989"
-# define WEATHER_MOON_WAXING_GIBBOUS_1 "\ue98a"
-# define WEATHER_MOON_WAXING_GIBBOUS_2 "\ue98b"
-# define WEATHER_MOON_WAXING_GIBBOUS_3 "\ue98c"
-# define WEATHER_MOON_WAXING_GIBBOUS_4 "\ue98d"
-# define WEATHER_MOON_WAXING_GIBBOUS_5 "\ue98e"
-# define WEATHER_MOON_WAXING_GIBBOUS_6 "\ue98f"
-# define WEATHER_MOON_FULL "\ue990"
-# define WEATHER_MOON_WANING_GIBBOUS_1 "\ue991"
-# define WEATHER_MOON_WANING_GIBBOUS_2 "\ue992"
-# define WEATHER_MOON_WANING_GIBBOUS_3 "\ue993"
-# define WEATHER_MOON_WANING_GIBBOUS_4 "\ue994"
-# define WEATHER_MOON_WANING_GIBBOUS_5 "\ue995"
-# define WEATHER_MOON_WANING_GIBBOUS_6 "\ue996"
-# define WEATHER_MOON_THIRD_QUARTER "\ue997"
-# define WEATHER_MOON_WANING_CRESCENT_1 "\ue998"
-# define WEATHER_MOON_WANING_CRESCENT_2 "\ue999"
-# define WEATHER_MOON_WANING_CRESCENT_3 "\ue99a"
-# define WEATHER_MOON_WANING_CRESCENT_4 "\ue99b"
-# define WEATHER_MOON_WANING_CRESCENT_5 "\ue99c"
-# define WEATHER_MOON_WANING_CRESCENT_6 "\ue99d"
-# define WEATHER_WIND_DIRECTION "\ue99e"
-# define WEATHER_DAY_SLEET "\ue99f"
-# define WEATHER_NIGHT_SLEET "\ue9a0"
-# define WEATHER_NIGHT_ALT_SLEET "\ue9a1"
-# define WEATHER_SLEET "\ue9a2"
-# define WEATHER_DAY_HAZE "\ue9a3"
-# define WEATHER_WIND_BEAUFORT_0 "\ue9a4"
-# define WEATHER_WIND_BEAUFORT_1 "\ue9a5"
-# define WEATHER_WIND_BEAUFORT_2 "\ue9a6"
-# define WEATHER_WIND_BEAUFORT_3 "\ue9a7"
-# define WEATHER_WIND_BEAUFORT_4 "\ue9a8"
-# define WEATHER_WIND_BEAUFORT_5 "\ue9a9"
-# define WEATHER_WIND_BEAUFORT_6 "\ue9aa"
-# define WEATHER_WIND_BEAUFORT_7 "\ue9ab"
-# define WEATHER_WIND_BEAUFORT_8 "\ue9ac"
-# define WEATHER_WIND_BEAUFORT_9 "\ue9ad"
-# define WEATHER_WIND_BEAUFORT_10 "\ue9ae"
-# define WEATHER_WIND_BEAUFORT_11 "\ue9af"
-# define WEATHER_WIND_BEAUFORT_12 "\ue9b0"
-# define WEATHER_DAY_LIGHT_WIND "\ue9b1"
-# define WEATHER_TSUNAMI "\ue9b2"
-# define WEATHER_EARTHQUAKE "\ue9b3"
-# define WEATHER_FIRE "\ue9b4"
-# define WEATHER_VOLCANO "\ue9b5"
-# define WEATHER_MOONRISE "\ue9b6"
-# define WEATHER_MOONSET "\ue9b7"
-# define WEATHER_TRAIN "\ue9b8"
-# define WEATHER_SMALL_CRAFT_ADVISORY "\ue9b9"
-# define WEATHER_GALE_WARNING "\ue9ba"
-# define WEATHER_STORM_WARNING "\ue9bb"
-# define WEATHER_HURRICANE_WARNING "\ue9bc"
-# define WEATHER_MOON_ALT_WAXING_CRESCENT_1 "\ue9bd"
-# define WEATHER_MOON_ALT_WAXING_CRESCENT_2 "\ue9be"
-# define WEATHER_MOON_ALT_WAXING_CRESCENT_3 "\ue9bf"
-# define WEATHER_MOON_ALT_WAXING_CRESCENT_4 "\ue9c0"
-# define WEATHER_MOON_ALT_WAXING_CRESCENT_5 "\ue9c1"
-# define WEATHER_MOON_ALT_WAXING_CRESCENT_6 "\ue9c2"
-# define WEATHER_MOON_ALT_FIRST_QUARTER "\ue9c3"
-# define WEATHER_MOON_ALT_WAXING_GIBBOUS_1 "\ue9c4"
-# define WEATHER_MOON_ALT_WAXING_GIBBOUS_2 "\ue9c5"
-# define WEATHER_MOON_ALT_WAXING_GIBBOUS_3 "\ue9c6"
-# define WEATHER_MOON_ALT_WAXING_GIBBOUS_4 "\ue9c7"
-# define WEATHER_MOON_ALT_WAXING_GIBBOUS_5 "\ue9c8"
-# define WEATHER_MOON_ALT_WAXING_GIBBOUS_6 "\ue9c9"
-# define WEATHER_MOON_ALT_FULL "\ue9ca"
-# define WEATHER_MOON_ALT_WANING_GIBBOUS_1 "\ue9cb"
-# define WEATHER_MOON_ALT_WANING_GIBBOUS_2 "\ue9cc"
-# define WEATHER_MOON_ALT_WANING_GIBBOUS_3 "\ue9cd"
-# define WEATHER_MOON_ALT_WANING_GIBBOUS_4 "\ue9ce"
-# define WEATHER_MOON_ALT_WANING_GIBBOUS_5 "\ue9cf"
-# define WEATHER_MOON_ALT_WANING_GIBBOUS_6 "\ue9d0"
-# define WEATHER_MOON_ALT_THIRD_QUARTER "\ue9d1"
-# define WEATHER_MOON_ALT_WANING_CRESCENT_1 "\ue9d2"
-# define WEATHER_MOON_ALT_WANING_CRESCENT_2 "\ue9d3"
-# define WEATHER_MOON_ALT_WANING_CRESCENT_3 "\ue9d4"
-# define WEATHER_MOON_ALT_WANING_CRESCENT_4 "\ue9d5"
-# define WEATHER_MOON_ALT_WANING_CRESCENT_5 "\ue9d6"
-# define WEATHER_MOON_ALT_WANING_CRESCENT_6 "\ue9d7"
-# define WEATHER_MOON_ALT_NEW "\ue9d8"
-# define LINUX_ARCHLINUX "\ue9d9"
-# define LINUX_CENTOS "\ue9da"
-# define LINUX_DEBIAN "\ue9db"
-# define LINUX_FEDORA "\ue9dc"
-# define LINUX_LINUXMINT "\ue9dd"
-# define LINUX_LINUXMINT_INVERSE "\ue9de"
-# define LINUX_MAGEIA "\ue9df"
-# define LINUX_MANDRIVA "\ue9e0"
-# define LINUX_OPENSUSE "\ue9e1"
-# define LINUX_REDHAT "\ue9e2"
-# define LINUX_SLACKWARE "\ue9e3"
-# define LINUX_SLACKWARE_INVERSE "\ue9e4"
-# define LINUX_UBUNTU "\ue9e5"
-# define LINUX_UBUNTU_INVERSE "\ue9e6"
-# define LINUX_FREEBSD "\ue9e7"
-# define LINUX_COREOS "\ue9e8"
-# define LINUX_GENTOO "\ue9e9"
-# define LINUX_ELEMENTARY "\ue9ea"
-# define LINUX_FEDORA_INVERSE "\ue9eb"
-# define LINUX_SABAYON "\ue9ec"
-# define LINUX_AOSC "\ue9ed"
-# define LINUX_NIXOS "\ue9ee"
-# define LINUX_TUX "\ue9ef"
-# define LINUX_RASPBERRY_PI "\ue9f0"
-# define LINUX_MANJARO "\ue9f1"
-# define LINUX_APPLE "\ue9f2"
-# define LINUX_DOCKER "\ue9f3"
-# define LINUX_ALPINE "\ue9f4"
-# define MYICONS_0001 "\ue9f5"
-# define MYICONS_0002 "\ue9f6"
-# define MYICONS_0003 "\ue9f7"
-# define MYICONS_0004 "\ue9f8"
-# define MYICONS_0005 "\ue9f9"
-# define MYICONS_0006 "\ue9fa"
-# define MYICONS_0007 "\ue9fb"
-# define MYICONS_0008 "\ue9fc"
-# define MYICONS_0009 "\ue9fd"
-# define MYICONS_000A "\ue9fe"
-# define MYICONS_000B "\ue9ff"
-# define MYICONS_000D "\uea00"
-# define MYICONS_000E "\uea01"
-# define MYICONS_0010 "\uea02"
-# define MYICONS_0011 "\uea03"
-# define MYICONS_0013 "\uea04"
-# define MYICONS_0014 "\uea05"
-# define MYICONS_ARCH_LINUX_ARROW "\uea06"
-# define DEV_BING_SMALL "\uea07"
-# define DEV_CSS_TRICKS "\uea08"
-# define DEV_GIT "\uea09"
-# define DEV_BITBUCKET "\uea0a"
-# define DEV_MYSQL "\uea0b"
-# define DEV_STREAMLINE "\uea0c"
-# define DEV_DATABASE "\uea0d"
-# define DEV_DROPBOX "\uea0e"
-# define DEV_GITHUB_ALT "\uea0f"
-# define DEV_GITHUB_BADGE "\uea10"
-# define DEV_GITHUB "\uea11"
-# define DEV_WORDPRESS "\uea12"
-# define DEV_VISUALSTUDIO "\uea13"
-# define DEV_JEKYLL_SMALL "\uea14"
-# define DEV_ANDROID "\uea15"
-# define DEV_WINDOWS "\uea16"
-# define DEV_STACKOVERFLOW "\uea17"
-# define DEV_APPLE "\uea18"
-# define DEV_LINUX "\uea19"
-# define DEV_APPSTORE "\uea1a"
-# define DEV_GHOST_SMALL "\uea1b"
-# define DEV_YAHOO "\uea1c"
-# define DEV_CODEPEN "\uea1d"
-# define DEV_GITHUB_FULL "\uea1e"
-# define DEV_NODEJS_SMALL "\uea1f"
-# define DEV_NODEJS "\uea20"
-# define DEV_HACKERNEWS "\uea21"
-# define DEV_EMBER "\uea22"
-# define DEV_DOJO "\uea23"
-# define DEV_DJANGO "\uea24"
-# define DEV_NPM "\uea25"
-# define DEV_GHOST "\uea26"
-# define DEV_MODERNIZR "\uea27"
-# define DEV_UNITY_SMALL "\uea28"
-# define DEV_RASPBERRY_PI "\uea29"
-# define DEV_BLACKBERRY "\uea2a"
-# define DEV_GO "\uea2b"
-# define DEV_GIT_BRANCH "\uea2c"
-# define DEV_GIT_PULL_REQUEST "\uea2d"
-# define DEV_GIT_MERGE "\uea2e"
-# define DEV_GIT_COMPARE "\uea2f"
-# define DEV_GIT_COMMIT "\uea30"
-# define DEV_CSSDECK "\uea31"
-# define DEV_YAHOO_SMALL "\uea32"
-# define DEV_TECHCRUNCH "\uea33"
-# define DEV_SMASHING_MAGAZINE "\uea34"
-# define DEV_NETMAGAZINE "\uea35"
-# define DEV_CODROPS "\uea36"
-# define DEV_PHONEGAP "\uea37"
-# define DEV_GOOGLE_DRIVE "\uea38"
-# define DEV_HTML5_MULTIMEDIA "\uea39"
-# define DEV_HTML5_DEVICE_ACCESS "\uea3a"
-# define DEV_HTML5_CONNECTIVITY "\uea3b"
-# define DEV_HTML5_3D_EFFECTS "\uea3c"
-# define DEV_HTML5 "\uea3d"
-# define DEV_SCALA "\uea3e"
-# define DEV_JAVA "\uea3f"
-# define DEV_RUBY "\uea40"
-# define DEV_UBUNTU "\uea41"
-# define DEV_RUBY_ON_RAILS "\uea42"
-# define DEV_PYTHON "\uea43"
-# define DEV_PHP "\uea44"
-# define DEV_MARKDOWN "\uea45"
-# define DEV_LARAVEL "\uea46"
-# define DEV_MAGENTO "\uea47"
-# define DEV_JOOMLA "\uea48"
-# define DEV_DRUPAL "\uea49"
-# define DEV_CHROME "\uea4a"
-# define DEV_IE "\uea4b"
-# define DEV_FIREFOX "\uea4c"
-# define DEV_OPERA "\uea4d"
-# define DEV_BOOTSTRAP "\uea4e"
-# define DEV_SAFARI "\uea4f"
-# define DEV_CSS3 "\uea50"
-# define DEV_CSS3_FULL "\uea51"
-# define DEV_SASS "\uea52"
-# define DEV_GRUNT "\uea53"
-# define DEV_BOWER "\uea54"
-# define DEV_JAVASCRIPT "\uea55"
-# define DEV_JAVASCRIPT_SHIELD "\uea56"
-# define DEV_JQUERY "\uea57"
-# define DEV_COFFEESCRIPT "\uea58"
-# define DEV_BACKBONE "\uea59"
-# define DEV_ANGULAR "\uea5a"
-# define DEV_JQUERY_UI "\uea5b"
-# define DEV_SWIFT "\uea5c"
-# define DEV_SYMFONY "\uea5d"
-# define DEV_SYMFONY_BADGE "\uea5e"
-# define DEV_LESS "\uea5f"
-# define DEV_STYLUS "\uea60"
-# define DEV_TRELLO "\uea61"
-# define DEV_ATLASSIAN "\uea62"
-# define DEV_JIRA "\uea63"
-# define DEV_ENVATO "\uea64"
-# define DEV_SNAP_SVG "\uea65"
-# define DEV_RAPHAEL "\uea66"
-# define DEV_GOOGLE_ANALYTICS "\uea67"
-# define DEV_COMPASS "\uea68"
-# define DEV_ONEDRIVE "\uea69"
-# define DEV_GULP "\uea6a"
-# define DEV_ATOM "\uea6b"
-# define DEV_CISCO "\uea6c"
-# define DEV_NANCY "\uea6d"
-# define DEV_JENKINS "\uea6e"
-# define DEV_CLOJURE "\uea6f"
-# define DEV_PERL "\uea70"
-# define DEV_CLOJURE_ALT "\uea71"
-# define DEV_CELLULOID "\uea72"
-# define DEV_W3C "\uea73"
-# define DEV_REDIS "\uea74"
-# define DEV_POSTGRESQL "\uea75"
-# define DEV_WEBPLATFORM "\uea76"
-# define DEV_REQUIREJS "\uea77"
-# define DEV_OPENSOURCE "\uea78"
-# define DEV_TYPO3 "\uea79"
-# define DEV_UIKIT "\uea7a"
-# define DEV_DOCTRINE "\uea7b"
-# define DEV_GROOVY "\uea7c"
-# define DEV_NGINX "\uea7d"
-# define DEV_HASKELL "\uea7e"
-# define DEV_ZEND "\uea7f"
-# define DEV_GNU "\uea80"
-# define DEV_YEOMAN "\uea81"
-# define DEV_HEROKU "\uea82"
-# define DEV_MSQL_SERVER "\uea83"
-# define DEV_DEBIAN "\uea84"
-# define DEV_TRAVIS "\uea85"
-# define DEV_DOTNET "\uea86"
-# define DEV_CODEIGNITER "\uea87"
-# define DEV_JAVASCRIPT_BADGE "\uea88"
-# define DEV_YII "\uea89"
-# define DEV_COMPOSER "\uea8a"
-# define DEV_KRAKENJS_BADGE "\uea8b"
-# define DEV_KRAKENJS "\uea8c"
-# define DEV_MOZILLA "\uea8d"
-# define DEV_FIREBASE "\uea8e"
-# define DEV_SIZZLEJS "\uea8f"
-# define DEV_CREATIVECOMMONS "\uea90"
-# define DEV_CREATIVECOMMONS_BADGE "\uea91"
-# define DEV_MITLICENCE "\uea92"
-# define DEV_SENCHATOUCH "\uea93"
-# define DEV_BUGSENSE "\uea94"
-# define DEV_EXTJS "\uea95"
-# define DEV_MOOTOOLS_BADGE "\uea96"
-# define DEV_MOOTOOLS "\uea97"
-# define DEV_RUBY_ROUGH "\uea98"
-# define DEV_KOMODO "\uea99"
-# define DEV_CODA "\uea9a"
-# define DEV_BINTRAY "\uea9b"
-# define DEV_TERMINAL "\uea9c"
-# define DEV_CODE "\uea9d"
-# define DEV_RESPONSIVE "\uea9e"
-# define DEV_DART "\uea9f"
-# define DEV_APTANA "\ueaa0"
-# define DEV_MAILCHIMP "\ueaa1"
-# define DEV_NETBEANS "\ueaa2"
-# define DEV_DREAMWEAVER "\ueaa3"
-# define DEV_BRACKETS "\ueaa4"
-# define DEV_ECLIPSE "\ueaa5"
-# define DEV_CLOUD9 "\ueaa6"
-# define DEV_SCRUM "\ueaa7"
-# define DEV_PROLOG "\ueaa8"
-# define DEV_TERMINAL_BADGE "\ueaa9"
-# define DEV_CODE_BADGE "\ueaaa"
-# define DEV_MONGODB "\ueaab"
-# define DEV_METEOR "\ueaac"
-# define DEV_METEORFULL "\ueaad"
-# define DEV_FSHARP "\ueaae"
-# define DEV_RUST "\ueaaf"
-# define DEV_IONIC "\ueab0"
-# define DEV_SUBLIME "\ueab1"
-# define DEV_APPCELERATOR "\ueab2"
-# define DEV_ASTERISK "\ueab3"
-# define DEV_AWS "\ueab4"
-# define DEV_DIGITAL_OCEAN "\ueab5"
-# define DEV_DLANG "\ueab6"
-# define DEV_DOCKER "\ueab7"
-# define DEV_ERLANG "\ueab8"
-# define DEV_GOOGLE_CLOUD_PLATFORM "\ueab9"
-# define DEV_GRAILS "\ueaba"
-# define DEV_ILLUSTRATOR "\ueabb"
-# define DEV_INTELLIJ "\ueabc"
-# define DEV_MATERIALIZECSS "\ueabd"
-# define DEV_OPENSHIFT "\ueabe"
-# define DEV_PHOTOSHOP "\ueabf"
-# define DEV_RACKSPACE "\ueac0"
-# define DEV_REACT "\ueac1"
-# define DEV_REDHAT "\ueac2"
-# define DEV_SCRIPTCS "\ueac3"
-# define DEV_E6BD "\ueac4"
-# define DEV_E6BE "\ueac5"
-# define DEV_E6BF "\ueac6"
-# define DEV_E6C0 "\ueac7"
-# define DEV_E6C1 "\ueac8"
-# define DEV_E6C2 "\ueac9"
-# define DEV_E6C3 "\ueaca"
-# define DEV_SQLLITE "\ueacb"
-# define DEV_VIM "\ueacc"
-# define POM_CLEAN_CODE "\ueacd"
-# define POM_POMODORO_DONE "\ueace"
-# define POM_POMODORO_ESTIMATED "\ueacf"
-# define POM_POMODORO_TICKING "\uead0"
-# define POM_POMODORO_SQUASHED "\uead1"
-# define POM_SHORT_PAUSE "\uead2"
-# define POM_LONG_PAUSE "\uead3"
-# define POM_AWAY "\uead4"
-# define POM_PAIR_PROGRAMMING "\uead5"
-# define POM_INTERNAL_INTERRUPTION "\uead6"
-# define POM_EXTERNAL_INTERRUPTION "\uead7"
-# define LINEA_ARROWS_ANTICLOCKWISE "\uead8"
-# define LINEA_ARROWS_ANTICLOCKWISE_DASHED "\uead9"
-# define LINEA_ARROWS_BUTTON_DOWN "\ueada"
-# define LINEA_ARROWS_BUTTON_OFF "\ueadb"
-# define LINEA_ARROWS_BUTTON_ON "\ueadc"
-# define LINEA_ARROWS_BUTTON_UP "\ueadd"
-# define LINEA_ARROWS_CHECK "\ueade"
-# define LINEA_ARROWS_CIRCLE_CHECK "\ueadf"
-# define LINEA_ARROWS_CIRCLE_DOWN "\ueae0"
-# define LINEA_ARROWS_CIRCLE_DOWNLEFT "\ueae1"
-# define LINEA_ARROWS_CIRCLE_DOWNRIGHT "\ueae2"
-# define LINEA_ARROWS_CIRCLE_LEFT "\ueae3"
-# define LINEA_ARROWS_CIRCLE_MINUS "\ueae4"
-# define LINEA_ARROWS_CIRCLE_PLUS "\ueae5"
-# define LINEA_ARROWS_CIRCLE_REMOVE "\ueae6"
-# define LINEA_ARROWS_CIRCLE_RIGHT "\ueae7"
-# define LINEA_ARROWS_CIRCLE_UP "\ueae8"
-# define LINEA_ARROWS_CIRCLE_UPLEFT "\ueae9"
-# define LINEA_ARROWS_CIRCLE_UPRIGHT "\ueaea"
-# define LINEA_ARROWS_CLOCKWISE "\ueaeb"
-# define LINEA_ARROWS_CLOCKWISE_DASHED "\ueaec"
-# define LINEA_ARROWS_COMPRESS "\ueaed"
-# define LINEA_ARROWS_DENY "\ueaee"
-# define LINEA_ARROWS_DIAGONAL "\ueaef"
-# define LINEA_ARROWS_DIAGONAL2 "\ueaf0"
-# define LINEA_ARROWS_DOWN "\ueaf1"
-# define LINEA_ARROWS_DOWN_DOUBLE "\ueaf2"
-# define LINEA_ARROWS_DOWNLEFT "\ueaf3"
-# define LINEA_ARROWS_DOWNRIGHT "\ueaf4"
-# define LINEA_ARROWS_DRAG_DOWN "\ueaf5"
-# define LINEA_ARROWS_DRAG_DOWN_DASHED "\ueaf6"
-# define LINEA_ARROWS_DRAG_HORIZ "\ueaf7"
-# define LINEA_ARROWS_DRAG_LEFT "\ueaf8"
-# define LINEA_ARROWS_DRAG_LEFT_DASHED "\ueaf9"
-# define LINEA_ARROWS_DRAG_RIGHT "\ueafa"
-# define LINEA_ARROWS_DRAG_RIGHT_DASHED "\ueafb"
-# define LINEA_ARROWS_DRAG_UP "\ueafc"
-# define LINEA_ARROWS_DRAG_UP_DASHED "\ueafd"
-# define LINEA_ARROWS_DRAG_VERT "\ueafe"
-# define LINEA_ARROWS_EXCLAMATION "\ueaff"
-# define LINEA_ARROWS_EXPAND "\ueb00"
-# define LINEA_ARROWS_EXPAND_DIAGONAL1 "\ueb01"
-# define LINEA_ARROWS_EXPAND_HORIZONTAL1 "\ueb02"
-# define LINEA_ARROWS_EXPAND_VERTICAL1 "\ueb03"
-# define LINEA_ARROWS_FIT_HORIZONTAL "\ueb04"
-# define LINEA_ARROWS_FIT_VERTICAL "\ueb05"
-# define LINEA_ARROWS_GLIDE "\ueb06"
-# define LINEA_ARROWS_GLIDE_HORIZONTAL "\ueb07"
-# define LINEA_ARROWS_GLIDE_VERTICAL "\ueb08"
-# define LINEA_ARROWS_HAMBURGER1 "\ueb09"
-# define LINEA_ARROWS_HAMBURGER_2 "\ueb0a"
-# define LINEA_ARROWS_HORIZONTAL "\ueb0b"
-# define LINEA_ARROWS_INFO "\ueb0c"
-# define LINEA_ARROWS_KEYBOARD_ALT "\ueb0d"
-# define LINEA_ARROWS_KEYBOARD_CMD "\ueb0e"
-# define LINEA_ARROWS_KEYBOARD_DELETE "\ueb0f"
-# define LINEA_ARROWS_KEYBOARD_DOWN "\ueb10"
-# define LINEA_ARROWS_KEYBOARD_LEFT "\ueb11"
-# define LINEA_ARROWS_KEYBOARD_RETURN "\ueb12"
-# define LINEA_ARROWS_KEYBOARD_RIGHT "\ueb13"
-# define LINEA_ARROWS_KEYBOARD_SHIFT "\ueb14"
-# define LINEA_ARROWS_KEYBOARD_TAB "\ueb15"
-# define LINEA_ARROWS_KEYBOARD_UP "\ueb16"
-# define LINEA_ARROWS_LEFT "\ueb17"
-# define LINEA_ARROWS_LEFT_DOUBLE_32 "\ueb18"
-# define LINEA_ARROWS_MINUS "\ueb19"
-# define LINEA_ARROWS_MOVE "\ueb1a"
-# define LINEA_ARROWS_MOVE2 "\ueb1b"
-# define LINEA_ARROWS_MOVE_BOTTOM "\ueb1c"
-# define LINEA_ARROWS_MOVE_LEFT "\ueb1d"
-# define LINEA_ARROWS_MOVE_RIGHT "\ueb1e"
-# define LINEA_ARROWS_MOVE_TOP "\ueb1f"
-# define LINEA_ARROWS_PLUS "\ueb20"
-# define LINEA_ARROWS_QUESTION "\ueb21"
-# define LINEA_ARROWS_REMOVE "\ueb22"
-# define LINEA_ARROWS_RIGHT "\ueb23"
-# define LINEA_ARROWS_RIGHT_DOUBLE "\ueb24"
-# define LINEA_ARROWS_ROTATE "\ueb25"
-# define LINEA_ARROWS_ROTATE_ANTI "\ueb26"
-# define LINEA_ARROWS_ROTATE_ANTI_DASHED "\ueb27"
-# define LINEA_ARROWS_ROTATE_DASHED "\ueb28"
-# define LINEA_ARROWS_SHRINK "\ueb29"
-# define LINEA_ARROWS_SHRINK_DIAGONAL1 "\ueb2a"
-# define LINEA_ARROWS_SHRINK_DIAGONAL2 "\ueb2b"
-# define LINEA_ARROWS_SHRINK_HORIZONAL2 "\ueb2c"
-# define LINEA_ARROWS_SHRINK_HORIZONTAL1 "\ueb2d"
-# define LINEA_ARROWS_SHRINK_VERTICAL1 "\ueb2e"
-# define LINEA_ARROWS_SHRINK_VERTICAL2 "\ueb2f"
-# define LINEA_ARROWS_SIGN_DOWN "\ueb30"
-# define LINEA_ARROWS_SIGN_LEFT "\ueb31"
-# define LINEA_ARROWS_SIGN_RIGHT "\ueb32"
-# define LINEA_ARROWS_SIGN_UP "\ueb33"
-# define LINEA_ARROWS_SLIDE_DOWN1 "\ueb34"
-# define LINEA_ARROWS_SLIDE_DOWN2 "\ueb35"
-# define LINEA_ARROWS_SLIDE_LEFT1 "\ueb36"
-# define LINEA_ARROWS_SLIDE_LEFT2 "\ueb37"
-# define LINEA_ARROWS_SLIDE_RIGHT1 "\ueb38"
-# define LINEA_ARROWS_SLIDE_RIGHT2 "\ueb39"
-# define LINEA_ARROWS_SLIDE_UP1 "\ueb3a"
-# define LINEA_ARROWS_SLIDE_UP2 "\ueb3b"
-# define LINEA_ARROWS_SLIM_DOWN "\ueb3c"
-# define LINEA_ARROWS_SLIM_DOWN_DASHED "\ueb3d"
-# define LINEA_ARROWS_SLIM_LEFT "\ueb3e"
-# define LINEA_ARROWS_SLIM_LEFT_DASHED "\ueb3f"
-# define LINEA_ARROWS_SLIM_RIGHT "\ueb40"
-# define LINEA_ARROWS_SLIM_RIGHT_DASHED "\ueb41"
-# define LINEA_ARROWS_SLIM_UP "\ueb42"
-# define LINEA_ARROWS_SLIM_UP_DASHED "\ueb43"
-# define LINEA_ARROWS_SQUARE_CHECK "\ueb44"
-# define LINEA_ARROWS_SQUARE_DOWN "\ueb45"
-# define LINEA_ARROWS_SQUARE_DOWNLEFT "\ueb46"
-# define LINEA_ARROWS_SQUARE_DOWNRIGHT "\ueb47"
-# define LINEA_ARROWS_SQUARE_LEFT "\ueb48"
-# define LINEA_ARROWS_SQUARE_MINUS "\ueb49"
-# define LINEA_ARROWS_SQUARE_PLUS "\ueb4a"
-# define LINEA_ARROWS_SQUARE_REMOVE "\ueb4b"
-# define LINEA_ARROWS_SQUARE_RIGHT "\ueb4c"
-# define LINEA_ARROWS_SQUARE_UP "\ueb4d"
-# define LINEA_ARROWS_SQUARE_UPLEFT "\ueb4e"
-# define LINEA_ARROWS_SQUARE_UPRIGHT "\ueb4f"
-# define LINEA_ARROWS_SQUARES "\ueb50"
-# define LINEA_ARROWS_STRETCH_DIAGONAL1 "\ueb51"
-# define LINEA_ARROWS_STRETCH_DIAGONAL2 "\ueb52"
-# define LINEA_ARROWS_STRETCH_DIAGONAL3 "\ueb53"
-# define LINEA_ARROWS_STRETCH_DIAGONAL4 "\ueb54"
-# define LINEA_ARROWS_STRETCH_HORIZONTAL1 "\ueb55"
-# define LINEA_ARROWS_STRETCH_HORIZONTAL2 "\ueb56"
-# define LINEA_ARROWS_STRETCH_VERTICAL1 "\ueb57"
-# define LINEA_ARROWS_STRETCH_VERTICAL2 "\ueb58"
-# define LINEA_ARROWS_SWITCH_HORIZONTAL "\ueb59"
-# define LINEA_ARROWS_SWITCH_VERTICAL "\ueb5a"
-# define LINEA_ARROWS_UP "\ueb5b"
-# define LINEA_ARROWS_UP_DOUBLE_33 "\ueb5c"
-# define LINEA_ARROWS_UPLEFT "\ueb5d"
-# define LINEA_ARROWS_UPRIGHT "\ueb5e"
-# define LINEA_ARROWS_VERTICAL "\ueb5f"
-# define LINEA_BASIC_LOCK_OPEN "\ueb60"
-# define LINEA_BASIC_MAGIC_MOUSE "\ueb61"
-# define LINEA_BASIC_MAGNIFIER "\ueb62"
-# define LINEA_BASIC_MAGNIFIER_MINUS "\ueb63"
-# define LINEA_BASIC_MAGNIFIER_PLUS "\ueb64"
-# define LINEA_BASIC_MAIL "\ueb65"
-# define LINEA_BASIC_MAIL_MULTIPLE "\ueb66"
-# define LINEA_BASIC_MAIL_OPEN "\ueb67"
-# define LINEA_BASIC_MAIL_OPEN_TEXT "\ueb68"
-# define LINEA_BASIC_MALE "\ueb69"
-# define LINEA_BASIC_MAP "\ueb6a"
-# define LINEA_BASIC_MESSAGE "\ueb6b"
-# define LINEA_BASIC_MESSAGE_MULTIPLE "\ueb6c"
-# define LINEA_BASIC_MESSAGE_TXT "\ueb6d"
-# define LINEA_BASIC_MIXER2 "\ueb6e"
-# define LINEA_BASIC_INFO "\ueb6f"
-# define LINEA_BASIC_IPOD "\ueb70"
-# define LINEA_BASIC_JOYPAD "\ueb71"
-# define LINEA_BASIC_KEY "\ueb72"
-# define LINEA_BASIC_KEYBOARD "\ueb73"
-# define LINEA_BASIC_LAPTOP "\ueb74"
-# define LINEA_BASIC_LIFE_BUOY "\ueb75"
-# define LINEA_BASIC_LIGHTBULB "\ueb76"
-# define LINEA_BASIC_LINK "\ueb77"
-# define LINEA_BASIC_LOCK "\ueb78"
-# define LINEA_BASIC_MOUSE "\ueb79"
-# define LINEA_BASIC_NOTEBOOK "\ueb7a"
-# define LINEA_BASIC_NOTEBOOK_PEN "\ueb7b"
-# define LINEA_BASIC_NOTEBOOK_PENCIL "\ueb7c"
-# define LINEA_BASIC_PAPERPLANE "\ueb7d"
-# define LINEA_BASIC_PENCIL_RULER "\ueb7e"
-# define LINEA_BASIC_PENCIL_RULER_PEN "\ueb7f"
-# define LINEA_BASIC_CLUBS "\ueb80"
-# define LINEA_BASIC_COMPASS "\ueb81"
-# define LINEA_BASIC_CUP "\ueb82"
-# define LINEA_BASIC_DIAMONDS "\ueb83"
-# define LINEA_BASIC_DISPLAY "\ueb84"
-# define LINEA_BASIC_DOWNLOAD "\ueb85"
-# define LINEA_BASIC_EXCLAMATION "\ueb86"
-# define LINEA_BASIC_EYE "\ueb87"
-# define LINEA_BASIC_EYE_CLOSED "\ueb88"
-# define LINEA_BASIC_FEMALE "\ueb89"
-# define LINEA_BASIC_FLAG1 "\ueb8a"
-# define LINEA_BASIC_FLAG2 "\ueb8b"
-# define LINEA_BASIC_FLOPPYDISK "\ueb8c"
-# define LINEA_BASIC_FOLDER "\ueb8d"
-# define LINEA_BASIC_FOLDER_MULTIPLE "\ueb8e"
-# define LINEA_BASIC_GEAR "\ueb8f"
-# define LINEA_BASIC_GEOLOCALIZE_01 "\ueb90"
-# define LINEA_BASIC_GEOLOCALIZE_05 "\ueb91"
-# define LINEA_BASIC_GLOBE "\ueb92"
-# define LINEA_BASIC_GUNSIGHT "\ueb93"
-# define LINEA_BASIC_HAMMER "\ueb94"
-# define LINEA_BASIC_HEADSET "\ueb95"
-# define LINEA_BASIC_HEART "\ueb96"
-# define LINEA_BASIC_HEART_BROKEN "\ueb97"
-# define LINEA_BASIC_HELM "\ueb98"
-# define LINEA_BASIC_HOME "\ueb99"
-# define LINEA_BASIC_PHOTO "\ueb9a"
-# define LINEA_BASIC_RSS "\ueb9b"
-# define LINEA_BASIC_PICTURE "\ueb9c"
-# define LINEA_BASIC_PICTURE_MULTIPLE "\ueb9d"
-# define LINEA_BASIC_PIN1 "\ueb9e"
-# define LINEA_BASIC_PIN2 "\ueb9f"
-# define LINEA_BASIC_ACCELERATOR "\ueba0"
-# define LINEA_BASIC_ALARM "\ueba1"
-# define LINEA_BASIC_ANCHOR "\ueba2"
-# define LINEA_BASIC_ANTICLOCKWISE "\ueba3"
-# define LINEA_BASIC_ARCHIVE "\ueba4"
-# define LINEA_BASIC_ARCHIVE_FULL "\ueba5"
-# define LINEA_BASIC_BAN "\ueba6"
-# define LINEA_BASIC_BATTERY_CHARGE "\ueba7"
-# define LINEA_BASIC_BATTERY_EMPTY "\ueba8"
-# define LINEA_BASIC_BATTERY_FULL "\ueba9"
-# define LINEA_BASIC_BATTERY_HALF "\uebaa"
-# define LINEA_BASIC_BOLT "\uebab"
-# define LINEA_BASIC_BOOK "\uebac"
-# define LINEA_BASIC_BOOK_PEN "\uebad"
-# define LINEA_BASIC_BOOK_PENCIL "\uebae"
-# define LINEA_BASIC_BOOKMARK "\uebaf"
-# define LINEA_BASIC_CALCULATOR "\uebb0"
-# define LINEA_BASIC_CALENDAR "\uebb1"
-# define LINEA_BASIC_CARDS_DIAMONDS "\uebb2"
-# define LINEA_BASIC_CARDS_HEARTS "\uebb3"
-# define LINEA_BASIC_CASE "\uebb4"
-# define LINEA_BASIC_CHRONOMETER "\uebb5"
-# define LINEA_BASIC_CLESSIDRE "\uebb6"
-# define LINEA_BASIC_CLOCK "\uebb7"
-# define LINEA_BASIC_CLOCKWISE "\uebb8"
-# define LINEA_BASIC_CLOUD "\uebb9"
-# define LINEA_BASIC_POSTCARD "\uebba"
-# define LINEA_BASIC_POSTCARD_MULTIPLE "\uebbb"
-# define LINEA_BASIC_PRINTER "\uebbc"
-# define LINEA_BASIC_QUESTION "\uebbd"
-# define LINEA_BASIC_SERVER "\uebbe"
-# define LINEA_BASIC_SERVER2 "\uebbf"
-# define LINEA_BASIC_SERVER_CLOUD "\uebc0"
-# define LINEA_BASIC_SERVER_DOWNLOAD "\uebc1"
-# define LINEA_BASIC_SERVER_UPLOAD "\uebc2"
-# define LINEA_BASIC_SETTINGS "\uebc3"
-# define LINEA_BASIC_SHARE "\uebc4"
-# define LINEA_BASIC_SHEET "\uebc5"
-# define LINEA_BASIC_SHEET_MULTIPLE "\uebc6"
-# define LINEA_BASIC_SHEET_PEN "\uebc7"
-# define LINEA_BASIC_SHEET_PENCIL "\uebc8"
-# define LINEA_BASIC_SHEET_TXT "\uebc9"
-# define LINEA_BASIC_SIGNS "\uebca"
-# define LINEA_BASIC_SMARTPHONE "\uebcb"
-# define LINEA_BASIC_SPADES "\uebcc"
-# define LINEA_BASIC_SPREAD "\uebcd"
-# define LINEA_BASIC_SPREAD_BOOKMARK "\uebce"
-# define LINEA_BASIC_SPREAD_TEXT "\uebcf"
-# define LINEA_BASIC_SPREAD_TEXT_BOOKMARK "\uebd0"
-# define LINEA_BASIC_STAR "\uebd1"
-# define LINEA_BASIC_TABLET "\uebd2"
-# define LINEA_BASIC_TARGET "\uebd3"
-# define LINEA_BASIC_TODO "\uebd4"
-# define LINEA_BASIC_TODO_PEN "\uebd5"
-# define LINEA_BASIC_TODO_PENCIL "\uebd6"
-# define LINEA_BASIC_TODO_TXT "\uebd7"
-# define LINEA_BASIC_TODOLIST_PEN "\uebd8"
-# define LINEA_BASIC_TODOLIST_PENCIL "\uebd9"
-# define LINEA_BASIC_TRASHCAN "\uebda"
-# define LINEA_BASIC_TRASHCAN_FULL "\uebdb"
-# define LINEA_BASIC_TRASHCAN_REFRESH "\uebdc"
-# define LINEA_BASIC_TRASHCAN_REMOVE "\uebdd"
-# define LINEA_BASIC_UPLOAD "\uebde"
-# define LINEA_BASIC_USB "\uebdf"
-# define LINEA_BASIC_VIDEO "\uebe0"
-# define LINEA_BASIC_WATCH "\uebe1"
-# define LINEA_BASIC_WEBPAGE "\uebe2"
-# define LINEA_BASIC_WEBPAGE_IMG_TXT "\uebe3"
-# define LINEA_BASIC_WEBPAGE_MULTIPLE "\uebe4"
-# define LINEA_BASIC_WEBPAGE_TXT "\uebe5"
-# define LINEA_BASIC_WORLD "\uebe6"
-# define LINEA_ELABORATION_DOCUMENT_PREVIOUS "\uebe7"
-# define LINEA_ELABORATION_DOCUMENT_REFRESH "\uebe8"
-# define LINEA_ELABORATION_DOCUMENT_REMOVE "\uebe9"
-# define LINEA_ELABORATION_DOCUMENT_SEARCH "\uebea"
-# define LINEA_ELABORATION_DOCUMENT_STAR "\uebeb"
-# define LINEA_ELABORATION_DOCUMENT_UPLOAD "\uebec"
-# define LINEA_ELABORATION_FOLDER_CHECK "\uebed"
-# define LINEA_ELABORATION_FOLDER_CLOUD "\uebee"
-# define LINEA_ELABORATION_FOLDER_DOCUMENT "\uebef"
-# define LINEA_ELABORATION_FOLDER_DOWNLOAD "\uebf0"
-# define LINEA_ELABORATION_FOLDER_FLAGGED "\uebf1"
-# define LINEA_ELABORATION_FOLDER_GRAPH "\uebf2"
-# define LINEA_ELABORATION_FOLDER_HEART "\uebf3"
-# define LINEA_ELABORATION_FOLDER_MINUS "\uebf4"
-# define LINEA_ELABORATION_FOLDER_NEXT "\uebf5"
-# define LINEA_ELABORATION_DOCUMENT_FLAGGED "\uebf6"
-# define LINEA_ELABORATION_DOCUMENT_GRAPH "\uebf7"
-# define LINEA_ELABORATION_DOCUMENT_HEART "\uebf8"
-# define LINEA_ELABORATION_DOCUMENT_MINUS "\uebf9"
-# define LINEA_ELABORATION_DOCUMENT_NEXT "\uebfa"
-# define LINEA_ELABORATION_DOCUMENT_NOACCESS "\uebfb"
-# define LINEA_ELABORATION_DOCUMENT_NOTE "\uebfc"
-# define LINEA_ELABORATION_DOCUMENT_PENCIL "\uebfd"
-# define LINEA_ELABORATION_DOCUMENT_PICTURE "\uebfe"
-# define LINEA_ELABORATION_DOCUMENT_PLUS "\uebff"
-# define LINEA_ELABORATION_FOLDER_NOACCESS "\uec00"
-# define LINEA_ELABORATION_FOLDER_NOTE "\uec01"
-# define LINEA_ELABORATION_FOLDER_PENCIL "\uec02"
-# define LINEA_ELABORATION_FOLDER_PICTURE "\uec03"
-# define LINEA_ELABORATION_FOLDER_PLUS "\uec04"
-# define LINEA_ELABORATION_FOLDER_PREVIOUS "\uec05"
-# define LINEA_ELABORATION_FOLDER_REFRESH "\uec06"
-# define LINEA_ELABORATION_CALENDAR_EMPTY "\uec07"
-# define LINEA_ELABORATION_CALENDAR_FLAGGED "\uec08"
-# define LINEA_ELABORATION_CALENDAR_HEART "\uec09"
-# define LINEA_ELABORATION_CALENDAR_MINUS "\uec0a"
-# define LINEA_ELABORATION_CALENDAR_NEXT "\uec0b"
-# define LINEA_ELABORATION_CALENDAR_NOACCESS "\uec0c"
-# define LINEA_ELABORATION_CALENDAR_PENCIL "\uec0d"
-# define LINEA_ELABORATION_CALENDAR_PLUS "\uec0e"
-# define LINEA_ELABORATION_CALENDAR_PREVIOUS "\uec0f"
-# define LINEA_ELABORATION_CALENDAR_REFRESH "\uec10"
-# define LINEA_ELABORATION_CALENDAR_REMOVE "\uec11"
-# define LINEA_ELABORATION_CALENDAR_SEARCH "\uec12"
-# define LINEA_ELABORATION_CALENDAR_STAR "\uec13"
-# define LINEA_ELABORATION_CALENDAR_UPLOAD "\uec14"
-# define LINEA_ELABORATION_CLOUD_CHECK "\uec15"
-# define LINEA_ELABORATION_CLOUD_DOWNLOAD "\uec16"
-# define LINEA_ELABORATION_CLOUD_MINUS "\uec17"
-# define LINEA_ELABORATION_CLOUD_NOACCESS "\uec18"
-# define LINEA_ELABORATION_CLOUD_PLUS "\uec19"
-# define LINEA_ELABORATION_CLOUD_REFRESH "\uec1a"
-# define LINEA_ELABORATION_CLOUD_REMOVE "\uec1b"
-# define LINEA_ELABORATION_CLOUD_SEARCH "\uec1c"
-# define LINEA_ELABORATION_CLOUD_UPLOAD "\uec1d"
-# define LINEA_ELABORATION_DOCUMENT_CHECK "\uec1e"
-# define LINEA_ELABORATION_DOCUMENT_CLOUD "\uec1f"
-# define LINEA_ELABORATION_DOCUMENT_DOWNLOAD "\uec20"
-# define LINEA_ELABORATION_FOLDER_REMOVE "\uec21"
-# define LINEA_ELABORATION_MAIL_HEART "\uec22"
-# define LINEA_ELABORATION_FOLDER_SEARCH "\uec23"
-# define LINEA_ELABORATION_FOLDER_STAR "\uec24"
-# define LINEA_ELABORATION_FOLDER_UPLOAD "\uec25"
-# define LINEA_ELABORATION_MAIL_CHECK "\uec26"
-# define LINEA_ELABORATION_BOOKMARK_CHECCK "\uec27"
-# define LINEA_ELABORATION_BOOKMARK_MINUS "\uec28"
-# define LINEA_ELABORATION_BOOKMARK_PLUS "\uec29"
-# define LINEA_ELABORATION_BOOKMARK_REMOVE "\uec2a"
-# define LINEA_ELABORATION_BRIEFCASE_CHECK "\uec2b"
-# define LINEA_ELABORATION_BRIEFCASE_DOWNLOAD "\uec2c"
-# define LINEA_ELABORATION_BRIEFCASE_FLAGGED "\uec2d"
-# define LINEA_ELABORATION_BRIEFCASE_MINUS "\uec2e"
-# define LINEA_ELABORATION_BRIEFCASE_PLUS "\uec2f"
-# define LINEA_ELABORATION_BRIEFCASE_REFRESH "\uec30"
-# define LINEA_ELABORATION_BRIEFCASE_REMOVE "\uec31"
-# define LINEA_ELABORATION_BRIEFCASE_SEARCH "\uec32"
-# define LINEA_ELABORATION_BRIEFCASE_STAR "\uec33"
-# define LINEA_ELABORATION_BRIEFCASE_UPLOAD "\uec34"
-# define LINEA_ELABORATION_BROWSER_CHECK "\uec35"
-# define LINEA_ELABORATION_BROWSER_DOWNLOAD "\uec36"
-# define LINEA_ELABORATION_BROWSER_MINUS "\uec37"
-# define LINEA_ELABORATION_BROWSER_PLUS "\uec38"
-# define LINEA_ELABORATION_BROWSER_REFRESH "\uec39"
-# define LINEA_ELABORATION_BROWSER_REMOVE "\uec3a"
-# define LINEA_ELABORATION_BROWSER_SEARCH "\uec3b"
-# define LINEA_ELABORATION_BROWSER_STAR "\uec3c"
-# define LINEA_ELABORATION_BROWSER_UPLOAD "\uec3d"
-# define LINEA_ELABORATION_CALENDAR_CHECK "\uec3e"
-# define LINEA_ELABORATION_CALENDAR_CLOUD "\uec3f"
-# define LINEA_ELABORATION_CALENDAR_DOWNLOAD "\uec40"
-# define LINEA_ELABORATION_MAIL_CLOUD "\uec41"
-# define LINEA_ELABORATION_MAIL_DOCUMENT "\uec42"
-# define LINEA_ELABORATION_MAIL_DOWNLOAD "\uec43"
-# define LINEA_ELABORATION_MAIL_FLAGGED "\uec44"
-# define LINEA_ELABORATION_MAIL_NEXT "\uec45"
-# define LINEA_ELABORATION_MAIL_NOACCESS "\uec46"
-# define LINEA_ELABORATION_MAIL_NOTE "\uec47"
-# define LINEA_ELABORATION_MAIL_PENCIL "\uec48"
-# define LINEA_ELABORATION_MAIL_PICTURE "\uec49"
-# define LINEA_ELABORATION_MAIL_PREVIOUS "\uec4a"
-# define LINEA_ELABORATION_MAIL_REFRESH "\uec4b"
-# define LINEA_ELABORATION_MAIL_REMOVE "\uec4c"
-# define LINEA_ELABORATION_MAIL_SEARCH "\uec4d"
-# define LINEA_ELABORATION_MAIL_STAR "\uec4e"
-# define LINEA_ELABORATION_MAIL_UPLOAD "\uec4f"
-# define LINEA_ELABORATION_MESSAGE_CHECK "\uec50"
-# define LINEA_ELABORATION_MESSAGE_DOTS "\uec51"
-# define LINEA_ELABORATION_MESSAGE_HAPPY "\uec52"
-# define LINEA_ELABORATION_MESSAGE_HEART "\uec53"
-# define LINEA_ELABORATION_MESSAGE_MINUS "\uec54"
-# define LINEA_ELABORATION_MESSAGE_NOTE "\uec55"
-# define LINEA_ELABORATION_MESSAGE_PLUS "\uec56"
-# define LINEA_ELABORATION_MESSAGE_REFRESH "\uec57"
-# define LINEA_ELABORATION_MESSAGE_REMOVE "\uec58"
-# define LINEA_ELABORATION_MESSAGE_SAD "\uec59"
-# define LINEA_ELABORATION_SMARTPHONE_CLOUD "\uec5a"
-# define LINEA_ELABORATION_SMARTPHONE_HEART "\uec5b"
-# define LINEA_ELABORATION_SMARTPHONE_NOACCESS "\uec5c"
-# define LINEA_ELABORATION_SMARTPHONE_NOTE "\uec5d"
-# define LINEA_ELABORATION_SMARTPHONE_PENCIL "\uec5e"
-# define LINEA_ELABORATION_SMARTPHONE_PICTURE "\uec5f"
-# define LINEA_ELABORATION_SMARTPHONE_REFRESH "\uec60"
-# define LINEA_ELABORATION_SMARTPHONE_SEARCH "\uec61"
-# define LINEA_ELABORATION_TABLET_CLOUD "\uec62"
-# define LINEA_ELABORATION_TABLET_HEART "\uec63"
-# define LINEA_ELABORATION_TABLET_NOACCESS "\uec64"
-# define LINEA_ELABORATION_TABLET_NOTE "\uec65"
-# define LINEA_ELABORATION_TABLET_PENCIL "\uec66"
-# define LINEA_ELABORATION_TABLET_PICTURE "\uec67"
-# define LINEA_ELABORATION_TABLET_REFRESH "\uec68"
-# define LINEA_ELABORATION_TABLET_SEARCH "\uec69"
-# define LINEA_ELABORATION_TODOLIST_2 "\uec6a"
-# define LINEA_ELABORATION_TODOLIST_CHECK "\uec6b"
-# define LINEA_ELABORATION_TODOLIST_CLOUD "\uec6c"
-# define LINEA_ELABORATION_TODOLIST_DOWNLOAD "\uec6d"
-# define LINEA_ELABORATION_TODOLIST_FLAGGED "\uec6e"
-# define LINEA_ELABORATION_TODOLIST_MINUS "\uec6f"
-# define LINEA_ELABORATION_TODOLIST_NOACCESS "\uec70"
-# define LINEA_ELABORATION_TODOLIST_PENCIL "\uec71"
-# define LINEA_ELABORATION_TODOLIST_PLUS "\uec72"
-# define LINEA_ELABORATION_TODOLIST_REFRESH "\uec73"
-# define LINEA_ELABORATION_TODOLIST_REMOVE "\uec74"
-# define LINEA_ELABORATION_TODOLIST_SEARCH "\uec75"
-# define LINEA_ELABORATION_TODOLIST_STAR "\uec76"
-# define LINEA_ELABORATION_TODOLIST_UPLOAD "\uec77"
-# define LINEA_ECOMMERCE_RECEIPT_KIPS "\uec78"
-# define LINEA_ECOMMERCE_RECEIPT_LIRA "\uec79"
-# define LINEA_ECOMMERCE_RECEIPT_NAIRA "\uec7a"
-# define LINEA_ECOMMERCE_RECEIPT_PESOS "\uec7b"
-# define LINEA_ECOMMERCE_RECEIPT_POUND "\uec7c"
-# define LINEA_ECOMMERCE_RECEIPT_RUBLO "\uec7d"
-# define LINEA_ECOMMERCE_RECEIPT_RUPEE "\uec7e"
-# define LINEA_ECOMMERCE_RECEIPT_TUGRIK "\uec7f"
-# define LINEA_ECOMMERCE_RECEIPT_WON "\uec80"
-# define LINEA_ECOMMERCE_RECEIPT_YEN "\uec81"
-# define LINEA_ECOMMERCE_RECEIPT_YEN2 "\uec82"
-# define LINEA_ECOMMERCE_RECEPT_COLON "\uec83"
-# define LINEA_ECOMMERCE_RUBLO "\uec84"
-# define LINEA_ECOMMERCE_RUPEE "\uec85"
-# define LINEA_ECOMMERCE_SAFE "\uec86"
-# define LINEA_ECOMMERCE_NAIRA "\uec87"
-# define LINEA_ECOMMERCE_PESOS "\uec88"
-# define LINEA_ECOMMERCE_POUND "\uec89"
-# define LINEA_ECOMMERCE_RECEIPT "\uec8a"
-# define LINEA_ECOMMERCE_RECEIPT_BATH "\uec8b"
-# define LINEA_ECOMMERCE_RECEIPT_CENT "\uec8c"
-# define LINEA_ECOMMERCE_RECEIPT_DOLLAR "\uec8d"
-# define LINEA_ECOMMERCE_RECEIPT_EURO "\uec8e"
-# define LINEA_ECOMMERCE_RECEIPT_FRANC "\uec8f"
-# define LINEA_ECOMMERCE_RECEIPT_GUARANI "\uec90"
-# define LINEA_ECOMMERCE_SALE "\uec91"
-# define LINEA_ECOMMERCE_SALES "\uec92"
-# define LINEA_ECOMMERCE_TICKET "\uec93"
-# define LINEA_ECOMMERCE_TUGRIKS "\uec94"
-# define LINEA_ECOMMERCE_WALLET "\uec95"
-# define LINEA_ECOMMERCE_WON "\uec96"
-# define LINEA_ECOMMERCE_YEN "\uec97"
-# define LINEA_ECOMMERCE_CART_CONTENT "\uec98"
-# define LINEA_ECOMMERCE_CART_DOWNLOAD "\uec99"
-# define LINEA_ECOMMERCE_CART_MINUS "\uec9a"
-# define LINEA_ECOMMERCE_CART_PLUS "\uec9b"
-# define LINEA_ECOMMERCE_CART_REFRESH "\uec9c"
-# define LINEA_ECOMMERCE_CART_REMOVE "\uec9d"
-# define LINEA_ECOMMERCE_CART_SEARCH "\uec9e"
-# define LINEA_ECOMMERCE_CART_UPLOAD "\uec9f"
-# define LINEA_ECOMMERCE_CENT "\ueca0"
-# define LINEA_ECOMMERCE_COLON "\ueca1"
-# define LINEA_ECOMMERCE_CREDITCARD "\ueca2"
-# define LINEA_ECOMMERCE_DIAMOND "\ueca3"
-# define LINEA_ECOMMERCE_DOLLAR "\ueca4"
-# define LINEA_ECOMMERCE_EURO "\ueca5"
-# define LINEA_ECOMMERCE_FRANC "\ueca6"
-# define LINEA_ECOMMERCE_GIFT "\ueca7"
-# define LINEA_ECOMMERCE_GRAPH1 "\ueca8"
-# define LINEA_ECOMMERCE_GRAPH2 "\ueca9"
-# define LINEA_ECOMMERCE_GRAPH3 "\uecaa"
-# define LINEA_ECOMMERCE_GRAPH_DECREASE "\uecab"
-# define LINEA_ECOMMERCE_GRAPH_INCREASE "\uecac"
-# define LINEA_ECOMMERCE_GUARANI "\uecad"
-# define LINEA_ECOMMERCE_KIPS "\uecae"
-# define LINEA_ECOMMERCE_LIRA "\uecaf"
-# define LINEA_ECOMMERCE_MEGAPHONE "\uecb0"
-# define LINEA_ECOMMERCE_MONEY "\uecb1"
-# define LINEA_ECOMMERCE_YEN2 "\uecb2"
-# define LINEA_ECOMMERCE_BAG "\uecb3"
-# define LINEA_ECOMMERCE_BAG_CHECK "\uecb4"
-# define LINEA_ECOMMERCE_BAG_CLOUD "\uecb5"
-# define LINEA_ECOMMERCE_BAG_DOWNLOAD "\uecb6"
-# define LINEA_ECOMMERCE_BAG_MINUS "\uecb7"
-# define LINEA_ECOMMERCE_BAG_PLUS "\uecb8"
-# define LINEA_ECOMMERCE_BAG_REFRESH "\uecb9"
-# define LINEA_ECOMMERCE_BAG_REMOVE "\uecba"
-# define LINEA_ECOMMERCE_BAG_SEARCH "\uecbb"
-# define LINEA_ECOMMERCE_BAG_UPLOAD "\uecbc"
-# define LINEA_ECOMMERCE_BANKNOTE "\uecbd"
-# define LINEA_ECOMMERCE_BANKNOTES "\uecbe"
-# define LINEA_ECOMMERCE_BASKET "\uecbf"
-# define LINEA_ECOMMERCE_BASKET_CHECK "\uecc0"
-# define LINEA_ECOMMERCE_BASKET_CLOUD "\uecc1"
-# define LINEA_ECOMMERCE_BASKET_DOWNLOAD "\uecc2"
-# define LINEA_ECOMMERCE_BASKET_MINUS "\uecc3"
-# define LINEA_ECOMMERCE_BASKET_PLUS "\uecc4"
-# define LINEA_ECOMMERCE_BASKET_REFRESH "\uecc5"
-# define LINEA_ECOMMERCE_BASKET_REMOVE "\uecc6"
-# define LINEA_ECOMMERCE_BASKET_SEARCH "\uecc7"
-# define LINEA_ECOMMERCE_BASKET_UPLOAD "\uecc8"
-# define LINEA_ECOMMERCE_BATH "\uecc9"
-# define LINEA_ECOMMERCE_CART "\uecca"
-# define LINEA_ECOMMERCE_CART_CHECK "\ueccb"
-# define LINEA_ECOMMERCE_CART_CLOUD "\ueccc"
-# define LINEA_MUSIC_STOP_BUTTON "\ueccd"
-# define LINEA_MUSIC_TAPE "\uecce"
-# define LINEA_MUSIC_VOLUME_DOWN "\ueccf"
-# define LINEA_MUSIC_VOLUME_UP "\uecd0"
-# define LINEA_MUSIC_BEGINNING_BUTTON "\uecd1"
-# define LINEA_MUSIC_BELL "\uecd2"
-# define LINEA_MUSIC_CD "\uecd3"
-# define LINEA_MUSIC_DIAPASON "\uecd4"
-# define LINEA_MUSIC_EJECT_BUTTON "\uecd5"
-# define LINEA_MUSIC_END_BUTTON "\uecd6"
-# define LINEA_MUSIC_FASTFORWARD_BUTTON "\uecd7"
-# define LINEA_MUSIC_HEADPHONES "\uecd8"
-# define LINEA_MUSIC_IPOD "\uecd9"
-# define LINEA_MUSIC_LOUDSPEAKER "\uecda"
-# define LINEA_MUSIC_MICROPHONE "\uecdb"
-# define LINEA_MUSIC_MICROPHONE_OLD "\uecdc"
-# define LINEA_MUSIC_MIXER "\uecdd"
-# define LINEA_MUSIC_MUTE "\uecde"
-# define LINEA_MUSIC_NOTE_MULTIPLE "\uecdf"
-# define LINEA_MUSIC_NOTE_SINGLE "\uece0"
-# define LINEA_MUSIC_PAUSE_BUTTON "\uece1"
-# define LINEA_MUSIC_PLAY_BUTTON "\uece2"
-# define LINEA_MUSIC_PLAYLIST "\uece3"
-# define LINEA_MUSIC_RADIO_GHETTOBLASTER "\uece4"
-# define LINEA_MUSIC_RADIO_PORTABLE "\uece5"
-# define LINEA_MUSIC_RECORD "\uece6"
-# define LINEA_MUSIC_RECORDPLAYER "\uece7"
-# define LINEA_MUSIC_REPEAT_BUTTON "\uece8"
-# define LINEA_MUSIC_REWIND_BUTTON "\uece9"
-# define LINEA_MUSIC_SHUFFLE_BUTTON "\uecea"
-# define LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_CENTER "\ueceb"
-# define LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_LEFT "\uecec"
-# define LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_RIGHT "\ueced"
-# define LINEA_SOFTWARE_PARAGRAPH_SPACE_AFTER "\uecee"
-# define LINEA_SOFTWARE_PARAGRAPH_SPACE_BEFORE "\uecef"
-# define LINEA_SOFTWARE_PATHFINDER_EXCLUDE "\uecf0"
-# define LINEA_SOFTWARE_PATHFINDER_INTERSECT "\uecf1"
-# define LINEA_SOFTWARE_PATHFINDER_SUBTRACT "\uecf2"
-# define LINEA_SOFTWARE_PATHFINDER_UNITE "\uecf3"
-# define LINEA_SOFTWARE_PEN "\uecf4"
-# define LINEA_SOFTWARE_PEN_ADD "\uecf5"
-# define LINEA_SOFTWARE_PEN_REMOVE "\uecf6"
-# define LINEA_SOFTWARE_PENCIL "\uecf7"
-# define LINEA_SOFTWARE_POLYGONALLASSO "\uecf8"
-# define LINEA_SOFTWARE_REFLECT_HORIZONTAL "\uecf9"
-# define LINEA_SOFTWARE_MAGNETE "\uecfa"
-# define LINEA_SOFTWARE_PAGES "\uecfb"
-# define LINEA_SOFTWARE_PAINTBRUSH "\uecfc"
-# define LINEA_SOFTWARE_PAINTBUCKET "\uecfd"
-# define LINEA_SOFTWARE_PAINTROLLER "\uecfe"
-# define LINEA_SOFTWARE_PARAGRAPH "\uecff"
-# define LINEA_SOFTWARE_PARAGRAPH_ALIGN_LEFT "\ued00"
-# define LINEA_SOFTWARE_PARAGRAPH_ALIGN_RIGHT "\ued01"
-# define LINEA_SOFTWARE_PARAGRAPH_CENTER "\ued02"
-# define LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_ALL "\ued03"
-# define LINEA_SOFTWARE_REFLECT_VERTICAL "\ued04"
-# define LINEA_SOFTWARE_REMOVE_VECTORPOINT "\ued05"
-# define LINEA_SOFTWARE_SCALE_EXPAND "\ued06"
-# define LINEA_SOFTWARE_SCALE_REDUCE "\ued07"
-# define LINEA_SOFTWARE_SELECTION_OVAL "\ued08"
-# define LINEA_SOFTWARE_SELECTION_POLYGON "\ued09"
-# define LINEA_SOFTWARE_SELECTION_RECTANGLE "\ued0a"
-# define LINEA_SOFTWARE_INDENT_FIRSTLINE "\ued0b"
-# define LINEA_SOFTWARE_INDENT_LEFT "\ued0c"
-# define LINEA_SOFTWARE_INDENT_RIGHT "\ued0d"
-# define LINEA_SOFTWARE_LASSO "\ued0e"
-# define LINEA_SOFTWARE_LAYERS1 "\ued0f"
-# define LINEA_SOFTWARE_LAYERS2 "\ued10"
-# define LINEA_SOFTWARE_LAYOUT "\ued11"
-# define LINEA_SOFTWARE_LAYOUT_2COLUMNS "\ued12"
-# define LINEA_SOFTWARE_LAYOUT_3COLUMNS "\ued13"
-# define LINEA_SOFTWARE_LAYOUT_4BOXES "\ued14"
-# define LINEA_SOFTWARE_LAYOUT_4COLUMNS "\ued15"
-# define LINEA_SOFTWARE_LAYOUT_4LINES "\ued16"
-# define LINEA_SOFTWARE_LAYOUT_8BOXES "\ued17"
-# define LINEA_SOFTWARE_LAYOUT_HEADER "\ued18"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_2COLUMNS "\ued19"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_3COLUMNS "\ued1a"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_4BOXES "\ued1b"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_4COLUMNS "\ued1c"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX "\ued1d"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX2 "\ued1e"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX3 "\ued1f"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX4 "\ued20"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_SIDELEFT "\ued21"
-# define LINEA_SOFTWARE_LAYOUT_HEADER_SIDERIGHT "\ued22"
-# define LINEA_SOFTWARE_LAYOUT_SIDEBAR_LEFT "\ued23"
-# define LINEA_SOFTWARE_LAYOUT_SIDEBAR_RIGHT "\ued24"
-# define LINEA_SOFTWARE_SELECTION_ROUNDEDRECTANGLE "\ued25"
-# define LINEA_SOFTWARE_VECTOR_LINE "\ued26"
-# define LINEA_SOFTWARE_SHAPE_OVAL "\ued27"
-# define LINEA_SOFTWARE_SHAPE_POLYGON "\ued28"
-# define LINEA_SOFTWARE_SHAPE_RECTANGLE "\ued29"
-# define LINEA_SOFTWARE_SHAPE_ROUNDEDRECTANGLE "\ued2a"
-# define LINEA_SOFTWARE_ADD_VECTORPOINT "\ued2b"
-# define LINEA_SOFTWARE_BOX_OVAL "\ued2c"
-# define LINEA_SOFTWARE_BOX_POLYGON "\ued2d"
-# define LINEA_SOFTWARE_BOX_RECTANGLE "\ued2e"
-# define LINEA_SOFTWARE_BOX_ROUNDEDRECTANGLE "\ued2f"
-# define LINEA_SOFTWARE_CHARACTER "\ued30"
-# define LINEA_SOFTWARE_CROP "\ued31"
-# define LINEA_SOFTWARE_EYEDROPPER "\ued32"
-# define LINEA_SOFTWARE_FONT_ALLCAPS "\ued33"
-# define LINEA_SOFTWARE_FONT_BASELINE_SHIFT "\ued34"
-# define LINEA_SOFTWARE_FONT_HORIZONTAL_SCALE "\ued35"
-# define LINEA_SOFTWARE_FONT_KERNING "\ued36"
-# define LINEA_SOFTWARE_FONT_LEADING "\ued37"
-# define LINEA_SOFTWARE_FONT_SIZE "\ued38"
-# define LINEA_SOFTWARE_FONT_SMALLCAPITAL "\ued39"
-# define LINEA_SOFTWARE_FONT_SMALLCAPS "\ued3a"
-# define LINEA_SOFTWARE_FONT_STRIKETHROUGH "\ued3b"
-# define LINEA_SOFTWARE_FONT_TRACKING "\ued3c"
-# define LINEA_SOFTWARE_FONT_UNDERLINE "\ued3d"
-# define LINEA_SOFTWARE_FONT_VERTICAL_SCALE "\ued3e"
-# define LINEA_SOFTWARE_HORIZONTAL_ALIGN_CENTER "\ued3f"
-# define LINEA_SOFTWARE_HORIZONTAL_ALIGN_LEFT "\ued40"
-# define LINEA_SOFTWARE_HORIZONTAL_ALIGN_RIGHT "\ued41"
-# define LINEA_SOFTWARE_HORIZONTAL_DISTRIBUTE_CENTER "\ued42"
-# define LINEA_SOFTWARE_HORIZONTAL_DISTRIBUTE_LEFT "\ued43"
-# define LINEA_SOFTWARE_HORIZONTAL_DISTRIBUTE_RIGHT "\ued44"
-# define LINEA_SOFTWARE_SLICE "\ued45"
-# define LINEA_SOFTWARE_TRANSFORM_BEZIER "\ued46"
-# define LINEA_SOFTWARE_VECTOR_BOX "\ued47"
-# define LINEA_SOFTWARE_VECTOR_COMPOSITE "\ued48"
-# define LINEA_SOFTWARE_VERTICAL_ALIGN_BOTTOM "\ued49"
-# define LINEA_SOFTWARE_VERTICAL_ALIGN_CENTER "\ued4a"
-# define LINEA_SOFTWARE_VERTICAL_ALIGN_TOP "\ued4b"
-# define LINEA_SOFTWARE_VERTICAL_DISTRIBUTE_BOTTOM "\ued4c"
-# define LINEA_SOFTWARE_VERTICAL_DISTRIBUTE_CENTER "\ued4d"
-# define LINEA_SOFTWARE_VERTICAL_DISTRIBUTE_TOP "\ued4e"
-# define LINEA_WEATHER_AQUARIUS "\ued4f"
-# define LINEA_WEATHER_ARIES "\ued50"
-# define LINEA_WEATHER_CANCER "\ued51"
-# define LINEA_WEATHER_CAPRICORN "\ued52"
-# define LINEA_WEATHER_CLOUD "\ued53"
-# define LINEA_WEATHER_CLOUD_DROP "\ued54"
-# define LINEA_WEATHER_CLOUD_LIGHTNING "\ued55"
-# define LINEA_WEATHER_CLOUD_SNOWFLAKE "\ued56"
-# define LINEA_WEATHER_DOWNPOUR_FULLMOON "\ued57"
-# define LINEA_WEATHER_DOWNPOUR_HALFMOON "\ued58"
-# define LINEA_WEATHER_DOWNPOUR_SUN "\ued59"
-# define LINEA_WEATHER_DROP "\ued5a"
-# define LINEA_WEATHER_FIRST_QUARTER "\ued5b"
-# define LINEA_WEATHER_FOG "\ued5c"
-# define LINEA_WEATHER_FOG_FULLMOON "\ued5d"
-# define LINEA_WEATHER_FOG_HALFMOON "\ued5e"
-# define LINEA_WEATHER_FOG_SUN "\ued5f"
-# define LINEA_WEATHER_FULLMOON "\ued60"
-# define LINEA_WEATHER_GEMINI "\ued61"
-# define LINEA_WEATHER_HAIL "\ued62"
-# define LINEA_WEATHER_HAIL_FULLMOON "\ued63"
-# define LINEA_WEATHER_HAIL_HALFMOON "\ued64"
-# define LINEA_WEATHER_HAIL_SUN "\ued65"
-# define LINEA_WEATHER_LAST_QUARTER "\ued66"
-# define LINEA_WEATHER_LEO "\ued67"
-# define LINEA_WEATHER_LIBRA "\ued68"
-# define LINEA_WEATHER_LIGHTNING "\ued69"
-# define LINEA_WEATHER_MISTYRAIN "\ued6a"
-# define LINEA_WEATHER_MISTYRAIN_FULLMOON "\ued6b"
-# define LINEA_WEATHER_MISTYRAIN_HALFMOON "\ued6c"
-# define LINEA_WEATHER_MISTYRAIN_SUN "\ued6d"
-# define LINEA_WEATHER_MOON "\ued6e"
-# define LINEA_WEATHER_MOONDOWN_FULL "\ued6f"
-# define LINEA_WEATHER_MOONDOWN_HALF "\ued70"
-# define LINEA_WEATHER_MOONSET_FULL "\ued71"
-# define LINEA_WEATHER_MOONSET_HALF "\ued72"
-# define LINEA_WEATHER_MOVE2 "\ued73"
-# define LINEA_WEATHER_NEWMOON "\ued74"
-# define LINEA_WEATHER_PISCES "\ued75"
-# define LINEA_WEATHER_RAIN "\ued76"
-# define LINEA_WEATHER_RAIN_FULLMOON "\ued77"
-# define LINEA_WEATHER_RAIN_HALFMOON "\ued78"
-# define LINEA_WEATHER_RAIN_SUN "\ued79"
-# define LINEA_WEATHER_SAGITTARIUS "\ued7a"
-# define LINEA_WEATHER_SCORPIO "\ued7b"
-# define LINEA_WEATHER_SNOW "\ued7c"
-# define LINEA_WEATHER_SNOW_FULLMOON "\ued7d"
-# define LINEA_WEATHER_SNOW_HALFMOON "\ued7e"
-# define LINEA_WEATHER_SNOW_SUN "\ued7f"
-# define LINEA_WEATHER_SNOWFLAKE "\ued80"
-# define LINEA_WEATHER_STAR "\ued81"
-# define LINEA_WEATHER_STORM_11 "\ued82"
-# define LINEA_WEATHER_STORM_32 "\ued83"
-# define LINEA_WEATHER_STORM_FULLMOON "\ued84"
-# define LINEA_WEATHER_STORM_HALFMOON "\ued85"
-# define LINEA_WEATHER_STORM_SUN "\ued86"
-# define LINEA_WEATHER_SUN "\ued87"
-# define LINEA_WEATHER_SUNDOWN "\ued88"
-# define LINEA_WEATHER_SUNSET "\ued89"
-# define LINEA_WEATHER_TAURUS "\ued8a"
-# define LINEA_WEATHER_TEMPEST "\ued8b"
-# define LINEA_WEATHER_TEMPEST_FULLMOON "\ued8c"
-# define LINEA_WEATHER_TEMPEST_HALFMOON "\ued8d"
-# define LINEA_WEATHER_TEMPEST_SUN "\ued8e"
-# define LINEA_WEATHER_VARIABLE_FULLMOON "\ued8f"
-# define LINEA_WEATHER_VARIABLE_HALFMOON "\ued90"
-# define LINEA_WEATHER_VARIABLE_SUN "\ued91"
-# define LINEA_WEATHER_VIRGO "\ued92"
-# define LINEA_WEATHER_WANING_CRESENT "\ued93"
-# define LINEA_WEATHER_WANING_GIBBOUS "\ued94"
-# define LINEA_WEATHER_WAXING_CRESENT "\ued95"
-# define LINEA_WEATHER_WAXING_GIBBOUS "\ued96"
-# define LINEA_WEATHER_WIND "\ued97"
-# define LINEA_WEATHER_WIND_E "\ued98"
-# define LINEA_WEATHER_WIND_FULLMOON "\ued99"
-# define LINEA_WEATHER_WIND_HALFMOON "\ued9a"
-# define LINEA_WEATHER_WIND_N "\ued9b"
-# define LINEA_WEATHER_WIND_NE "\ued9c"
-# define LINEA_WEATHER_WIND_NW "\ued9d"
-# define LINEA_WEATHER_WIND_S "\ued9e"
-# define LINEA_WEATHER_WIND_SE "\ued9f"
-# define LINEA_WEATHER_WIND_SUN "\ueda0"
-# define LINEA_WEATHER_WIND_SW "\ueda1"
-# define LINEA_WEATHER_WIND_W "\ueda2"
-# define LINEA_WEATHER_WINDGUST "\ueda3"
-# define MFIZZ_3DPRINT "\ueda4"
-# define MFIZZ_ALPINELINUX "\ueda5"
-# define MFIZZ_ANGULAR "\ueda6"
-# define MFIZZ_ANGULAR_ALT "\ueda7"
-# define MFIZZ_ANTENNA "\ueda8"
-# define MFIZZ_APACHE "\ueda9"
-# define MFIZZ_ARCHLINUX "\uedaa"
-# define MFIZZ_AWS "\uedab"
-# define MFIZZ_AZURE "\uedac"
-# define MFIZZ_BACKBONE "\uedad"
-# define MFIZZ_BLACKBERRY "\uedae"
-# define MFIZZ_BOMB "\uedaf"
-# define MFIZZ_BOOTSTRAP "\uedb0"
-# define MFIZZ_C "\uedb1"
-# define MFIZZ_CASSANDRA "\uedb2"
-# define MFIZZ_CENTOS "\uedb3"
-# define MFIZZ_CLOJURE "\uedb4"
-# define MFIZZ_CODEIGNITER "\uedb5"
-# define MFIZZ_CODEPEN "\uedb6"
-# define MFIZZ_COFFEE_BEAN "\uedb7"
-# define MFIZZ_CPLUSPLUS "\uedb8"
-# define MFIZZ_CSHARP "\uedb9"
-# define MFIZZ_CSS "\uedba"
-# define MFIZZ_CSS3 "\uedbb"
-# define MFIZZ_CSS3_ALT "\uedbc"
-# define MFIZZ_D3 "\uedbd"
-# define MFIZZ_DATABASE "\uedbe"
-# define MFIZZ_DATABASE_ALT "\uedbf"
-# define MFIZZ_DATABASE_ALT2 "\uedc0"
-# define MFIZZ_DEBIAN "\uedc1"
-# define MFIZZ_DOCKER "\uedc2"
-# define MFIZZ_DREAMHOST "\uedc3"
-# define MFIZZ_ELIXIR "\uedc4"
-# define MFIZZ_ELM "\uedc5"
-# define MFIZZ_ERLANG "\uedc6"
-# define MFIZZ_EXHERBO "\uedc7"
-# define MFIZZ_FEDORA "\uedc8"
-# define MFIZZ_FIRE_ALT "\uedc9"
-# define MFIZZ_FREEBSD "\uedca"
-# define MFIZZ_FREECODECAMP "\uedcb"
-# define MFIZZ_GENTOO "\uedcc"
-# define MFIZZ_GHOST "\uedcd"
-# define MFIZZ_GIT "\uedce"
-# define MFIZZ_GNOME "\uedcf"
-# define MFIZZ_GO "\uedd0"
-# define MFIZZ_GO_ALT "\uedd1"
-# define MFIZZ_GOOGLE "\uedd2"
-# define MFIZZ_GOOGLE_ALT "\uedd3"
-# define MFIZZ_GOOGLE_CODE "\uedd4"
-# define MFIZZ_GOOGLE_DEVELOPERS "\uedd5"
-# define MFIZZ_GRADLE "\uedd6"
-# define MFIZZ_GRAILS "\uedd7"
-# define MFIZZ_GRAILS_ALT "\uedd8"
-# define MFIZZ_GRUNT "\uedd9"
-# define MFIZZ_GULP "\uedda"
-# define MFIZZ_GULP_ALT "\ueddb"
-# define MFIZZ_HADOOP "\ueddc"
-# define MFIZZ_HASKELL "\ueddd"
-# define MFIZZ_HEROKU "\uedde"
-# define MFIZZ_HTML "\ueddf"
-# define MFIZZ_HTML5 "\uede0"
-# define MFIZZ_HTML5_ALT "\uede1"
-# define MFIZZ_IPHONE "\uede2"
-# define MFIZZ_JAVA "\uede3"
-# define MFIZZ_JAVA_BOLD "\uede4"
-# define MFIZZ_JAVA_DUKE "\uede5"
-# define MFIZZ_JAVASCRIPT "\uede6"
-# define MFIZZ_JAVASCRIPT_ALT "\uede7"
-# define MFIZZ_JETTY "\uede8"
-# define MFIZZ_JQUERY "\uede9"
-# define MFIZZ_KDE "\uedea"
-# define MFIZZ_LARAVEL "\uedeb"
-# define MFIZZ_LINE_GRAPH "\uedec"
-# define MFIZZ_LINUX_MINT "\ueded"
-# define MFIZZ_LOOKING "\uedee"
-# define MFIZZ_MAGENTO "\uedef"
-# define MFIZZ_MARIADB "\uedf0"
-# define MFIZZ_MAVEN "\uedf1"
-# define MFIZZ_MICROSCOPE "\uedf2"
-# define MFIZZ_MOBILE_DEVICE "\uedf3"
-# define MFIZZ_MOBILE_PHONE_ALT "\uedf4"
-# define MFIZZ_MOBILE_PHONE_BROADCAST "\uedf5"
-# define MFIZZ_MONGODB "\uedf6"
-# define MFIZZ_MSSQL "\uedf7"
-# define MFIZZ_MYSQL "\uedf8"
-# define MFIZZ_MYSQL_ALT "\uedf9"
-# define MFIZZ_NETBSD "\uedfa"
-# define MFIZZ_NGINX "\uedfb"
-# define MFIZZ_NGINX_ALT "\uedfc"
-# define MFIZZ_NGINX_ALT2 "\uedfd"
-# define MFIZZ_NODEJS "\uedfe"
-# define MFIZZ_NPM "\uedff"
-# define MFIZZ_OBJC "\uee00"
-# define MFIZZ_OPENSHIFT "\uee01"
-# define MFIZZ_ORACLE "\uee02"
-# define MFIZZ_ORACLE_ALT "\uee03"
-# define MFIZZ_OSX "\uee04"
-# define MFIZZ_PERL "\uee05"
-# define MFIZZ_PHONE_ALT "\uee06"
-# define MFIZZ_PHONE_GAP "\uee07"
-# define MFIZZ_PHONE_RETRO "\uee08"
-# define MFIZZ_PHP "\uee09"
-# define MFIZZ_PHP_ALT "\uee0a"
-# define MFIZZ_PLAYFRAMEWORK "\uee0b"
-# define MFIZZ_PLAYFRAMEWORK_ALT "\uee0c"
-# define MFIZZ_PLONE "\uee0d"
-# define MFIZZ_POSTGRES "\uee0e"
-# define MFIZZ_POSTGRES_ALT "\uee0f"
-# define MFIZZ_PYTHON "\uee10"
-# define MFIZZ_RASPBERRYPI "\uee11"
-# define MFIZZ_REACTJS "\uee12"
-# define MFIZZ_REDHAT "\uee13"
-# define MFIZZ_REDIS "\uee14"
-# define MFIZZ_RUBY "\uee15"
-# define MFIZZ_RUBY_ON_RAILS "\uee16"
-# define MFIZZ_RUBY_ON_RAILS_ALT "\uee17"
-# define MFIZZ_RUST "\uee18"
-# define MFIZZ_SASS "\uee19"
-# define MFIZZ_SATELLITE "\uee1a"
-# define MFIZZ_SCALA "\uee1b"
-# define MFIZZ_SCALA_ALT "\uee1c"
-# define MFIZZ_SCRIPT "\uee1d"
-# define MFIZZ_SCRIPT_ALT "\uee1e"
-# define MFIZZ_SHELL "\uee1f"
-# define MFIZZ_SITEFINITY "\uee20"
-# define MFIZZ_SOLARIS "\uee21"
-# define MFIZZ_SPLATTER "\uee22"
-# define MFIZZ_SPRING "\uee23"
-# define MFIZZ_SUSE "\uee24"
-# define MFIZZ_SVG "\uee25"
-# define MFIZZ_SYMFONY "\uee26"
-# define MFIZZ_TOMCAT "\uee27"
-# define MFIZZ_UBUNTU "\uee28"
-# define MFIZZ_UNITY "\uee29"
-# define MFIZZ_WIRELESS "\uee2a"
-# define MFIZZ_WORDPRESS "\uee2b"
-# define MFIZZ_X11 "\uee2c"
-# define FIRACODE_ASTERISK "\uee2d"
-# define FIRACODE_PLUS "\uee2e"
-# define FIRACODE_HYPHEN "\uee2f"
-# define FIRACODE_SAD "\uee30"
-# define FIRACODE_W_W_W "\uee31"
-# define FIRACODE_ASTERISK_ASTERISK "\uee32"
-# define FIRACODE_ASTERISK_ASTERISK_ASTERISK "\uee33"
-# define FIRACODE_ASTERISK_ASTERISK_SLASH "\uee34"
-# define FIRACODE_ASTERISK_GREATER "\uee35"
-# define FIRACODE_ASTERISK_SLASH "\uee36"
-# define FIRACODE_BACKSLASH_BACKSLASH "\uee37"
-# define FIRACODE_BBB "\uee38"
-# define FIRACODE_BRACELEFT_HYPHEN "\uee39"
-# define FIRACODE_BRACKETLEFT_BRACKETRIGHT "\uee3a"
-# define FIRACODE_COLON_COLON "\uee3b"
-# define FIRACODE_COLON_COLON_COLON "\uee3c"
-# define FIRACODE_COLON_EQUAL "\uee3d"
-# define FIRACODE_EXCLAM_EXCLAM "\uee3e"
-# define FIRACODE_EXCLAM_EQUAL "\uee3f"
-# define FIRACODE_EXCLAM_EQUAL_EQUAL "\uee40"
-# define FIRACODE_HYPHEN_BRACERIGHT "\uee41"
-# define FIRACODE_HYPHEN_HYPHEN "\uee42"
-# define FIRACODE_HYPHEN_HYPHEN_HYPHEN "\uee43"
-# define FIRACODE_HYPHEN_HYPHEN_GREATER "\uee44"
-# define FIRACODE_HYPHEN_GREATER "\uee45"
-# define FIRACODE_HYPHEN_GREATER_GREATER "\uee46"
-# define FIRACODE_HYPHEN_LESS "\uee47"
-# define FIRACODE_HYPHEN_LESS_LESS "\uee48"
-# define FIRACODE_HYPHEN_ASCIITILDE "\uee49"
-# define FIRACODE_NUMBERSIGN_BRACELEFT "\uee4a"
-# define FIRACODE_NUMBERSIGN_BRACKETLEFT "\uee4b"
-# define FIRACODE_NUMBERSIGN_NUMBERSIGN "\uee4c"
-# define FIRACODE_NNN "\uee4d"
-# define FIRACODE_NNNN "\uee4e"
-# define FIRACODE_NUMBERSIGN_PARENLEFT "\uee4f"
-# define FIRACODE_NUMBERSIGN_QUESTION "\uee50"
-# define FIRACODE_NUMBERSIGN_UNDERSCORE "\uee51"
-# define FIRACODE_NUP "\uee52"
-# define FIRACODE_PERIOD_HYPHEN "\uee53"
-# define FIRACODE_PERIOD_EQUAL "\uee54"
-# define FIRACODE_PERIOD_PERIOD "\uee55"
-# define FIRACODE_PERIOD_PERIOD_LESS "\uee56"
-# define FIRACODE_PERIOD_PERIOD_PERIOD "\uee57"
-# define FIRACODE_QUESTION_EQUAL "\uee58"
-# define FIRACODE_QUESTION_QUESTION "\uee59"
-# define FIRACODE_SEMICOLON_SEMICOLON "\uee5a"
-# define FIRACODE_SLASH_ASTERISK "\uee5b"
-# define FIRACODE_SLASH_ASTERISK_ASTERISK "\uee5c"
-# define FIRACODE_SLASH_EQUAL "\uee5d"
-# define FIRACODE_SLASH_EQUAL_EQUAL "\uee5e"
-# define FIRACODE_SLASH_GREATER "\uee5f"
-# define FIRACODE_SLASH_SLASH "\uee60"
-# define FIRACODE_SLASH_SLASH_SLASH "\uee61"
-# define FIRACODE_AMPERSAND_AMPERSAND "\uee62"
-# define FIRACODE_BAR_BAR "\uee63"
-# define FIRACODE_BAR_BAR_EQUAL "\uee64"
-# define FIRACODE_BAR_EQUAL "\uee65"
-# define FIRACODE_BAR_GREATER "\uee66"
-# define FIRACODE_ASCIICIRCUM_EQUAL "\uee67"
-# define FIRACODE_DOLLAR_GREATER "\uee68"
-# define FIRACODE_PLUS_PLUS "\uee69"
-# define FIRACODE_PLUS_PLUS_PLUS "\uee6a"
-# define FIRACODE_PLUS_GREATER "\uee6b"
-# define FIRACODE_EQUAL_COLON_EQUAL "\uee6c"
-# define FIRACODE_EQUAL_EQUAL "\uee6d"
-# define FIRACODE_EQUAL_EQUAL_EQUAL "\uee6e"
-# define FIRACODE_EQUAL_EQUAL_GREATER "\uee6f"
-# define FIRACODE_EQUAL_GREATER "\uee70"
-# define FIRACODE_EQUAL_GREATER_GREATER "\uee71"
-# define FIRACODE_EQUAL_LESS "\uee72"
-# define FIRACODE_EQUAL_LESS_LESS "\uee73"
-# define FIRACODE_EQUAL_SLASH_EQUAL "\uee74"
-# define FIRACODE_GREATER_HYPHEN "\uee75"
-# define FIRACODE_GREATER_EQUAL "\uee76"
-# define FIRACODE_GREATER_EQUAL_GREATER "\uee77"
-# define FIRACODE_GREATER_GREATER "\uee78"
-# define FIRACODE_GREATER_GREATER_HYPHEN "\uee79"
-# define FIRACODE_GREATER_GREATER_EQUAL "\uee7a"
-# define FIRACODE_GREATER_GREATER_GREATER "\uee7b"
-# define FIRACODE_LESS_ASTERISK "\uee7c"
-# define FIRACODE_LESS_ASTERISK_GREATER "\uee7d"
-# define FIRACODE_LESS_BAR "\uee7e"
-# define FIRACODE_LESS_BAR_GREATER "\uee7f"
-# define FIRACODE_LESS_DOLLAR "\uee80"
-# define FIRACODE_LESS_DOLLAR_GREATER "\uee81"
-# define FIRACODE_LESS_EXCLAM_HYPHEN_HYPHEN "\uee82"
-# define FIRACODE_LESS_HYPHEN "\uee83"
-# define FIRACODE_LESS_HYPHEN_HYPHEN "\uee84"
-# define FIRACODE_LESS_HYPHEN_GREATER "\uee85"
-# define FIRACODE_LESS_PLUS "\uee86"
-# define FIRACODE_LESS_PLUS_GREATER "\uee87"
-# define FIRACODE_LESS_EQUAL "\uee88"
-# define FIRACODE_LESS_EQUAL_EQUAL "\uee89"
-# define FIRACODE_LESS_EQUAL_GREATER "\uee8a"
-# define FIRACODE_LESS_EQUAL_LESS "\uee8b"
-# define FIRACODE_LESS_GREATER "\uee8c"
-# define FIRACODE_LESS_LESS "\uee8d"
-# define FIRACODE_LESS_LESS_HYPHEN "\uee8e"
-# define FIRACODE_LESS_LESS_EQUAL "\uee8f"
-# define FIRACODE_LESS_LESS_LESS "\uee90"
-# define FIRACODE_LESS_ASCIITILDE "\uee91"
-# define FIRACODE_LESS_ASCIITILDE_ASCIITILDE "\uee92"
-# define FIRACODE_LESS_SLASH "\uee93"
-# define FIRACODE_LESS_SLASH_GREATER "\uee94"
-# define FIRACODE_ASCIITILDE_AT "\uee95"
-# define FIRACODE_ASCIITILDE_HYPHEN "\uee96"
-# define FIRACODE_ASCIITILDE_EQUAL "\uee97"
-# define FIRACODE_ASCIITILDE_GREATER "\uee98"
-# define FIRACODE_ASCIITILDE_ASCIITILDE "\uee99"
-# define FIRACODE_AAG "\uee9a"
-# define FIRACODE_PERCENT_PERCENT "\uee9b"
-# define FIRACODE_X_MULTIPLY "\uee9c"
-# define FIRACODE_COLON_UC "\uee9d"
-# define FIRACODE_PLUS_LC "\uee9e"
-# define FIRACODE_PLUS_TOSF2 "\uee9f"
-# define FIRACODE_NAMEME_1114119 "\ueea0"
-
-#endif // ICONS_IN_TERMINAL
-
+static const char * envs[] = {
+    "POWERLINE_BRANCH", "\ue0a0",
+    "POWERLINE_LINE_NUMBER", "\ue0a1",
+    "POWERLINE_READONLY", "\ue0a2",
+    "POWERLINE_EXTRA_COLUMN_NUMBER", "\ue0a3",
+    "POWERLINE_LEFT_HARD_DIVIDER", "\ue0b0",
+    "POWERLINE_LEFT_SOFT_DIVIDER", "\ue0b1",
+    "POWERLINE_RIGHT_HARD_DIVIDER", "\ue0b2",
+    "POWERLINE_RIGHT_SOFT_DIVIDER", "\ue0b3",
+    "POWERLINE_EXTRA_RIGHT_HALF_CIRCLE_THICK", "\ue0b4",
+    "POWERLINE_EXTRA_RIGHT_HALF_CIRCLE_THIN", "\ue0b5",
+    "POWERLINE_EXTRA_LEFT_HALF_CIRCLE_THICK", "\ue0b6",
+    "POWERLINE_EXTRA_LEFT_HALF_CIRCLE_THIN", "\ue0b7",
+    "POWERLINE_EXTRA_LOWER_LEFT_TRIANGLE", "\ue0b8",
+    "POWERLINE_EXTRA_BACKSLASH_SEPARATOR", "\ue0b9",
+    "POWERLINE_EXTRA_LOWER_RIGHT_TRIANGLE", "\ue0ba",
+    "POWERLINE_EXTRA_FORWARDSLASH_SEPARATOR", "\ue0bb",
+    "POWERLINE_EXTRA_UPPER_LEFT_TRIANGLE", "\ue0bc",
+    "POWERLINE_EXTRA_FORWARDSLASH_SEPARATOR_REDUNDANT", "\ue0bd",
+    "POWERLINE_EXTRA_UPPER_RIGHT_TRIANGLE", "\ue0be",
+    "POWERLINE_EXTRA_BACKSLASH_SEPARATOR_REDUNDANT", "\ue0bf",
+    "POWERLINE_EXTRA_FLAME_THICK", "\ue0c0",
+    "POWERLINE_EXTRA_FLAME_THIN", "\ue0c1",
+    "POWERLINE_EXTRA_FLAME_THICK_MIRRORED", "\ue0c2",
+    "POWERLINE_EXTRA_FLAME_THIN_MIRRORED", "\ue0c3",
+    "POWERLINE_EXTRA_PIXELATED_SQUARES_SMALL", "\ue0c4",
+    "POWERLINE_EXTRA_PIXELATED_SQUARES_SMALL_MIRRORED", "\ue0c5",
+    "POWERLINE_EXTRA_PIXELATED_SQUARES_BIG", "\ue0c6",
+    "POWERLINE_EXTRA_PIXELATED_SQUARES_BIG_MIRRORED", "\ue0c7",
+    "POWERLINE_EXTRA_ICE_WAVEFORM", "\ue0c8",
+    "POWERLINE_EXTRA_ICE_WAVEFORM_MIRRORED", "\ue0ca",
+    "POWERLINE_EXTRA_HONEYCOMB", "\ue0cc",
+    "POWERLINE_EXTRA_HONEYCOMB_OUTLINE", "\ue0cd",
+    "POWERLINE_EXTRA_LEGO_SEPARATOR", "\ue0ce",
+    "POWERLINE_EXTRA_LEGO_SEPARATOR_THIN", "\ue0cf",
+    "POWERLINE_EXTRA_LEGO_BLOCK_FACING", "\ue0d0",
+    "POWERLINE_EXTRA_LEGO_BLOCK_SIDEWAYS", "\ue0d1",
+    "POWERLINE_EXTRA_TRAPEZOID_TOP_BOTTOM", "\ue0d2",
+    "POWERLINE_EXTRA_TRAPEZOID_TOP_BOTTOM_MIRRORED", "\ue0d4",
+    "OCT_HEART", "\ue000",
+    "OCT_ZAP", "\ue001",
+    "OCT_LIGHT_BULB", "\ue002",
+    "OCT_REPO", "\ue003",
+    "OCT_REPO_FORKED", "\ue004",
+    "OCT_REPO_PUSH", "\ue005",
+    "OCT_REPO_PULL", "\ue006",
+    "OCT_BOOK", "\ue007",
+    "OCT_OCTOFACE", "\ue008",
+    "OCT_GIT_PULL_REQUEST", "\ue009",
+    "OCT_MARK_GITHUB", "\ue00a",
+    "OCT_CLOUD_DOWNLOAD", "\ue00b",
+    "OCT_CLOUD_UPLOAD", "\ue00c",
+    "OCT_KEYBOARD", "\ue00d",
+    "OCT_GIST", "\ue00e",
+    "OCT_FILE_CODE", "\ue00f",
+    "OCT_FILE_TEXT", "\ue010",
+    "OCT_FILE_MEDIA", "\ue011",
+    "OCT_FILE_ZIP", "\ue012",
+    "OCT_FILE_PDF", "\ue013",
+    "OCT_TAG", "\ue014",
+    "OCT_FILE_DIRECTORY", "\ue015",
+    "OCT_FILE_SUBMODULE", "\ue016",
+    "OCT_PERSON", "\ue017",
+    "OCT_JERSEY", "\ue018",
+    "OCT_GIT_COMMIT", "\ue019",
+    "OCT_GIT_BRANCH", "\ue01a",
+    "OCT_GIT_MERGE", "\ue01b",
+    "OCT_MIRROR", "\ue01c",
+    "OCT_ISSUE_OPENED", "\ue01d",
+    "OCT_ISSUE_REOPENED", "\ue01e",
+    "OCT_ISSUE_CLOSED", "\ue01f",
+    "OCT_STAR", "\ue020",
+    "OCT_COMMENT", "\ue021",
+    "OCT_QUESTION", "\ue022",
+    "OCT_ALERT", "\ue023",
+    "OCT_SEARCH", "\ue024",
+    "OCT_GEAR", "\ue025",
+    "OCT_RADIO_TOWER", "\ue026",
+    "OCT_TOOLS", "\ue027",
+    "OCT_SIGN_OUT", "\ue028",
+    "OCT_ROCKET", "\ue029",
+    "OCT_RSS", "\ue02a",
+    "OCT_CLIPPY", "\ue02b",
+    "OCT_SIGN_IN", "\ue02c",
+    "OCT_ORGANIZATION", "\ue02d",
+    "OCT_DEVICE_MOBILE", "\ue02e",
+    "OCT_UNFOLD", "\ue02f",
+    "OCT_CHECK", "\ue030",
+    "OCT_MAIL", "\ue031",
+    "OCT_MAIL_READ", "\ue032",
+    "OCT_ARROW_UP", "\ue033",
+    "OCT_ARROW_RIGHT", "\ue034",
+    "OCT_ARROW_DOWN", "\ue035",
+    "OCT_ARROW_LEFT", "\ue036",
+    "OCT_PIN", "\ue037",
+    "OCT_GIFT", "\ue038",
+    "OCT_GRAPH", "\ue039",
+    "OCT_TRIANGLE_LEFT", "\ue03a",
+    "OCT_CREDIT_CARD", "\ue03b",
+    "OCT_CLOCK", "\ue03c",
+    "OCT_RUBY", "\ue03d",
+    "OCT_BROADCAST", "\ue03e",
+    "OCT_KEY", "\ue03f",
+    "OCT_REPO_FORCE_PUSH", "\ue040",
+    "OCT_REPO_CLONE", "\ue041",
+    "OCT_DIFF", "\ue042",
+    "OCT_EYE", "\ue043",
+    "OCT_COMMENT_DISCUSSION", "\ue044",
+    "OCT_MAIL_REPLY", "\ue045",
+    "OCT_PRIMITIVE_DOT", "\ue046",
+    "OCT_PRIMITIVE_SQUARE", "\ue047",
+    "OCT_DEVICE_CAMERA", "\ue048",
+    "OCT_DEVICE_CAMERA_VIDEO", "\ue049",
+    "OCT_PENCIL", "\ue04a",
+    "OCT_INFO", "\ue04b",
+    "OCT_TRIANGLE_RIGHT", "\ue04c",
+    "OCT_TRIANGLE_DOWN", "\ue04d",
+    "OCT_LINK", "\ue04e",
+    "OCT_PLUS", "\ue04f",
+    "OCT_THREE_BARS", "\ue050",
+    "OCT_CODE", "\ue051",
+    "OCT_LOCATION", "\ue052",
+    "OCT_LIST_UNORDERED", "\ue053",
+    "OCT_LIST_ORDERED", "\ue054",
+    "OCT_QUOTE", "\ue055",
+    "OCT_VERSIONS", "\ue056",
+    "OCT_CALENDAR", "\ue057",
+    "OCT_LOCK", "\ue058",
+    "OCT_DIFF_ADDED", "\ue059",
+    "OCT_DIFF_REMOVED", "\ue05a",
+    "OCT_DIFF_MODIFIED", "\ue05b",
+    "OCT_DIFF_RENAMED", "\ue05c",
+    "OCT_HORIZONTAL_RULE", "\ue05d",
+    "OCT_ARROW_SMALL_RIGHT", "\ue05e",
+    "OCT_MILESTONE", "\ue05f",
+    "OCT_CHECKLIST", "\ue060",
+    "OCT_MEGAPHONE", "\ue061",
+    "OCT_CHEVRON_RIGHT", "\ue062",
+    "OCT_BOOKMARK", "\ue063",
+    "OCT_SETTINGS", "\ue064",
+    "OCT_DASHBOARD", "\ue065",
+    "OCT_HISTORY", "\ue066",
+    "OCT_LINK_EXTERNAL", "\ue067",
+    "OCT_MUTE", "\ue068",
+    "OCT_X", "\ue069",
+    "OCT_CIRCLE_SLASH", "\ue06a",
+    "OCT_PULSE", "\ue06b",
+    "OCT_SYNC", "\ue06c",
+    "OCT_TELESCOPE", "\ue06d",
+    "OCT_GIST_SECRET", "\ue06e",
+    "OCT_HOME", "\ue06f",
+    "OCT_STOP", "\ue070",
+    "OCT_BUG", "\ue071",
+    "OCT_LOGO_GITHUB", "\ue072",
+    "OCT_FILE_BINARY", "\ue073",
+    "OCT_DATABASE", "\ue074",
+    "OCT_SERVER", "\ue075",
+    "OCT_DIFF_IGNORED", "\ue076",
+    "OCT_ELLIPSIS", "\ue077",
+    "OCT_NO_NEWLINE", "\ue078",
+    "OCT_HUBOT", "\ue079",
+    "OCT_ARROW_SMALL_UP", "\ue07a",
+    "OCT_ARROW_SMALL_DOWN", "\ue07b",
+    "OCT_ARROW_SMALL_LEFT", "\ue07c",
+    "OCT_CHEVRON_UP", "\ue07d",
+    "OCT_CHEVRON_DOWN", "\ue07e",
+    "OCT_CHEVRON_LEFT", "\ue07f",
+    "OCT_TRIANGLE_UP", "\ue080",
+    "OCT_GIT_COMPARE", "\ue081",
+    "OCT_LOGO_GIST", "\ue082",
+    "OCT_FILE_SYMLINK_FILE", "\ue083",
+    "OCT_FILE_SYMLINK_DIRECTORY", "\ue084",
+    "OCT_SQUIRREL", "\ue085",
+    "OCT_GLOBE", "\ue086",
+    "OCT_UNMUTE", "\ue087",
+    "OCT_MENTION", "\ue088",
+    "OCT_PACKAGE", "\ue089",
+    "OCT_BROWSER", "\ue08a",
+    "OCT_TERMINAL", "\ue08b",
+    "OCT_MARKDOWN", "\ue08c",
+    "OCT_DASH", "\ue08d",
+    "OCT_FOLD", "\ue08e",
+    "OCT_INBOX", "\ue08f",
+    "OCT_TRASHCAN", "\ue090",
+    "OCT_PAINTCAN", "\ue091",
+    "OCT_FLAME", "\ue092",
+    "OCT_BRIEFCASE", "\ue093",
+    "OCT_PLUG", "\ue094",
+    "OCT_CIRCUIT_BOARD", "\ue095",
+    "OCT_MORTAR_BOARD", "\ue096",
+    "OCT_LAW", "\ue097",
+    "OCT_THUMBSUP", "\ue098",
+    "OCT_THUMBSDOWN", "\ue099",
+    "OCT_DESKTOP_DOWNLOAD", "\ue09a",
+    "OCT_BEAKER", "\ue09b",
+    "OCT_BELL", "\ue09c",
+    "OCT_WATCH", "\ue09d",
+    "OCT_SHIELD", "\ue09e",
+    "OCT_BOLD", "\ue09f",
+    "OCT_TEXT_SIZE", "\ue0d5",
+    "OCT_ITALIC", "\ue0d6",
+    "OCT_TASKLIST", "\ue0d7",
+    "OCT_VERIFIED", "\ue0d8",
+    "OCT_SMILEY", "\ue0d9",
+    "OCT_UNVERIFIED", "\ue0da",
+    "OCT_ELLIPSES", "\ue0db",
+    "OCT_FILE", "\ue0dc",
+    "OCT_GRABBER", "\ue0dd",
+    "OCT_PLUS_SMALL", "\ue0de",
+    "OCT_REPLY", "\ue0df",
+    "OCT_DEVICE_DESKTOP", "\ue0e0",
+    "FA_GLASS", "\ue0e1",
+    "FA_MUSIC", "\ue0e2",
+    "FA_SEARCH", "\ue0e3",
+    "FA_ENVELOPE_O", "\ue0e4",
+    "FA_HEART", "\ue0e5",
+    "FA_STAR", "\ue0e6",
+    "FA_STAR_O", "\ue0e7",
+    "FA_USER", "\ue0e8",
+    "FA_FILM", "\ue0e9",
+    "FA_TH_LARGE", "\ue0ea",
+    "FA_TH", "\ue0eb",
+    "FA_TH_LIST", "\ue0ec",
+    "FA_CHECK", "\ue0ed",
+    "FA_CLOSE", "\ue0ee",
+    "FA_SEARCH_PLUS", "\ue0ef",
+    "FA_SEARCH_MINUS", "\ue0f0",
+    "FA_POWER_OFF", "\ue0f1",
+    "FA_SIGNAL", "\ue0f2",
+    "FA_COG", "\ue0f3",
+    "FA_TRASH_O", "\ue0f4",
+    "FA_HOME", "\ue0f5",
+    "FA_FILE_O", "\ue0f6",
+    "FA_CLOCK_O", "\ue0f7",
+    "FA_ROAD", "\ue0f8",
+    "FA_DOWNLOAD", "\ue0f9",
+    "FA_ARROW_CIRCLE_O_DOWN", "\ue0fa",
+    "FA_ARROW_CIRCLE_O_UP", "\ue0fb",
+    "FA_INBOX", "\ue0fc",
+    "FA_PLAY_CIRCLE_O", "\ue0fd",
+    "FA_REPEAT", "\ue0fe",
+    "FA_REFRESH", "\ue0ff",
+    "FA_LIST_ALT", "\ue100",
+    "FA_LOCK", "\ue101",
+    "FA_FLAG", "\ue102",
+    "FA_HEADPHONES", "\ue103",
+    "FA_VOLUME_OFF", "\ue104",
+    "FA_VOLUME_DOWN", "\ue105",
+    "FA_VOLUME_UP", "\ue106",
+    "FA_QRCODE", "\ue107",
+    "FA_BARCODE", "\ue108",
+    "FA_TAG", "\ue109",
+    "FA_TAGS", "\ue10a",
+    "FA_BOOK", "\ue10b",
+    "FA_BOOKMARK", "\ue10c",
+    "FA_PRINT", "\ue10d",
+    "FA_CAMERA", "\ue10e",
+    "FA_FONT", "\ue10f",
+    "FA_BOLD", "\ue110",
+    "FA_ITALIC", "\ue111",
+    "FA_TEXT_HEIGHT", "\ue112",
+    "FA_TEXT_WIDTH", "\ue113",
+    "FA_ALIGN_LEFT", "\ue114",
+    "FA_ALIGN_CENTER", "\ue115",
+    "FA_ALIGN_RIGHT", "\ue116",
+    "FA_ALIGN_JUSTIFY", "\ue117",
+    "FA_LIST", "\ue118",
+    "FA_DEDENT", "\ue119",
+    "FA_INDENT", "\ue11a",
+    "FA_VIDEO_CAMERA", "\ue11b",
+    "FA_IMAGE", "\ue11c",
+    "FA_PENCIL", "\ue11d",
+    "FA_MAP_MARKER", "\ue11e",
+    "FA_ADJUST", "\ue11f",
+    "FA_TINT", "\ue120",
+    "FA_EDIT", "\ue121",
+    "FA_SHARE_SQUARE_O", "\ue122",
+    "FA_CHECK_SQUARE_O", "\ue123",
+    "FA_ARROWS", "\ue124",
+    "FA_STEP_BACKWARD", "\ue125",
+    "FA_FAST_BACKWARD", "\ue126",
+    "FA_BACKWARD", "\ue127",
+    "FA_PLAY", "\ue128",
+    "FA_PAUSE", "\ue129",
+    "FA_STOP", "\ue12a",
+    "FA_FORWARD", "\ue12b",
+    "FA_FAST_FORWARD", "\ue12c",
+    "FA_STEP_FORWARD", "\ue12d",
+    "FA_EJECT", "\ue12e",
+    "FA_CHEVRON_LEFT", "\ue12f",
+    "FA_CHEVRON_RIGHT", "\ue130",
+    "FA_PLUS_CIRCLE", "\ue131",
+    "FA_MINUS_CIRCLE", "\ue132",
+    "FA_TIMES_CIRCLE", "\ue133",
+    "FA_CHECK_CIRCLE", "\ue134",
+    "FA_QUESTION_CIRCLE", "\ue135",
+    "FA_INFO_CIRCLE", "\ue136",
+    "FA_CROSSHAIRS", "\ue137",
+    "FA_TIMES_CIRCLE_O", "\ue138",
+    "FA_CHECK_CIRCLE_O", "\ue139",
+    "FA_BAN", "\ue13a",
+    "FA_ARROW_LEFT", "\ue13b",
+    "FA_ARROW_RIGHT", "\ue13c",
+    "FA_ARROW_UP", "\ue13d",
+    "FA_ARROW_DOWN", "\ue13e",
+    "FA_MAIL_FORWARD", "\ue13f",
+    "FA_EXPAND", "\ue140",
+    "FA_COMPRESS", "\ue141",
+    "FA_PLUS", "\ue142",
+    "FA_MINUS", "\ue143",
+    "FA_ASTERISK", "\ue144",
+    "FA_EXCLAMATION_CIRCLE", "\ue145",
+    "FA_GIFT", "\ue146",
+    "FA_LEAF", "\ue147",
+    "FA_FIRE", "\ue148",
+    "FA_EYE", "\ue149",
+    "FA_EYE_SLASH", "\ue14a",
+    "FA_EXCLAMATION_TRIANGLE", "\ue14b",
+    "FA_PLANE", "\ue14c",
+    "FA_CALENDAR", "\ue14d",
+    "FA_RANDOM", "\ue14e",
+    "FA_COMMENT", "\ue14f",
+    "FA_MAGNET", "\ue150",
+    "FA_CHEVRON_UP", "\ue151",
+    "FA_CHEVRON_DOWN", "\ue152",
+    "FA_RETWEET", "\ue153",
+    "FA_SHOPPING_CART", "\ue154",
+    "FA_FOLDER", "\ue155",
+    "FA_FOLDER_OPEN", "\ue156",
+    "FA_ARROWS_V", "\ue157",
+    "FA_ARROWS_H", "\ue158",
+    "FA_BAR_CHART", "\ue159",
+    "FA_TWITTER_SQUARE", "\ue15a",
+    "FA_FACEBOOK_SQUARE", "\ue15b",
+    "FA_CAMERA_RETRO", "\ue15c",
+    "FA_KEY", "\ue15d",
+    "FA_COGS", "\ue15e",
+    "FA_COMMENTS", "\ue15f",
+    "FA_THUMBS_O_UP", "\ue160",
+    "FA_THUMBS_O_DOWN", "\ue161",
+    "FA_STAR_HALF", "\ue162",
+    "FA_HEART_O", "\ue163",
+    "FA_SIGN_OUT", "\ue164",
+    "FA_LINKEDIN_SQUARE", "\ue165",
+    "FA_THUMB_TACK", "\ue166",
+    "FA_EXTERNAL_LINK", "\ue167",
+    "FA_SIGN_IN", "\ue168",
+    "FA_TROPHY", "\ue169",
+    "FA_GITHUB_SQUARE", "\ue16a",
+    "FA_UPLOAD", "\ue16b",
+    "FA_LEMON_O", "\ue16c",
+    "FA_PHONE", "\ue16d",
+    "FA_SQUARE_O", "\ue16e",
+    "FA_BOOKMARK_O", "\ue16f",
+    "FA_PHONE_SQUARE", "\ue170",
+    "FA_TWITTER", "\ue171",
+    "FA_FACEBOOK", "\ue172",
+    "FA_GITHUB", "\ue173",
+    "FA_UNLOCK", "\ue174",
+    "FA_CREDIT_CARD", "\ue175",
+    "FA_FEED", "\ue176",
+    "FA_HDD_O", "\ue177",
+    "FA_BULLHORN", "\ue178",
+    "FA_BELL_O", "\ue179",
+    "FA_CERTIFICATE", "\ue17a",
+    "FA_HAND_O_RIGHT", "\ue17b",
+    "FA_HAND_O_LEFT", "\ue17c",
+    "FA_HAND_O_UP", "\ue17d",
+    "FA_HAND_O_DOWN", "\ue17e",
+    "FA_ARROW_CIRCLE_LEFT", "\ue17f",
+    "FA_ARROW_CIRCLE_RIGHT", "\ue180",
+    "FA_ARROW_CIRCLE_UP", "\ue181",
+    "FA_ARROW_CIRCLE_DOWN", "\ue182",
+    "FA_GLOBE", "\ue183",
+    "FA_WRENCH", "\ue184",
+    "FA_TASKS", "\ue185",
+    "FA_FILTER", "\ue186",
+    "FA_BRIEFCASE", "\ue187",
+    "FA_ARROWS_ALT", "\ue188",
+    "FA_GROUP", "\ue189",
+    "FA_CHAIN", "\ue18a",
+    "FA_CLOUD", "\ue18b",
+    "FA_FLASK", "\ue18c",
+    "FA_CUT", "\ue18d",
+    "FA_COPY", "\ue18e",
+    "FA_PAPERCLIP", "\ue18f",
+    "FA_FLOPPY_O", "\ue190",
+    "FA_SQUARE", "\ue191",
+    "FA_BARS", "\ue192",
+    "FA_LIST_UL", "\ue193",
+    "FA_LIST_OL", "\ue194",
+    "FA_STRIKETHROUGH", "\ue195",
+    "FA_UNDERLINE", "\ue196",
+    "FA_TABLE", "\ue197",
+    "FA_MAGIC", "\ue198",
+    "FA_TRUCK", "\ue199",
+    "FA_PINTEREST", "\ue19a",
+    "FA_PINTEREST_SQUARE", "\ue19b",
+    "FA_GOOGLE_PLUS_SQUARE", "\ue19c",
+    "FA_GOOGLE_PLUS", "\ue19d",
+    "FA_MONEY", "\ue19e",
+    "FA_CARET_DOWN", "\ue19f",
+    "FA_CARET_UP", "\ue1a0",
+    "FA_CARET_LEFT", "\ue1a1",
+    "FA_CARET_RIGHT", "\ue1a2",
+    "FA_COLUMNS", "\ue1a3",
+    "FA_SORT", "\ue1a4",
+    "FA_SORT_DESC", "\ue1a5",
+    "FA_SORT_ASC", "\ue1a6",
+    "FA_ENVELOPE", "\ue1a7",
+    "FA_LINKEDIN", "\ue1a8",
+    "FA_ROTATE_LEFT", "\ue1a9",
+    "FA_GAVEL", "\ue1aa",
+    "FA_DASHBOARD", "\ue1ab",
+    "FA_COMMENT_O", "\ue1ac",
+    "FA_COMMENTS_O", "\ue1ad",
+    "FA_BOLT", "\ue1ae",
+    "FA_SITEMAP", "\ue1af",
+    "FA_UMBRELLA", "\ue1b0",
+    "FA_CLIPBOARD", "\ue1b1",
+    "FA_LIGHTBULB_O", "\ue1b2",
+    "FA_EXCHANGE", "\ue1b3",
+    "FA_CLOUD_DOWNLOAD", "\ue1b4",
+    "FA_CLOUD_UPLOAD", "\ue1b5",
+    "FA_USER_MD", "\ue1b6",
+    "FA_STETHOSCOPE", "\ue1b7",
+    "FA_SUITCASE", "\ue1b8",
+    "FA_BELL", "\ue1b9",
+    "FA_COFFEE", "\ue1ba",
+    "FA_CUTLERY", "\ue1bb",
+    "FA_FILE_TEXT_O", "\ue1bc",
+    "FA_BUILDING_O", "\ue1bd",
+    "FA_HOSPITAL_O", "\ue1be",
+    "FA_AMBULANCE", "\ue1bf",
+    "FA_MEDKIT", "\ue1c0",
+    "FA_FIGHTER_JET", "\ue1c1",
+    "FA_BEER", "\ue1c2",
+    "FA_H_SQUARE", "\ue1c3",
+    "FA_PLUS_SQUARE", "\ue1c4",
+    "FA_ANGLE_DOUBLE_LEFT", "\ue1c5",
+    "FA_ANGLE_DOUBLE_RIGHT", "\ue1c6",
+    "FA_ANGLE_DOUBLE_UP", "\ue1c7",
+    "FA_ANGLE_DOUBLE_DOWN", "\ue1c8",
+    "FA_ANGLE_LEFT", "\ue1c9",
+    "FA_ANGLE_RIGHT", "\ue1ca",
+    "FA_ANGLE_UP", "\ue1cb",
+    "FA_ANGLE_DOWN", "\ue1cc",
+    "FA_DESKTOP", "\ue1cd",
+    "FA_LAPTOP", "\ue1ce",
+    "FA_TABLET", "\ue1cf",
+    "FA_MOBILE", "\ue1d0",
+    "FA_CIRCLE_O", "\ue1d1",
+    "FA_QUOTE_LEFT", "\ue1d2",
+    "FA_QUOTE_RIGHT", "\ue1d3",
+    "FA_SPINNER", "\ue1d4",
+    "FA_CIRCLE", "\ue1d5",
+    "FA_MAIL_REPLY", "\ue1d6",
+    "FA_GITHUB_ALT", "\ue1d7",
+    "FA_FOLDER_O", "\ue1d8",
+    "FA_FOLDER_OPEN_O", "\ue1d9",
+    "FA_EXPAND_ALT", "\ue1da",
+    "FA_COLLAPSE_ALT", "\ue1db",
+    "FA_SMILE_O", "\ue1dc",
+    "FA_FROWN_O", "\ue1dd",
+    "FA_MEH_O", "\ue1de",
+    "FA_GAMEPAD", "\ue1df",
+    "FA_KEYBOARD_O", "\ue1e0",
+    "FA_FLAG_O", "\ue1e1",
+    "FA_FLAG_CHECKERED", "\ue1e2",
+    "FA_TERMINAL", "\ue1e3",
+    "FA_CODE", "\ue1e4",
+    "FA_MAIL_REPLY_ALL", "\ue1e5",
+    "FA_STAR_HALF_EMPTY", "\ue1e6",
+    "FA_LOCATION_ARROW", "\ue1e7",
+    "FA_CROP", "\ue1e8",
+    "FA_CODE_FORK", "\ue1e9",
+    "FA_CHAIN_BROKEN", "\ue1ea",
+    "FA_QUESTION", "\ue1eb",
+    "FA_INFO", "\ue1ec",
+    "FA_EXCLAMATION", "\ue1ed",
+    "FA_SUPERSCRIPT", "\ue1ee",
+    "FA_SUBSCRIPT", "\ue1ef",
+    "FA_ERASER", "\ue1f0",
+    "FA_PUZZLE_PIECE", "\ue1f1",
+    "FA_MICROPHONE", "\ue1f2",
+    "FA_MICROPHONE_SLASH", "\ue1f3",
+    "FA_SHIELD", "\ue1f4",
+    "FA_CALENDAR_O", "\ue1f5",
+    "FA_FIRE_EXTINGUISHER", "\ue1f6",
+    "FA_ROCKET", "\ue1f7",
+    "FA_MAXCDN", "\ue1f8",
+    "FA_CHEVRON_CIRCLE_LEFT", "\ue1f9",
+    "FA_CHEVRON_CIRCLE_RIGHT", "\ue1fa",
+    "FA_CHEVRON_CIRCLE_UP", "\ue1fb",
+    "FA_CHEVRON_CIRCLE_DOWN", "\ue1fc",
+    "FA_HTML5", "\ue1fd",
+    "FA_CSS3", "\ue1fe",
+    "FA_ANCHOR", "\ue1ff",
+    "FA_UNLOCK_ALT", "\ue200",
+    "FA_BULLSEYE", "\ue201",
+    "FA_ELLIPSIS_H", "\ue202",
+    "FA_ELLIPSIS_V", "\ue203",
+    "FA_RSS_SQUARE", "\ue204",
+    "FA_PLAY_CIRCLE", "\ue205",
+    "FA_TICKET", "\ue206",
+    "FA_MINUS_SQUARE", "\ue207",
+    "FA_MINUS_SQUARE_O", "\ue208",
+    "FA_LEVEL_UP", "\ue209",
+    "FA_LEVEL_DOWN", "\ue20a",
+    "FA_CHECK_SQUARE", "\ue20b",
+    "FA_PENCIL_SQUARE", "\ue20c",
+    "FA_EXTERNAL_LINK_SQUARE", "\ue20d",
+    "FA_SHARE_SQUARE", "\ue20e",
+    "FA_COMPASS", "\ue20f",
+    "FA_CARET_SQUARE_O_DOWN", "\ue210",
+    "FA_CARET_SQUARE_O_UP", "\ue211",
+    "FA_CARET_SQUARE_O_RIGHT", "\ue212",
+    "FA_EUR", "\ue213",
+    "FA_GBP", "\ue214",
+    "FA_DOLLAR", "\ue215",
+    "FA_INR", "\ue216",
+    "FA_CNY", "\ue217",
+    "FA_ROUBLE", "\ue218",
+    "FA_KRW", "\ue219",
+    "FA_BITCOIN", "\ue21a",
+    "FA_FILE", "\ue21b",
+    "FA_FILE_TEXT", "\ue21c",
+    "FA_SORT_ALPHA_ASC", "\ue21d",
+    "FA_SORT_ALPHA_DESC", "\ue21e",
+    "FA_SORT_AMOUNT_ASC", "\ue21f",
+    "FA_SORT_AMOUNT_DESC", "\ue220",
+    "FA_SORT_NUMERIC_ASC", "\ue221",
+    "FA_SORT_NUMERIC_DESC", "\ue222",
+    "FA_THUMBS_UP", "\ue223",
+    "FA_THUMBS_DOWN", "\ue224",
+    "FA_YOUTUBE_SQUARE", "\ue225",
+    "FA_YOUTUBE", "\ue226",
+    "FA_XING", "\ue227",
+    "FA_XING_SQUARE", "\ue228",
+    "FA_YOUTUBE_PLAY", "\ue229",
+    "FA_DROPBOX", "\ue22a",
+    "FA_STACK_OVERFLOW", "\ue22b",
+    "FA_INSTAGRAM", "\ue22c",
+    "FA_FLICKR", "\ue22d",
+    "FA_ADN", "\ue22e",
+    "FA_BITBUCKET", "\ue22f",
+    "FA_BITBUCKET_SQUARE", "\ue230",
+    "FA_TUMBLR", "\ue231",
+    "FA_TUMBLR_SQUARE", "\ue232",
+    "FA_LONG_ARROW_DOWN", "\ue233",
+    "FA_LONG_ARROW_UP", "\ue234",
+    "FA_LONG_ARROW_LEFT", "\ue235",
+    "FA_LONG_ARROW_RIGHT", "\ue236",
+    "FA_APPLE", "\ue237",
+    "FA_WINDOWS", "\ue238",
+    "FA_ANDROID", "\ue239",
+    "FA_LINUX", "\ue23a",
+    "FA_DRIBBBLE", "\ue23b",
+    "FA_SKYPE", "\ue23c",
+    "FA_FOURSQUARE", "\ue23d",
+    "FA_TRELLO", "\ue23e",
+    "FA_FEMALE", "\ue23f",
+    "FA_MALE", "\ue240",
+    "FA_GITTIP", "\ue241",
+    "FA_SUN_O", "\ue242",
+    "FA_MOON_O", "\ue243",
+    "FA_ARCHIVE", "\ue244",
+    "FA_BUG", "\ue245",
+    "FA_VK", "\ue246",
+    "FA_WEIBO", "\ue247",
+    "FA_RENREN", "\ue248",
+    "FA_PAGELINES", "\ue249",
+    "FA_STACK_EXCHANGE", "\ue24a",
+    "FA_ARROW_CIRCLE_O_RIGHT", "\ue24b",
+    "FA_ARROW_CIRCLE_O_LEFT", "\ue24c",
+    "FA_CARET_SQUARE_O_LEFT", "\ue24d",
+    "FA_DOT_CIRCLE_O", "\ue24e",
+    "FA_WHEELCHAIR", "\ue24f",
+    "FA_VIMEO_SQUARE", "\ue250",
+    "FA_TRY", "\ue251",
+    "FA_PLUS_SQUARE_O", "\ue252",
+    "FA_SPACE_SHUTTLE", "\ue253",
+    "FA_SLACK", "\ue254",
+    "FA_ENVELOPE_SQUARE", "\ue255",
+    "FA_WORDPRESS", "\ue256",
+    "FA_OPENID", "\ue257",
+    "FA_BANK", "\ue258",
+    "FA_GRADUATION_CAP", "\ue259",
+    "FA_YAHOO", "\ue25a",
+    "FA_GOOGLE", "\ue25b",
+    "FA_REDDIT", "\ue25c",
+    "FA_REDDIT_SQUARE", "\ue25d",
+    "FA_STUMBLEUPON_CIRCLE", "\ue25e",
+    "FA_STUMBLEUPON", "\ue25f",
+    "FA_DELICIOUS", "\ue260",
+    "FA_DIGG", "\ue261",
+    "FA_PIED_PIPER_PP", "\ue262",
+    "FA_PIED_PIPER_ALT", "\ue263",
+    "FA_DRUPAL", "\ue264",
+    "FA_JOOMLA", "\ue265",
+    "FA_LANGUAGE", "\ue266",
+    "FA_FAX", "\ue267",
+    "FA_BUILDING", "\ue268",
+    "FA_CHILD", "\ue269",
+    "FA_PAW", "\ue26a",
+    "FA_SPOON", "\ue26b",
+    "FA_CUBE", "\ue26c",
+    "FA_CUBES", "\ue26d",
+    "FA_BEHANCE", "\ue26e",
+    "FA_BEHANCE_SQUARE", "\ue26f",
+    "FA_STEAM", "\ue270",
+    "FA_STEAM_SQUARE", "\ue271",
+    "FA_RECYCLE", "\ue272",
+    "FA_AUTOMOBILE", "\ue273",
+    "FA_CAB", "\ue274",
+    "FA_TREE", "\ue275",
+    "FA_SPOTIFY", "\ue276",
+    "FA_DEVIANTART", "\ue277",
+    "FA_SOUNDCLOUD", "\ue278",
+    "FA_DATABASE", "\ue279",
+    "FA_FILE_PDF_O", "\ue27a",
+    "FA_FILE_WORD_O", "\ue27b",
+    "FA_FILE_EXCEL_O", "\ue27c",
+    "FA_FILE_POWERPOINT_O", "\ue27d",
+    "FA_FILE_IMAGE_O", "\ue27e",
+    "FA_FILE_ARCHIVE_O", "\ue27f",
+    "FA_FILE_AUDIO_O", "\ue280",
+    "FA_FILE_MOVIE_O", "\ue281",
+    "FA_FILE_CODE_O", "\ue282",
+    "FA_VINE", "\ue283",
+    "FA_CODEPEN", "\ue284",
+    "FA_JSFIDDLE", "\ue285",
+    "FA_LIFE_BOUY", "\ue286",
+    "FA_CIRCLE_O_NOTCH", "\ue287",
+    "FA_RA", "\ue288",
+    "FA_EMPIRE", "\ue289",
+    "FA_GIT_SQUARE", "\ue28a",
+    "FA_GIT", "\ue28b",
+    "FA_HACKER_NEWS", "\ue28c",
+    "FA_TENCENT_WEIBO", "\ue28d",
+    "FA_QQ", "\ue28e",
+    "FA_WECHAT", "\ue28f",
+    "FA_PAPER_PLANE", "\ue290",
+    "FA_PAPER_PLANE_O", "\ue291",
+    "FA_HISTORY", "\ue292",
+    "FA_CIRCLE_THIN", "\ue293",
+    "FA_HEADER", "\ue294",
+    "FA_PARAGRAPH", "\ue295",
+    "FA_SLIDERS", "\ue296",
+    "FA_SHARE_ALT", "\ue297",
+    "FA_SHARE_ALT_SQUARE", "\ue298",
+    "FA_BOMB", "\ue299",
+    "FA_FUTBOL_O", "\ue29a",
+    "FA_TTY", "\ue29b",
+    "FA_BINOCULARS", "\ue29c",
+    "FA_PLUG", "\ue29d",
+    "FA_SLIDESHARE", "\ue29e",
+    "FA_TWITCH", "\ue29f",
+    "FA_YELP", "\ue2a0",
+    "FA_NEWSPAPER_O", "\ue2a1",
+    "FA_WIFI", "\ue2a2",
+    "FA_CALCULATOR", "\ue2a3",
+    "FA_PAYPAL", "\ue2a4",
+    "FA_GOOGLE_WALLET", "\ue2a5",
+    "FA_CC_VISA", "\ue2a6",
+    "FA_CC_MASTERCARD", "\ue2a7",
+    "FA_CC_DISCOVER", "\ue2a8",
+    "FA_CC_AMEX", "\ue2a9",
+    "FA_CC_PAYPAL", "\ue2aa",
+    "FA_CC_STRIPE", "\ue2ab",
+    "FA_BELL_SLASH", "\ue2ac",
+    "FA_BELL_SLASH_O", "\ue2ad",
+    "FA_TRASH", "\ue2ae",
+    "FA_COPYRIGHT", "\ue2af",
+    "FA_AT", "\ue2b0",
+    "FA_EYEDROPPER", "\ue2b1",
+    "FA_PAINT_BRUSH", "\ue2b2",
+    "FA_BIRTHDAY_CAKE", "\ue2b3",
+    "FA_AREA_CHART", "\ue2b4",
+    "FA_PIE_CHART", "\ue2b5",
+    "FA_LINE_CHART", "\ue2b6",
+    "FA_LASTFM", "\ue2b7",
+    "FA_LASTFM_SQUARE", "\ue2b8",
+    "FA_TOGGLE_OFF", "\ue2b9",
+    "FA_TOGGLE_ON", "\ue2ba",
+    "FA_BICYCLE", "\ue2bb",
+    "FA_BUS", "\ue2bc",
+    "FA_IOXHOST", "\ue2bd",
+    "FA_ANGELLIST", "\ue2be",
+    "FA_CC", "\ue2bf",
+    "FA_ILS", "\ue2c0",
+    "FA_MEANPATH", "\ue2c1",
+    "FA_BUYSELLADS", "\ue2c2",
+    "FA_CONNECTDEVELOP", "\ue2c3",
+    "FA_DASHCUBE", "\ue2c4",
+    "FA_FORUMBEE", "\ue2c5",
+    "FA_LEANPUB", "\ue2c6",
+    "FA_SELLSY", "\ue2c7",
+    "FA_SHIRTSINBULK", "\ue2c8",
+    "FA_SIMPLYBUILT", "\ue2c9",
+    "FA_SKYATLAS", "\ue2ca",
+    "FA_CART_PLUS", "\ue2cb",
+    "FA_CART_ARROW_DOWN", "\ue2cc",
+    "FA_DIAMOND", "\ue2cd",
+    "FA_SHIP", "\ue2ce",
+    "FA_USER_SECRET", "\ue2cf",
+    "FA_MOTORCYCLE", "\ue2d0",
+    "FA_STREET_VIEW", "\ue2d1",
+    "FA_HEARTBEAT", "\ue2d2",
+    "FA_VENUS", "\ue2d3",
+    "FA_MARS", "\ue2d4",
+    "FA_MERCURY", "\ue2d5",
+    "FA_INTERSEX", "\ue2d6",
+    "FA_TRANSGENDER_ALT", "\ue2d7",
+    "FA_VENUS_DOUBLE", "\ue2d8",
+    "FA_MARS_DOUBLE", "\ue2d9",
+    "FA_VENUS_MARS", "\ue2da",
+    "FA_MARS_STROKE", "\ue2db",
+    "FA_MARS_STROKE_V", "\ue2dc",
+    "FA_MARS_STROKE_H", "\ue2dd",
+    "FA_NEUTER", "\ue2de",
+    "FA_GENDERLESS", "\ue2df",
+    "FA__523", "\ue2e0",
+    "FA__524", "\ue2e1",
+    "FA_FACEBOOK_OFFICIAL", "\ue2e2",
+    "FA_PINTEREST_P", "\ue2e3",
+    "FA_WHATSAPP", "\ue2e4",
+    "FA_SERVER", "\ue2e5",
+    "FA_USER_PLUS", "\ue2e6",
+    "FA_USER_TIMES", "\ue2e7",
+    "FA_BED", "\ue2e8",
+    "FA_VIACOIN", "\ue2e9",
+    "FA_TRAIN", "\ue2ea",
+    "FA_SUBWAY", "\ue2eb",
+    "FA_MEDIUM", "\ue2ec",
+    "FA_Y_COMBINATOR", "\ue2ed",
+    "FA_OPTIN_MONSTER", "\ue2ee",
+    "FA_OPENCART", "\ue2ef",
+    "FA_EXPEDITEDSSL", "\ue2f0",
+    "FA_BATTERY", "\ue2f1",
+    "FA_BATTERY_3", "\ue2f2",
+    "FA_BATTERY_2", "\ue2f3",
+    "FA_BATTERY_1", "\ue2f4",
+    "FA_BATTERY_0", "\ue2f5",
+    "FA_MOUSE_POINTER", "\ue2f6",
+    "FA_I_CURSOR", "\ue2f7",
+    "FA_OBJECT_GROUP", "\ue2f8",
+    "FA_OBJECT_UNGROUP", "\ue2f9",
+    "FA_STICKY_NOTE", "\ue2fa",
+    "FA_STICKY_NOTE_O", "\ue2fb",
+    "FA_CC_JCB", "\ue2fc",
+    "FA_CC_DINERS_CLUB", "\ue2fd",
+    "FA_CLONE", "\ue2fe",
+    "FA_BALANCE_SCALE", "\ue2ff",
+    "FA_HOURGLASS_O", "\ue300",
+    "FA_HOURGLASS_1", "\ue301",
+    "FA_HOURGLASS_2", "\ue302",
+    "FA_HOURGLASS_3", "\ue303",
+    "FA_HOURGLASS", "\ue304",
+    "FA_HAND_GRAB_O", "\ue305",
+    "FA_HAND_PAPER_O", "\ue306",
+    "FA_HAND_SCISSORS_O", "\ue307",
+    "FA_HAND_LIZARD_O", "\ue308",
+    "FA_HAND_SPOCK_O", "\ue309",
+    "FA_HAND_POINTER_O", "\ue30a",
+    "FA_HAND_PEACE_O", "\ue30b",
+    "FA_TRADEMARK", "\ue30c",
+    "FA_REGISTERED", "\ue30d",
+    "FA_CREATIVE_COMMONS", "\ue30e",
+    "FA_GG", "\ue30f",
+    "FA_GG_CIRCLE", "\ue310",
+    "FA_TRIPADVISOR", "\ue311",
+    "FA_ODNOKLASSNIKI", "\ue312",
+    "FA_ODNOKLASSNIKI_SQUARE", "\ue313",
+    "FA_GET_POCKET", "\ue314",
+    "FA_WIKIPEDIA_W", "\ue315",
+    "FA_SAFARI", "\ue316",
+    "FA_CHROME", "\ue317",
+    "FA_FIREFOX", "\ue318",
+    "FA_OPERA", "\ue319",
+    "FA_INTERNET_EXPLORER", "\ue31a",
+    "FA_TELEVISION", "\ue31b",
+    "FA_CONTAO", "\ue31c",
+    "FA_500PX", "\ue31d",
+    "FA_AMAZON", "\ue31e",
+    "FA_CALENDAR_PLUS_O", "\ue31f",
+    "FA_CALENDAR_MINUS_O", "\ue320",
+    "FA_CALENDAR_TIMES_O", "\ue321",
+    "FA_CALENDAR_CHECK_O", "\ue322",
+    "FA_INDUSTRY", "\ue323",
+    "FA_MAP_PIN", "\ue324",
+    "FA_MAP_SIGNS", "\ue325",
+    "FA_MAP_O", "\ue326",
+    "FA_MAP", "\ue327",
+    "FA_COMMENTING", "\ue328",
+    "FA_COMMENTING_O", "\ue329",
+    "FA_HOUZZ", "\ue32a",
+    "FA_VIMEO", "\ue32b",
+    "FA_BLACK_TIE", "\ue32c",
+    "FA_FONTICONS", "\ue32d",
+    "FA_REDDIT_ALIEN", "\ue32e",
+    "FA_EDGE", "\ue32f",
+    "FA_CREDIT_CARD_ALT", "\ue330",
+    "FA_CODIEPIE", "\ue331",
+    "FA_MODX", "\ue332",
+    "FA_FORT_AWESOME", "\ue333",
+    "FA_USB", "\ue334",
+    "FA_PRODUCT_HUNT", "\ue335",
+    "FA_MIXCLOUD", "\ue336",
+    "FA_SCRIBD", "\ue337",
+    "FA_PAUSE_CIRCLE", "\ue338",
+    "FA_PAUSE_CIRCLE_O", "\ue339",
+    "FA_STOP_CIRCLE", "\ue33a",
+    "FA_STOP_CIRCLE_O", "\ue33b",
+    "FA_SHOPPING_BAG", "\ue33c",
+    "FA_SHOPPING_BASKET", "\ue33d",
+    "FA_HASHTAG", "\ue33e",
+    "FA_BLUETOOTH", "\ue33f",
+    "FA_BLUETOOTH_B", "\ue340",
+    "FA_PERCENT", "\ue341",
+    "FA_GITLAB", "\ue342",
+    "FA_WPBEGINNER", "\ue343",
+    "FA_WPFORMS", "\ue344",
+    "FA_ENVIRA", "\ue345",
+    "FA_UNIVERSAL_ACCESS", "\ue346",
+    "FA_WHEELCHAIR_ALT", "\ue347",
+    "FA_QUESTION_CIRCLE_O", "\ue348",
+    "FA_BLIND", "\ue349",
+    "FA_AUDIO_DESCRIPTION", "\ue34a",
+    "FA_VOLUME_CONTROL_PHONE", "\ue34b",
+    "FA_BRAILLE", "\ue34c",
+    "FA_ASSISTIVE_LISTENING_SYSTEMS", "\ue34d",
+    "FA_AMERICAN_SIGN_LANGUAGE_INTERPRETING", "\ue34e",
+    "FA_DEAF", "\ue34f",
+    "FA_GLIDE", "\ue350",
+    "FA_GLIDE_G", "\ue351",
+    "FA_SIGN_LANGUAGE", "\ue352",
+    "FA_LOW_VISION", "\ue353",
+    "FA_VIADEO", "\ue354",
+    "FA_VIADEO_SQUARE", "\ue355",
+    "FA_SNAPCHAT", "\ue356",
+    "FA_SNAPCHAT_GHOST", "\ue357",
+    "FA_SNAPCHAT_SQUARE", "\ue358",
+    "FA_PIED_PIPER", "\ue359",
+    "FA_FIRST_ORDER", "\ue35a",
+    "FA_YOAST", "\ue35b",
+    "FA_THEMEISLE", "\ue35c",
+    "FA_GOOGLE_PLUS_CIRCLE", "\ue35d",
+    "FA_FA", "\ue35e",
+    "FA_HANDSHAKE_O", "\ue35f",
+    "FA_ENVELOPE_OPEN", "\ue360",
+    "FA_ENVELOPE_OPEN_O", "\ue361",
+    "FA_LINODE", "\ue362",
+    "FA_ADDRESS_BOOK", "\ue363",
+    "FA_ADDRESS_BOOK_O", "\ue364",
+    "FA_ADDRESS_CARD", "\ue365",
+    "FA_ADDRESS_CARD_O", "\ue366",
+    "FA_USER_CIRCLE", "\ue367",
+    "FA_USER_CIRCLE_O", "\ue368",
+    "FA_USER_O", "\ue369",
+    "FA_ID_BADGE", "\ue36a",
+    "FA_DRIVERS_LICENSE", "\ue36b",
+    "FA_DRIVERS_LICENSE_O", "\ue36c",
+    "FA_QUORA", "\ue36d",
+    "FA_FREE_CODE_CAMP", "\ue36e",
+    "FA_TELEGRAM", "\ue36f",
+    "FA_THERMOMETER", "\ue370",
+    "FA_THERMOMETER_3", "\ue371",
+    "FA_THERMOMETER_2", "\ue372",
+    "FA_THERMOMETER_1", "\ue373",
+    "FA_THERMOMETER_0", "\ue374",
+    "FA_SHOWER", "\ue375",
+    "FA_BATH", "\ue376",
+    "FA_PODCAST", "\ue377",
+    "FA_WINDOW_MAXIMIZE", "\ue378",
+    "FA_WINDOW_MINIMIZE", "\ue379",
+    "FA_WINDOW_RESTORE", "\ue37a",
+    "FA_TIMES_RECTANGLE", "\ue37b",
+    "FA_TIMES_RECTANGLE_O", "\ue37c",
+    "FA_BANDCAMP", "\ue37d",
+    "FA_GRAV", "\ue37e",
+    "FA_ETSY", "\ue37f",
+    "FA_IMDB", "\ue380",
+    "FA_RAVELRY", "\ue381",
+    "FA_EERCAST", "\ue382",
+    "FA_MICROCHIP", "\ue383",
+    "FA_SNOWFLAKE_O", "\ue384",
+    "FA_SUPERPOWERS", "\ue385",
+    "FA_WPEXPLORER", "\ue386",
+    "FA_MEETUP", "\ue387",
+    "MD_ERROR", "\ue388",
+    "MD_ERROR_OUTLINE", "\ue389",
+    "MD_WARNING", "\ue38a",
+    "MD_ADD_ALERT", "\ue38b",
+    "MD_ALBUM", "\ue38c",
+    "MD_AV_TIMER", "\ue38d",
+    "MD_CLOSED_CAPTION", "\ue38e",
+    "MD_EQUALIZER", "\ue38f",
+    "MD_EXPLICIT", "\ue390",
+    "MD_FAST_FORWARD", "\ue391",
+    "MD_FAST_REWIND", "\ue392",
+    "MD_GAMES", "\ue393",
+    "MD_HEARING", "\ue394",
+    "MD_HIGH_QUALITY", "\ue395",
+    "MD_LOOP", "\ue396",
+    "MD_MIC", "\ue397",
+    "MD_MIC_NONE", "\ue398",
+    "MD_MIC_OFF", "\ue399",
+    "MD_MOVIE", "\ue39a",
+    "MD_LIBRARY_ADD", "\ue39b",
+    "MD_LIBRARY_BOOKS", "\ue39c",
+    "MD_LIBRARY_MUSIC", "\ue39d",
+    "MD_NEW_RELEASES", "\ue39e",
+    "MD_NOT_INTERESTED", "\ue39f",
+    "MD_PAUSE", "\ue3a0",
+    "MD_PAUSE_CIRCLE_FILLED", "\ue3a1",
+    "MD_PAUSE_CIRCLE_OUTLINE", "\ue3a2",
+    "MD_PLAY_ARROW", "\ue3a3",
+    "MD_PLAY_CIRCLE_FILLED", "\ue3a4",
+    "MD_PLAY_CIRCLE_OUTLINE", "\ue3a5",
+    "MD_PLAYLIST_ADD", "\ue3a6",
+    "MD_QUEUE", "\ue3a7",
+    "MD_QUEUE_MUSIC", "\ue3a8",
+    "MD_RADIO", "\ue3a9",
+    "MD_RECENT_ACTORS", "\ue3aa",
+    "MD_REPEAT", "\ue3ab",
+    "MD_REPEAT_ONE", "\ue3ac",
+    "MD_REPLAY", "\ue3ad",
+    "MD_SHUFFLE", "\ue3ae",
+    "MD_SKIP_NEXT", "\ue3af",
+    "MD_SKIP_PREVIOUS", "\ue3b0",
+    "MD_SNOOZE", "\ue3b1",
+    "MD_STOP", "\ue3b2",
+    "MD_SUBTITLES", "\ue3b3",
+    "MD_SURROUND_SOUND", "\ue3b4",
+    "MD_VIDEO_LIBRARY", "\ue3b5",
+    "MD_VIDEOCAM", "\ue3b6",
+    "MD_VIDEOCAM_OFF", "\ue3b7",
+    "MD_VOLUME_DOWN", "\ue3b8",
+    "MD_VOLUME_MUTE", "\ue3b9",
+    "MD_VOLUME_OFF", "\ue3ba",
+    "MD_VOLUME_UP", "\ue3bb",
+    "MD_WEB", "\ue3bc",
+    "MD_HD", "\ue3bd",
+    "MD_SORT_BY_ALPHA", "\ue3be",
+    "MD_AIRPLAY", "\ue3bf",
+    "MD_FORWARD_10", "\ue3c0",
+    "MD_FORWARD_30", "\ue3c1",
+    "MD_FORWARD_5", "\ue3c2",
+    "MD_REPLAY_10", "\ue3c3",
+    "MD_REPLAY_30", "\ue3c4",
+    "MD_REPLAY_5", "\ue3c5",
+    "MD_ADD_TO_QUEUE", "\ue3c6",
+    "MD_FIBER_DVR", "\ue3c7",
+    "MD_FIBER_NEW", "\ue3c8",
+    "MD_PLAYLIST_PLAY", "\ue3c9",
+    "MD_ART_TRACK", "\ue3ca",
+    "MD_FIBER_MANUAL_RECORD", "\ue3cb",
+    "MD_FIBER_SMART_RECORD", "\ue3cc",
+    "MD_MUSIC_VIDEO", "\ue3cd",
+    "MD_SUBSCRIPTIONS", "\ue3ce",
+    "MD_PLAYLIST_ADD_CHECK", "\ue3cf",
+    "MD_QUEUE_PLAY_NEXT", "\ue3d0",
+    "MD_REMOVE_FROM_QUEUE", "\ue3d1",
+    "MD_SLOW_MOTION_VIDEO", "\ue3d2",
+    "MD_WEB_ASSET", "\ue3d3",
+    "MD_FIBER_PIN", "\ue3d4",
+    "MD_BRANDING_WATERMARK", "\ue3d5",
+    "MD_CALL_TO_ACTION", "\ue3d6",
+    "MD_FEATURED_PLAY_LIST", "\ue3d7",
+    "MD_FEATURED_VIDEO", "\ue3d8",
+    "MD_NOTE", "\ue3d9",
+    "MD_VIDEO_CALL", "\ue3da",
+    "MD_VIDEO_LABEL", "\ue3db",
+    "MD_BUSINESS", "\ue3dc",
+    "MD_CALL", "\ue3dd",
+    "MD_CALL_END", "\ue3de",
+    "MD_CALL_MADE", "\ue3df",
+    "MD_CALL_MERGE", "\ue3e0",
+    "MD_CALL_MISSED", "\ue3e1",
+    "MD_CALL_RECEIVED", "\ue3e2",
+    "MD_CALL_SPLIT", "\ue3e3",
+    "MD_CHAT", "\ue3e4",
+    "MD_CLEAR_ALL", "\ue3e5",
+    "MD_COMMENT", "\ue3e6",
+    "MD_CONTACTS", "\ue3e7",
+    "MD_DIALER_SIP", "\ue3e8",
+    "MD_DIALPAD", "\ue3e9",
+    "MD_EMAIL", "\ue3ea",
+    "MD_FORUM", "\ue3eb",
+    "MD_IMPORT_EXPORT", "\ue3ec",
+    "MD_INVERT_COLORS_OFF", "\ue3ed",
+    "MD_LIVE_HELP", "\ue3ee",
+    "MD_LOCATION_OFF", "\ue3ef",
+    "MD_LOCATION_ON", "\ue3f0",
+    "MD_MESSAGE", "\ue3f1",
+    "MD_CHAT_BUBBLE", "\ue3f2",
+    "MD_CHAT_BUBBLE_OUTLINE", "\ue3f3",
+    "MD_NO_SIM", "\ue3f4",
+    "MD_PHONE", "\ue3f5",
+    "MD_PORTABLE_WIFI_OFF", "\ue3f6",
+    "MD_CONTACT_PHONE", "\ue3f7",
+    "MD_CONTACT_MAIL", "\ue3f8",
+    "MD_RING_VOLUME", "\ue3f9",
+    "MD_SPEAKER_PHONE", "\ue3fa",
+    "MD_STAY_CURRENT_LANDSCAPE", "\ue3fb",
+    "MD_STAY_CURRENT_PORTRAIT", "\ue3fc",
+    "MD_STAY_PRIMARY_LANDSCAPE", "\ue3fd",
+    "MD_STAY_PRIMARY_PORTRAIT", "\ue3fe",
+    "MD_SWAP_CALLS", "\ue3ff",
+    "MD_TEXTSMS", "\ue400",
+    "MD_VOICEMAIL", "\ue401",
+    "MD_VPN_KEY", "\ue402",
+    "MD_PHONELINK_ERASE", "\ue403",
+    "MD_PHONELINK_LOCK", "\ue404",
+    "MD_PHONELINK_RING", "\ue405",
+    "MD_PHONELINK_SETUP", "\ue406",
+    "MD_PRESENT_TO_ALL", "\ue407",
+    "MD_IMPORT_CONTACTS", "\ue408",
+    "MD_MAIL_OUTLINE", "\ue409",
+    "MD_SCREEN_SHARE", "\ue40a",
+    "MD_STOP_SCREEN_SHARE", "\ue40b",
+    "MD_CALL_MISSED_OUTGOING", "\ue40c",
+    "MD_RSS_FEED", "\ue40d",
+    "MD_ADD", "\ue40e",
+    "MD_ADD_BOX", "\ue40f",
+    "MD_ADD_CIRCLE", "\ue410",
+    "MD_ADD_CIRCLE_OUTLINE", "\ue411",
+    "MD_ARCHIVE", "\ue412",
+    "MD_BACKSPACE", "\ue413",
+    "MD_BLOCK", "\ue414",
+    "MD_CLEAR", "\ue415",
+    "MD_CONTENT_COPY", "\ue416",
+    "MD_CONTENT_CUT", "\ue417",
+    "MD_CONTENT_PASTE", "\ue418",
+    "MD_CREATE", "\ue419",
+    "MD_DRAFTS", "\ue41a",
+    "MD_FILTER_LIST", "\ue41b",
+    "MD_FLAG", "\ue41c",
+    "MD_FORWARD", "\ue41d",
+    "MD_GESTURE", "\ue41e",
+    "MD_INBOX", "\ue41f",
+    "MD_LINK", "\ue420",
+    "MD_MAIL", "\ue421",
+    "MD_MARKUNREAD", "\ue422",
+    "MD_REDO", "\ue423",
+    "MD_REMOVE", "\ue424",
+    "MD_REMOVE_CIRCLE", "\ue425",
+    "MD_REMOVE_CIRCLE_OUTLINE", "\ue426",
+    "MD_REPLY", "\ue427",
+    "MD_REPLY_ALL", "\ue428",
+    "MD_REPORT", "\ue429",
+    "MD_SAVE", "\ue42a",
+    "MD_SELECT_ALL", "\ue42b",
+    "MD_SEND", "\ue42c",
+    "MD_SORT", "\ue42d",
+    "MD_TEXT_FORMAT", "\ue42e",
+    "MD_UNDO", "\ue42f",
+    "MD_FONT_DOWNLOAD", "\ue430",
+    "MD_MOVE_TO_INBOX", "\ue431",
+    "MD_UNARCHIVE", "\ue432",
+    "MD_NEXT_WEEK", "\ue433",
+    "MD_WEEKEND", "\ue434",
+    "MD_DELETE_SWEEP", "\ue435",
+    "MD_LOW_PRIORITY", "\ue436",
+    "MD_ACCESS_ALARM", "\ue437",
+    "MD_ACCESS_ALARMS", "\ue438",
+    "MD_ACCESS_TIME", "\ue439",
+    "MD_ADD_ALARM", "\ue43a",
+    "MD_AIRPLANEMODE_INACTIVE", "\ue43b",
+    "MD_AIRPLANEMODE_ACTIVE", "\ue43c",
+    "MD_BATTERY_ALERT", "\ue43d",
+    "MD_BATTERY_CHARGING_FULL", "\ue43e",
+    "MD_BATTERY_FULL", "\ue43f",
+    "MD_BATTERY_STD", "\ue440",
+    "MD_BATTERY_UNKNOWN", "\ue441",
+    "MD_BLUETOOTH", "\ue442",
+    "MD_BLUETOOTH_CONNECTED", "\ue443",
+    "MD_BLUETOOTH_DISABLED", "\ue444",
+    "MD_BLUETOOTH_SEARCHING", "\ue445",
+    "MD_BRIGHTNESS_AUTO", "\ue446",
+    "MD_BRIGHTNESS_HIGH", "\ue447",
+    "MD_BRIGHTNESS_LOW", "\ue448",
+    "MD_BRIGHTNESS_MEDIUM", "\ue449",
+    "MD_DATA_USAGE", "\ue44a",
+    "MD_DEVELOPER_MODE", "\ue44b",
+    "MD_DEVICES", "\ue44c",
+    "MD_DVR", "\ue44d",
+    "MD_GPS_FIXED", "\ue44e",
+    "MD_GPS_NOT_FIXED", "\ue44f",
+    "MD_GPS_OFF", "\ue450",
+    "MD_LOCATION_DISABLED", "\ue451",
+    "MD_LOCATION_SEARCHING", "\ue452",
+    "MD_GRAPHIC_EQ", "\ue453",
+    "MD_NETWORK_CELL", "\ue454",
+    "MD_NETWORK_WIFI", "\ue455",
+    "MD_NFC", "\ue456",
+    "MD_WALLPAPER", "\ue457",
+    "MD_WIDGETS", "\ue458",
+    "MD_SCREEN_LOCK_LANDSCAPE", "\ue459",
+    "MD_SCREEN_LOCK_PORTRAIT", "\ue45a",
+    "MD_SCREEN_LOCK_ROTATION", "\ue45b",
+    "MD_SCREEN_ROTATION", "\ue45c",
+    "MD_SD_STORAGE", "\ue45d",
+    "MD_SETTINGS_SYSTEM_DAYDREAM", "\ue45e",
+    "MD_SIGNAL_CELLULAR_4_BAR", "\ue45f",
+    "MD_SIGNAL_CELLULAR_CONNECTED_NO_INTERNET_4_BAR", "\ue460",
+    "MD_SIGNAL_CELLULAR_NO_SIM", "\ue461",
+    "MD_SIGNAL_CELLULAR_NULL", "\ue462",
+    "MD_SIGNAL_CELLULAR_OFF", "\ue463",
+    "MD_SIGNAL_WIFI_4_BAR", "\ue464",
+    "MD_SIGNAL_WIFI_4_BAR_LOCK", "\ue465",
+    "MD_SIGNAL_WIFI_OFF", "\ue466",
+    "MD_STORAGE", "\ue467",
+    "MD_USB", "\ue468",
+    "MD_WIFI_LOCK", "\ue469",
+    "MD_WIFI_TETHERING", "\ue46a",
+    "MD_ATTACH_FILE", "\ue46b",
+    "MD_ATTACH_MONEY", "\ue46c",
+    "MD_BORDER_ALL", "\ue46d",
+    "MD_BORDER_BOTTOM", "\ue46e",
+    "MD_BORDER_CLEAR", "\ue46f",
+    "MD_BORDER_COLOR", "\ue470",
+    "MD_BORDER_HORIZONTAL", "\ue471",
+    "MD_BORDER_INNER", "\ue472",
+    "MD_BORDER_LEFT", "\ue473",
+    "MD_BORDER_OUTER", "\ue474",
+    "MD_BORDER_RIGHT", "\ue475",
+    "MD_BORDER_STYLE", "\ue476",
+    "MD_BORDER_TOP", "\ue477",
+    "MD_BORDER_VERTICAL", "\ue478",
+    "MD_FORMAT_ALIGN_CENTER", "\ue479",
+    "MD_FORMAT_ALIGN_JUSTIFY", "\ue47a",
+    "MD_FORMAT_ALIGN_LEFT", "\ue47b",
+    "MD_FORMAT_ALIGN_RIGHT", "\ue47c",
+    "MD_FORMAT_BOLD", "\ue47d",
+    "MD_FORMAT_CLEAR", "\ue47e",
+    "MD_FORMAT_COLOR_FILL", "\ue47f",
+    "MD_FORMAT_COLOR_RESET", "\ue480",
+    "MD_FORMAT_COLOR_TEXT", "\ue481",
+    "MD_FORMAT_INDENT_DECREASE", "\ue482",
+    "MD_FORMAT_INDENT_INCREASE", "\ue483",
+    "MD_FORMAT_ITALIC", "\ue484",
+    "MD_FORMAT_LINE_SPACING", "\ue485",
+    "MD_FORMAT_LIST_BULLETED", "\ue486",
+    "MD_FORMAT_LIST_NUMBERED", "\ue487",
+    "MD_FORMAT_PAINT", "\ue488",
+    "MD_FORMAT_QUOTE", "\ue489",
+    "MD_FORMAT_SIZE", "\ue48a",
+    "MD_FORMAT_STRIKETHROUGH", "\ue48b",
+    "MD_FORMAT_TEXTDIRECTION_L_TO_R", "\ue48c",
+    "MD_FORMAT_TEXTDIRECTION_R_TO_L", "\ue48d",
+    "MD_FORMAT_UNDERLINED", "\ue48e",
+    "MD_FUNCTIONS", "\ue48f",
+    "MD_INSERT_CHART", "\ue490",
+    "MD_INSERT_COMMENT", "\ue491",
+    "MD_INSERT_DRIVE_FILE", "\ue492",
+    "MD_INSERT_EMOTICON", "\ue493",
+    "MD_INSERT_INVITATION", "\ue494",
+    "MD_INSERT_LINK", "\ue495",
+    "MD_INSERT_PHOTO", "\ue496",
+    "MD_MERGE_TYPE", "\ue497",
+    "MD_MODE_COMMENT", "\ue498",
+    "MD_MODE_EDIT", "\ue499",
+    "MD_PUBLISH", "\ue49a",
+    "MD_SPACE_BAR", "\ue49b",
+    "MD_STRIKETHROUGH_S", "\ue49c",
+    "MD_VERTICAL_ALIGN_BOTTOM", "\ue49d",
+    "MD_VERTICAL_ALIGN_CENTER", "\ue49e",
+    "MD_VERTICAL_ALIGN_TOP", "\ue49f",
+    "MD_WRAP_TEXT", "\ue4a0",
+    "MD_MONEY_OFF", "\ue4a1",
+    "MD_DRAG_HANDLE", "\ue4a2",
+    "MD_FORMAT_SHAPES", "\ue4a3",
+    "MD_HIGHLIGHT", "\ue4a4",
+    "MD_LINEAR_SCALE", "\ue4a5",
+    "MD_SHORT_TEXT", "\ue4a6",
+    "MD_TEXT_FIELDS", "\ue4a7",
+    "MD_MONETIZATION_ON", "\ue4a8",
+    "MD_TITLE", "\ue4a9",
+    "MD_ATTACHMENT", "\ue4aa",
+    "MD_CLOUD", "\ue4ab",
+    "MD_CLOUD_CIRCLE", "\ue4ac",
+    "MD_CLOUD_DONE", "\ue4ad",
+    "MD_CLOUD_DOWNLOAD", "\ue4ae",
+    "MD_CLOUD_OFF", "\ue4af",
+    "MD_CLOUD_QUEUE", "\ue4b0",
+    "MD_CLOUD_UPLOAD", "\ue4b1",
+    "MD_FILE_DOWNLOAD", "\ue4b2",
+    "MD_FILE_UPLOAD", "\ue4b3",
+    "MD_FOLDER", "\ue4b4",
+    "MD_FOLDER_OPEN", "\ue4b5",
+    "MD_FOLDER_SHARED", "\ue4b6",
+    "MD_CREATE_NEW_FOLDER", "\ue4b7",
+    "MD_CAST", "\ue4b8",
+    "MD_CAST_CONNECTED", "\ue4b9",
+    "MD_COMPUTER", "\ue4ba",
+    "MD_DESKTOP_MAC", "\ue4bb",
+    "MD_DESKTOP_WINDOWS", "\ue4bc",
+    "MD_DEVELOPER_BOARD", "\ue4bd",
+    "MD_DOCK", "\ue4be",
+    "MD_GAMEPAD", "\ue4bf",
+    "MD_HEADSET", "\ue4c0",
+    "MD_HEADSET_MIC", "\ue4c1",
+    "MD_KEYBOARD", "\ue4c2",
+    "MD_KEYBOARD_ARROW_DOWN", "\ue4c3",
+    "MD_KEYBOARD_ARROW_LEFT", "\ue4c4",
+    "MD_KEYBOARD_ARROW_RIGHT", "\ue4c5",
+    "MD_KEYBOARD_ARROW_UP", "\ue4c6",
+    "MD_KEYBOARD_BACKSPACE", "\ue4c7",
+    "MD_KEYBOARD_CAPSLOCK", "\ue4c8",
+    "MD_KEYBOARD_HIDE", "\ue4c9",
+    "MD_KEYBOARD_RETURN", "\ue4ca",
+    "MD_KEYBOARD_TAB", "\ue4cb",
+    "MD_KEYBOARD_VOICE", "\ue4cc",
+    "MD_LAPTOP", "\ue4cd",
+    "MD_LAPTOP_CHROMEBOOK", "\ue4ce",
+    "MD_LAPTOP_MAC", "\ue4cf",
+    "MD_LAPTOP_WINDOWS", "\ue4d0",
+    "MD_MEMORY", "\ue4d1",
+    "MD_MOUSE", "\ue4d2",
+    "MD_PHONE_ANDROID", "\ue4d3",
+    "MD_PHONE_IPHONE", "\ue4d4",
+    "MD_PHONELINK", "\ue4d5",
+    "MD_PHONELINK_OFF", "\ue4d6",
+    "MD_ROUTER", "\ue4d7",
+    "MD_SCANNER", "\ue4d8",
+    "MD_SECURITY", "\ue4d9",
+    "MD_SIM_CARD", "\ue4da",
+    "MD_SMARTPHONE", "\ue4db",
+    "MD_SPEAKER", "\ue4dc",
+    "MD_SPEAKER_GROUP", "\ue4dd",
+    "MD_TABLET", "\ue4de",
+    "MD_TABLET_ANDROID", "\ue4df",
+    "MD_TABLET_MAC", "\ue4e0",
+    "MD_TOYS", "\ue4e1",
+    "MD_TV", "\ue4e2",
+    "MD_WATCH", "\ue4e3",
+    "MD_DEVICE_HUB", "\ue4e4",
+    "MD_POWER_INPUT", "\ue4e5",
+    "MD_DEVICES_OTHER", "\ue4e6",
+    "MD_VIDEOGAME_ASSET", "\ue4e7",
+    "MD_ADD_TO_PHOTOS", "\ue4e8",
+    "MD_ADJUST", "\ue4e9",
+    "MD_ASSISTANT", "\ue4ea",
+    "MD_ASSISTANT_PHOTO", "\ue4eb",
+    "MD_AUDIOTRACK", "\ue4ec",
+    "MD_BLUR_CIRCULAR", "\ue4ed",
+    "MD_BLUR_LINEAR", "\ue4ee",
+    "MD_BLUR_OFF", "\ue4ef",
+    "MD_BLUR_ON", "\ue4f0",
+    "MD_BRIGHTNESS_1", "\ue4f1",
+    "MD_BRIGHTNESS_2", "\ue4f2",
+    "MD_BRIGHTNESS_3", "\ue4f3",
+    "MD_BRIGHTNESS_4", "\ue4f4",
+    "MD_BRIGHTNESS_5", "\ue4f5",
+    "MD_BRIGHTNESS_6", "\ue4f6",
+    "MD_BRIGHTNESS_7", "\ue4f7",
+    "MD_BROKEN_IMAGE", "\ue4f8",
+    "MD_BRUSH", "\ue4f9",
+    "MD_CAMERA", "\ue4fa",
+    "MD_CAMERA_ALT", "\ue4fb",
+    "MD_CAMERA_FRONT", "\ue4fc",
+    "MD_CAMERA_REAR", "\ue4fd",
+    "MD_CAMERA_ROLL", "\ue4fe",
+    "MD_CENTER_FOCUS_STRONG", "\ue4ff",
+    "MD_CENTER_FOCUS_WEAK", "\ue500",
+    "MD_COLLECTIONS", "\ue501",
+    "MD_COLOR_LENS", "\ue502",
+    "MD_COLORIZE", "\ue503",
+    "MD_COMPARE", "\ue504",
+    "MD_CONTROL_POINT", "\ue505",
+    "MD_CONTROL_POINT_DUPLICATE", "\ue506",
+    "MD_CROP_16_9", "\ue507",
+    "MD_CROP_3_2", "\ue508",
+    "MD_CROP", "\ue509",
+    "MD_CROP_5_4", "\ue50a",
+    "MD_CROP_7_5", "\ue50b",
+    "MD_CROP_DIN", "\ue50c",
+    "MD_CROP_FREE", "\ue50d",
+    "MD_CROP_LANDSCAPE", "\ue50e",
+    "MD_CROP_ORIGINAL", "\ue50f",
+    "MD_CROP_PORTRAIT", "\ue510",
+    "MD_CROP_SQUARE", "\ue511",
+    "MD_DEHAZE", "\ue512",
+    "MD_DETAILS", "\ue513",
+    "MD_EDIT", "\ue514",
+    "MD_EXPOSURE", "\ue515",
+    "MD_EXPOSURE_NEG_1", "\ue516",
+    "MD_EXPOSURE_NEG_2", "\ue517",
+    "MD_EXPOSURE_PLUS_1", "\ue518",
+    "MD_EXPOSURE_PLUS_2", "\ue519",
+    "MD_EXPOSURE_ZERO", "\ue51a",
+    "MD_FILTER_1", "\ue51b",
+    "MD_FILTER_2", "\ue51c",
+    "MD_FILTER_3", "\ue51d",
+    "MD_FILTER", "\ue51e",
+    "MD_FILTER_4", "\ue51f",
+    "MD_FILTER_5", "\ue520",
+    "MD_FILTER_6", "\ue521",
+    "MD_FILTER_7", "\ue522",
+    "MD_FILTER_8", "\ue523",
+    "MD_FILTER_9", "\ue524",
+    "MD_FILTER_9_PLUS", "\ue525",
+    "MD_FILTER_B_AND_W", "\ue526",
+    "MD_FILTER_CENTER_FOCUS", "\ue527",
+    "MD_FILTER_DRAMA", "\ue528",
+    "MD_FILTER_FRAMES", "\ue529",
+    "MD_FILTER_HDR", "\ue52a",
+    "MD_FILTER_NONE", "\ue52b",
+    "MD_FILTER_TILT_SHIFT", "\ue52c",
+    "MD_FILTER_VINTAGE", "\ue52d",
+    "MD_FLARE", "\ue52e",
+    "MD_FLASH_AUTO", "\ue52f",
+    "MD_FLASH_OFF", "\ue530",
+    "MD_FLASH_ON", "\ue531",
+    "MD_FLIP", "\ue532",
+    "MD_GRADIENT", "\ue533",
+    "MD_GRAIN", "\ue534",
+    "MD_GRID_OFF", "\ue535",
+    "MD_GRID_ON", "\ue536",
+    "MD_HDR_OFF", "\ue537",
+    "MD_HDR_ON", "\ue538",
+    "MD_HDR_STRONG", "\ue539",
+    "MD_HDR_WEAK", "\ue53a",
+    "MD_HEALING", "\ue53b",
+    "MD_IMAGE", "\ue53c",
+    "MD_IMAGE_ASPECT_RATIO", "\ue53d",
+    "MD_ISO", "\ue53e",
+    "MD_LANDSCAPE", "\ue53f",
+    "MD_LEAK_ADD", "\ue540",
+    "MD_LEAK_REMOVE", "\ue541",
+    "MD_LENS", "\ue542",
+    "MD_LOOKS_3", "\ue543",
+    "MD_LOOKS", "\ue544",
+    "MD_LOOKS_4", "\ue545",
+    "MD_LOOKS_5", "\ue546",
+    "MD_LOOKS_6", "\ue547",
+    "MD_LOOKS_ONE", "\ue548",
+    "MD_LOOKS_TWO", "\ue549",
+    "MD_LOUPE", "\ue54a",
+    "MD_MONOCHROME_PHOTOS", "\ue54b",
+    "MD_MOVIE_CREATION", "\ue54c",
+    "MD_MUSIC_NOTE", "\ue54d",
+    "MD_NATURE", "\ue54e",
+    "MD_NATURE_PEOPLE", "\ue54f",
+    "MD_NAVIGATE_BEFORE", "\ue550",
+    "MD_NAVIGATE_NEXT", "\ue551",
+    "MD_PALETTE", "\ue552",
+    "MD_PANORAMA", "\ue553",
+    "MD_PANORAMA_FISH_EYE", "\ue554",
+    "MD_PANORAMA_HORIZONTAL", "\ue555",
+    "MD_PANORAMA_VERTICAL", "\ue556",
+    "MD_PANORAMA_WIDE_ANGLE", "\ue557",
+    "MD_PHOTO", "\ue558",
+    "MD_PHOTO_ALBUM", "\ue559",
+    "MD_PHOTO_CAMERA", "\ue55a",
+    "MD_PHOTO_LIBRARY", "\ue55b",
+    "MD_PICTURE_AS_PDF", "\ue55c",
+    "MD_PORTRAIT", "\ue55d",
+    "MD_REMOVE_RED_EYE", "\ue55e",
+    "MD_ROTATE_90_DEGREES_CCW", "\ue55f",
+    "MD_ROTATE_LEFT", "\ue560",
+    "MD_ROTATE_RIGHT", "\ue561",
+    "MD_SLIDESHOW", "\ue562",
+    "MD_STRAIGHTEN", "\ue563",
+    "MD_STYLE", "\ue564",
+    "MD_SWITCH_CAMERA", "\ue565",
+    "MD_SWITCH_VIDEO", "\ue566",
+    "MD_TAG_FACES", "\ue567",
+    "MD_TEXTURE", "\ue568",
+    "MD_TIMELAPSE", "\ue569",
+    "MD_TIMER_10", "\ue56a",
+    "MD_TIMER_3", "\ue56b",
+    "MD_TIMER", "\ue56c",
+    "MD_TIMER_OFF", "\ue56d",
+    "MD_TONALITY", "\ue56e",
+    "MD_TRANSFORM", "\ue56f",
+    "MD_TUNE", "\ue570",
+    "MD_VIEW_COMFY", "\ue571",
+    "MD_VIEW_COMPACT", "\ue572",
+    "MD_WB_AUTO", "\ue573",
+    "MD_WB_CLOUDY", "\ue574",
+    "MD_WB_INCANDESCENT", "\ue575",
+    "MD_WB_SUNNY", "\ue576",
+    "MD_COLLECTIONS_BOOKMARK", "\ue577",
+    "MD_PHOTO_SIZE_SELECT_ACTUAL", "\ue578",
+    "MD_PHOTO_SIZE_SELECT_LARGE", "\ue579",
+    "MD_PHOTO_SIZE_SELECT_SMALL", "\ue57a",
+    "MD_VIGNETTE", "\ue57b",
+    "MD_WB_IRIDESCENT", "\ue57c",
+    "MD_CROP_ROTATE", "\ue57d",
+    "MD_LINKED_CAMERA", "\ue57e",
+    "MD_ADD_A_PHOTO", "\ue57f",
+    "MD_MOVIE_FILTER", "\ue580",
+    "MD_PHOTO_FILTER", "\ue581",
+    "MD_BURST_MODE", "\ue582",
+    "MD_BEENHERE", "\ue583",
+    "MD_DIRECTIONS", "\ue584",
+    "MD_DIRECTIONS_BIKE", "\ue585",
+    "MD_DIRECTIONS_BUS", "\ue586",
+    "MD_DIRECTIONS_CAR", "\ue587",
+    "MD_DIRECTIONS_BOAT", "\ue588",
+    "MD_DIRECTIONS_SUBWAY", "\ue589",
+    "MD_DIRECTIONS_RAILWAY", "\ue58a",
+    "MD_DIRECTIONS_TRANSIT", "\ue58b",
+    "MD_DIRECTIONS_WALK", "\ue58c",
+    "MD_FLIGHT", "\ue58d",
+    "MD_HOTEL", "\ue58e",
+    "MD_LAYERS", "\ue58f",
+    "MD_LAYERS_CLEAR", "\ue590",
+    "MD_LOCAL_AIRPORT", "\ue591",
+    "MD_LOCAL_ATM", "\ue592",
+    "MD_LOCAL_ACTIVITY", "\ue593",
+    "MD_LOCAL_BAR", "\ue594",
+    "MD_LOCAL_CAFE", "\ue595",
+    "MD_LOCAL_CAR_WASH", "\ue596",
+    "MD_LOCAL_CONVENIENCE_STORE", "\ue597",
+    "MD_LOCAL_DRINK", "\ue598",
+    "MD_LOCAL_FLORIST", "\ue599",
+    "MD_LOCAL_GAS_STATION", "\ue59a",
+    "MD_LOCAL_GROCERY_STORE", "\ue59b",
+    "MD_LOCAL_HOSPITAL", "\ue59c",
+    "MD_LOCAL_HOTEL", "\ue59d",
+    "MD_LOCAL_LAUNDRY_SERVICE", "\ue59e",
+    "MD_LOCAL_LIBRARY", "\ue59f",
+    "MD_LOCAL_MALL", "\ue5a0",
+    "MD_LOCAL_MOVIES", "\ue5a1",
+    "MD_LOCAL_OFFER", "\ue5a2",
+    "MD_LOCAL_PARKING", "\ue5a3",
+    "MD_LOCAL_PHARMACY", "\ue5a4",
+    "MD_LOCAL_PHONE", "\ue5a5",
+    "MD_LOCAL_PIZZA", "\ue5a6",
+    "MD_LOCAL_PLAY", "\ue5a7",
+    "MD_LOCAL_POST_OFFICE", "\ue5a8",
+    "MD_LOCAL_PRINTSHOP", "\ue5a9",
+    "MD_LOCAL_DINING", "\ue5aa",
+    "MD_LOCAL_SEE", "\ue5ab",
+    "MD_LOCAL_SHIPPING", "\ue5ac",
+    "MD_LOCAL_TAXI", "\ue5ad",
+    "MD_PERSON_PIN", "\ue5ae",
+    "MD_MAP", "\ue5af",
+    "MD_MY_LOCATION", "\ue5b0",
+    "MD_NAVIGATION", "\ue5b1",
+    "MD_PIN_DROP", "\ue5b2",
+    "MD_PLACE", "\ue5b3",
+    "MD_RATE_REVIEW", "\ue5b4",
+    "MD_RESTAURANT_MENU", "\ue5b5",
+    "MD_SATELLITE", "\ue5b6",
+    "MD_STORE_MALL_DIRECTORY", "\ue5b7",
+    "MD_TERRAIN", "\ue5b8",
+    "MD_TRAFFIC", "\ue5b9",
+    "MD_DIRECTIONS_RUN", "\ue5ba",
+    "MD_ADD_LOCATION", "\ue5bb",
+    "MD_EDIT_LOCATION", "\ue5bc",
+    "MD_NEAR_ME", "\ue5bd",
+    "MD_PERSON_PIN_CIRCLE", "\ue5be",
+    "MD_ZOOM_OUT_MAP", "\ue5bf",
+    "MD_RESTAURANT", "\ue5c0",
+    "MD_EV_STATION", "\ue5c1",
+    "MD_STREETVIEW", "\ue5c2",
+    "MD_SUBWAY", "\ue5c3",
+    "MD_TRAIN", "\ue5c4",
+    "MD_TRAM", "\ue5c5",
+    "MD_TRANSFER_WITHIN_A_STATION", "\ue5c6",
+    "MD_APPS", "\ue5c7",
+    "MD_ARROW_BACK", "\ue5c8",
+    "MD_ARROW_DROP_DOWN", "\ue5c9",
+    "MD_ARROW_DROP_DOWN_CIRCLE", "\ue5ca",
+    "MD_ARROW_DROP_UP", "\ue5cb",
+    "MD_ARROW_FORWARD", "\ue5cc",
+    "MD_CANCEL", "\ue5cd",
+    "MD_CHECK", "\ue5ce",
+    "MD_CHEVRON_LEFT", "\ue5cf",
+    "MD_CHEVRON_RIGHT", "\ue5d0",
+    "MD_CLOSE", "\ue5d1",
+    "MD_EXPAND_LESS", "\ue5d2",
+    "MD_EXPAND_MORE", "\ue5d3",
+    "MD_FULLSCREEN", "\ue5d4",
+    "MD_FULLSCREEN_EXIT", "\ue5d5",
+    "MD_MENU", "\ue5d6",
+    "MD_MORE_HORIZ", "\ue5d7",
+    "MD_MORE_VERT", "\ue5d8",
+    "MD_REFRESH", "\ue5d9",
+    "MD_UNFOLD_LESS", "\ue5da",
+    "MD_UNFOLD_MORE", "\ue5db",
+    "MD_ARROW_UPWARD", "\ue5dc",
+    "MD_SUBDIRECTORY_ARROW_LEFT", "\ue5dd",
+    "MD_SUBDIRECTORY_ARROW_RIGHT", "\ue5de",
+    "MD_ARROW_DOWNWARD", "\ue5df",
+    "MD_FIRST_PAGE", "\ue5e0",
+    "MD_LAST_PAGE", "\ue5e1",
+    "MD_ADB", "\ue5e2",
+    "MD_BLUETOOTH_AUDIO", "\ue5e3",
+    "MD_DISC_FULL", "\ue5e4",
+    "MD_DO_NOT_DISTURB_ALT", "\ue5e5",
+    "MD_DO_NOT_DISTURB", "\ue5e6",
+    "MD_DRIVE_ETA", "\ue5e7",
+    "MD_EVENT_AVAILABLE", "\ue5e8",
+    "MD_EVENT_BUSY", "\ue5e9",
+    "MD_EVENT_NOTE", "\ue5ea",
+    "MD_FOLDER_SPECIAL", "\ue5eb",
+    "MD_MMS", "\ue5ec",
+    "MD_MORE", "\ue5ed",
+    "MD_NETWORK_LOCKED", "\ue5ee",
+    "MD_PHONE_BLUETOOTH_SPEAKER", "\ue5ef",
+    "MD_PHONE_FORWARDED", "\ue5f0",
+    "MD_PHONE_IN_TALK", "\ue5f1",
+    "MD_PHONE_LOCKED", "\ue5f2",
+    "MD_PHONE_MISSED", "\ue5f3",
+    "MD_PHONE_PAUSED", "\ue5f4",
+    "MD_SD_CARD", "\ue5f5",
+    "MD_SIM_CARD_ALERT", "\ue5f6",
+    "MD_SMS", "\ue5f7",
+    "MD_SMS_FAILED", "\ue5f8",
+    "MD_SYNC", "\ue5f9",
+    "MD_SYNC_DISABLED", "\ue5fa",
+    "MD_SYNC_PROBLEM", "\ue5fb",
+    "MD_SYSTEM_UPDATE", "\ue5fc",
+    "MD_TAP_AND_PLAY", "\ue5fd",
+    "MD_TIME_TO_LEAVE", "\ue5fe",
+    "MD_VIBRATION", "\ue5ff",
+    "MD_VOICE_CHAT", "\ue600",
+    "MD_VPN_LOCK", "\ue601",
+    "MD_AIRLINE_SEAT_FLAT", "\ue602",
+    "MD_AIRLINE_SEAT_FLAT_ANGLED", "\ue603",
+    "MD_AIRLINE_SEAT_INDIVIDUAL_SUITE", "\ue604",
+    "MD_AIRLINE_SEAT_LEGROOM_EXTRA", "\ue605",
+    "MD_AIRLINE_SEAT_LEGROOM_NORMAL", "\ue606",
+    "MD_AIRLINE_SEAT_LEGROOM_REDUCED", "\ue607",
+    "MD_AIRLINE_SEAT_RECLINE_EXTRA", "\ue608",
+    "MD_AIRLINE_SEAT_RECLINE_NORMAL", "\ue609",
+    "MD_CONFIRMATION_NUMBER", "\ue60a",
+    "MD_LIVE_TV", "\ue60b",
+    "MD_ONDEMAND_VIDEO", "\ue60c",
+    "MD_PERSONAL_VIDEO", "\ue60d",
+    "MD_POWER", "\ue60e",
+    "MD_WC", "\ue60f",
+    "MD_WIFI", "\ue610",
+    "MD_ENHANCED_ENCRYPTION", "\ue611",
+    "MD_NETWORK_CHECK", "\ue612",
+    "MD_NO_ENCRYPTION", "\ue613",
+    "MD_RV_HOOKUP", "\ue614",
+    "MD_DO_NOT_DISTURB_OFF", "\ue615",
+    "MD_DO_NOT_DISTURB_ON", "\ue616",
+    "MD_PRIORITY_HIGH", "\ue617",
+    "MD_PIE_CHART", "\ue618",
+    "MD_PIE_CHART_OUTLINED", "\ue619",
+    "MD_BUBBLE_CHART", "\ue61a",
+    "MD_MULTILINE_CHART", "\ue61b",
+    "MD_SHOW_CHART", "\ue61c",
+    "MD_CAKE", "\ue61d",
+    "MD_DOMAIN", "\ue61e",
+    "MD_GROUP", "\ue61f",
+    "MD_GROUP_ADD", "\ue620",
+    "MD_LOCATION_CITY", "\ue621",
+    "MD_MOOD", "\ue622",
+    "MD_MOOD_BAD", "\ue623",
+    "MD_NOTIFICATIONS", "\ue624",
+    "MD_NOTIFICATIONS_NONE", "\ue625",
+    "MD_NOTIFICATIONS_OFF", "\ue626",
+    "MD_NOTIFICATIONS_ACTIVE", "\ue627",
+    "MD_NOTIFICATIONS_PAUSED", "\ue628",
+    "MD_PAGES", "\ue629",
+    "MD_PARTY_MODE", "\ue62a",
+    "MD_PEOPLE", "\ue62b",
+    "MD_PEOPLE_OUTLINE", "\ue62c",
+    "MD_PERSON", "\ue62d",
+    "MD_PERSON_ADD", "\ue62e",
+    "MD_PERSON_OUTLINE", "\ue62f",
+    "MD_PLUS_ONE", "\ue630",
+    "MD_POLL", "\ue631",
+    "MD_PUBLIC", "\ue632",
+    "MD_SCHOOL", "\ue633",
+    "MD_SHARE", "\ue634",
+    "MD_WHATSHOT", "\ue635",
+    "MD_SENTIMENT_DISSATISFIED", "\ue636",
+    "MD_SENTIMENT_NEUTRAL", "\ue637",
+    "MD_SENTIMENT_SATISFIED", "\ue638",
+    "MD_SENTIMENT_VERY_DISSATISFIED", "\ue639",
+    "MD_SENTIMENT_VERY_SATISFIED", "\ue63a",
+    "MD_CHECK_BOX", "\ue63b",
+    "MD_CHECK_BOX_OUTLINE_BLANK", "\ue63c",
+    "MD_RADIO_BUTTON_UNCHECKED", "\ue63d",
+    "MD_RADIO_BUTTON_CHECKED", "\ue63e",
+    "MD_STAR", "\ue63f",
+    "MD_STAR_HALF", "\ue640",
+    "MD_STAR_BORDER", "\ue641",
+    "MD_3D_ROTATION", "\ue642",
+    "MD_ACCESSIBILITY", "\ue643",
+    "MD_ACCOUNT_BALANCE", "\ue644",
+    "MD_ACCOUNT_BALANCE_WALLET", "\ue645",
+    "MD_ACCOUNT_BOX", "\ue646",
+    "MD_ACCOUNT_CIRCLE", "\ue647",
+    "MD_ADD_SHOPPING_CART", "\ue648",
+    "MD_ALARM", "\ue649",
+    "MD_ALARM_ADD", "\ue64a",
+    "MD_ALARM_OFF", "\ue64b",
+    "MD_ALARM_ON", "\ue64c",
+    "MD_ANDROID", "\ue64d",
+    "MD_ANNOUNCEMENT", "\ue64e",
+    "MD_ASPECT_RATIO", "\ue64f",
+    "MD_ASSESSMENT", "\ue650",
+    "MD_ASSIGNMENT", "\ue651",
+    "MD_ASSIGNMENT_IND", "\ue652",
+    "MD_ASSIGNMENT_LATE", "\ue653",
+    "MD_ASSIGNMENT_RETURN", "\ue654",
+    "MD_ASSIGNMENT_RETURNED", "\ue655",
+    "MD_ASSIGNMENT_TURNED_IN", "\ue656",
+    "MD_AUTORENEW", "\ue657",
+    "MD_BACKUP", "\ue658",
+    "MD_BOOK", "\ue659",
+    "MD_BOOKMARK", "\ue65a",
+    "MD_BOOKMARK_BORDER", "\ue65b",
+    "MD_BUG_REPORT", "\ue65c",
+    "MD_BUILD", "\ue65d",
+    "MD_CACHED", "\ue65e",
+    "MD_CHANGE_HISTORY", "\ue65f",
+    "MD_CHECK_CIRCLE", "\ue660",
+    "MD_CHROME_READER_MODE", "\ue661",
+    "MD_CLASS", "\ue662",
+    "MD_CODE", "\ue663",
+    "MD_CREDIT_CARD", "\ue664",
+    "MD_DASHBOARD", "\ue665",
+    "MD_DELETE", "\ue666",
+    "MD_DESCRIPTION", "\ue667",
+    "MD_DNS", "\ue668",
+    "MD_DONE", "\ue669",
+    "MD_DONE_ALL", "\ue66a",
+    "MD_EVENT", "\ue66b",
+    "MD_EXIT_TO_APP", "\ue66c",
+    "MD_EXPLORE", "\ue66d",
+    "MD_EXTENSION", "\ue66e",
+    "MD_FACE", "\ue66f",
+    "MD_FAVORITE", "\ue670",
+    "MD_FAVORITE_BORDER", "\ue671",
+    "MD_FEEDBACK", "\ue672",
+    "MD_FIND_IN_PAGE", "\ue673",
+    "MD_FIND_REPLACE", "\ue674",
+    "MD_FLIP_TO_BACK", "\ue675",
+    "MD_FLIP_TO_FRONT", "\ue676",
+    "MD_GET_APP", "\ue677",
+    "MD_GRADE", "\ue678",
+    "MD_GROUP_WORK", "\ue679",
+    "MD_HELP", "\ue67a",
+    "MD_HIGHLIGHT_OFF", "\ue67b",
+    "MD_HISTORY", "\ue67c",
+    "MD_HOME", "\ue67d",
+    "MD_HOURGLASS_EMPTY", "\ue67e",
+    "MD_HOURGLASS_FULL", "\ue67f",
+    "MD_HTTPS", "\ue680",
+    "MD_INFO", "\ue681",
+    "MD_INFO_OUTLINE", "\ue682",
+    "MD_INPUT", "\ue683",
+    "MD_INVERT_COLORS", "\ue684",
+    "MD_LABEL", "\ue685",
+    "MD_LABEL_OUTLINE", "\ue686",
+    "MD_LANGUAGE", "\ue687",
+    "MD_LAUNCH", "\ue688",
+    "MD_LIST", "\ue689",
+    "MD_LOCK", "\ue68a",
+    "MD_LOCK_OPEN", "\ue68b",
+    "MD_LOCK_OUTLINE", "\ue68c",
+    "MD_LOYALTY", "\ue68d",
+    "MD_MARKUNREAD_MAILBOX", "\ue68e",
+    "MD_NOTE_ADD", "\ue68f",
+    "MD_OPEN_IN_BROWSER", "\ue690",
+    "MD_OPEN_IN_NEW", "\ue691",
+    "MD_OPEN_WITH", "\ue692",
+    "MD_PAGEVIEW", "\ue693",
+    "MD_PAYMENT", "\ue694",
+    "MD_PERM_CAMERA_MIC", "\ue695",
+    "MD_PERM_CONTACT_CALENDAR", "\ue696",
+    "MD_PERM_DATA_SETTING", "\ue697",
+    "MD_PERM_DEVICE_INFORMATION", "\ue698",
+    "MD_PERM_IDENTITY", "\ue699",
+    "MD_PERM_MEDIA", "\ue69a",
+    "MD_PERM_PHONE_MSG", "\ue69b",
+    "MD_PERM_SCAN_WIFI", "\ue69c",
+    "MD_PICTURE_IN_PICTURE", "\ue69d",
+    "MD_POLYMER", "\ue69e",
+    "MD_POWER_SETTINGS_NEW", "\ue69f",
+    "MD_PRINT", "\ue6a0",
+    "MD_QUERY_BUILDER", "\ue6a1",
+    "MD_QUESTION_ANSWER", "\ue6a2",
+    "MD_RECEIPT", "\ue6a3",
+    "MD_REDEEM", "\ue6a4",
+    "MD_REPORT_PROBLEM", "\ue6a5",
+    "MD_RESTORE", "\ue6a6",
+    "MD_ROOM", "\ue6a7",
+    "MD_SCHEDULE", "\ue6a8",
+    "MD_SEARCH", "\ue6a9",
+    "MD_SETTINGS", "\ue6aa",
+    "MD_SETTINGS_APPLICATIONS", "\ue6ab",
+    "MD_SETTINGS_BACKUP_RESTORE", "\ue6ac",
+    "MD_SETTINGS_BLUETOOTH", "\ue6ad",
+    "MD_SETTINGS_CELL", "\ue6ae",
+    "MD_SETTINGS_BRIGHTNESS", "\ue6af",
+    "MD_SETTINGS_ETHERNET", "\ue6b0",
+    "MD_SETTINGS_INPUT_ANTENNA", "\ue6b1",
+    "MD_SETTINGS_INPUT_COMPONENT", "\ue6b2",
+    "MD_SETTINGS_INPUT_COMPOSITE", "\ue6b3",
+    "MD_SETTINGS_INPUT_HDMI", "\ue6b4",
+    "MD_SETTINGS_INPUT_SVIDEO", "\ue6b5",
+    "MD_SETTINGS_OVERSCAN", "\ue6b6",
+    "MD_SETTINGS_PHONE", "\ue6b7",
+    "MD_SETTINGS_POWER", "\ue6b8",
+    "MD_SETTINGS_REMOTE", "\ue6b9",
+    "MD_SETTINGS_VOICE", "\ue6ba",
+    "MD_SHOP", "\ue6bb",
+    "MD_SHOP_TWO", "\ue6bc",
+    "MD_SHOPPING_BASKET", "\ue6bd",
+    "MD_SHOPPING_CART", "\ue6be",
+    "MD_SPEAKER_NOTES", "\ue6bf",
+    "MD_SPELLCHECK", "\ue6c0",
+    "MD_STARS", "\ue6c1",
+    "MD_STORE", "\ue6c2",
+    "MD_SUBJECT", "\ue6c3",
+    "MD_SUPERVISOR_ACCOUNT", "\ue6c4",
+    "MD_SWAP_HORIZ", "\ue6c5",
+    "MD_SWAP_VERT", "\ue6c6",
+    "MD_SWAP_VERTICAL_CIRCLE", "\ue6c7",
+    "MD_SYSTEM_UPDATE_ALT", "\ue6c8",
+    "MD_TAB", "\ue6c9",
+    "MD_TAB_UNSELECTED", "\ue6ca",
+    "MD_THEATERS", "\ue6cb",
+    "MD_THUMB_DOWN", "\ue6cc",
+    "MD_THUMB_UP", "\ue6cd",
+    "MD_THUMBS_UP_DOWN", "\ue6ce",
+    "MD_TOC", "\ue6cf",
+    "MD_TODAY", "\ue6d0",
+    "MD_TOLL", "\ue6d1",
+    "MD_TRACK_CHANGES", "\ue6d2",
+    "MD_TRANSLATE", "\ue6d3",
+    "MD_TRENDING_DOWN", "\ue6d4",
+    "MD_TRENDING_FLAT", "\ue6d5",
+    "MD_TRENDING_UP", "\ue6d6",
+    "MD_TURNED_IN", "\ue6d7",
+    "MD_TURNED_IN_NOT", "\ue6d8",
+    "MD_VERIFIED_USER", "\ue6d9",
+    "MD_VIEW_AGENDA", "\ue6da",
+    "MD_VIEW_ARRAY", "\ue6db",
+    "MD_VIEW_CAROUSEL", "\ue6dc",
+    "MD_VIEW_COLUMN", "\ue6dd",
+    "MD_VIEW_DAY", "\ue6de",
+    "MD_VIEW_HEADLINE", "\ue6df",
+    "MD_VIEW_LIST", "\ue6e0",
+    "MD_VIEW_MODULE", "\ue6e1",
+    "MD_VIEW_QUILT", "\ue6e2",
+    "MD_VIEW_STREAM", "\ue6e3",
+    "MD_VIEW_WEEK", "\ue6e4",
+    "MD_VISIBILITY", "\ue6e5",
+    "MD_VISIBILITY_OFF", "\ue6e6",
+    "MD_CARD_GIFTCARD", "\ue6e7",
+    "MD_CARD_MEMBERSHIP", "\ue6e8",
+    "MD_CARD_TRAVEL", "\ue6e9",
+    "MD_WORK", "\ue6ea",
+    "MD_YOUTUBE_SEARCHED_FOR", "\ue6eb",
+    "MD_EJECT", "\ue6ec",
+    "MD_CAMERA_ENHANCE", "\ue6ed",
+    "MD_HELP_OUTLINE", "\ue6ee",
+    "MD_REORDER", "\ue6ef",
+    "MD_ZOOM_IN", "\ue6f0",
+    "MD_ZOOM_OUT", "\ue6f1",
+    "MD_HTTP", "\ue6f2",
+    "MD_EVENT_SEAT", "\ue6f3",
+    "MD_FLIGHT_LAND", "\ue6f4",
+    "MD_FLIGHT_TAKEOFF", "\ue6f5",
+    "MD_PLAY_FOR_WORK", "\ue6f6",
+    "MD_GIF", "\ue6f7",
+    "MD_INDETERMINATE_CHECK_BOX", "\ue6f8",
+    "MD_OFFLINE_PIN", "\ue6f9",
+    "MD_ALL_OUT", "\ue6fa",
+    "MD_COPYRIGHT", "\ue6fb",
+    "MD_FINGERPRINT", "\ue6fc",
+    "MD_GAVEL", "\ue6fd",
+    "MD_LIGHTBULB_OUTLINE", "\ue6fe",
+    "MD_PICTURE_IN_PICTURE_ALT", "\ue6ff",
+    "MD_IMPORTANT_DEVICES", "\ue700",
+    "MD_TOUCH_APP", "\ue701",
+    "MD_ACCESSIBLE", "\ue702",
+    "MD_COMPARE_ARROWS", "\ue703",
+    "MD_DATE_RANGE", "\ue704",
+    "MD_DONUT_LARGE", "\ue705",
+    "MD_DONUT_SMALL", "\ue706",
+    "MD_LINE_STYLE", "\ue707",
+    "MD_LINE_WEIGHT", "\ue708",
+    "MD_MOTORCYCLE", "\ue709",
+    "MD_OPACITY", "\ue70a",
+    "MD_PETS", "\ue70b",
+    "MD_PREGNANT_WOMAN", "\ue70c",
+    "MD_RECORD_VOICE_OVER", "\ue70d",
+    "MD_ROUNDED_CORNER", "\ue70e",
+    "MD_ROWING", "\ue70f",
+    "MD_TIMELINE", "\ue710",
+    "MD_UPDATE", "\ue711",
+    "MD_WATCH_LATER", "\ue712",
+    "MD_PAN_TOOL", "\ue713",
+    "MD_EURO_SYMBOL", "\ue714",
+    "MD_G_TRANSLATE", "\ue715",
+    "MD_REMOVE_SHOPPING_CART", "\ue716",
+    "MD_RESTORE_PAGE", "\ue717",
+    "MD_SPEAKER_NOTES_OFF", "\ue718",
+    "MD_DELETE_FOREVER", "\ue719",
+    "MD_AC_UNIT", "\ue71a",
+    "MD_AIRPORT_SHUTTLE", "\ue71b",
+    "MD_ALL_INCLUSIVE", "\ue71c",
+    "MD_BEACH_ACCESS", "\ue71d",
+    "MD_BUSINESS_CENTER", "\ue71e",
+    "MD_CASINO", "\ue71f",
+    "MD_CHILD_CARE", "\ue720",
+    "MD_CHILD_FRIENDLY", "\ue721",
+    "MD_FITNESS_CENTER", "\ue722",
+    "MD_FREE_BREAKFAST", "\ue723",
+    "MD_GOLF_COURSE", "\ue724",
+    "MD_HOT_TUB", "\ue725",
+    "MD_KITCHEN", "\ue726",
+    "MD_POOL", "\ue727",
+    "MD_ROOM_SERVICE", "\ue728",
+    "MD_SMOKE_FREE", "\ue729",
+    "MD_SMOKING_ROOMS", "\ue72a",
+    "MD_SPA", "\ue72b",
+    "MD_U10FFFD", "\ue72c",
+    "FILE_REGEX", "\ue72d",
+    "FILE_ARCH_LINUX", "\ue72e",
+    "FILE_E", "\ue72f",
+    "FILE_GLYPHS", "\ue730",
+    "FILE_KNOCKOUT", "\ue731",
+    "FILE_LEAN", "\ue732",
+    "FILE_METAL", "\ue733",
+    "FILE_POVRAY", "\ue734",
+    "FILE_S", "\ue735",
+    "FILE_TT", "\ue736",
+    "FILE_VAGRANT", "\ue737",
+    "FILE_XMOS", "\ue738",
+    "FILE_A", "\ue739",
+    "FILE_CHAI", "\ue73a",
+    "FILE_STYLUS", "\ue73b",
+    "FILE_TEXTILE", "\ue73c",
+    "FILE_UNREAL", "\ue73d",
+    "FILE_PUREBASIC", "\ue73e",
+    "FILE_TS", "\ue73f",
+    "FILE_SCHEME", "\ue740",
+    "FILE_TEXTMATE", "\ue741",
+    "FILE_X10", "\ue742",
+    "FILE_APL", "\ue743",
+    "FILE_ANSIBLE", "\ue744",
+    "FILE_ARTTEXT", "\ue745",
+    "FILE_ANTWAR", "\ue746",
+    "FILE_OPA", "\ue747",
+    "FILE_CODECOV", "\ue748",
+    "FILE_YANG", "\ue749",
+    "FILE_PM2", "\ue74a",
+    "FILE_HG", "\ue74b",
+    "FILE_PAWN", "\ue74c",
+    "FILE_JULIA", "\ue74d",
+    "FILE_SHIPIT", "\ue74e",
+    "FILE_MOCHA", "\ue74f",
+    "FILE_NIB", "\ue750",
+    "FILE_SHURIKEN", "\ue751",
+    "FILE_ALEX", "\ue752",
+    "FILE_TWIG", "\ue753",
+    "FILE_1C", "\ue754",
+    "FILE_TEX", "\ue755",
+    "FILE_BIBTEX", "\ue756",
+    "FILE_MUSTACHE", "\ue757",
+    "FILE_GULP", "\ue758",
+    "FILE_GRUNT", "\ue759",
+    "FILE_EMBER", "\ue75a",
+    "FILE_GO", "\ue75b",
+    "FILE_JENKINS", "\ue75c",
+    "FILE_GNU", "\ue75d",
+    "FILE_COMPOSER", "\ue75e",
+    "FILE_METEOR", "\ue75f",
+    "FILE_AI", "\ue760",
+    "FILE_PSD", "\ue761",
+    "FILE_SILVERSTRIPE", "\ue762",
+    "FILE_MAXSCRIPT", "\ue763",
+    "FILE_KIVY", "\ue764",
+    "FILE_CRYSTAL", "\ue765",
+    "FILE_GRADLE", "\ue766",
+    "FILE_GROOVY", "\ue767",
+    "FILE_R", "\ue768",
+    "FILE_VUE", "\ue769",
+    "FILE_HAXE", "\ue76a",
+    "FILE_LISP", "\ue76b",
+    "FILE_E909", "\ue76c",
+    "FILE_FORTRAN", "\ue76d",
+    "FILE_ADA", "\ue76e",
+    "FILE_DYALOG", "\ue76f",
+    "FILE_JADE", "\ue770",
+    "FILE_E90E", "\ue771",
+    "FILE_FONT", "\ue772",
+    "FILE_POSTCSS", "\ue773",
+    "FILE_SCAD", "\ue774",
+    "FILE_E912", "\ue775",
+    "FILE_RAML", "\ue776",
+    "FILE_LS", "\ue777",
+    "FILE_SALTSTACK", "\ue778",
+    "FILE_TERRAFORM", "\ue779",
+    "FILE_ORG", "\ue77a",
+    "FILE_ASCIIDOC", "\ue77b",
+    "FILE_RIOT", "\ue77c",
+    "FILE_OCAML", "\ue77d",
+    "FILE_LUA", "\ue77e",
+    "FILE_NPM", "\ue77f",
+    "FILE_LLVM", "\ue780",
+    "FILE_E91E", "\ue781",
+    "FILE_BABEL", "\ue782",
+    "FILE_MARKO", "\ue783",
+    "FILE_FLOW", "\ue784",
+    "FILE_BROCCOLI", "\ue785",
+    "FILE_APPVEYOR", "\ue786",
+    "FILE_CAKEFILE", "\ue787",
+    "FILE_APPLE", "\ue788",
+    "FILE_EMACS", "\ue789",
+    "FILE_SKETCH", "\ue78a",
+    "FILE_DOXYGEN", "\ue78b",
+    "FILE_CF", "\ue78c",
+    "FILE_PASCAL", "\ue78d",
+    "FILE_ABAP", "\ue78e",
+    "FILE_ANTLR", "\ue78f",
+    "FILE_API", "\ue790",
+    "FILE_AS", "\ue791",
+    "FILE_ARC", "\ue792",
+    "FILE_ARDUINO", "\ue793",
+    "FILE_AUGEAS", "\ue794",
+    "FILE_AHK", "\ue795",
+    "FILE_AUTOIT", "\ue796",
+    "FILE_ATS", "\ue797",
+    "FILE_ALLOY", "\ue798",
+    "FILE_MANPAGE", "\ue799",
+    "FILE_J", "\ue79a",
+    "FILE_GLADE", "\ue79b",
+    "FILE_BOO", "\ue79c",
+    "FILE_BRAIN", "\ue79d",
+    "FILE_BRO", "\ue79e",
+    "FILE_BLUESPEC", "\ue79f",
+    "FILE_STYLELINT", "\ue7a0",
+    "FILE_ANT", "\ue7a1",
+    "FILE_CMAKE", "\ue7a2",
+    "FILE_CLIPS", "\ue7a3",
+    "FILE_MAPBOX", "\ue7a4",
+    "FILE_CP", "\ue7a5",
+    "FILE_CHUCK", "\ue7a6",
+    "FILE_JINJA", "\ue7a7",
+    "FILE_ISABELLE", "\ue7a8",
+    "FILE_DOGE", "\ue7a9",
+    "FILE_IDL", "\ue7aa",
+    "FILE_JAKE", "\ue7ab",
+    "FILE_VERILOG", "\ue7ac",
+    "FILE_PHALCON", "\ue7ad",
+    "FILE_FABFILE", "\ue7ae",
+    "FILE_LFE", "\ue7af",
+    "FILE_NMAP", "\ue7b0",
+    "FILE_AMPL", "\ue7b1",
+    "FILE_CEYLON", "\ue7b2",
+    "FILE_CHAPEL", "\ue7b3",
+    "FILE_CIRRU", "\ue7b4",
+    "FILE_CLARION", "\ue7b5",
+    "FILE_NUNJUCKS", "\ue7b6",
+    "FILE_MEDIAWIKI", "\ue7b7",
+    "FILE_POSTSCRIPT", "\ue7b8",
+    "FILE_TCL", "\ue7b9",
+    "FILE_OWL", "\ue7ba",
+    "FILE_JSONLD", "\ue7bb",
+    "FILE_SPARQL", "\ue7bc",
+    "FILE_SAS", "\ue7bd",
+    "FILE_CLEAN", "\ue7be",
+    "FILE_CLICK", "\ue7bf",
+    "FILE_NVIDIA", "\ue7c0",
+    "FILE_CREOLE", "\ue7c1",
+    "FILE_COQ", "\ue7c2",
+    "FILE_DIFF", "\ue7c3",
+    "FILE_PATCH", "\ue7c4",
+    "FILE_BYOND", "\ue7c5",
+    "FILE_CYTHON", "\ue7c6",
+    "FILE_DARCS", "\ue7c7",
+    "FILE_EAGLE", "\ue7c8",
+    "FILE_ECERE", "\ue7c9",
+    "FILE_EIFFEL", "\ue7ca",
+    "FILE_EM", "\ue7cb",
+    "FILE_FLUX", "\ue7cc",
+    "FILE_FACTOR", "\ue7cd",
+    "FILE_FANCY", "\ue7ce",
+    "FILE_PERL6", "\ue7cf",
+    "FILE_GENTOO", "\ue7d0",
+    "FILE_FREGE", "\ue7d1",
+    "FILE_FANTOM", "\ue7d2",
+    "FILE_FREEMARKER", "\ue7d3",
+    "FILE_GAP", "\ue7d4",
+    "FILE_CL", "\ue7d5",
+    "FILE_GAMS", "\ue7d6",
+    "FILE_GODOT", "\ue7d7",
+    "FILE_GML", "\ue7d8",
+    "FILE_GENSHI", "\ue7d9",
+    "FILE_POINTWISE", "\ue7da",
+    "FILE_GF", "\ue7db",
+    "FILE_GOLO", "\ue7dc",
+    "FILE_GOSU", "\ue7dd",
+    "FILE_HARBOUR", "\ue7de",
+    "FILE_GRAPHQL", "\ue7df",
+    "FILE_GRAPHVIZ", "\ue7e0",
+    "FILE_HASHICORP", "\ue7e1",
+    "FILE_HY", "\ue7e2",
+    "FILE_IGORPRO", "\ue7e3",
+    "FILE_IO", "\ue7e4",
+    "FILE_IOKE", "\ue7e5",
+    "FILE_IDRIS", "\ue7e6",
+    "FILE_INFORM7", "\ue7e7",
+    "FILE_INNO", "\ue7e8",
+    "FILE_SUBLIME", "\ue7e9",
+    "FILE_JUPYTER", "\ue7ea",
+    "FILE_KRL", "\ue7eb",
+    "FILE_KOTLIN", "\ue7ec",
+    "FILE_LABVIEW", "\ue7ed",
+    "FILE_LSL", "\ue7ee",
+    "FILE_LASSO", "\ue7ef",
+    "FILE_LOGTALK", "\ue7f0",
+    "FILE_LOOKML", "\ue7f1",
+    "FILE_MAKO", "\ue7f2",
+    "FILE_MATHEMATICA", "\ue7f3",
+    "FILE_MATLAB", "\ue7f4",
+    "FILE_E992", "\ue7f5",
+    "FILE_MAX", "\ue7f6",
+    "FILE_MERCURY", "\ue7f7",
+    "FILE_MIRAH", "\ue7f8",
+    "FILE_MODULA2", "\ue7f9",
+    "FILE_MONKEY", "\ue7fa",
+    "FILE_NIMROD", "\ue7fb",
+    "FILE_NIT", "\ue7fc",
+    "FILE_NIX", "\ue7fd",
+    "FILE_AMX", "\ue7fe",
+    "FILE_NETLOGO", "\ue7ff",
+    "FILE_NUMPY", "\ue800",
+    "FILE_OBJJ", "\ue801",
+    "FILE_OPENCL", "\ue802",
+    "FILE_PROCESSING", "\ue803",
+    "FILE_OX", "\ue804",
+    "FILE_SCD", "\ue805",
+    "FILE_STATA", "\ue806",
+    "FILE_STAN", "\ue807",
+    "FILE_SQF", "\ue808",
+    "FILE_SLASH", "\ue809",
+    "FILE_SHEN", "\ue80a",
+    "FILE_SELF", "\ue80b",
+    "FILE_SCILAB", "\ue80c",
+    "FILE_VHDL", "\ue80d",
+    "FILE_SAGE", "\ue80e",
+    "FILE_ROBOT", "\ue80f",
+    "FILE_RED", "\ue810",
+    "FILE_REBOL", "\ue811",
+    "FILE_XOJO", "\ue812",
+    "FILE_RDOC", "\ue813",
+    "FILE_RACKET", "\ue814",
+    "FILE_PURESCRIPT", "\ue815",
+    "FILE_UNO", "\ue816",
+    "FILE_VARNISH", "\ue817",
+    "FILE_PROPELLER", "\ue818",
+    "FILE_TURING", "\ue819",
+    "FILE_PONY", "\ue81a",
+    "FILE_POGO", "\ue81b",
+    "FILE_PIKE", "\ue81c",
+    "FILE_URWEB", "\ue81d",
+    "FILE_PARROT", "\ue81e",
+    "FILE_PAPYRUS", "\ue81f",
+    "FILE_PAN", "\ue820",
+    "FILE_OZ", "\ue821",
+    "FILE_OXYGENE", "\ue822",
+    "FILE_PROGRESS", "\ue823",
+    "FILE_TXL", "\ue824",
+    "FILE_CABAL", "\ue825",
+    "FILE_SYSVERILOG", "\ue826",
+    "FILE_PICKLE", "\ue827",
+    "FILE_XPAGES", "\ue828",
+    "FILE_XTEND", "\ue829",
+    "FILE_ZEPHIR", "\ue82a",
+    "FILE_ZIMPL", "\ue82b",
+    "FILE_EC", "\ue82c",
+    "FILE_MUPAD", "\ue82d",
+    "FILE_OOC", "\ue82e",
+    "FILE_RST", "\ue82f",
+    "FILE_KARMA", "\ue830",
+    "FILE_HACK", "\ue831",
+    "FILE_SHOPIFY", "\ue832",
+    "FILE_PUG_ALT", "\ue833",
+    "FILE_E9D1", "\ue834",
+    "FILE_SBT", "\ue835",
+    "FILE_E9D3", "\ue836",
+    "FILE_SCRUTINIZER", "\ue837",
+    "FILE_CC", "\ue838",
+    "FILE_BRAKEMAN", "\ue839",
+    "FILE_NEWRELIC", "\ue83a",
+    "FILE_THOR", "\ue83b",
+    "FILE_NUGET", "\ue83c",
+    "FILE_POWERSHELL", "\ue83d",
+    "FILE_SF", "\ue83e",
+    "FILE_MINECRAFT", "\ue83f",
+    "FILE_SQLITE", "\ue840",
+    "FILE_PROTRACTOR", "\ue841",
+    "FILE_TYPINGS", "\ue842",
+    "FILE_STRINGS", "\ue843",
+    "FILE_NANT", "\ue844",
+    "FILE_CSSCRIPT", "\ue845",
+    "FILE_CAKE", "\ue846",
+    "FILE_OPENOFFICE", "\ue847",
+    "FILE_KEYNOTE", "\ue848",
+    "FILE_JSX", "\ue849",
+    "FILE_TSX", "\ue84a",
+    "FILE_MODEL", "\ue84b",
+    "FILE_FINDER", "\ue84c",
+    "FILE_ACCESS", "\ue84d",
+    "FILE_ONENOTE", "\ue84e",
+    "FILE_POWERPOINT", "\ue84f",
+    "FILE_WORD", "\ue850",
+    "FILE_EXCEL", "\ue851",
+    "FILE_STORYIST", "\ue852",
+    "FILE_CSOUND", "\ue853",
+    "FILE_DBASE", "\ue854",
+    "FILE_ZBRUSH", "\ue855",
+    "FILE_AE", "\ue856",
+    "FILE_INDESIGN", "\ue857",
+    "FILE_PREMIERE", "\ue858",
+    "FILE_MAYA", "\ue859",
+    "FILE_E9F7", "\ue85a",
+    "FILE_KHRONOS", "\ue85b",
+    "FILE_AUDACITY", "\ue85c",
+    "FILE_BLENDER", "\ue85d",
+    "FILE_LIGHTWAVE", "\ue85e",
+    "FILE_FBX", "\ue85f",
+    "FILE_E9FD", "\ue860",
+    "FILE_TYPEDOC", "\ue861",
+    "FILE_ALPINE", "\ue862",
+    "FILE_YUI", "\ue863",
+    "FILE_EA01", "\ue864",
+    "FILE_EA02", "\ue865",
+    "FILE_EA03", "\ue866",
+    "FILE_NORMALIZE", "\ue867",
+    "FILE_NEKO", "\ue868",
+    "FILE_MATHJAX", "\ue869",
+    "FILE_LEAFLET", "\ue86a",
+    "FILE_GDB", "\ue86b",
+    "FILE_FUELUX", "\ue86c",
+    "FILE_EQ", "\ue86d",
+    "FILE_CHARTJS", "\ue86e",
+    "FILE_EA0C", "\ue86f",
+    "FILE_EA0D", "\ue870",
+    "FILE_EA0E", "\ue871",
+    "FILE_ESLINT", "\ue872",
+    "FILE_D3", "\ue873",
+    "FILE_CORDOVA", "\ue874",
+    "FILE_CIRCLECI", "\ue875",
+    "FILE_PUG", "\ue876",
+    "FILE_POWERBUILDER", "\ue877",
+    "FILE_DYLIB", "\ue878",
+    "FILE_REXX", "\ue879",
+    "FILE_SVN", "\ue87a",
+    "FILE_MRUBY", "\ue87b",
+    "FILE_WERCKER", "\ue87c",
+    "FILE_YARN", "\ue87d",
+    "FILE_EDITORCONFIG", "\ue87e",
+    "FILE_SNYK", "\ue87f",
+    "FILE_REASON", "\ue880",
+    "FILE_NSIS", "\ue881",
+    "FILE_V8", "\ue882",
+    "FILE_ROLLUP", "\ue883",
+    "FILE_EA21", "\ue884",
+    "FILE_EA22", "\ue885",
+    "FILE_EA23", "\ue886",
+    "FILE_RASCAL", "\ue887",
+    "FILE_GN", "\ue888",
+    "FILE_NODEMON", "\ue889",
+    "FILE_ELECTRON", "\ue88a",
+    "FILE_1C_ALT", "\ue88b",
+    "FILE_SWAGGER", "\ue88c",
+    "FILE_BITHOUND", "\ue88d",
+    "FILE_POLYMER", "\ue88e",
+    "FILE_PLATFORMIO", "\ue88f",
+    "FILE_SHIPPABLE", "\ue890",
+    "FILE_EA2E", "\ue891",
+    "FILE_SEQUELIZE", "\ue892",
+    "FILE_REDUX", "\ue893",
+    "FILE_RSPEC", "\ue894",
+    "FILE_PHPUNIT", "\ue895",
+    "FILE_OCTAVE", "\ue896",
+    "FILE_NUCLIDE", "\ue897",
+    "FILE_INFOPATH", "\ue898",
+    "FILE_LIME", "\ue899",
+    "FILE_LERNA", "\ue89a",
+    "FILE_KITCHENCI", "\ue89b",
+    "FILE_JEST", "\ue89c",
+    "FILE_JASMINE", "\ue89d",
+    "FILE_HAXEDEVELOP", "\ue89e",
+    "FILE_GITLAB", "\ue89f",
+    "FILE_DRONE", "\ue8a0",
+    "FILE_VIRTUALBOX", "\ue8a1",
+    "FILE_DOCLETS", "\ue8a2",
+    "FILE_DELPHI", "\ue8a3",
+    "FILE_CODEKIT", "\ue8a4",
+    "FILE_CHEF", "\ue8a5",
+    "FILE_CAKEPHP", "\ue8a6",
+    "FILE_COBOL", "\ue8a7",
+    "FILE_BUNDLER", "\ue8a8",
+    "FILE_BUCK", "\ue8a9",
+    "FILE_BRUNCH", "\ue8aa",
+    "FILE_AURELIA", "\ue8ab",
+    "FILE_VMWARE", "\ue8ac",
+    "FILE_RHINO", "\ue8ad",
+    "FILE_EJS", "\ue8ae",
+    "FILE_KICAD", "\ue8af",
+    "FILE_HOPLON", "\ue8b0",
+    "FILE_ABIF", "\ue8b1",
+    "FILE_WATCHMAN", "\ue8b2",
+    "FILE_P4", "\ue8b3",
+    "FILE_NANOC", "\ue8b4",
+    "FILE_MIRANDA", "\ue8b5",
+    "FILE_MINIZINC", "\ue8b6",
+    "FILE_MESON", "\ue8b7",
+    "FILE_JISON", "\ue8b8",
+    "FILE_FRANCA", "\ue8b9",
+    "FILE_DEVICETREE", "\ue8ba",
+    "FILE_CADDY", "\ue8bb",
+    "FILE_BEM", "\ue8bc",
+    "FILE_BAZEL", "\ue8bd",
+    "FILE_ANGELSCRIPT", "\ue8be",
+    "FILE_ESDOC", "\ue8bf",
+    "FILE_TWINE", "\ue8c0",
+    "FILE_SQUARESPACE", "\ue8c1",
+    "FILE_PHOENIX", "\ue8c2",
+    "FILE_TEST_DIR", "\ue8c3",
+    "FILE_WEBPACK", "\ue8c4",
+    "FILE_TEST_COFFEE", "\ue8c5",
+    "FILE_TEST_GENERIC", "\ue8c6",
+    "FILE_TEST_JS", "\ue8c7",
+    "FILE_TEST_PERL", "\ue8c8",
+    "FILE_TEST_PYTHON", "\ue8c9",
+    "FILE_TEST_REACT", "\ue8ca",
+    "FILE_TEST_RUBY", "\ue8cb",
+    "FILE_TEST_TS", "\ue8cc",
+    "FILE_CODESHIP", "\ue8cd",
+    "FILE_NXC", "\ue8ce",
+    "FILE_BROTLI", "\ue8cf",
+    "FILE_PROSELINT", "\ue8d0",
+    "FILE_BINTRAY", "\ue8d1",
+    "FILE_MJML", "\ue8d2",
+    "FILE_WASM", "\ue8d3",
+    "FILE_EA71", "\ue8d4",
+    "FILE_NASM", "\ue8d5",
+    "FILE_EA73", "\ue8d6",
+    "FILE_PEG", "\ue8d7",
+    "FILE_JOLIE", "\ue8d8",
+    "FILE_NANO", "\ue8d9",
+    "FILE_XAMARIN", "\ue8da",
+    "FILE_F012", "\ue8db",
+    "FILE_TAG", "\ue8dc",
+    "FILE_CUCUMBER", "\ue8dd",
+    "FILE_VIDEO", "\ue8de",
+    "FILE_CONFIG", "\ue8df",
+    "FILE_DASHBOARD", "\ue8e0",
+    "FILE_PUPPET", "\ue8e1",
+    "FILE_TERMINAL", "\ue8e2",
+    "FILE_MARKDOWNLINT", "\ue8e3",
+    "FILE_REACT", "\ue8e4",
+    "FILE_F101", "\ue8e5",
+    "FILE_ELM", "\ue8e6",
+    "FILE_BOOT", "\ue8e7",
+    "FILE_CLJS", "\ue8e8",
+    "FILE_LEIN", "\ue8e9",
+    "FILE_DOCKER", "\ue8ea",
+    "FILE_PHP", "\ue8eb",
+    "FILE_IONIC", "\ue8ec",
+    "FILE_HAML", "\ue8ed",
+    "FILE_F17B", "\ue8ee",
+    "FILE_FF", "\ue8ef",
+    "FILE_U1F3C1", "\ue8f0",
+    "FILE_TERN", "\ue8f1",
+    "FILE_DEFAULT", "\ue8f2",
+    "FILE_SIGILS", "\ue8f3",
+    "FILE_NGINX", "\ue8f4",
+    "WEATHER_DAY_CLOUDY_GUSTS", "\ue8f5",
+    "WEATHER_DAY_CLOUDY_WINDY", "\ue8f6",
+    "WEATHER_DAY_CLOUDY", "\ue8f7",
+    "WEATHER_DAY_FOG", "\ue8f8",
+    "WEATHER_DAY_HAIL", "\ue8f9",
+    "WEATHER_DAY_LIGHTNING", "\ue8fa",
+    "WEATHER_DAY_RAIN_MIX", "\ue8fb",
+    "WEATHER_DAY_RAIN_WIND", "\ue8fc",
+    "WEATHER_DAY_RAIN", "\ue8fd",
+    "WEATHER_DAY_SHOWERS", "\ue8fe",
+    "WEATHER_DAY_SNOW", "\ue8ff",
+    "WEATHER_DAY_SPRINKLE", "\ue900",
+    "WEATHER_DAY_SUNNY_OVERCAST", "\ue901",
+    "WEATHER_DAY_SUNNY", "\ue902",
+    "WEATHER_DAY_STORM_SHOWERS", "\ue903",
+    "WEATHER_DAY_THUNDERSTORM", "\ue904",
+    "WEATHER_CLOUDY_GUSTS", "\ue905",
+    "WEATHER_CLOUDY_WINDY", "\ue906",
+    "WEATHER_CLOUDY", "\ue907",
+    "WEATHER_FOG", "\ue908",
+    "WEATHER_HAIL", "\ue909",
+    "WEATHER_LIGHTNING", "\ue90a",
+    "WEATHER_RAIN_MIX", "\ue90b",
+    "WEATHER_RAIN_WIND", "\ue90c",
+    "WEATHER_RAIN", "\ue90d",
+    "WEATHER_SHOWERS", "\ue90e",
+    "WEATHER_SNOW", "\ue90f",
+    "WEATHER_SPRINKLE", "\ue910",
+    "WEATHER_STORM_SHOWERS", "\ue911",
+    "WEATHER_THUNDERSTORM", "\ue912",
+    "WEATHER_WINDY", "\ue913",
+    "WEATHER_NIGHT_ALT_CLOUDY_GUSTS", "\ue914",
+    "WEATHER_NIGHT_ALT_CLOUDY_WINDY", "\ue915",
+    "WEATHER_NIGHT_ALT_HAIL", "\ue916",
+    "WEATHER_NIGHT_ALT_LIGHTNING", "\ue917",
+    "WEATHER_NIGHT_ALT_RAIN_MIX", "\ue918",
+    "WEATHER_NIGHT_ALT_RAIN_WIND", "\ue919",
+    "WEATHER_NIGHT_ALT_RAIN", "\ue91a",
+    "WEATHER_NIGHT_ALT_SHOWERS", "\ue91b",
+    "WEATHER_NIGHT_ALT_SNOW", "\ue91c",
+    "WEATHER_NIGHT_ALT_SPRINKLE", "\ue91d",
+    "WEATHER_NIGHT_ALT_STORM_SHOWERS", "\ue91e",
+    "WEATHER_NIGHT_ALT_THUNDERSTORM", "\ue91f",
+    "WEATHER_NIGHT_CLEAR", "\ue920",
+    "WEATHER_NIGHT_CLOUDY_GUSTS", "\ue921",
+    "WEATHER_NIGHT_CLOUDY_WINDY", "\ue922",
+    "WEATHER_NIGHT_CLOUDY", "\ue923",
+    "WEATHER_NIGHT_HAIL", "\ue924",
+    "WEATHER_NIGHT_LIGHTNING", "\ue925",
+    "WEATHER_NIGHT_RAIN_MIX", "\ue926",
+    "WEATHER_NIGHT_RAIN_WIND", "\ue927",
+    "WEATHER_NIGHT_RAIN", "\ue928",
+    "WEATHER_NIGHT_SHOWERS", "\ue929",
+    "WEATHER_NIGHT_SNOW", "\ue92a",
+    "WEATHER_NIGHT_SPRINKLE", "\ue92b",
+    "WEATHER_NIGHT_STORM_SHOWERS", "\ue92c",
+    "WEATHER_NIGHT_THUNDERSTORM", "\ue92d",
+    "WEATHER_CELSIUS", "\ue92e",
+    "WEATHER_CLOUD_DOWN", "\ue92f",
+    "WEATHER_CLOUD_REFRESH", "\ue930",
+    "WEATHER_CLOUD_UP", "\ue931",
+    "WEATHER_CLOUD", "\ue932",
+    "WEATHER_DEGREES", "\ue933",
+    "WEATHER_DIRECTION_DOWN_LEFT", "\ue934",
+    "WEATHER_DIRECTION_DOWN", "\ue935",
+    "WEATHER_FAHRENHEIT", "\ue936",
+    "WEATHER_HORIZON_ALT", "\ue937",
+    "WEATHER_HORIZON", "\ue938",
+    "WEATHER_DIRECTION_LEFT", "\ue939",
+    "WEATHER_F049", "\ue93a",
+    "WEATHER_NIGHT_FOG", "\ue93b",
+    "WEATHER_REFRESH_ALT", "\ue93c",
+    "WEATHER_REFRESH", "\ue93d",
+    "WEATHER_DIRECTION_RIGHT", "\ue93e",
+    "WEATHER_RAINDROPS", "\ue93f",
+    "WEATHER_STRONG_WIND", "\ue940",
+    "WEATHER_SUNRISE", "\ue941",
+    "WEATHER_SUNSET", "\ue942",
+    "WEATHER_THERMOMETER_EXTERIOR", "\ue943",
+    "WEATHER_THERMOMETER_INTERNAL", "\ue944",
+    "WEATHER_THERMOMETER", "\ue945",
+    "WEATHER_TORNADO", "\ue946",
+    "WEATHER_DIRECTION_UP_RIGHT", "\ue947",
+    "WEATHER_DIRECTION_UP", "\ue948",
+    "WEATHER_F059", "\ue949",
+    "WEATHER_F05A", "\ue94a",
+    "WEATHER_F05B", "\ue94b",
+    "WEATHER_F05C", "\ue94c",
+    "WEATHER_F05D", "\ue94d",
+    "WEATHER_F05E", "\ue94e",
+    "WEATHER_F060", "\ue94f",
+    "WEATHER_F061", "\ue950",
+    "WEATHER_SMOKE", "\ue951",
+    "WEATHER_DUST", "\ue952",
+    "WEATHER_SNOW_WIND", "\ue953",
+    "WEATHER_DAY_SNOW_WIND", "\ue954",
+    "WEATHER_NIGHT_SNOW_WIND", "\ue955",
+    "WEATHER_NIGHT_ALT_SNOW_WIND", "\ue956",
+    "WEATHER_DAY_SLEET_STORM", "\ue957",
+    "WEATHER_NIGHT_SLEET_STORM", "\ue958",
+    "WEATHER_NIGHT_ALT_SLEET_STORM", "\ue959",
+    "WEATHER_DAY_SNOW_THUNDERSTORM", "\ue95a",
+    "WEATHER_NIGHT_SNOW_THUNDERSTORM", "\ue95b",
+    "WEATHER_NIGHT_ALT_SNOW_THUNDERSTORM", "\ue95c",
+    "WEATHER_SOLAR_ECLIPSE", "\ue95d",
+    "WEATHER_LUNAR_ECLIPSE", "\ue95e",
+    "WEATHER_METEOR", "\ue95f",
+    "WEATHER_HOT", "\ue960",
+    "WEATHER_HURRICANE", "\ue961",
+    "WEATHER_SMOG", "\ue962",
+    "WEATHER_ALIEN", "\ue963",
+    "WEATHER_SNOWFLAKE_COLD", "\ue964",
+    "WEATHER_STARS", "\ue965",
+    "WEATHER_RAINDROP", "\ue966",
+    "WEATHER_BAROMETER", "\ue967",
+    "WEATHER_HUMIDITY", "\ue968",
+    "WEATHER_NA", "\ue969",
+    "WEATHER_FLOOD", "\ue96a",
+    "WEATHER_DAY_CLOUDY_HIGH", "\ue96b",
+    "WEATHER_NIGHT_ALT_CLOUDY_HIGH", "\ue96c",
+    "WEATHER_NIGHT_CLOUDY_HIGH", "\ue96d",
+    "WEATHER_NIGHT_ALT_PARTLY_CLOUDY", "\ue96e",
+    "WEATHER_SANDSTORM", "\ue96f",
+    "WEATHER_NIGHT_PARTLY_CLOUDY", "\ue970",
+    "WEATHER_UMBRELLA", "\ue971",
+    "WEATHER_DAY_WINDY", "\ue972",
+    "WEATHER_NIGHT_ALT_CLOUDY", "\ue973",
+    "WEATHER_DIRECTION_UP_LEFT", "\ue974",
+    "WEATHER_DIRECTION_DOWN_RIGHT", "\ue975",
+    "WEATHER_TIME_12", "\ue976",
+    "WEATHER_TIME_1", "\ue977",
+    "WEATHER_TIME_2", "\ue978",
+    "WEATHER_TIME_3", "\ue979",
+    "WEATHER_TIME_4", "\ue97a",
+    "WEATHER_TIME_5", "\ue97b",
+    "WEATHER_TIME_6", "\ue97c",
+    "WEATHER_TIME_7", "\ue97d",
+    "WEATHER_TIME_8", "\ue97e",
+    "WEATHER_TIME_9", "\ue97f",
+    "WEATHER_TIME_10", "\ue980",
+    "WEATHER_TIME_11", "\ue981",
+    "WEATHER_MOON_NEW", "\ue982",
+    "WEATHER_MOON_WAXING_CRESCENT_1", "\ue983",
+    "WEATHER_MOON_WAXING_CRESCENT_2", "\ue984",
+    "WEATHER_MOON_WAXING_CRESCENT_3", "\ue985",
+    "WEATHER_MOON_WAXING_CRESCENT_4", "\ue986",
+    "WEATHER_MOON_WAXING_CRESCENT_5", "\ue987",
+    "WEATHER_MOON_WAXING_CRESCENT_6", "\ue988",
+    "WEATHER_MOON_FIRST_QUARTER", "\ue989",
+    "WEATHER_MOON_WAXING_GIBBOUS_1", "\ue98a",
+    "WEATHER_MOON_WAXING_GIBBOUS_2", "\ue98b",
+    "WEATHER_MOON_WAXING_GIBBOUS_3", "\ue98c",
+    "WEATHER_MOON_WAXING_GIBBOUS_4", "\ue98d",
+    "WEATHER_MOON_WAXING_GIBBOUS_5", "\ue98e",
+    "WEATHER_MOON_WAXING_GIBBOUS_6", "\ue98f",
+    "WEATHER_MOON_FULL", "\ue990",
+    "WEATHER_MOON_WANING_GIBBOUS_1", "\ue991",
+    "WEATHER_MOON_WANING_GIBBOUS_2", "\ue992",
+    "WEATHER_MOON_WANING_GIBBOUS_3", "\ue993",
+    "WEATHER_MOON_WANING_GIBBOUS_4", "\ue994",
+    "WEATHER_MOON_WANING_GIBBOUS_5", "\ue995",
+    "WEATHER_MOON_WANING_GIBBOUS_6", "\ue996",
+    "WEATHER_MOON_THIRD_QUARTER", "\ue997",
+    "WEATHER_MOON_WANING_CRESCENT_1", "\ue998",
+    "WEATHER_MOON_WANING_CRESCENT_2", "\ue999",
+    "WEATHER_MOON_WANING_CRESCENT_3", "\ue99a",
+    "WEATHER_MOON_WANING_CRESCENT_4", "\ue99b",
+    "WEATHER_MOON_WANING_CRESCENT_5", "\ue99c",
+    "WEATHER_MOON_WANING_CRESCENT_6", "\ue99d",
+    "WEATHER_WIND_DIRECTION", "\ue99e",
+    "WEATHER_DAY_SLEET", "\ue99f",
+    "WEATHER_NIGHT_SLEET", "\ue9a0",
+    "WEATHER_NIGHT_ALT_SLEET", "\ue9a1",
+    "WEATHER_SLEET", "\ue9a2",
+    "WEATHER_DAY_HAZE", "\ue9a3",
+    "WEATHER_WIND_BEAUFORT_0", "\ue9a4",
+    "WEATHER_WIND_BEAUFORT_1", "\ue9a5",
+    "WEATHER_WIND_BEAUFORT_2", "\ue9a6",
+    "WEATHER_WIND_BEAUFORT_3", "\ue9a7",
+    "WEATHER_WIND_BEAUFORT_4", "\ue9a8",
+    "WEATHER_WIND_BEAUFORT_5", "\ue9a9",
+    "WEATHER_WIND_BEAUFORT_6", "\ue9aa",
+    "WEATHER_WIND_BEAUFORT_7", "\ue9ab",
+    "WEATHER_WIND_BEAUFORT_8", "\ue9ac",
+    "WEATHER_WIND_BEAUFORT_9", "\ue9ad",
+    "WEATHER_WIND_BEAUFORT_10", "\ue9ae",
+    "WEATHER_WIND_BEAUFORT_11", "\ue9af",
+    "WEATHER_WIND_BEAUFORT_12", "\ue9b0",
+    "WEATHER_DAY_LIGHT_WIND", "\ue9b1",
+    "WEATHER_TSUNAMI", "\ue9b2",
+    "WEATHER_EARTHQUAKE", "\ue9b3",
+    "WEATHER_FIRE", "\ue9b4",
+    "WEATHER_VOLCANO", "\ue9b5",
+    "WEATHER_MOONRISE", "\ue9b6",
+    "WEATHER_MOONSET", "\ue9b7",
+    "WEATHER_TRAIN", "\ue9b8",
+    "WEATHER_SMALL_CRAFT_ADVISORY", "\ue9b9",
+    "WEATHER_GALE_WARNING", "\ue9ba",
+    "WEATHER_STORM_WARNING", "\ue9bb",
+    "WEATHER_HURRICANE_WARNING", "\ue9bc",
+    "WEATHER_MOON_ALT_WAXING_CRESCENT_1", "\ue9bd",
+    "WEATHER_MOON_ALT_WAXING_CRESCENT_2", "\ue9be",
+    "WEATHER_MOON_ALT_WAXING_CRESCENT_3", "\ue9bf",
+    "WEATHER_MOON_ALT_WAXING_CRESCENT_4", "\ue9c0",
+    "WEATHER_MOON_ALT_WAXING_CRESCENT_5", "\ue9c1",
+    "WEATHER_MOON_ALT_WAXING_CRESCENT_6", "\ue9c2",
+    "WEATHER_MOON_ALT_FIRST_QUARTER", "\ue9c3",
+    "WEATHER_MOON_ALT_WAXING_GIBBOUS_1", "\ue9c4",
+    "WEATHER_MOON_ALT_WAXING_GIBBOUS_2", "\ue9c5",
+    "WEATHER_MOON_ALT_WAXING_GIBBOUS_3", "\ue9c6",
+    "WEATHER_MOON_ALT_WAXING_GIBBOUS_4", "\ue9c7",
+    "WEATHER_MOON_ALT_WAXING_GIBBOUS_5", "\ue9c8",
+    "WEATHER_MOON_ALT_WAXING_GIBBOUS_6", "\ue9c9",
+    "WEATHER_MOON_ALT_FULL", "\ue9ca",
+    "WEATHER_MOON_ALT_WANING_GIBBOUS_1", "\ue9cb",
+    "WEATHER_MOON_ALT_WANING_GIBBOUS_2", "\ue9cc",
+    "WEATHER_MOON_ALT_WANING_GIBBOUS_3", "\ue9cd",
+    "WEATHER_MOON_ALT_WANING_GIBBOUS_4", "\ue9ce",
+    "WEATHER_MOON_ALT_WANING_GIBBOUS_5", "\ue9cf",
+    "WEATHER_MOON_ALT_WANING_GIBBOUS_6", "\ue9d0",
+    "WEATHER_MOON_ALT_THIRD_QUARTER", "\ue9d1",
+    "WEATHER_MOON_ALT_WANING_CRESCENT_1", "\ue9d2",
+    "WEATHER_MOON_ALT_WANING_CRESCENT_2", "\ue9d3",
+    "WEATHER_MOON_ALT_WANING_CRESCENT_3", "\ue9d4",
+    "WEATHER_MOON_ALT_WANING_CRESCENT_4", "\ue9d5",
+    "WEATHER_MOON_ALT_WANING_CRESCENT_5", "\ue9d6",
+    "WEATHER_MOON_ALT_WANING_CRESCENT_6", "\ue9d7",
+    "WEATHER_MOON_ALT_NEW", "\ue9d8",
+    "LINUX_ARCHLINUX", "\ue9d9",
+    "LINUX_CENTOS", "\ue9da",
+    "LINUX_DEBIAN", "\ue9db",
+    "LINUX_FEDORA", "\ue9dc",
+    "LINUX_LINUXMINT", "\ue9dd",
+    "LINUX_LINUXMINT_INVERSE", "\ue9de",
+    "LINUX_MAGEIA", "\ue9df",
+    "LINUX_MANDRIVA", "\ue9e0",
+    "LINUX_OPENSUSE", "\ue9e1",
+    "LINUX_REDHAT", "\ue9e2",
+    "LINUX_SLACKWARE", "\ue9e3",
+    "LINUX_SLACKWARE_INVERSE", "\ue9e4",
+    "LINUX_UBUNTU", "\ue9e5",
+    "LINUX_UBUNTU_INVERSE", "\ue9e6",
+    "LINUX_FREEBSD", "\ue9e7",
+    "LINUX_COREOS", "\ue9e8",
+    "LINUX_GENTOO", "\ue9e9",
+    "LINUX_ELEMENTARY", "\ue9ea",
+    "LINUX_FEDORA_INVERSE", "\ue9eb",
+    "LINUX_SABAYON", "\ue9ec",
+    "LINUX_AOSC", "\ue9ed",
+    "LINUX_NIXOS", "\ue9ee",
+    "LINUX_TUX", "\ue9ef",
+    "LINUX_RASPBERRY_PI", "\ue9f0",
+    "LINUX_MANJARO", "\ue9f1",
+    "LINUX_APPLE", "\ue9f2",
+    "LINUX_DOCKER", "\ue9f3",
+    "LINUX_ALPINE", "\ue9f4",
+    "MYICONS_0001", "\ue9f5",
+    "MYICONS_0002", "\ue9f6",
+    "MYICONS_0003", "\ue9f7",
+    "MYICONS_0004", "\ue9f8",
+    "MYICONS_0005", "\ue9f9",
+    "MYICONS_0006", "\ue9fa",
+    "MYICONS_0007", "\ue9fb",
+    "MYICONS_0008", "\ue9fc",
+    "MYICONS_0009", "\ue9fd",
+    "MYICONS_000A", "\ue9fe",
+    "MYICONS_000B", "\ue9ff",
+    "MYICONS_000D", "\uea00",
+    "MYICONS_000E", "\uea01",
+    "MYICONS_0010", "\uea02",
+    "MYICONS_0011", "\uea03",
+    "MYICONS_0013", "\uea04",
+    "MYICONS_0014", "\uea05",
+    "MYICONS_ARCH_LINUX_ARROW", "\uea06",
+    "DEV_BING_SMALL", "\uea07",
+    "DEV_CSS_TRICKS", "\uea08",
+    "DEV_GIT", "\uea09",
+    "DEV_BITBUCKET", "\uea0a",
+    "DEV_MYSQL", "\uea0b",
+    "DEV_STREAMLINE", "\uea0c",
+    "DEV_DATABASE", "\uea0d",
+    "DEV_DROPBOX", "\uea0e",
+    "DEV_GITHUB_ALT", "\uea0f",
+    "DEV_GITHUB_BADGE", "\uea10",
+    "DEV_GITHUB", "\uea11",
+    "DEV_WORDPRESS", "\uea12",
+    "DEV_VISUALSTUDIO", "\uea13",
+    "DEV_JEKYLL_SMALL", "\uea14",
+    "DEV_ANDROID", "\uea15",
+    "DEV_WINDOWS", "\uea16",
+    "DEV_STACKOVERFLOW", "\uea17",
+    "DEV_APPLE", "\uea18",
+    "DEV_LINUX", "\uea19",
+    "DEV_APPSTORE", "\uea1a",
+    "DEV_GHOST_SMALL", "\uea1b",
+    "DEV_YAHOO", "\uea1c",
+    "DEV_CODEPEN", "\uea1d",
+    "DEV_GITHUB_FULL", "\uea1e",
+    "DEV_NODEJS_SMALL", "\uea1f",
+    "DEV_NODEJS", "\uea20",
+    "DEV_HACKERNEWS", "\uea21",
+    "DEV_EMBER", "\uea22",
+    "DEV_DOJO", "\uea23",
+    "DEV_DJANGO", "\uea24",
+    "DEV_NPM", "\uea25",
+    "DEV_GHOST", "\uea26",
+    "DEV_MODERNIZR", "\uea27",
+    "DEV_UNITY_SMALL", "\uea28",
+    "DEV_RASPBERRY_PI", "\uea29",
+    "DEV_BLACKBERRY", "\uea2a",
+    "DEV_GO", "\uea2b",
+    "DEV_GIT_BRANCH", "\uea2c",
+    "DEV_GIT_PULL_REQUEST", "\uea2d",
+    "DEV_GIT_MERGE", "\uea2e",
+    "DEV_GIT_COMPARE", "\uea2f",
+    "DEV_GIT_COMMIT", "\uea30",
+    "DEV_CSSDECK", "\uea31",
+    "DEV_YAHOO_SMALL", "\uea32",
+    "DEV_TECHCRUNCH", "\uea33",
+    "DEV_SMASHING_MAGAZINE", "\uea34",
+    "DEV_NETMAGAZINE", "\uea35",
+    "DEV_CODROPS", "\uea36",
+    "DEV_PHONEGAP", "\uea37",
+    "DEV_GOOGLE_DRIVE", "\uea38",
+    "DEV_HTML5_MULTIMEDIA", "\uea39",
+    "DEV_HTML5_DEVICE_ACCESS", "\uea3a",
+    "DEV_HTML5_CONNECTIVITY", "\uea3b",
+    "DEV_HTML5_3D_EFFECTS", "\uea3c",
+    "DEV_HTML5", "\uea3d",
+    "DEV_SCALA", "\uea3e",
+    "DEV_JAVA", "\uea3f",
+    "DEV_RUBY", "\uea40",
+    "DEV_UBUNTU", "\uea41",
+    "DEV_RUBY_ON_RAILS", "\uea42",
+    "DEV_PYTHON", "\uea43",
+    "DEV_PHP", "\uea44",
+    "DEV_MARKDOWN", "\uea45",
+    "DEV_LARAVEL", "\uea46",
+    "DEV_MAGENTO", "\uea47",
+    "DEV_JOOMLA", "\uea48",
+    "DEV_DRUPAL", "\uea49",
+    "DEV_CHROME", "\uea4a",
+    "DEV_IE", "\uea4b",
+    "DEV_FIREFOX", "\uea4c",
+    "DEV_OPERA", "\uea4d",
+    "DEV_BOOTSTRAP", "\uea4e",
+    "DEV_SAFARI", "\uea4f",
+    "DEV_CSS3", "\uea50",
+    "DEV_CSS3_FULL", "\uea51",
+    "DEV_SASS", "\uea52",
+    "DEV_GRUNT", "\uea53",
+    "DEV_BOWER", "\uea54",
+    "DEV_JAVASCRIPT", "\uea55",
+    "DEV_JAVASCRIPT_SHIELD", "\uea56",
+    "DEV_JQUERY", "\uea57",
+    "DEV_COFFEESCRIPT", "\uea58",
+    "DEV_BACKBONE", "\uea59",
+    "DEV_ANGULAR", "\uea5a",
+    "DEV_JQUERY_UI", "\uea5b",
+    "DEV_SWIFT", "\uea5c",
+    "DEV_SYMFONY", "\uea5d",
+    "DEV_SYMFONY_BADGE", "\uea5e",
+    "DEV_LESS", "\uea5f",
+    "DEV_STYLUS", "\uea60",
+    "DEV_TRELLO", "\uea61",
+    "DEV_ATLASSIAN", "\uea62",
+    "DEV_JIRA", "\uea63",
+    "DEV_ENVATO", "\uea64",
+    "DEV_SNAP_SVG", "\uea65",
+    "DEV_RAPHAEL", "\uea66",
+    "DEV_GOOGLE_ANALYTICS", "\uea67",
+    "DEV_COMPASS", "\uea68",
+    "DEV_ONEDRIVE", "\uea69",
+    "DEV_GULP", "\uea6a",
+    "DEV_ATOM", "\uea6b",
+    "DEV_CISCO", "\uea6c",
+    "DEV_NANCY", "\uea6d",
+    "DEV_JENKINS", "\uea6e",
+    "DEV_CLOJURE", "\uea6f",
+    "DEV_PERL", "\uea70",
+    "DEV_CLOJURE_ALT", "\uea71",
+    "DEV_CELLULOID", "\uea72",
+    "DEV_W3C", "\uea73",
+    "DEV_REDIS", "\uea74",
+    "DEV_POSTGRESQL", "\uea75",
+    "DEV_WEBPLATFORM", "\uea76",
+    "DEV_REQUIREJS", "\uea77",
+    "DEV_OPENSOURCE", "\uea78",
+    "DEV_TYPO3", "\uea79",
+    "DEV_UIKIT", "\uea7a",
+    "DEV_DOCTRINE", "\uea7b",
+    "DEV_GROOVY", "\uea7c",
+    "DEV_NGINX", "\uea7d",
+    "DEV_HASKELL", "\uea7e",
+    "DEV_ZEND", "\uea7f",
+    "DEV_GNU", "\uea80",
+    "DEV_YEOMAN", "\uea81",
+    "DEV_HEROKU", "\uea82",
+    "DEV_MSQL_SERVER", "\uea83",
+    "DEV_DEBIAN", "\uea84",
+    "DEV_TRAVIS", "\uea85",
+    "DEV_DOTNET", "\uea86",
+    "DEV_CODEIGNITER", "\uea87",
+    "DEV_JAVASCRIPT_BADGE", "\uea88",
+    "DEV_YII", "\uea89",
+    "DEV_COMPOSER", "\uea8a",
+    "DEV_KRAKENJS_BADGE", "\uea8b",
+    "DEV_KRAKENJS", "\uea8c",
+    "DEV_MOZILLA", "\uea8d",
+    "DEV_FIREBASE", "\uea8e",
+    "DEV_SIZZLEJS", "\uea8f",
+    "DEV_CREATIVECOMMONS", "\uea90",
+    "DEV_CREATIVECOMMONS_BADGE", "\uea91",
+    "DEV_MITLICENCE", "\uea92",
+    "DEV_SENCHATOUCH", "\uea93",
+    "DEV_BUGSENSE", "\uea94",
+    "DEV_EXTJS", "\uea95",
+    "DEV_MOOTOOLS_BADGE", "\uea96",
+    "DEV_MOOTOOLS", "\uea97",
+    "DEV_RUBY_ROUGH", "\uea98",
+    "DEV_KOMODO", "\uea99",
+    "DEV_CODA", "\uea9a",
+    "DEV_BINTRAY", "\uea9b",
+    "DEV_TERMINAL", "\uea9c",
+    "DEV_CODE", "\uea9d",
+    "DEV_RESPONSIVE", "\uea9e",
+    "DEV_DART", "\uea9f",
+    "DEV_APTANA", "\ueaa0",
+    "DEV_MAILCHIMP", "\ueaa1",
+    "DEV_NETBEANS", "\ueaa2",
+    "DEV_DREAMWEAVER", "\ueaa3",
+    "DEV_BRACKETS", "\ueaa4",
+    "DEV_ECLIPSE", "\ueaa5",
+    "DEV_CLOUD9", "\ueaa6",
+    "DEV_SCRUM", "\ueaa7",
+    "DEV_PROLOG", "\ueaa8",
+    "DEV_TERMINAL_BADGE", "\ueaa9",
+    "DEV_CODE_BADGE", "\ueaaa",
+    "DEV_MONGODB", "\ueaab",
+    "DEV_METEOR", "\ueaac",
+    "DEV_METEORFULL", "\ueaad",
+    "DEV_FSHARP", "\ueaae",
+    "DEV_RUST", "\ueaaf",
+    "DEV_IONIC", "\ueab0",
+    "DEV_SUBLIME", "\ueab1",
+    "DEV_APPCELERATOR", "\ueab2",
+    "DEV_ASTERISK", "\ueab3",
+    "DEV_AWS", "\ueab4",
+    "DEV_DIGITAL_OCEAN", "\ueab5",
+    "DEV_DLANG", "\ueab6",
+    "DEV_DOCKER", "\ueab7",
+    "DEV_ERLANG", "\ueab8",
+    "DEV_GOOGLE_CLOUD_PLATFORM", "\ueab9",
+    "DEV_GRAILS", "\ueaba",
+    "DEV_ILLUSTRATOR", "\ueabb",
+    "DEV_INTELLIJ", "\ueabc",
+    "DEV_MATERIALIZECSS", "\ueabd",
+    "DEV_OPENSHIFT", "\ueabe",
+    "DEV_PHOTOSHOP", "\ueabf",
+    "DEV_RACKSPACE", "\ueac0",
+    "DEV_REACT", "\ueac1",
+    "DEV_REDHAT", "\ueac2",
+    "DEV_SCRIPTCS", "\ueac3",
+    "DEV_E6BD", "\ueac4",
+    "DEV_E6BE", "\ueac5",
+    "DEV_E6BF", "\ueac6",
+    "DEV_E6C0", "\ueac7",
+    "DEV_E6C1", "\ueac8",
+    "DEV_E6C2", "\ueac9",
+    "DEV_E6C3", "\ueaca",
+    "DEV_SQLLITE", "\ueacb",
+    "DEV_VIM", "\ueacc",
+    "POM_CLEAN_CODE", "\ueacd",
+    "POM_POMODORO_DONE", "\ueace",
+    "POM_POMODORO_ESTIMATED", "\ueacf",
+    "POM_POMODORO_TICKING", "\uead0",
+    "POM_POMODORO_SQUASHED", "\uead1",
+    "POM_SHORT_PAUSE", "\uead2",
+    "POM_LONG_PAUSE", "\uead3",
+    "POM_AWAY", "\uead4",
+    "POM_PAIR_PROGRAMMING", "\uead5",
+    "POM_INTERNAL_INTERRUPTION", "\uead6",
+    "POM_EXTERNAL_INTERRUPTION", "\uead7",
+    "LINEA_ARROWS_ANTICLOCKWISE", "\uead8",
+    "LINEA_ARROWS_ANTICLOCKWISE_DASHED", "\uead9",
+    "LINEA_ARROWS_BUTTON_DOWN", "\ueada",
+    "LINEA_ARROWS_BUTTON_OFF", "\ueadb",
+    "LINEA_ARROWS_BUTTON_ON", "\ueadc",
+    "LINEA_ARROWS_BUTTON_UP", "\ueadd",
+    "LINEA_ARROWS_CHECK", "\ueade",
+    "LINEA_ARROWS_CIRCLE_CHECK", "\ueadf",
+    "LINEA_ARROWS_CIRCLE_DOWN", "\ueae0",
+    "LINEA_ARROWS_CIRCLE_DOWNLEFT", "\ueae1",
+    "LINEA_ARROWS_CIRCLE_DOWNRIGHT", "\ueae2",
+    "LINEA_ARROWS_CIRCLE_LEFT", "\ueae3",
+    "LINEA_ARROWS_CIRCLE_MINUS", "\ueae4",
+    "LINEA_ARROWS_CIRCLE_PLUS", "\ueae5",
+    "LINEA_ARROWS_CIRCLE_REMOVE", "\ueae6",
+    "LINEA_ARROWS_CIRCLE_RIGHT", "\ueae7",
+    "LINEA_ARROWS_CIRCLE_UP", "\ueae8",
+    "LINEA_ARROWS_CIRCLE_UPLEFT", "\ueae9",
+    "LINEA_ARROWS_CIRCLE_UPRIGHT", "\ueaea",
+    "LINEA_ARROWS_CLOCKWISE", "\ueaeb",
+    "LINEA_ARROWS_CLOCKWISE_DASHED", "\ueaec",
+    "LINEA_ARROWS_COMPRESS", "\ueaed",
+    "LINEA_ARROWS_DENY", "\ueaee",
+    "LINEA_ARROWS_DIAGONAL", "\ueaef",
+    "LINEA_ARROWS_DIAGONAL2", "\ueaf0",
+    "LINEA_ARROWS_DOWN", "\ueaf1",
+    "LINEA_ARROWS_DOWN_DOUBLE", "\ueaf2",
+    "LINEA_ARROWS_DOWNLEFT", "\ueaf3",
+    "LINEA_ARROWS_DOWNRIGHT", "\ueaf4",
+    "LINEA_ARROWS_DRAG_DOWN", "\ueaf5",
+    "LINEA_ARROWS_DRAG_DOWN_DASHED", "\ueaf6",
+    "LINEA_ARROWS_DRAG_HORIZ", "\ueaf7",
+    "LINEA_ARROWS_DRAG_LEFT", "\ueaf8",
+    "LINEA_ARROWS_DRAG_LEFT_DASHED", "\ueaf9",
+    "LINEA_ARROWS_DRAG_RIGHT", "\ueafa",
+    "LINEA_ARROWS_DRAG_RIGHT_DASHED", "\ueafb",
+    "LINEA_ARROWS_DRAG_UP", "\ueafc",
+    "LINEA_ARROWS_DRAG_UP_DASHED", "\ueafd",
+    "LINEA_ARROWS_DRAG_VERT", "\ueafe",
+    "LINEA_ARROWS_EXCLAMATION", "\ueaff",
+    "LINEA_ARROWS_EXPAND", "\ueb00",
+    "LINEA_ARROWS_EXPAND_DIAGONAL1", "\ueb01",
+    "LINEA_ARROWS_EXPAND_HORIZONTAL1", "\ueb02",
+    "LINEA_ARROWS_EXPAND_VERTICAL1", "\ueb03",
+    "LINEA_ARROWS_FIT_HORIZONTAL", "\ueb04",
+    "LINEA_ARROWS_FIT_VERTICAL", "\ueb05",
+    "LINEA_ARROWS_GLIDE", "\ueb06",
+    "LINEA_ARROWS_GLIDE_HORIZONTAL", "\ueb07",
+    "LINEA_ARROWS_GLIDE_VERTICAL", "\ueb08",
+    "LINEA_ARROWS_HAMBURGER1", "\ueb09",
+    "LINEA_ARROWS_HAMBURGER_2", "\ueb0a",
+    "LINEA_ARROWS_HORIZONTAL", "\ueb0b",
+    "LINEA_ARROWS_INFO", "\ueb0c",
+    "LINEA_ARROWS_KEYBOARD_ALT", "\ueb0d",
+    "LINEA_ARROWS_KEYBOARD_CMD", "\ueb0e",
+    "LINEA_ARROWS_KEYBOARD_DELETE", "\ueb0f",
+    "LINEA_ARROWS_KEYBOARD_DOWN", "\ueb10",
+    "LINEA_ARROWS_KEYBOARD_LEFT", "\ueb11",
+    "LINEA_ARROWS_KEYBOARD_RETURN", "\ueb12",
+    "LINEA_ARROWS_KEYBOARD_RIGHT", "\ueb13",
+    "LINEA_ARROWS_KEYBOARD_SHIFT", "\ueb14",
+    "LINEA_ARROWS_KEYBOARD_TAB", "\ueb15",
+    "LINEA_ARROWS_KEYBOARD_UP", "\ueb16",
+    "LINEA_ARROWS_LEFT", "\ueb17",
+    "LINEA_ARROWS_LEFT_DOUBLE_32", "\ueb18",
+    "LINEA_ARROWS_MINUS", "\ueb19",
+    "LINEA_ARROWS_MOVE", "\ueb1a",
+    "LINEA_ARROWS_MOVE2", "\ueb1b",
+    "LINEA_ARROWS_MOVE_BOTTOM", "\ueb1c",
+    "LINEA_ARROWS_MOVE_LEFT", "\ueb1d",
+    "LINEA_ARROWS_MOVE_RIGHT", "\ueb1e",
+    "LINEA_ARROWS_MOVE_TOP", "\ueb1f",
+    "LINEA_ARROWS_PLUS", "\ueb20",
+    "LINEA_ARROWS_QUESTION", "\ueb21",
+    "LINEA_ARROWS_REMOVE", "\ueb22",
+    "LINEA_ARROWS_RIGHT", "\ueb23",
+    "LINEA_ARROWS_RIGHT_DOUBLE", "\ueb24",
+    "LINEA_ARROWS_ROTATE", "\ueb25",
+    "LINEA_ARROWS_ROTATE_ANTI", "\ueb26",
+    "LINEA_ARROWS_ROTATE_ANTI_DASHED", "\ueb27",
+    "LINEA_ARROWS_ROTATE_DASHED", "\ueb28",
+    "LINEA_ARROWS_SHRINK", "\ueb29",
+    "LINEA_ARROWS_SHRINK_DIAGONAL1", "\ueb2a",
+    "LINEA_ARROWS_SHRINK_DIAGONAL2", "\ueb2b",
+    "LINEA_ARROWS_SHRINK_HORIZONAL2", "\ueb2c",
+    "LINEA_ARROWS_SHRINK_HORIZONTAL1", "\ueb2d",
+    "LINEA_ARROWS_SHRINK_VERTICAL1", "\ueb2e",
+    "LINEA_ARROWS_SHRINK_VERTICAL2", "\ueb2f",
+    "LINEA_ARROWS_SIGN_DOWN", "\ueb30",
+    "LINEA_ARROWS_SIGN_LEFT", "\ueb31",
+    "LINEA_ARROWS_SIGN_RIGHT", "\ueb32",
+    "LINEA_ARROWS_SIGN_UP", "\ueb33",
+    "LINEA_ARROWS_SLIDE_DOWN1", "\ueb34",
+    "LINEA_ARROWS_SLIDE_DOWN2", "\ueb35",
+    "LINEA_ARROWS_SLIDE_LEFT1", "\ueb36",
+    "LINEA_ARROWS_SLIDE_LEFT2", "\ueb37",
+    "LINEA_ARROWS_SLIDE_RIGHT1", "\ueb38",
+    "LINEA_ARROWS_SLIDE_RIGHT2", "\ueb39",
+    "LINEA_ARROWS_SLIDE_UP1", "\ueb3a",
+    "LINEA_ARROWS_SLIDE_UP2", "\ueb3b",
+    "LINEA_ARROWS_SLIM_DOWN", "\ueb3c",
+    "LINEA_ARROWS_SLIM_DOWN_DASHED", "\ueb3d",
+    "LINEA_ARROWS_SLIM_LEFT", "\ueb3e",
+    "LINEA_ARROWS_SLIM_LEFT_DASHED", "\ueb3f",
+    "LINEA_ARROWS_SLIM_RIGHT", "\ueb40",
+    "LINEA_ARROWS_SLIM_RIGHT_DASHED", "\ueb41",
+    "LINEA_ARROWS_SLIM_UP", "\ueb42",
+    "LINEA_ARROWS_SLIM_UP_DASHED", "\ueb43",
+    "LINEA_ARROWS_SQUARE_CHECK", "\ueb44",
+    "LINEA_ARROWS_SQUARE_DOWN", "\ueb45",
+    "LINEA_ARROWS_SQUARE_DOWNLEFT", "\ueb46",
+    "LINEA_ARROWS_SQUARE_DOWNRIGHT", "\ueb47",
+    "LINEA_ARROWS_SQUARE_LEFT", "\ueb48",
+    "LINEA_ARROWS_SQUARE_MINUS", "\ueb49",
+    "LINEA_ARROWS_SQUARE_PLUS", "\ueb4a",
+    "LINEA_ARROWS_SQUARE_REMOVE", "\ueb4b",
+    "LINEA_ARROWS_SQUARE_RIGHT", "\ueb4c",
+    "LINEA_ARROWS_SQUARE_UP", "\ueb4d",
+    "LINEA_ARROWS_SQUARE_UPLEFT", "\ueb4e",
+    "LINEA_ARROWS_SQUARE_UPRIGHT", "\ueb4f",
+    "LINEA_ARROWS_SQUARES", "\ueb50",
+    "LINEA_ARROWS_STRETCH_DIAGONAL1", "\ueb51",
+    "LINEA_ARROWS_STRETCH_DIAGONAL2", "\ueb52",
+    "LINEA_ARROWS_STRETCH_DIAGONAL3", "\ueb53",
+    "LINEA_ARROWS_STRETCH_DIAGONAL4", "\ueb54",
+    "LINEA_ARROWS_STRETCH_HORIZONTAL1", "\ueb55",
+    "LINEA_ARROWS_STRETCH_HORIZONTAL2", "\ueb56",
+    "LINEA_ARROWS_STRETCH_VERTICAL1", "\ueb57",
+    "LINEA_ARROWS_STRETCH_VERTICAL2", "\ueb58",
+    "LINEA_ARROWS_SWITCH_HORIZONTAL", "\ueb59",
+    "LINEA_ARROWS_SWITCH_VERTICAL", "\ueb5a",
+    "LINEA_ARROWS_UP", "\ueb5b",
+    "LINEA_ARROWS_UP_DOUBLE_33", "\ueb5c",
+    "LINEA_ARROWS_UPLEFT", "\ueb5d",
+    "LINEA_ARROWS_UPRIGHT", "\ueb5e",
+    "LINEA_ARROWS_VERTICAL", "\ueb5f",
+    "LINEA_BASIC_LOCK_OPEN", "\ueb60",
+    "LINEA_BASIC_MAGIC_MOUSE", "\ueb61",
+    "LINEA_BASIC_MAGNIFIER", "\ueb62",
+    "LINEA_BASIC_MAGNIFIER_MINUS", "\ueb63",
+    "LINEA_BASIC_MAGNIFIER_PLUS", "\ueb64",
+    "LINEA_BASIC_MAIL", "\ueb65",
+    "LINEA_BASIC_MAIL_MULTIPLE", "\ueb66",
+    "LINEA_BASIC_MAIL_OPEN", "\ueb67",
+    "LINEA_BASIC_MAIL_OPEN_TEXT", "\ueb68",
+    "LINEA_BASIC_MALE", "\ueb69",
+    "LINEA_BASIC_MAP", "\ueb6a",
+    "LINEA_BASIC_MESSAGE", "\ueb6b",
+    "LINEA_BASIC_MESSAGE_MULTIPLE", "\ueb6c",
+    "LINEA_BASIC_MESSAGE_TXT", "\ueb6d",
+    "LINEA_BASIC_MIXER2", "\ueb6e",
+    "LINEA_BASIC_INFO", "\ueb6f",
+    "LINEA_BASIC_IPOD", "\ueb70",
+    "LINEA_BASIC_JOYPAD", "\ueb71",
+    "LINEA_BASIC_KEY", "\ueb72",
+    "LINEA_BASIC_KEYBOARD", "\ueb73",
+    "LINEA_BASIC_LAPTOP", "\ueb74",
+    "LINEA_BASIC_LIFE_BUOY", "\ueb75",
+    "LINEA_BASIC_LIGHTBULB", "\ueb76",
+    "LINEA_BASIC_LINK", "\ueb77",
+    "LINEA_BASIC_LOCK", "\ueb78",
+    "LINEA_BASIC_MOUSE", "\ueb79",
+    "LINEA_BASIC_NOTEBOOK", "\ueb7a",
+    "LINEA_BASIC_NOTEBOOK_PEN", "\ueb7b",
+    "LINEA_BASIC_NOTEBOOK_PENCIL", "\ueb7c",
+    "LINEA_BASIC_PAPERPLANE", "\ueb7d",
+    "LINEA_BASIC_PENCIL_RULER", "\ueb7e",
+    "LINEA_BASIC_PENCIL_RULER_PEN", "\ueb7f",
+    "LINEA_BASIC_CLUBS", "\ueb80",
+    "LINEA_BASIC_COMPASS", "\ueb81",
+    "LINEA_BASIC_CUP", "\ueb82",
+    "LINEA_BASIC_DIAMONDS", "\ueb83",
+    "LINEA_BASIC_DISPLAY", "\ueb84",
+    "LINEA_BASIC_DOWNLOAD", "\ueb85",
+    "LINEA_BASIC_EXCLAMATION", "\ueb86",
+    "LINEA_BASIC_EYE", "\ueb87",
+    "LINEA_BASIC_EYE_CLOSED", "\ueb88",
+    "LINEA_BASIC_FEMALE", "\ueb89",
+    "LINEA_BASIC_FLAG1", "\ueb8a",
+    "LINEA_BASIC_FLAG2", "\ueb8b",
+    "LINEA_BASIC_FLOPPYDISK", "\ueb8c",
+    "LINEA_BASIC_FOLDER", "\ueb8d",
+    "LINEA_BASIC_FOLDER_MULTIPLE", "\ueb8e",
+    "LINEA_BASIC_GEAR", "\ueb8f",
+    "LINEA_BASIC_GEOLOCALIZE_01", "\ueb90",
+    "LINEA_BASIC_GEOLOCALIZE_05", "\ueb91",
+    "LINEA_BASIC_GLOBE", "\ueb92",
+    "LINEA_BASIC_GUNSIGHT", "\ueb93",
+    "LINEA_BASIC_HAMMER", "\ueb94",
+    "LINEA_BASIC_HEADSET", "\ueb95",
+    "LINEA_BASIC_HEART", "\ueb96",
+    "LINEA_BASIC_HEART_BROKEN", "\ueb97",
+    "LINEA_BASIC_HELM", "\ueb98",
+    "LINEA_BASIC_HOME", "\ueb99",
+    "LINEA_BASIC_PHOTO", "\ueb9a",
+    "LINEA_BASIC_RSS", "\ueb9b",
+    "LINEA_BASIC_PICTURE", "\ueb9c",
+    "LINEA_BASIC_PICTURE_MULTIPLE", "\ueb9d",
+    "LINEA_BASIC_PIN1", "\ueb9e",
+    "LINEA_BASIC_PIN2", "\ueb9f",
+    "LINEA_BASIC_ACCELERATOR", "\ueba0",
+    "LINEA_BASIC_ALARM", "\ueba1",
+    "LINEA_BASIC_ANCHOR", "\ueba2",
+    "LINEA_BASIC_ANTICLOCKWISE", "\ueba3",
+    "LINEA_BASIC_ARCHIVE", "\ueba4",
+    "LINEA_BASIC_ARCHIVE_FULL", "\ueba5",
+    "LINEA_BASIC_BAN", "\ueba6",
+    "LINEA_BASIC_BATTERY_CHARGE", "\ueba7",
+    "LINEA_BASIC_BATTERY_EMPTY", "\ueba8",
+    "LINEA_BASIC_BATTERY_FULL", "\ueba9",
+    "LINEA_BASIC_BATTERY_HALF", "\uebaa",
+    "LINEA_BASIC_BOLT", "\uebab",
+    "LINEA_BASIC_BOOK", "\uebac",
+    "LINEA_BASIC_BOOK_PEN", "\uebad",
+    "LINEA_BASIC_BOOK_PENCIL", "\uebae",
+    "LINEA_BASIC_BOOKMARK", "\uebaf",
+    "LINEA_BASIC_CALCULATOR", "\uebb0",
+    "LINEA_BASIC_CALENDAR", "\uebb1",
+    "LINEA_BASIC_CARDS_DIAMONDS", "\uebb2",
+    "LINEA_BASIC_CARDS_HEARTS", "\uebb3",
+    "LINEA_BASIC_CASE", "\uebb4",
+    "LINEA_BASIC_CHRONOMETER", "\uebb5",
+    "LINEA_BASIC_CLESSIDRE", "\uebb6",
+    "LINEA_BASIC_CLOCK", "\uebb7",
+    "LINEA_BASIC_CLOCKWISE", "\uebb8",
+    "LINEA_BASIC_CLOUD", "\uebb9",
+    "LINEA_BASIC_POSTCARD", "\uebba",
+    "LINEA_BASIC_POSTCARD_MULTIPLE", "\uebbb",
+    "LINEA_BASIC_PRINTER", "\uebbc",
+    "LINEA_BASIC_QUESTION", "\uebbd",
+    "LINEA_BASIC_SERVER", "\uebbe",
+    "LINEA_BASIC_SERVER2", "\uebbf",
+    "LINEA_BASIC_SERVER_CLOUD", "\uebc0",
+    "LINEA_BASIC_SERVER_DOWNLOAD", "\uebc1",
+    "LINEA_BASIC_SERVER_UPLOAD", "\uebc2",
+    "LINEA_BASIC_SETTINGS", "\uebc3",
+    "LINEA_BASIC_SHARE", "\uebc4",
+    "LINEA_BASIC_SHEET", "\uebc5",
+    "LINEA_BASIC_SHEET_MULTIPLE", "\uebc6",
+    "LINEA_BASIC_SHEET_PEN", "\uebc7",
+    "LINEA_BASIC_SHEET_PENCIL", "\uebc8",
+    "LINEA_BASIC_SHEET_TXT", "\uebc9",
+    "LINEA_BASIC_SIGNS", "\uebca",
+    "LINEA_BASIC_SMARTPHONE", "\uebcb",
+    "LINEA_BASIC_SPADES", "\uebcc",
+    "LINEA_BASIC_SPREAD", "\uebcd",
+    "LINEA_BASIC_SPREAD_BOOKMARK", "\uebce",
+    "LINEA_BASIC_SPREAD_TEXT", "\uebcf",
+    "LINEA_BASIC_SPREAD_TEXT_BOOKMARK", "\uebd0",
+    "LINEA_BASIC_STAR", "\uebd1",
+    "LINEA_BASIC_TABLET", "\uebd2",
+    "LINEA_BASIC_TARGET", "\uebd3",
+    "LINEA_BASIC_TODO", "\uebd4",
+    "LINEA_BASIC_TODO_PEN", "\uebd5",
+    "LINEA_BASIC_TODO_PENCIL", "\uebd6",
+    "LINEA_BASIC_TODO_TXT", "\uebd7",
+    "LINEA_BASIC_TODOLIST_PEN", "\uebd8",
+    "LINEA_BASIC_TODOLIST_PENCIL", "\uebd9",
+    "LINEA_BASIC_TRASHCAN", "\uebda",
+    "LINEA_BASIC_TRASHCAN_FULL", "\uebdb",
+    "LINEA_BASIC_TRASHCAN_REFRESH", "\uebdc",
+    "LINEA_BASIC_TRASHCAN_REMOVE", "\uebdd",
+    "LINEA_BASIC_UPLOAD", "\uebde",
+    "LINEA_BASIC_USB", "\uebdf",
+    "LINEA_BASIC_VIDEO", "\uebe0",
+    "LINEA_BASIC_WATCH", "\uebe1",
+    "LINEA_BASIC_WEBPAGE", "\uebe2",
+    "LINEA_BASIC_WEBPAGE_IMG_TXT", "\uebe3",
+    "LINEA_BASIC_WEBPAGE_MULTIPLE", "\uebe4",
+    "LINEA_BASIC_WEBPAGE_TXT", "\uebe5",
+    "LINEA_BASIC_WORLD", "\uebe6",
+    "LINEA_ELABORATION_DOCUMENT_PREVIOUS", "\uebe7",
+    "LINEA_ELABORATION_DOCUMENT_REFRESH", "\uebe8",
+    "LINEA_ELABORATION_DOCUMENT_REMOVE", "\uebe9",
+    "LINEA_ELABORATION_DOCUMENT_SEARCH", "\uebea",
+    "LINEA_ELABORATION_DOCUMENT_STAR", "\uebeb",
+    "LINEA_ELABORATION_DOCUMENT_UPLOAD", "\uebec",
+    "LINEA_ELABORATION_FOLDER_CHECK", "\uebed",
+    "LINEA_ELABORATION_FOLDER_CLOUD", "\uebee",
+    "LINEA_ELABORATION_FOLDER_DOCUMENT", "\uebef",
+    "LINEA_ELABORATION_FOLDER_DOWNLOAD", "\uebf0",
+    "LINEA_ELABORATION_FOLDER_FLAGGED", "\uebf1",
+    "LINEA_ELABORATION_FOLDER_GRAPH", "\uebf2",
+    "LINEA_ELABORATION_FOLDER_HEART", "\uebf3",
+    "LINEA_ELABORATION_FOLDER_MINUS", "\uebf4",
+    "LINEA_ELABORATION_FOLDER_NEXT", "\uebf5",
+    "LINEA_ELABORATION_DOCUMENT_FLAGGED", "\uebf6",
+    "LINEA_ELABORATION_DOCUMENT_GRAPH", "\uebf7",
+    "LINEA_ELABORATION_DOCUMENT_HEART", "\uebf8",
+    "LINEA_ELABORATION_DOCUMENT_MINUS", "\uebf9",
+    "LINEA_ELABORATION_DOCUMENT_NEXT", "\uebfa",
+    "LINEA_ELABORATION_DOCUMENT_NOACCESS", "\uebfb",
+    "LINEA_ELABORATION_DOCUMENT_NOTE", "\uebfc",
+    "LINEA_ELABORATION_DOCUMENT_PENCIL", "\uebfd",
+    "LINEA_ELABORATION_DOCUMENT_PICTURE", "\uebfe",
+    "LINEA_ELABORATION_DOCUMENT_PLUS", "\uebff",
+    "LINEA_ELABORATION_FOLDER_NOACCESS", "\uec00",
+    "LINEA_ELABORATION_FOLDER_NOTE", "\uec01",
+    "LINEA_ELABORATION_FOLDER_PENCIL", "\uec02",
+    "LINEA_ELABORATION_FOLDER_PICTURE", "\uec03",
+    "LINEA_ELABORATION_FOLDER_PLUS", "\uec04",
+    "LINEA_ELABORATION_FOLDER_PREVIOUS", "\uec05",
+    "LINEA_ELABORATION_FOLDER_REFRESH", "\uec06",
+    "LINEA_ELABORATION_CALENDAR_EMPTY", "\uec07",
+    "LINEA_ELABORATION_CALENDAR_FLAGGED", "\uec08",
+    "LINEA_ELABORATION_CALENDAR_HEART", "\uec09",
+    "LINEA_ELABORATION_CALENDAR_MINUS", "\uec0a",
+    "LINEA_ELABORATION_CALENDAR_NEXT", "\uec0b",
+    "LINEA_ELABORATION_CALENDAR_NOACCESS", "\uec0c",
+    "LINEA_ELABORATION_CALENDAR_PENCIL", "\uec0d",
+    "LINEA_ELABORATION_CALENDAR_PLUS", "\uec0e",
+    "LINEA_ELABORATION_CALENDAR_PREVIOUS", "\uec0f",
+    "LINEA_ELABORATION_CALENDAR_REFRESH", "\uec10",
+    "LINEA_ELABORATION_CALENDAR_REMOVE", "\uec11",
+    "LINEA_ELABORATION_CALENDAR_SEARCH", "\uec12",
+    "LINEA_ELABORATION_CALENDAR_STAR", "\uec13",
+    "LINEA_ELABORATION_CALENDAR_UPLOAD", "\uec14",
+    "LINEA_ELABORATION_CLOUD_CHECK", "\uec15",
+    "LINEA_ELABORATION_CLOUD_DOWNLOAD", "\uec16",
+    "LINEA_ELABORATION_CLOUD_MINUS", "\uec17",
+    "LINEA_ELABORATION_CLOUD_NOACCESS", "\uec18",
+    "LINEA_ELABORATION_CLOUD_PLUS", "\uec19",
+    "LINEA_ELABORATION_CLOUD_REFRESH", "\uec1a",
+    "LINEA_ELABORATION_CLOUD_REMOVE", "\uec1b",
+    "LINEA_ELABORATION_CLOUD_SEARCH", "\uec1c",
+    "LINEA_ELABORATION_CLOUD_UPLOAD", "\uec1d",
+    "LINEA_ELABORATION_DOCUMENT_CHECK", "\uec1e",
+    "LINEA_ELABORATION_DOCUMENT_CLOUD", "\uec1f",
+    "LINEA_ELABORATION_DOCUMENT_DOWNLOAD", "\uec20",
+    "LINEA_ELABORATION_FOLDER_REMOVE", "\uec21",
+    "LINEA_ELABORATION_MAIL_HEART", "\uec22",
+    "LINEA_ELABORATION_FOLDER_SEARCH", "\uec23",
+    "LINEA_ELABORATION_FOLDER_STAR", "\uec24",
+    "LINEA_ELABORATION_FOLDER_UPLOAD", "\uec25",
+    "LINEA_ELABORATION_MAIL_CHECK", "\uec26",
+    "LINEA_ELABORATION_BOOKMARK_CHECCK", "\uec27",
+    "LINEA_ELABORATION_BOOKMARK_MINUS", "\uec28",
+    "LINEA_ELABORATION_BOOKMARK_PLUS", "\uec29",
+    "LINEA_ELABORATION_BOOKMARK_REMOVE", "\uec2a",
+    "LINEA_ELABORATION_BRIEFCASE_CHECK", "\uec2b",
+    "LINEA_ELABORATION_BRIEFCASE_DOWNLOAD", "\uec2c",
+    "LINEA_ELABORATION_BRIEFCASE_FLAGGED", "\uec2d",
+    "LINEA_ELABORATION_BRIEFCASE_MINUS", "\uec2e",
+    "LINEA_ELABORATION_BRIEFCASE_PLUS", "\uec2f",
+    "LINEA_ELABORATION_BRIEFCASE_REFRESH", "\uec30",
+    "LINEA_ELABORATION_BRIEFCASE_REMOVE", "\uec31",
+    "LINEA_ELABORATION_BRIEFCASE_SEARCH", "\uec32",
+    "LINEA_ELABORATION_BRIEFCASE_STAR", "\uec33",
+    "LINEA_ELABORATION_BRIEFCASE_UPLOAD", "\uec34",
+    "LINEA_ELABORATION_BROWSER_CHECK", "\uec35",
+    "LINEA_ELABORATION_BROWSER_DOWNLOAD", "\uec36",
+    "LINEA_ELABORATION_BROWSER_MINUS", "\uec37",
+    "LINEA_ELABORATION_BROWSER_PLUS", "\uec38",
+    "LINEA_ELABORATION_BROWSER_REFRESH", "\uec39",
+    "LINEA_ELABORATION_BROWSER_REMOVE", "\uec3a",
+    "LINEA_ELABORATION_BROWSER_SEARCH", "\uec3b",
+    "LINEA_ELABORATION_BROWSER_STAR", "\uec3c",
+    "LINEA_ELABORATION_BROWSER_UPLOAD", "\uec3d",
+    "LINEA_ELABORATION_CALENDAR_CHECK", "\uec3e",
+    "LINEA_ELABORATION_CALENDAR_CLOUD", "\uec3f",
+    "LINEA_ELABORATION_CALENDAR_DOWNLOAD", "\uec40",
+    "LINEA_ELABORATION_MAIL_CLOUD", "\uec41",
+    "LINEA_ELABORATION_MAIL_DOCUMENT", "\uec42",
+    "LINEA_ELABORATION_MAIL_DOWNLOAD", "\uec43",
+    "LINEA_ELABORATION_MAIL_FLAGGED", "\uec44",
+    "LINEA_ELABORATION_MAIL_NEXT", "\uec45",
+    "LINEA_ELABORATION_MAIL_NOACCESS", "\uec46",
+    "LINEA_ELABORATION_MAIL_NOTE", "\uec47",
+    "LINEA_ELABORATION_MAIL_PENCIL", "\uec48",
+    "LINEA_ELABORATION_MAIL_PICTURE", "\uec49",
+    "LINEA_ELABORATION_MAIL_PREVIOUS", "\uec4a",
+    "LINEA_ELABORATION_MAIL_REFRESH", "\uec4b",
+    "LINEA_ELABORATION_MAIL_REMOVE", "\uec4c",
+    "LINEA_ELABORATION_MAIL_SEARCH", "\uec4d",
+    "LINEA_ELABORATION_MAIL_STAR", "\uec4e",
+    "LINEA_ELABORATION_MAIL_UPLOAD", "\uec4f",
+    "LINEA_ELABORATION_MESSAGE_CHECK", "\uec50",
+    "LINEA_ELABORATION_MESSAGE_DOTS", "\uec51",
+    "LINEA_ELABORATION_MESSAGE_HAPPY", "\uec52",
+    "LINEA_ELABORATION_MESSAGE_HEART", "\uec53",
+    "LINEA_ELABORATION_MESSAGE_MINUS", "\uec54",
+    "LINEA_ELABORATION_MESSAGE_NOTE", "\uec55",
+    "LINEA_ELABORATION_MESSAGE_PLUS", "\uec56",
+    "LINEA_ELABORATION_MESSAGE_REFRESH", "\uec57",
+    "LINEA_ELABORATION_MESSAGE_REMOVE", "\uec58",
+    "LINEA_ELABORATION_MESSAGE_SAD", "\uec59",
+    "LINEA_ELABORATION_SMARTPHONE_CLOUD", "\uec5a",
+    "LINEA_ELABORATION_SMARTPHONE_HEART", "\uec5b",
+    "LINEA_ELABORATION_SMARTPHONE_NOACCESS", "\uec5c",
+    "LINEA_ELABORATION_SMARTPHONE_NOTE", "\uec5d",
+    "LINEA_ELABORATION_SMARTPHONE_PENCIL", "\uec5e",
+    "LINEA_ELABORATION_SMARTPHONE_PICTURE", "\uec5f",
+    "LINEA_ELABORATION_SMARTPHONE_REFRESH", "\uec60",
+    "LINEA_ELABORATION_SMARTPHONE_SEARCH", "\uec61",
+    "LINEA_ELABORATION_TABLET_CLOUD", "\uec62",
+    "LINEA_ELABORATION_TABLET_HEART", "\uec63",
+    "LINEA_ELABORATION_TABLET_NOACCESS", "\uec64",
+    "LINEA_ELABORATION_TABLET_NOTE", "\uec65",
+    "LINEA_ELABORATION_TABLET_PENCIL", "\uec66",
+    "LINEA_ELABORATION_TABLET_PICTURE", "\uec67",
+    "LINEA_ELABORATION_TABLET_REFRESH", "\uec68",
+    "LINEA_ELABORATION_TABLET_SEARCH", "\uec69",
+    "LINEA_ELABORATION_TODOLIST_2", "\uec6a",
+    "LINEA_ELABORATION_TODOLIST_CHECK", "\uec6b",
+    "LINEA_ELABORATION_TODOLIST_CLOUD", "\uec6c",
+    "LINEA_ELABORATION_TODOLIST_DOWNLOAD", "\uec6d",
+    "LINEA_ELABORATION_TODOLIST_FLAGGED", "\uec6e",
+    "LINEA_ELABORATION_TODOLIST_MINUS", "\uec6f",
+    "LINEA_ELABORATION_TODOLIST_NOACCESS", "\uec70",
+    "LINEA_ELABORATION_TODOLIST_PENCIL", "\uec71",
+    "LINEA_ELABORATION_TODOLIST_PLUS", "\uec72",
+    "LINEA_ELABORATION_TODOLIST_REFRESH", "\uec73",
+    "LINEA_ELABORATION_TODOLIST_REMOVE", "\uec74",
+    "LINEA_ELABORATION_TODOLIST_SEARCH", "\uec75",
+    "LINEA_ELABORATION_TODOLIST_STAR", "\uec76",
+    "LINEA_ELABORATION_TODOLIST_UPLOAD", "\uec77",
+    "LINEA_ECOMMERCE_RECEIPT_KIPS", "\uec78",
+    "LINEA_ECOMMERCE_RECEIPT_LIRA", "\uec79",
+    "LINEA_ECOMMERCE_RECEIPT_NAIRA", "\uec7a",
+    "LINEA_ECOMMERCE_RECEIPT_PESOS", "\uec7b",
+    "LINEA_ECOMMERCE_RECEIPT_POUND", "\uec7c",
+    "LINEA_ECOMMERCE_RECEIPT_RUBLO", "\uec7d",
+    "LINEA_ECOMMERCE_RECEIPT_RUPEE", "\uec7e",
+    "LINEA_ECOMMERCE_RECEIPT_TUGRIK", "\uec7f",
+    "LINEA_ECOMMERCE_RECEIPT_WON", "\uec80",
+    "LINEA_ECOMMERCE_RECEIPT_YEN", "\uec81",
+    "LINEA_ECOMMERCE_RECEIPT_YEN2", "\uec82",
+    "LINEA_ECOMMERCE_RECEPT_COLON", "\uec83",
+    "LINEA_ECOMMERCE_RUBLO", "\uec84",
+    "LINEA_ECOMMERCE_RUPEE", "\uec85",
+    "LINEA_ECOMMERCE_SAFE", "\uec86",
+    "LINEA_ECOMMERCE_NAIRA", "\uec87",
+    "LINEA_ECOMMERCE_PESOS", "\uec88",
+    "LINEA_ECOMMERCE_POUND", "\uec89",
+    "LINEA_ECOMMERCE_RECEIPT", "\uec8a",
+    "LINEA_ECOMMERCE_RECEIPT_BATH", "\uec8b",
+    "LINEA_ECOMMERCE_RECEIPT_CENT", "\uec8c",
+    "LINEA_ECOMMERCE_RECEIPT_DOLLAR", "\uec8d",
+    "LINEA_ECOMMERCE_RECEIPT_EURO", "\uec8e",
+    "LINEA_ECOMMERCE_RECEIPT_FRANC", "\uec8f",
+    "LINEA_ECOMMERCE_RECEIPT_GUARANI", "\uec90",
+    "LINEA_ECOMMERCE_SALE", "\uec91",
+    "LINEA_ECOMMERCE_SALES", "\uec92",
+    "LINEA_ECOMMERCE_TICKET", "\uec93",
+    "LINEA_ECOMMERCE_TUGRIKS", "\uec94",
+    "LINEA_ECOMMERCE_WALLET", "\uec95",
+    "LINEA_ECOMMERCE_WON", "\uec96",
+    "LINEA_ECOMMERCE_YEN", "\uec97",
+    "LINEA_ECOMMERCE_CART_CONTENT", "\uec98",
+    "LINEA_ECOMMERCE_CART_DOWNLOAD", "\uec99",
+    "LINEA_ECOMMERCE_CART_MINUS", "\uec9a",
+    "LINEA_ECOMMERCE_CART_PLUS", "\uec9b",
+    "LINEA_ECOMMERCE_CART_REFRESH", "\uec9c",
+    "LINEA_ECOMMERCE_CART_REMOVE", "\uec9d",
+    "LINEA_ECOMMERCE_CART_SEARCH", "\uec9e",
+    "LINEA_ECOMMERCE_CART_UPLOAD", "\uec9f",
+    "LINEA_ECOMMERCE_CENT", "\ueca0",
+    "LINEA_ECOMMERCE_COLON", "\ueca1",
+    "LINEA_ECOMMERCE_CREDITCARD", "\ueca2",
+    "LINEA_ECOMMERCE_DIAMOND", "\ueca3",
+    "LINEA_ECOMMERCE_DOLLAR", "\ueca4",
+    "LINEA_ECOMMERCE_EURO", "\ueca5",
+    "LINEA_ECOMMERCE_FRANC", "\ueca6",
+    "LINEA_ECOMMERCE_GIFT", "\ueca7",
+    "LINEA_ECOMMERCE_GRAPH1", "\ueca8",
+    "LINEA_ECOMMERCE_GRAPH2", "\ueca9",
+    "LINEA_ECOMMERCE_GRAPH3", "\uecaa",
+    "LINEA_ECOMMERCE_GRAPH_DECREASE", "\uecab",
+    "LINEA_ECOMMERCE_GRAPH_INCREASE", "\uecac",
+    "LINEA_ECOMMERCE_GUARANI", "\uecad",
+    "LINEA_ECOMMERCE_KIPS", "\uecae",
+    "LINEA_ECOMMERCE_LIRA", "\uecaf",
+    "LINEA_ECOMMERCE_MEGAPHONE", "\uecb0",
+    "LINEA_ECOMMERCE_MONEY", "\uecb1",
+    "LINEA_ECOMMERCE_YEN2", "\uecb2",
+    "LINEA_ECOMMERCE_BAG", "\uecb3",
+    "LINEA_ECOMMERCE_BAG_CHECK", "\uecb4",
+    "LINEA_ECOMMERCE_BAG_CLOUD", "\uecb5",
+    "LINEA_ECOMMERCE_BAG_DOWNLOAD", "\uecb6",
+    "LINEA_ECOMMERCE_BAG_MINUS", "\uecb7",
+    "LINEA_ECOMMERCE_BAG_PLUS", "\uecb8",
+    "LINEA_ECOMMERCE_BAG_REFRESH", "\uecb9",
+    "LINEA_ECOMMERCE_BAG_REMOVE", "\uecba",
+    "LINEA_ECOMMERCE_BAG_SEARCH", "\uecbb",
+    "LINEA_ECOMMERCE_BAG_UPLOAD", "\uecbc",
+    "LINEA_ECOMMERCE_BANKNOTE", "\uecbd",
+    "LINEA_ECOMMERCE_BANKNOTES", "\uecbe",
+    "LINEA_ECOMMERCE_BASKET", "\uecbf",
+    "LINEA_ECOMMERCE_BASKET_CHECK", "\uecc0",
+    "LINEA_ECOMMERCE_BASKET_CLOUD", "\uecc1",
+    "LINEA_ECOMMERCE_BASKET_DOWNLOAD", "\uecc2",
+    "LINEA_ECOMMERCE_BASKET_MINUS", "\uecc3",
+    "LINEA_ECOMMERCE_BASKET_PLUS", "\uecc4",
+    "LINEA_ECOMMERCE_BASKET_REFRESH", "\uecc5",
+    "LINEA_ECOMMERCE_BASKET_REMOVE", "\uecc6",
+    "LINEA_ECOMMERCE_BASKET_SEARCH", "\uecc7",
+    "LINEA_ECOMMERCE_BASKET_UPLOAD", "\uecc8",
+    "LINEA_ECOMMERCE_BATH", "\uecc9",
+    "LINEA_ECOMMERCE_CART", "\uecca",
+    "LINEA_ECOMMERCE_CART_CHECK", "\ueccb",
+    "LINEA_ECOMMERCE_CART_CLOUD", "\ueccc",
+    "LINEA_MUSIC_STOP_BUTTON", "\ueccd",
+    "LINEA_MUSIC_TAPE", "\uecce",
+    "LINEA_MUSIC_VOLUME_DOWN", "\ueccf",
+    "LINEA_MUSIC_VOLUME_UP", "\uecd0",
+    "LINEA_MUSIC_BEGINNING_BUTTON", "\uecd1",
+    "LINEA_MUSIC_BELL", "\uecd2",
+    "LINEA_MUSIC_CD", "\uecd3",
+    "LINEA_MUSIC_DIAPASON", "\uecd4",
+    "LINEA_MUSIC_EJECT_BUTTON", "\uecd5",
+    "LINEA_MUSIC_END_BUTTON", "\uecd6",
+    "LINEA_MUSIC_FASTFORWARD_BUTTON", "\uecd7",
+    "LINEA_MUSIC_HEADPHONES", "\uecd8",
+    "LINEA_MUSIC_IPOD", "\uecd9",
+    "LINEA_MUSIC_LOUDSPEAKER", "\uecda",
+    "LINEA_MUSIC_MICROPHONE", "\uecdb",
+    "LINEA_MUSIC_MICROPHONE_OLD", "\uecdc",
+    "LINEA_MUSIC_MIXER", "\uecdd",
+    "LINEA_MUSIC_MUTE", "\uecde",
+    "LINEA_MUSIC_NOTE_MULTIPLE", "\uecdf",
+    "LINEA_MUSIC_NOTE_SINGLE", "\uece0",
+    "LINEA_MUSIC_PAUSE_BUTTON", "\uece1",
+    "LINEA_MUSIC_PLAY_BUTTON", "\uece2",
+    "LINEA_MUSIC_PLAYLIST", "\uece3",
+    "LINEA_MUSIC_RADIO_GHETTOBLASTER", "\uece4",
+    "LINEA_MUSIC_RADIO_PORTABLE", "\uece5",
+    "LINEA_MUSIC_RECORD", "\uece6",
+    "LINEA_MUSIC_RECORDPLAYER", "\uece7",
+    "LINEA_MUSIC_REPEAT_BUTTON", "\uece8",
+    "LINEA_MUSIC_REWIND_BUTTON", "\uece9",
+    "LINEA_MUSIC_SHUFFLE_BUTTON", "\uecea",
+    "LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_CENTER", "\ueceb",
+    "LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_LEFT", "\uecec",
+    "LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_RIGHT", "\ueced",
+    "LINEA_SOFTWARE_PARAGRAPH_SPACE_AFTER", "\uecee",
+    "LINEA_SOFTWARE_PARAGRAPH_SPACE_BEFORE", "\uecef",
+    "LINEA_SOFTWARE_PATHFINDER_EXCLUDE", "\uecf0",
+    "LINEA_SOFTWARE_PATHFINDER_INTERSECT", "\uecf1",
+    "LINEA_SOFTWARE_PATHFINDER_SUBTRACT", "\uecf2",
+    "LINEA_SOFTWARE_PATHFINDER_UNITE", "\uecf3",
+    "LINEA_SOFTWARE_PEN", "\uecf4",
+    "LINEA_SOFTWARE_PEN_ADD", "\uecf5",
+    "LINEA_SOFTWARE_PEN_REMOVE", "\uecf6",
+    "LINEA_SOFTWARE_PENCIL", "\uecf7",
+    "LINEA_SOFTWARE_POLYGONALLASSO", "\uecf8",
+    "LINEA_SOFTWARE_REFLECT_HORIZONTAL", "\uecf9",
+    "LINEA_SOFTWARE_MAGNETE", "\uecfa",
+    "LINEA_SOFTWARE_PAGES", "\uecfb",
+    "LINEA_SOFTWARE_PAINTBRUSH", "\uecfc",
+    "LINEA_SOFTWARE_PAINTBUCKET", "\uecfd",
+    "LINEA_SOFTWARE_PAINTROLLER", "\uecfe",
+    "LINEA_SOFTWARE_PARAGRAPH", "\uecff",
+    "LINEA_SOFTWARE_PARAGRAPH_ALIGN_LEFT", "\ued00",
+    "LINEA_SOFTWARE_PARAGRAPH_ALIGN_RIGHT", "\ued01",
+    "LINEA_SOFTWARE_PARAGRAPH_CENTER", "\ued02",
+    "LINEA_SOFTWARE_PARAGRAPH_JUSTIFY_ALL", "\ued03",
+    "LINEA_SOFTWARE_REFLECT_VERTICAL", "\ued04",
+    "LINEA_SOFTWARE_REMOVE_VECTORPOINT", "\ued05",
+    "LINEA_SOFTWARE_SCALE_EXPAND", "\ued06",
+    "LINEA_SOFTWARE_SCALE_REDUCE", "\ued07",
+    "LINEA_SOFTWARE_SELECTION_OVAL", "\ued08",
+    "LINEA_SOFTWARE_SELECTION_POLYGON", "\ued09",
+    "LINEA_SOFTWARE_SELECTION_RECTANGLE", "\ued0a",
+    "LINEA_SOFTWARE_INDENT_FIRSTLINE", "\ued0b",
+    "LINEA_SOFTWARE_INDENT_LEFT", "\ued0c",
+    "LINEA_SOFTWARE_INDENT_RIGHT", "\ued0d",
+    "LINEA_SOFTWARE_LASSO", "\ued0e",
+    "LINEA_SOFTWARE_LAYERS1", "\ued0f",
+    "LINEA_SOFTWARE_LAYERS2", "\ued10",
+    "LINEA_SOFTWARE_LAYOUT", "\ued11",
+    "LINEA_SOFTWARE_LAYOUT_2COLUMNS", "\ued12",
+    "LINEA_SOFTWARE_LAYOUT_3COLUMNS", "\ued13",
+    "LINEA_SOFTWARE_LAYOUT_4BOXES", "\ued14",
+    "LINEA_SOFTWARE_LAYOUT_4COLUMNS", "\ued15",
+    "LINEA_SOFTWARE_LAYOUT_4LINES", "\ued16",
+    "LINEA_SOFTWARE_LAYOUT_8BOXES", "\ued17",
+    "LINEA_SOFTWARE_LAYOUT_HEADER", "\ued18",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_2COLUMNS", "\ued19",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_3COLUMNS", "\ued1a",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_4BOXES", "\ued1b",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_4COLUMNS", "\ued1c",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX", "\ued1d",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX2", "\ued1e",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX3", "\ued1f",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_COMPLEX4", "\ued20",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_SIDELEFT", "\ued21",
+    "LINEA_SOFTWARE_LAYOUT_HEADER_SIDERIGHT", "\ued22",
+    "LINEA_SOFTWARE_LAYOUT_SIDEBAR_LEFT", "\ued23",
+    "LINEA_SOFTWARE_LAYOUT_SIDEBAR_RIGHT", "\ued24",
+    "LINEA_SOFTWARE_SELECTION_ROUNDEDRECTANGLE", "\ued25",
+    "LINEA_SOFTWARE_VECTOR_LINE", "\ued26",
+    "LINEA_SOFTWARE_SHAPE_OVAL", "\ued27",
+    "LINEA_SOFTWARE_SHAPE_POLYGON", "\ued28",
+    "LINEA_SOFTWARE_SHAPE_RECTANGLE", "\ued29",
+    "LINEA_SOFTWARE_SHAPE_ROUNDEDRECTANGLE", "\ued2a",
+    "LINEA_SOFTWARE_ADD_VECTORPOINT", "\ued2b",
+    "LINEA_SOFTWARE_BOX_OVAL", "\ued2c",
+    "LINEA_SOFTWARE_BOX_POLYGON", "\ued2d",
+    "LINEA_SOFTWARE_BOX_RECTANGLE", "\ued2e",
+    "LINEA_SOFTWARE_BOX_ROUNDEDRECTANGLE", "\ued2f",
+    "LINEA_SOFTWARE_CHARACTER", "\ued30",
+    "LINEA_SOFTWARE_CROP", "\ued31",
+    "LINEA_SOFTWARE_EYEDROPPER", "\ued32",
+    "LINEA_SOFTWARE_FONT_ALLCAPS", "\ued33",
+    "LINEA_SOFTWARE_FONT_BASELINE_SHIFT", "\ued34",
+    "LINEA_SOFTWARE_FONT_HORIZONTAL_SCALE", "\ued35",
+    "LINEA_SOFTWARE_FONT_KERNING", "\ued36",
+    "LINEA_SOFTWARE_FONT_LEADING", "\ued37",
+    "LINEA_SOFTWARE_FONT_SIZE", "\ued38",
+    "LINEA_SOFTWARE_FONT_SMALLCAPITAL", "\ued39",
+    "LINEA_SOFTWARE_FONT_SMALLCAPS", "\ued3a",
+    "LINEA_SOFTWARE_FONT_STRIKETHROUGH", "\ued3b",
+    "LINEA_SOFTWARE_FONT_TRACKING", "\ued3c",
+    "LINEA_SOFTWARE_FONT_UNDERLINE", "\ued3d",
+    "LINEA_SOFTWARE_FONT_VERTICAL_SCALE", "\ued3e",
+    "LINEA_SOFTWARE_HORIZONTAL_ALIGN_CENTER", "\ued3f",
+    "LINEA_SOFTWARE_HORIZONTAL_ALIGN_LEFT", "\ued40",
+    "LINEA_SOFTWARE_HORIZONTAL_ALIGN_RIGHT", "\ued41",
+    "LINEA_SOFTWARE_HORIZONTAL_DISTRIBUTE_CENTER", "\ued42",
+    "LINEA_SOFTWARE_HORIZONTAL_DISTRIBUTE_LEFT", "\ued43",
+    "LINEA_SOFTWARE_HORIZONTAL_DISTRIBUTE_RIGHT", "\ued44",
+    "LINEA_SOFTWARE_SLICE", "\ued45",
+    "LINEA_SOFTWARE_TRANSFORM_BEZIER", "\ued46",
+    "LINEA_SOFTWARE_VECTOR_BOX", "\ued47",
+    "LINEA_SOFTWARE_VECTOR_COMPOSITE", "\ued48",
+    "LINEA_SOFTWARE_VERTICAL_ALIGN_BOTTOM", "\ued49",
+    "LINEA_SOFTWARE_VERTICAL_ALIGN_CENTER", "\ued4a",
+    "LINEA_SOFTWARE_VERTICAL_ALIGN_TOP", "\ued4b",
+    "LINEA_SOFTWARE_VERTICAL_DISTRIBUTE_BOTTOM", "\ued4c",
+    "LINEA_SOFTWARE_VERTICAL_DISTRIBUTE_CENTER", "\ued4d",
+    "LINEA_SOFTWARE_VERTICAL_DISTRIBUTE_TOP", "\ued4e",
+    "LINEA_WEATHER_AQUARIUS", "\ued4f",
+    "LINEA_WEATHER_ARIES", "\ued50",
+    "LINEA_WEATHER_CANCER", "\ued51",
+    "LINEA_WEATHER_CAPRICORN", "\ued52",
+    "LINEA_WEATHER_CLOUD", "\ued53",
+    "LINEA_WEATHER_CLOUD_DROP", "\ued54",
+    "LINEA_WEATHER_CLOUD_LIGHTNING", "\ued55",
+    "LINEA_WEATHER_CLOUD_SNOWFLAKE", "\ued56",
+    "LINEA_WEATHER_DOWNPOUR_FULLMOON", "\ued57",
+    "LINEA_WEATHER_DOWNPOUR_HALFMOON", "\ued58",
+    "LINEA_WEATHER_DOWNPOUR_SUN", "\ued59",
+    "LINEA_WEATHER_DROP", "\ued5a",
+    "LINEA_WEATHER_FIRST_QUARTER", "\ued5b",
+    "LINEA_WEATHER_FOG", "\ued5c",
+    "LINEA_WEATHER_FOG_FULLMOON", "\ued5d",
+    "LINEA_WEATHER_FOG_HALFMOON", "\ued5e",
+    "LINEA_WEATHER_FOG_SUN", "\ued5f",
+    "LINEA_WEATHER_FULLMOON", "\ued60",
+    "LINEA_WEATHER_GEMINI", "\ued61",
+    "LINEA_WEATHER_HAIL", "\ued62",
+    "LINEA_WEATHER_HAIL_FULLMOON", "\ued63",
+    "LINEA_WEATHER_HAIL_HALFMOON", "\ued64",
+    "LINEA_WEATHER_HAIL_SUN", "\ued65",
+    "LINEA_WEATHER_LAST_QUARTER", "\ued66",
+    "LINEA_WEATHER_LEO", "\ued67",
+    "LINEA_WEATHER_LIBRA", "\ued68",
+    "LINEA_WEATHER_LIGHTNING", "\ued69",
+    "LINEA_WEATHER_MISTYRAIN", "\ued6a",
+    "LINEA_WEATHER_MISTYRAIN_FULLMOON", "\ued6b",
+    "LINEA_WEATHER_MISTYRAIN_HALFMOON", "\ued6c",
+    "LINEA_WEATHER_MISTYRAIN_SUN", "\ued6d",
+    "LINEA_WEATHER_MOON", "\ued6e",
+    "LINEA_WEATHER_MOONDOWN_FULL", "\ued6f",
+    "LINEA_WEATHER_MOONDOWN_HALF", "\ued70",
+    "LINEA_WEATHER_MOONSET_FULL", "\ued71",
+    "LINEA_WEATHER_MOONSET_HALF", "\ued72",
+    "LINEA_WEATHER_MOVE2", "\ued73",
+    "LINEA_WEATHER_NEWMOON", "\ued74",
+    "LINEA_WEATHER_PISCES", "\ued75",
+    "LINEA_WEATHER_RAIN", "\ued76",
+    "LINEA_WEATHER_RAIN_FULLMOON", "\ued77",
+    "LINEA_WEATHER_RAIN_HALFMOON", "\ued78",
+    "LINEA_WEATHER_RAIN_SUN", "\ued79",
+    "LINEA_WEATHER_SAGITTARIUS", "\ued7a",
+    "LINEA_WEATHER_SCORPIO", "\ued7b",
+    "LINEA_WEATHER_SNOW", "\ued7c",
+    "LINEA_WEATHER_SNOW_FULLMOON", "\ued7d",
+    "LINEA_WEATHER_SNOW_HALFMOON", "\ued7e",
+    "LINEA_WEATHER_SNOW_SUN", "\ued7f",
+    "LINEA_WEATHER_SNOWFLAKE", "\ued80",
+    "LINEA_WEATHER_STAR", "\ued81",
+    "LINEA_WEATHER_STORM_11", "\ued82",
+    "LINEA_WEATHER_STORM_32", "\ued83",
+    "LINEA_WEATHER_STORM_FULLMOON", "\ued84",
+    "LINEA_WEATHER_STORM_HALFMOON", "\ued85",
+    "LINEA_WEATHER_STORM_SUN", "\ued86",
+    "LINEA_WEATHER_SUN", "\ued87",
+    "LINEA_WEATHER_SUNDOWN", "\ued88",
+    "LINEA_WEATHER_SUNSET", "\ued89",
+    "LINEA_WEATHER_TAURUS", "\ued8a",
+    "LINEA_WEATHER_TEMPEST", "\ued8b",
+    "LINEA_WEATHER_TEMPEST_FULLMOON", "\ued8c",
+    "LINEA_WEATHER_TEMPEST_HALFMOON", "\ued8d",
+    "LINEA_WEATHER_TEMPEST_SUN", "\ued8e",
+    "LINEA_WEATHER_VARIABLE_FULLMOON", "\ued8f",
+    "LINEA_WEATHER_VARIABLE_HALFMOON", "\ued90",
+    "LINEA_WEATHER_VARIABLE_SUN", "\ued91",
+    "LINEA_WEATHER_VIRGO", "\ued92",
+    "LINEA_WEATHER_WANING_CRESENT", "\ued93",
+    "LINEA_WEATHER_WANING_GIBBOUS", "\ued94",
+    "LINEA_WEATHER_WAXING_CRESENT", "\ued95",
+    "LINEA_WEATHER_WAXING_GIBBOUS", "\ued96",
+    "LINEA_WEATHER_WIND", "\ued97",
+    "LINEA_WEATHER_WIND_E", "\ued98",
+    "LINEA_WEATHER_WIND_FULLMOON", "\ued99",
+    "LINEA_WEATHER_WIND_HALFMOON", "\ued9a",
+    "LINEA_WEATHER_WIND_N", "\ued9b",
+    "LINEA_WEATHER_WIND_NE", "\ued9c",
+    "LINEA_WEATHER_WIND_NW", "\ued9d",
+    "LINEA_WEATHER_WIND_S", "\ued9e",
+    "LINEA_WEATHER_WIND_SE", "\ued9f",
+    "LINEA_WEATHER_WIND_SUN", "\ueda0",
+    "LINEA_WEATHER_WIND_SW", "\ueda1",
+    "LINEA_WEATHER_WIND_W", "\ueda2",
+    "LINEA_WEATHER_WINDGUST", "\ueda3",
+    "MFIZZ_3DPRINT", "\ueda4",
+    "MFIZZ_ALPINELINUX", "\ueda5",
+    "MFIZZ_ANGULAR", "\ueda6",
+    "MFIZZ_ANGULAR_ALT", "\ueda7",
+    "MFIZZ_ANTENNA", "\ueda8",
+    "MFIZZ_APACHE", "\ueda9",
+    "MFIZZ_ARCHLINUX", "\uedaa",
+    "MFIZZ_AWS", "\uedab",
+    "MFIZZ_AZURE", "\uedac",
+    "MFIZZ_BACKBONE", "\uedad",
+    "MFIZZ_BLACKBERRY", "\uedae",
+    "MFIZZ_BOMB", "\uedaf",
+    "MFIZZ_BOOTSTRAP", "\uedb0",
+    "MFIZZ_C", "\uedb1",
+    "MFIZZ_CASSANDRA", "\uedb2",
+    "MFIZZ_CENTOS", "\uedb3",
+    "MFIZZ_CLOJURE", "\uedb4",
+    "MFIZZ_CODEIGNITER", "\uedb5",
+    "MFIZZ_CODEPEN", "\uedb6",
+    "MFIZZ_COFFEE_BEAN", "\uedb7",
+    "MFIZZ_CPLUSPLUS", "\uedb8",
+    "MFIZZ_CSHARP", "\uedb9",
+    "MFIZZ_CSS", "\uedba",
+    "MFIZZ_CSS3", "\uedbb",
+    "MFIZZ_CSS3_ALT", "\uedbc",
+    "MFIZZ_D3", "\uedbd",
+    "MFIZZ_DATABASE", "\uedbe",
+    "MFIZZ_DATABASE_ALT", "\uedbf",
+    "MFIZZ_DATABASE_ALT2", "\uedc0",
+    "MFIZZ_DEBIAN", "\uedc1",
+    "MFIZZ_DOCKER", "\uedc2",
+    "MFIZZ_DREAMHOST", "\uedc3",
+    "MFIZZ_ELIXIR", "\uedc4",
+    "MFIZZ_ELM", "\uedc5",
+    "MFIZZ_ERLANG", "\uedc6",
+    "MFIZZ_EXHERBO", "\uedc7",
+    "MFIZZ_FEDORA", "\uedc8",
+    "MFIZZ_FIRE_ALT", "\uedc9",
+    "MFIZZ_FREEBSD", "\uedca",
+    "MFIZZ_FREECODECAMP", "\uedcb",
+    "MFIZZ_GENTOO", "\uedcc",
+    "MFIZZ_GHOST", "\uedcd",
+    "MFIZZ_GIT", "\uedce",
+    "MFIZZ_GNOME", "\uedcf",
+    "MFIZZ_GO", "\uedd0",
+    "MFIZZ_GO_ALT", "\uedd1",
+    "MFIZZ_GOOGLE", "\uedd2",
+    "MFIZZ_GOOGLE_ALT", "\uedd3",
+    "MFIZZ_GOOGLE_CODE", "\uedd4",
+    "MFIZZ_GOOGLE_DEVELOPERS", "\uedd5",
+    "MFIZZ_GRADLE", "\uedd6",
+    "MFIZZ_GRAILS", "\uedd7",
+    "MFIZZ_GRAILS_ALT", "\uedd8",
+    "MFIZZ_GRUNT", "\uedd9",
+    "MFIZZ_GULP", "\uedda",
+    "MFIZZ_GULP_ALT", "\ueddb",
+    "MFIZZ_HADOOP", "\ueddc",
+    "MFIZZ_HASKELL", "\ueddd",
+    "MFIZZ_HEROKU", "\uedde",
+    "MFIZZ_HTML", "\ueddf",
+    "MFIZZ_HTML5", "\uede0",
+    "MFIZZ_HTML5_ALT", "\uede1",
+    "MFIZZ_IPHONE", "\uede2",
+    "MFIZZ_JAVA", "\uede3",
+    "MFIZZ_JAVA_BOLD", "\uede4",
+    "MFIZZ_JAVA_DUKE", "\uede5",
+    "MFIZZ_JAVASCRIPT", "\uede6",
+    "MFIZZ_JAVASCRIPT_ALT", "\uede7",
+    "MFIZZ_JETTY", "\uede8",
+    "MFIZZ_JQUERY", "\uede9",
+    "MFIZZ_KDE", "\uedea",
+    "MFIZZ_LARAVEL", "\uedeb",
+    "MFIZZ_LINE_GRAPH", "\uedec",
+    "MFIZZ_LINUX_MINT", "\ueded",
+    "MFIZZ_LOOKING", "\uedee",
+    "MFIZZ_MAGENTO", "\uedef",
+    "MFIZZ_MARIADB", "\uedf0",
+    "MFIZZ_MAVEN", "\uedf1",
+    "MFIZZ_MICROSCOPE", "\uedf2",
+    "MFIZZ_MOBILE_DEVICE", "\uedf3",
+    "MFIZZ_MOBILE_PHONE_ALT", "\uedf4",
+    "MFIZZ_MOBILE_PHONE_BROADCAST", "\uedf5",
+    "MFIZZ_MONGODB", "\uedf6",
+    "MFIZZ_MSSQL", "\uedf7",
+    "MFIZZ_MYSQL", "\uedf8",
+    "MFIZZ_MYSQL_ALT", "\uedf9",
+    "MFIZZ_NETBSD", "\uedfa",
+    "MFIZZ_NGINX", "\uedfb",
+    "MFIZZ_NGINX_ALT", "\uedfc",
+    "MFIZZ_NGINX_ALT2", "\uedfd",
+    "MFIZZ_NODEJS", "\uedfe",
+    "MFIZZ_NPM", "\uedff",
+    "MFIZZ_OBJC", "\uee00",
+    "MFIZZ_OPENSHIFT", "\uee01",
+    "MFIZZ_ORACLE", "\uee02",
+    "MFIZZ_ORACLE_ALT", "\uee03",
+    "MFIZZ_OSX", "\uee04",
+    "MFIZZ_PERL", "\uee05",
+    "MFIZZ_PHONE_ALT", "\uee06",
+    "MFIZZ_PHONE_GAP", "\uee07",
+    "MFIZZ_PHONE_RETRO", "\uee08",
+    "MFIZZ_PHP", "\uee09",
+    "MFIZZ_PHP_ALT", "\uee0a",
+    "MFIZZ_PLAYFRAMEWORK", "\uee0b",
+    "MFIZZ_PLAYFRAMEWORK_ALT", "\uee0c",
+    "MFIZZ_PLONE", "\uee0d",
+    "MFIZZ_POSTGRES", "\uee0e",
+    "MFIZZ_POSTGRES_ALT", "\uee0f",
+    "MFIZZ_PYTHON", "\uee10",
+    "MFIZZ_RASPBERRYPI", "\uee11",
+    "MFIZZ_REACTJS", "\uee12",
+    "MFIZZ_REDHAT", "\uee13",
+    "MFIZZ_REDIS", "\uee14",
+    "MFIZZ_RUBY", "\uee15",
+    "MFIZZ_RUBY_ON_RAILS", "\uee16",
+    "MFIZZ_RUBY_ON_RAILS_ALT", "\uee17",
+    "MFIZZ_RUST", "\uee18",
+    "MFIZZ_SASS", "\uee19",
+    "MFIZZ_SATELLITE", "\uee1a",
+    "MFIZZ_SCALA", "\uee1b",
+    "MFIZZ_SCALA_ALT", "\uee1c",
+    "MFIZZ_SCRIPT", "\uee1d",
+    "MFIZZ_SCRIPT_ALT", "\uee1e",
+    "MFIZZ_SHELL", "\uee1f",
+    "MFIZZ_SITEFINITY", "\uee20",
+    "MFIZZ_SOLARIS", "\uee21",
+    "MFIZZ_SPLATTER", "\uee22",
+    "MFIZZ_SPRING", "\uee23",
+    "MFIZZ_SUSE", "\uee24",
+    "MFIZZ_SVG", "\uee25",
+    "MFIZZ_SYMFONY", "\uee26",
+    "MFIZZ_TOMCAT", "\uee27",
+    "MFIZZ_UBUNTU", "\uee28",
+    "MFIZZ_UNITY", "\uee29",
+    "MFIZZ_WIRELESS", "\uee2a",
+    "MFIZZ_WORDPRESS", "\uee2b",
+    "MFIZZ_X11", "\uee2c",
+    "FIRACODE_ASTERISK", "\uee2d",
+    "FIRACODE_PLUS", "\uee2e",
+    "FIRACODE_HYPHEN", "\uee2f",
+    "FIRACODE_SAD", "\uee30",
+    "FIRACODE_W_W_W", "\uee31",
+    "FIRACODE_ASTERISK_ASTERISK", "\uee32",
+    "FIRACODE_ASTERISK_ASTERISK_ASTERISK", "\uee33",
+    "FIRACODE_ASTERISK_ASTERISK_SLASH", "\uee34",
+    "FIRACODE_ASTERISK_GREATER", "\uee35",
+    "FIRACODE_ASTERISK_SLASH", "\uee36",
+    "FIRACODE_BACKSLASH_BACKSLASH", "\uee37",
+    "FIRACODE_BBB", "\uee38",
+    "FIRACODE_BRACELEFT_HYPHEN", "\uee39",
+    "FIRACODE_BRACKETLEFT_BRACKETRIGHT", "\uee3a",
+    "FIRACODE_COLON_COLON", "\uee3b",
+    "FIRACODE_COLON_COLON_COLON", "\uee3c",
+    "FIRACODE_COLON_EQUAL", "\uee3d",
+    "FIRACODE_EXCLAM_EXCLAM", "\uee3e",
+    "FIRACODE_EXCLAM_EQUAL", "\uee3f",
+    "FIRACODE_EXCLAM_EQUAL_EQUAL", "\uee40",
+    "FIRACODE_HYPHEN_BRACERIGHT", "\uee41",
+    "FIRACODE_HYPHEN_HYPHEN", "\uee42",
+    "FIRACODE_HYPHEN_HYPHEN_HYPHEN", "\uee43",
+    "FIRACODE_HYPHEN_HYPHEN_GREATER", "\uee44",
+    "FIRACODE_HYPHEN_GREATER", "\uee45",
+    "FIRACODE_HYPHEN_GREATER_GREATER", "\uee46",
+    "FIRACODE_HYPHEN_LESS", "\uee47",
+    "FIRACODE_HYPHEN_LESS_LESS", "\uee48",
+    "FIRACODE_HYPHEN_ASCIITILDE", "\uee49",
+    "FIRACODE_NUMBERSIGN_BRACELEFT", "\uee4a",
+    "FIRACODE_NUMBERSIGN_BRACKETLEFT", "\uee4b",
+    "FIRACODE_NUMBERSIGN_NUMBERSIGN", "\uee4c",
+    "FIRACODE_NNN", "\uee4d",
+    "FIRACODE_NNNN", "\uee4e",
+    "FIRACODE_NUMBERSIGN_PARENLEFT", "\uee4f",
+    "FIRACODE_NUMBERSIGN_QUESTION", "\uee50",
+    "FIRACODE_NUMBERSIGN_UNDERSCORE", "\uee51",
+    "FIRACODE_NUP", "\uee52",
+    "FIRACODE_PERIOD_HYPHEN", "\uee53",
+    "FIRACODE_PERIOD_EQUAL", "\uee54",
+    "FIRACODE_PERIOD_PERIOD", "\uee55",
+    "FIRACODE_PERIOD_PERIOD_LESS", "\uee56",
+    "FIRACODE_PERIOD_PERIOD_PERIOD", "\uee57",
+    "FIRACODE_QUESTION_EQUAL", "\uee58",
+    "FIRACODE_QUESTION_QUESTION", "\uee59",
+    "FIRACODE_SEMICOLON_SEMICOLON", "\uee5a",
+    "FIRACODE_SLASH_ASTERISK", "\uee5b",
+    "FIRACODE_SLASH_ASTERISK_ASTERISK", "\uee5c",
+    "FIRACODE_SLASH_EQUAL", "\uee5d",
+    "FIRACODE_SLASH_EQUAL_EQUAL", "\uee5e",
+    "FIRACODE_SLASH_GREATER", "\uee5f",
+    "FIRACODE_SLASH_SLASH", "\uee60",
+    "FIRACODE_SLASH_SLASH_SLASH", "\uee61",
+    "FIRACODE_AMPERSAND_AMPERSAND", "\uee62",
+    "FIRACODE_BAR_BAR", "\uee63",
+    "FIRACODE_BAR_BAR_EQUAL", "\uee64",
+    "FIRACODE_BAR_EQUAL", "\uee65",
+    "FIRACODE_BAR_GREATER", "\uee66",
+    "FIRACODE_ASCIICIRCUM_EQUAL", "\uee67",
+    "FIRACODE_DOLLAR_GREATER", "\uee68",
+    "FIRACODE_PLUS_PLUS", "\uee69",
+    "FIRACODE_PLUS_PLUS_PLUS", "\uee6a",
+    "FIRACODE_PLUS_GREATER", "\uee6b",
+    "FIRACODE_EQUAL_COLON_EQUAL", "\uee6c",
+    "FIRACODE_EQUAL_EQUAL", "\uee6d",
+    "FIRACODE_EQUAL_EQUAL_EQUAL", "\uee6e",
+    "FIRACODE_EQUAL_EQUAL_GREATER", "\uee6f",
+    "FIRACODE_EQUAL_GREATER", "\uee70",
+    "FIRACODE_EQUAL_GREATER_GREATER", "\uee71",
+    "FIRACODE_EQUAL_LESS", "\uee72",
+    "FIRACODE_EQUAL_LESS_LESS", "\uee73",
+    "FIRACODE_EQUAL_SLASH_EQUAL", "\uee74",
+    "FIRACODE_GREATER_HYPHEN", "\uee75",
+    "FIRACODE_GREATER_EQUAL", "\uee76",
+    "FIRACODE_GREATER_EQUAL_GREATER", "\uee77",
+    "FIRACODE_GREATER_GREATER", "\uee78",
+    "FIRACODE_GREATER_GREATER_HYPHEN", "\uee79",
+    "FIRACODE_GREATER_GREATER_EQUAL", "\uee7a",
+    "FIRACODE_GREATER_GREATER_GREATER", "\uee7b",
+    "FIRACODE_LESS_ASTERISK", "\uee7c",
+    "FIRACODE_LESS_ASTERISK_GREATER", "\uee7d",
+    "FIRACODE_LESS_BAR", "\uee7e",
+    "FIRACODE_LESS_BAR_GREATER", "\uee7f",
+    "FIRACODE_LESS_DOLLAR", "\uee80",
+    "FIRACODE_LESS_DOLLAR_GREATER", "\uee81",
+    "FIRACODE_LESS_EXCLAM_HYPHEN_HYPHEN", "\uee82",
+    "FIRACODE_LESS_HYPHEN", "\uee83",
+    "FIRACODE_LESS_HYPHEN_HYPHEN", "\uee84",
+    "FIRACODE_LESS_HYPHEN_GREATER", "\uee85",
+    "FIRACODE_LESS_PLUS", "\uee86",
+    "FIRACODE_LESS_PLUS_GREATER", "\uee87",
+    "FIRACODE_LESS_EQUAL", "\uee88",
+    "FIRACODE_LESS_EQUAL_EQUAL", "\uee89",
+    "FIRACODE_LESS_EQUAL_GREATER", "\uee8a",
+    "FIRACODE_LESS_EQUAL_LESS", "\uee8b",
+    "FIRACODE_LESS_GREATER", "\uee8c",
+    "FIRACODE_LESS_LESS", "\uee8d",
+    "FIRACODE_LESS_LESS_HYPHEN", "\uee8e",
+    "FIRACODE_LESS_LESS_EQUAL", "\uee8f",
+    "FIRACODE_LESS_LESS_LESS", "\uee90",
+    "FIRACODE_LESS_ASCIITILDE", "\uee91",
+    "FIRACODE_LESS_ASCIITILDE_ASCIITILDE", "\uee92",
+    "FIRACODE_LESS_SLASH", "\uee93",
+    "FIRACODE_LESS_SLASH_GREATER", "\uee94",
+    "FIRACODE_ASCIITILDE_AT", "\uee95",
+    "FIRACODE_ASCIITILDE_HYPHEN", "\uee96",
+    "FIRACODE_ASCIITILDE_EQUAL", "\uee97",
+    "FIRACODE_ASCIITILDE_GREATER", "\uee98",
+    "FIRACODE_ASCIITILDE_ASCIITILDE", "\uee99",
+    "FIRACODE_AAG", "\uee9a",
+    "FIRACODE_PERCENT_PERCENT", "\uee9b",
+    "FIRACODE_X_MULTIPLY", "\uee9c",
+    "FIRACODE_COLON_UC", "\uee9d",
+    "FIRACODE_PLUS_LC", "\uee9e",
+    "FIRACODE_PLUS_TOSF2", "\uee9f",
+    "FIRACODE_NAMEME_1114119", "\ueea0"
+};

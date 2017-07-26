@@ -7,6 +7,7 @@
 #include <unistd.h> //getpid
 #include <stdio.h>
 #include "common.h"
+#include "icons-in-terminal.h"
 
 void catch_signals(void) {
 	struct sigaction action, done;
@@ -100,6 +101,8 @@ char *curdir(void){
 }
 
 void set_environment(void) {
+	unsigned long int i, len;
+
 
 	SENV("C_RST","%{F-}");
 	SENV("C_BG","%{F#383a3b}");
@@ -113,6 +116,13 @@ void set_environment(void) {
 	SENV("F_LEMON",_FLEMON);
 	SENV("F_UUSHI",_FUUSHI);
 	SENV("F_SIJI",_FSIJI);
+
+	len = sizeof(envs)/sizeof(char *);
+	len = len/2;
+
+	for (i=0; i<len; i++){
+		SENV(envs[i],envs[i+1]);
+	}
 
 	SENV("ic_lock","\ue0a2");
 	//lemon & uushi lock: 2b46 (lemon also 2baa)
