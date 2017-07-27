@@ -43,7 +43,7 @@ main() {
 	while :; do
 		#per-core percentage
 		percs="$(top -bn 2 -w 512 | grep "%Cpu" | tail -n $cpucount | awk '{print $4}' | tr -d '\:\|\[\],')"
-		buf="${C_TITLE}%{A:$curdir/popups/cpu:}%{A3:$curdir/popups/cpu q:}${MD_MEMORY}%{A}%{A}${C_RST} "
+		buf="${C_TITLE}%{A:$curdir/popups/cpu:}%{A3:$curdir/popups/cpu q:}${STAT_CPU}%{A}%{A}${C_RST} "
 
 		i=0 
 		for proc in $percs; do

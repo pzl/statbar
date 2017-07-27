@@ -3732,10 +3732,10 @@ const char * envs[] = {
     "FIRACODE_PLUS_LC", "\uee9e",
     "FIRACODE_PLUS_TOSF2", "\uee9f",
     "FIRACODE_NAMEME_1114119", "\ueea0",
-    "STATBAR_EXTENSIONS_PACMAN", "\ueea1",
-    "STATBAR_EXTENSIONS_CPU", "\ueea2",
-    "STATBAR_EXTENSIONS_GPU", "\ueea3",
-    "STATBAR_EXTENSIONS_RAM", "\ueea4",
+    "STAT_PACMAN", "\ueea1",
+    "STAT_CPU", "\ueea2",
+    "STAT_GPU", "\ueea3",
+    "STAT_RAM", "\ueea4",
     NULL
 };
 

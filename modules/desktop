@@ -76,6 +76,7 @@ def single_app_icon(desktop):
 		elif "instagram" in title: return "FA_INSTAGRAM"
 		elif "bitbucket" in title: return "FA_BITBUCKET"
 		#elif "*" in title and "slack" in title: COLOR THE SLACK!
+		#elif "!" in title and "slack" in title: COLOR THE SLACK EVEN MORE!
 		elif "slack" in title: return "FA_SLACK"
 		elif "google search" in title: return "FA_GOOGLE"
 		elif "codepen" in title: return "FA_CODEPEN"
