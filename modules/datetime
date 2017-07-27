@@ -8,7 +8,7 @@ curdir="$(dirname "$(readlink -f "$0")")"
 readonly pop_text="$<color 708090>$<time %Z\:>$<color>$<time %l\:%M\:%S %p %a, %b %e >\\\n$<color 708090>$<utime %Z\:>$<color>$<utime %H\:%M\:%S    %a, %b %e >"
 
 showdate() {
-	echo -e "${C_TITLE}%{A:conkup '$pop_text':}%{A3:conkup '$<exec cal>':}${ic_clock}%{A}%{A}${C_RST} $(date +"%-l:%M %p %a %-m/%-e")"
+	echo -e "${C_TITLE}%{A:conkup '$pop_text':}%{A3:conkup '$<exec cal>':}${OCT_WATCH}%{A}%{A}${C_RST} $(date +"%-l:%M %p %a %-m/%-e")"
 }
 
 showdate # give current time while waiting for minute change

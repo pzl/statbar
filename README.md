@@ -13,9 +13,7 @@ Requirements
 Fonts I'm using:
 
 - Terminus (for text)
-- [Lemon](https://github.com/phallus/fonts) for icons (not related to lemonboy/lemonbar)
-- [Uushi](https://github.com/phallus/fonts) for more icons
-- [Siji](https://github.com/gstk/siji) for even more icons.
+- [icons-in-terminal](https://github.com/pzl/icons-in-terminal) for icons
 
 Fonts are specified in `src/client.c` when spawning lemonbar. Change to whatever font string you'd use.
 

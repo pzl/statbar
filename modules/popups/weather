@@ -11,56 +11,41 @@ import json
 import re
 import subprocess
 
-def make(font, character):
-    return "{}{}{}".format("${font "+' '.join(font.split('_')[1:]).title()+"}",character,'${font }')
 
 
-class Sun(object):
-	#small = make("F_benis_uushi","\u2600")
-	#tiny = make("F_artwiz_lemon","\u2600")
-	night=make("F_Wuncon_Siji","\ue233")
-	def __str__(self):
-		return make('F_Wuncon_Siji',"\ue234")
 
-class Precip(object):
-	thunder = make("F_Wuncon_Siji","\ue22c")
-	hard = make("F_Wuncon_Siji","\ue22f")
-	snow = make("F_Wuncon_Siji","\ue22e")
-	alt = make("F_Wuncon_Siji","\ue22d")
-	#umbrella=make("F_benis_uushi","\u2602")
-	def __str__(self):
-		return make("F_Wuncon_Siji","\ue230")
+class Moon(object):
+	crescent = "FA_MOON_O"
 
-class Danger(object):
-	water_spout=make("F_Wuncon_Siji","\ue083")
-	tornado=make("F_Wuncon_Siji","\ue027")
-	rot_watch=make("F_Wuncon_Siji","\ue1c0")
-	rot_warn=make("F_Wuncon_Siji","\ue1c1")
-	rot_doom=make("F_Wuncon_Siji","\ue100")
+	rise = "WEATHER_MOONRISE"
+	set = "WEATHER_MOONSET"
 
-	#low_vis=make("F_benis_uushi","\u2b5f")
-	low_vis=make("F_Wuncon_Siji","\ue196")
-	heat=make("F_Wuncon_Siji","\ue01b")
-	cold=make("F_Wuncon_Siji","\ue0cf")
-	blizzard="{}{}".format(make("F_Wuncon_Siji","\ue0ae"),Precip.snow)
+	new="WEATHER_MOON_NEW"
+	full="WEATHER_MOON_FULL"
+	quarter="WEATHER_MOON_FIRST_QUARTER"
+	third="WEATHER_MOOON_THIRD_QUARTER"
 
-class Cloudy(object):
-	partial = make("F_Wuncon_Siji","\ue231")
-	partial_night= make("F_Wuncon_Siji","\ue232")
-	#small = make("F_benis_uushi","\u2601")
-	#tiny = make("F_artwiz_lemon","\u2601")
-	def __str__(self):
-		return make("F_Wuncon_Siji","\ue22b")
+	def current(self):
+		return self.new
+
 
 class Icon(object):
-	sun = Sun()
-	cloudy = Cloudy()
-	windy = make("F_Wuncon_Siji","\ue235")
-	precip = Precip()
-	danger = Danger()
-	unknown=make("F_Wuncon_Siji","\ue1b6") #it's a bug!
-	up=make("F_Wuncon_Siji","\ue12b")
-	down=make("F_Wuncon_Siji","\ue12c")
+	moon = Moon()
+	unknown="WEATHER_ALIEN" #it's a bug!
+	_up="OCT_ARROW_UP"
+	_down="OCT_ARROW_DOWN"
+
+	@classmethod
+	def up(cls):
+		return cls.icn(cls._up)
+
+	@classmethod
+	def down(cls):
+		return cls.icn(cls._down)
+
+	@classmethod
+	def icn(cls,icon):
+		return '${font icons\\\-in\\\-terminal}'+os.environ[icon]+'${font }'
 
 	@classmethod
 	def map(cls,status,second=False):
@@ -83,64 +68,79 @@ class Icon(object):
 		icon = re.sub(r'\d+','',icon) #remove percentage chances, e.g. hi_tsra60
 
 		if icon in _icon_mapping:
-			return _icon_mapping[icon]
+			return cls.icn(_icon_mapping[icon])
 		elif icon[0] == "n" and icon[1:] in _icon_mapping: #got night version, no night icon to use
-			return _icon_mapping[icon[1:]]
+			return cls.icn(_icon_mapping[icon[1:]])
 		elif re.sub('_n','_',icon) in _icon_mapping: #sometimes the night flag is after an underscore
-			return _icon_mapping[re.sub('_n','_',icon)]
+			return cls.icn(_icon_mapping[re.sub('_n','_',icon)])
 		else:
-			return cls.unknown
+			return cls.icn(cls.unknown)
 			
 				
 """ see http://www.weather.gov/forecast-icons for list and explanation """
 _icon_mapping = {
-	'skc': str(Icon.sun), #Fair
-	 'nskc': Icon.sun.night, #Night, Fair
-	'few': Icon.sun, #.small, #few clouds
-	 'nfew': Icon.sun.night, #Night, few clouds
-	'sct': Icon.cloudy.partial, #partly cloudy/scattered
-	 'nsct': Icon.cloudy.partial_night, #Night, partly/scattered
-	'bkn': Icon.cloudy.partial, #mostly cloudy/broken
-	 'nbkn': Icon.cloudy.partial_night, #Night, mostly cloudy/broken
-	'ovc': str(Icon.cloudy), #Overcast
-	'sn': Icon.precip.snow, #Snow
-	'ra_sn': Icon.precip.alt, #Rain Snow
-	'raip': Icon.precip.alt, #Ran Ice Pellets
-	'fzra': Icon.precip.alt, #Freezing rain
-	'ra_fzra': Icon.precip.alt, #Freezing Rain + Rain
-	'fzra_sn': Icon.precip.alt, #Freezing rain + Snow
-	'ip': Icon.precip.alt, #Ice pellets
-	'snip': Icon.precip.alt, #Snow + Ice Pellets
-	'minus_ra': str(Icon.precip), #Light rain
-	'ra': str(Icon.precip), #Rain
-	'shra': str(Icon.precip), #Rain showers (cloudy)
-	'hi_shwrs': str(Icon.precip), #Rain showers (some clouds)
-	'tsra': Icon.precip.thunder, #Thunderstorm (cloudy)
-	'scttsra': Icon.precip.thunder, #Thunderstorm (some clouds)
-	'hi_tsra': Icon.precip.thunder, #Thunderstorm (few clouds)
-	'fc': Icon.danger.water_spout, #Funnel Cloud
-	'tor': Icon.danger.tornado, #Tornado
-	'hur_warn': Icon.danger.rot_warn, #Hurricane Warning
-	'hur_watch': Icon.danger.rot_watch, #Hurricane Watch
-	'ts_warn': Icon.danger.rot_warn, #Tropical Storm Warning
-	'ts_watch': Icon.danger.rot_watch, #Tropical Storm Watch
-	'ts_nowarn': Icon.danger.rot_doom, #Tropical Storm + Hurricane
-	'wind_skc': Icon.windy, #Windy, clear
-	'wind_few': Icon.windy, #Windy, Few clouds
-	'wind_sct': Icon.windy, #Windy, partly cloudy
-	'wind_bkn': Icon.windy, #Windy, mostly cloudy
-	'wind_ovc': Icon.windy, #Windy, overcast
-	'du': Icon.danger.low_vis, #Dusty
-	'fu': Icon.danger.low_vis, #Smoke
-	'hz': Icon.danger.low_vis, #Haze
-	'hot': Icon.danger.heat, #Hot
-	'cold': Icon.danger.cold, #Cold
-	'blizzard': Icon.danger.blizzard, #Blizzard
-	'fg': Icon.danger.low_vis, #Fog/Mist
+	'skc': "FA_SUN_O", #Fair
+	 'nskc': Icon.moon.current(), #Night, Fair
+	'few': "WEATHER_DAY_SUNNY_OVERCAST", #few clouds
+	 'nfew': "WEATHER_NIGHT_ALT_PARTLY_CLOUDY", #Night, few clouds
+	'sct': "WEATHER_DAY_CLOUDY", #partly cloudy/scattered
+	 'nsct': "WEATHER_NIGHT_ALT_CLOUDY", #Night, partly/scattered
+	'bkn': "WEATHER_CLOUD", #mostly cloudy/broken
+	'ovc': "WEATHER_CLOUDY", #Overcast
+
+	'sn': "WEATHER_DAY_SNOW", #Snow
+	 'nsn': "WEATHER_NIGHT_ALT_SNOW",
+	'ra_sn': "WEATHER_RAIN_MIX", #Rain Snow
+	'raip': "WEATHER_RAIN_MIX", #Ran Ice Pellets
+	'fzra': "WEATHER_RAIN_MIX", #Freezing rain
+	'ra_fzra': "WEATHER_RAIN_MIX", #Freezing Rain + Rain
+	'fzra_sn': "WEATHER_RAIN_MIX", #Freezing rain + Snow
+	'ip': "WEATHER_RAIN_MIX", #Ice pellets
+	'snip': "WEATHER_RAIN_MIX", #Snow + Ice Pellets
+
+	'minus_ra': "WEATHER_RAINDROPS", #Light rain
+	'ra': "WEATHER_RAINDROP", #Rain
+	'shra': "WEATHER_DAY_RAIN", #Rain showers (cloudy)
+	 'nshra': "WEATHER_NIGHT_ALT_RAIN",
+	'hi_shwrs': "WEATHER_DAY_RAIN", #Rain showers (few clouds)
+	 'hi_nshwrs': "WEATHER_NIGHT_ALT_RAIN",
+
+	'tsra': "WEATHER_THUNDERSTORM", #Thunderstorm (cloudy)
+	'scttsra': "WEATHER_DAY_THUNDERSTORM", #Thunderstorm (some clouds)
+	 'nscttsra': "WEATHER_NIGHT_ALT_THUNDERSTORM",
+	'hi_tsra': "WEATHER_DAY_SNOW_THUNDERSTORM", #Thunderstorm (few clouds)
+	 'hi_ntsra': "WEATHER_NIGHT_ALT_SNOW_THUNDERSTORM",
+
+	'fc': "WEATHER_TORNADO", #Funnel Cloud
+	'tor': "WEATHER_TORNADO", #Tornado
+	'hur_warn': "WEATHER_HURRICANE_WARNING", #Hurricane Warning
+	'hur_watch': "WEATHER_STORM_WARNING", #Hurricane Watch
+	'ts_warn': "WEATHER_GALE_WARNING", #Tropical Storm Warning
+	'ts_watch': "WEATHER_SMALL_AIRCRAFT_ADVISORY", #Tropical Storm Watch
+	'ts_nowarn': "WEATHER_HURRICANE", #Tropical Storm + Hurricane
+
+	'wind_skc': "WEATHER_DAY_WINDY", #Windy, clear
+	'wind_few': "WEATHER_DAY_LIGHT_WIND", #Windy, Few clouds
+	'wind_sct': "WEATHER_DAY_CLOUDY_GUSTS", #Windy, partly cloudy
+	'wind_bkn': "WEATHER_CLOUDY_GUSTS", #Windy, mostly cloudy
+	'wind_ovc': "WEATHER_CLOUDY_WINDY", #Windy, overcast
+	'nwind_skc': "WEATHER_STRONG_WIND", #Windy, clear
+	'nwind_few': "WEATHER_STRONG_WIND", #Windy, Few clouds
+	'nwind_sct': "WEATHER_NIGHT_CLOUDY_GUSTS", #Windy, partly cloudy
+	'nwind_bkn': "WEATHER_NIGHT_CLOUDY_WINDY", #Windy, mostly cloudy
+
+	'du': "WEATHER_DUST", #Dusty
+	'fu': "WEATHER_SMOKE", #Smoke
+	'hz': "WEATHER_DAY_HAZE", #Haze
+	'hot': "WEATHER_HOT", #Hot
+	'cold': "WEATHER_SNOWFLAKE_COLD", #Cold
+	'blizzard': "WEATHER_SANDSTORM", #Blizzard
+	'fg': "WEATHER_FOG", #Fog/Mist
+	'nfg': "WEATHER_NIGHT_FOG",
 	#extras from old icon system, not in above list but go to valid images
-	'mix': Icon.precip.snow, #Wintry Mix
-	'rasn': Icon.precip.alt, #Another form of Rain-Snow?
-	'wind': Icon.windy #Windy
+	'mix': "WEATHER_RAIN_MIX", #Wintry Mix
+	'rasn': "WEATHER_RAIN_MIX", #Another form of Rain-Snow?
+	'wind': "WEATHER_WINDY" #Windy
 
 }
 
@@ -195,11 +195,11 @@ buf += "{title}{icon}{reset} {temp}°F {condition}\n".format(**{
         })
 buf += "${alignc}${color 708090}Forecast${color}\n"
 for idx,item in enumerate(data['time']['startPeriodName']):
-	buf += "{icolor}{icon}{reset}{tcolor}{time:15}{reset} {hl}{temp}{reset}°F\n{icolor}{dualicon}{reset}{condition}\n{bar}\n".format(**{
+	buf += "{icolor}{icon}{reset} {tcolor}{time:15}{reset} {hl}{temp}{reset}°F\n{icolor}{dualicon}{reset} {condition}\n{bar}\n".format(**{
 	        	'icon': Icon.map(data['data']['iconLink'][idx]),
 	        	'dualicon': Icon.map(data['data']['iconLink'][idx],True) if Icon.map(data['data']['iconLink'][idx],True) else '   ',
 	        	'time': item,
-	        	'hl': "${color CC5333}"+Icon.up if data['time']['tempLabel'][idx].lower() == "high" else "${color 4397B4}"+Icon.down,
+	        	'hl': "${color CC5333}"+Icon.up() if data['time']['tempLabel'][idx].lower() == "high" else "${color 4397B4}"+Icon.down(),
 	        	'temp': data['data']['temperature'][idx],
 	        	'condition': data['data']['weather'][idx],
 	        	'icolor': '${color A5BBD2}',
@@ -215,4 +215,4 @@ buf += "\n\n\n${hr}" #add padding to the end, since things were getting cut off 
 X=int(os.environ['MOUSE_X'])
 os.environ['MOUSE_X'] = str(X-85)
 
-subprocess.call(["conkup",buf,"20","20"])
+subprocess.call(["conkup",buf,"35","35"])

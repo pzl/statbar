@@ -20,10 +20,7 @@
 
 #define _FRESET "%{T-}"
 #define _FTERM "%{T1}"
-#define _FLEMON "%{T2}"
-#define _FUUSHI "%{T3}"
-#define _FSIJI "%{T4}"
-#define _FICON "%{T5}"
+#define _FICON "%{T2}"
 
 #define SENV(e,v) do { if (setenv(e,v,1) < 0) { perror("setenv"); } } while (0)
 

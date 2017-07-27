@@ -6,8 +6,8 @@
 #include <stdlib.h> //exit, setenv
 #include <unistd.h> //getpid
 #include <stdio.h>
-#include "common.h"
 #include "icons-in-terminal.h"
+#include "common.h"
 
 void catch_signals(void) {
 	struct sigaction action, done;
@@ -101,7 +101,7 @@ char *curdir(void){
 }
 
 void set_environment(void) {
-	unsigned long int i, len;
+	const char **icon;
 
 
 	SENV("C_RST","%{F-}");
@@ -113,73 +113,11 @@ void set_environment(void) {
 
 	SENV("F_RESET",_FRESET);
 	SENV("F_TERM",_FTERM);
-	SENV("F_LEMON",_FLEMON);
-	SENV("F_UUSHI",_FUUSHI);
-	SENV("F_SIJI",_FSIJI);
+	SENV("F_ICON",_FICON);
 
-	len = sizeof(envs)/sizeof(char *);
-	len = len/2;
-
-	for (i=0; i<len; i++){
-		SENV(envs[i],envs[i+1]);
+	for (icon = envs; *icon; icon+=2){
+		SENV(*icon, *(icon+1));
 	}
-
-	SENV("ic_lock","\ue0a2");
-	//lemon & uushi lock: 2b46 (lemon also 2baa)
-	SENV("ic_fail","\u2717");
-	SENV("ic_discon","\u2300");
-	SENV("ic_warn",_FSIJI "\ue077" _FRESET );
-
-	SENV("ic_arch",_FSIJI "\ue00e" _FRESET );
-
-	SENV("ic_pacman",_FSIJI "\ue00f" _FRESET );
-	SENV("ic_pacman_small",_FSIJI "\ue14d" _FRESET );
-	SENV("ic_pacman_tiny",_FSIJI "\ue0a0" _FRESET );
-	SENV("ic_pacman_puny",_FLEMON "\u2ba2" _FRESET );
-
-	SENV("ic_clock", _FSIJI "\ue015" _FRESET);
-	SENV("ic_clock_small",_FSIJI "\ue0a3" _FRESET );
-	SENV("ic_clock_tiny",_FSIJI "\ue0a2" _FRESET );
-
-	SENV("ic_chip",_FSIJI "\ue021" _FRESET );
-	SENV("ic_chip_small",_FSIJI "\ue020" _FRESET );
-	SENV("ic_chip_small_inv",_FSIJI "\ue0c5" _FRESET );
-	SENV("ic_chip_tiny",_FSIJI "\ue028" _FRESET );
-	SENV("ic_chip_tiny_inv",_FSIJI "\ue0c4" _FRESET );
-	SENV("ic_chip_puny",_FUUSHI "\u2b66" _FRESET );
-	SENV("ic_chip_micro",_FLEMON "\u2ba1" _FRESET );
-	SENV("ic_chip_micro_vert",_FLEMON "\u2bbd" _FRESET );
-
-	SENV("ic_network",_FSIJI "\ue0f3" _FRESET );
-	SENV("ic_blth",_FSIJI "\ue00b" _FRESET );
-	SENV("ic_blth_small",_FSIJI "\ue1b5" _FRESET );
-	SENV("ic_blth_tiny",_FSIJI "\ue0b0" _FRESET );
-
-	SENV("ic_cpu",_FSIJI "\ue026" _FRESET );
-
-	SENV("ic_transfer",_FSIJI "\ue13f" _FRESET );
-	SENV("ic_transfer_vert",_FSIJI "\ue10f" _FRESET );
-
-
-	SENV("ic_monitor", _FSIJI "\ue09f" _FRESET );
-
-	SENV("ic_graphics", _FSIJI "\ue1f5" _FRESET);
-
-	SENV("ic_music", _FSIJI "\ue1a6" _FRESET);
-	SENV("ic_headphones", _FSIJI "\ue04d" _FRESET);
-	SENV("ic_quarter_note", _FUUSHI "\u2669" _FRESET);
-	SENV("ic_eighth_note", _FUUSHI "\u266a" _FRESET);
-	SENV("ic_dbl_quarter_note", _FSIJI "\ue05c" _FRESET);
-	SENV("ic_dbl_eighth_note", _FUUSHI "\u266c" _FRESET);
-	SENV("ic_play", _FSIJI "\ue058" _FRESET);
-	SENV("ic_pause", _FSIJI "\ue059" _FRESET);
-	SENV("ic_playpause", _FUUSHI "\u23ef" _FRESET);
-	SENV("ic_stop", _FSIJI "\ue057" _FRESET);
-	SENV("ic_ffwd", _FSIJI "\ue05b" _FRESET);
-	SENV("ic_rwd", _FSIJI "\ue055" _FRESET);
-	SENV("ic_skip", _FSIJI "\ue05a" _FRESET);
-	SENV("ic_back", _FSIJI "\ue054" _FRESET);
-
 }
 
 void set_env_coords(int x, int y){

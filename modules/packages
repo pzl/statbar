@@ -24,7 +24,7 @@ main(){
 		    pacaur_updates="${C_WARN}${pacaur_updates}${C_RST}"
 		    ic_color="${C_WARN}"
 		fi
-		echo -e "${ic_color}%{A:$curdir/popups/packages:}${ic_pacman}%{A}${C_RST} ${pacman_updates}|${pacaur_updates}"
+		echo -e "${ic_color}%{A:$curdir/popups/packages:}${STATBAR_EXTENSIONS_PACMAN}%{A}${C_RST} ${pacman_updates}|${pacaur_updates}"
 
 		sleep 1h
 	done

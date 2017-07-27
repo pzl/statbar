@@ -11,54 +11,29 @@ import os
 import json
 import re
 
-def make(font, character):
-	return "{}{}{}".format(os.environ[font],character,os.environ['F_RESET'])
 
 
-class Sun(object):
-	small = make("F_UUSHI","\u2600")
-	tiny = make("F_LEMON","\u2600")
-	night=make("F_SIJI","\ue233")
-	def __str__(self):
-		return make('F_SIJI',"\ue234")
+class Moon(object):
+	crescent = "FA_MOON_O"
 
-class Precip(object):
-	thunder = make("F_SIJI","\ue22c")
-	hard = make("F_SIJI","\ue22f")
-	snow = make("F_SIJI","\ue22e")
-	alt = make("F_SIJI","\ue22d")
-	umbrella=make("F_UUSHI","\u2602")
-	def __str__(self):
-		return make("F_SIJI","\ue230")
+	rise = "WEATHER_MOONRISE"
+	set = "WEATHER_MOONSET"
 
-class Danger(object):
-	""" 🌀  🌁 🌂 🌊 🌤 🌥 🌦 🌨 🌩 🌪 """
-	water_spout=make("F_SIJI","\ue083")
-	tornado=make("F_SIJI","\ue027")
-	rot_watch=make("F_SIJI","\ue1c0")
-	rot_warn=make("F_SIJI","\ue1c1")
-	rot_doom=make("F_SIJI","\ue100")
+	new="WEATHER_MOON_NEW"
+	full="WEATHER_MOON_FULL"
+	quarter="WEATHER_MOON_FIRST_QUARTER"
+	third="WEATHER_MOOON_THIRD_QUARTER"
 
-	low_vis=make("F_UUSHI","\u2b5f")
-	heat=make("F_SIJI","\ue01b")
-	cold=make("F_SIJI","\ue0cf")
-	blizzard="{}{}".format(make("F_SIJI","\ue0ae"),Precip.snow)
+	def current(self):
+		return self.new
 
-class Cloudy(object):
-	partial = make("F_SIJI","\ue231")
-	partial_night= make("F_SIJI","\ue232")
-	small = make("F_UUSHI","\u2601")
-	tiny = make("F_LEMON","\u2601")
-	def __str__(self):
-		return make("F_SIJI","\ue22b")
+
+
+
 
 class Icon(object):
-	sun = Sun()
-	cloudy = Cloudy()
-	windy = make("F_SIJI","\ue235")
-	precip = Precip()
-	danger = Danger()
-	unknown=make("F_SIJI","\ue1b6") #it's a bug!
+	moon = Moon()
+	unknown="WEATHER_ALIEN" #it's a bug!
 
 	@classmethod
 	def map(cls,status):
@@ -87,53 +62,68 @@ class Icon(object):
 				
 """ see http://www.weather.gov/forecast-icons for list and explanation """
 _icon_mapping = {
-	'skc': str(Icon.sun), #Fair
-	 'nskc': Icon.sun.night, #Night, Fair
-	'few': Icon.sun.tiny, #few clouds
-	 'nfew': Icon.sun.night, #Night, few clouds
-	'sct': Icon.cloudy.partial, #partly cloudy/scattered
-	 'nsct': Icon.cloudy.partial_night, #Night, partly/scattered
-	'bkn': Icon.cloudy.partial, #mostly cloudy/broken
-	 'nbkn': Icon.cloudy.partial_night, #Night, mostly cloudy/broken
-	'ovc': str(Icon.cloudy), #Overcast
-	'sn': Icon.precip.snow, #Snow
-	'ra_sn': Icon.precip.alt, #Rain Snow
-	'raip': Icon.precip.alt, #Ran Ice Pellets
-	'fzra': Icon.precip.alt, #Freezing rain
-	'ra_fzra': Icon.precip.alt, #Freezing Rain + Rain
-	'fzra_sn': Icon.precip.alt, #Freezing rain + Snow
-	'ip': Icon.precip.alt, #Ice pellets
-	'snip': Icon.precip.alt, #Snow + Ice Pellets
-	'minus_ra': str(Icon.precip), #Light rain
-	'ra': str(Icon.precip), #Rain
-	'shra': str(Icon.precip), #Rain showers (cloudy)
-	'hi_shwrs': str(Icon.precip), #Rain showers (some clouds)
-	'tsra': Icon.precip.thunder, #Thunderstorm (cloudy)
-	'scttsra': Icon.precip.thunder, #Thunderstorm (some clouds)
-	'hi_tsra': Icon.precip.thunder, #Thunderstorm (few clouds)
-	'fc': Icon.danger.water_spout, #Funnel Cloud
-	'tor': Icon.danger.tornado, #Tornado
-	'hur_warn': Icon.danger.rot_warn, #Hurricane Warning
-	'hur_watch': Icon.danger.rot_watch, #Hurricane Watch
-	'ts_warn': Icon.danger.rot_warn, #Tropical Storm Warning
-	'ts_watch': Icon.danger.rot_watch, #Tropical Storm Watch
-	'ts_nowarn': Icon.danger.rot_doom, #Tropical Storm + Hurricane
-	'wind_skc': Icon.windy, #Windy, clear
-	'wind_few': Icon.windy, #Windy, Few clouds
-	'wind_sct': Icon.windy, #Windy, partly cloudy
-	'wind_bkn': Icon.windy, #Windy, mostly cloudy
-	'wind_ovc': Icon.windy, #Windy, overcast
-	'du': Icon.danger.low_vis, #Dusty
-	'fu': Icon.danger.low_vis, #Smoke
-	'hz': Icon.danger.low_vis, #Haze
-	'hot': Icon.danger.heat, #Hot
-	'cold': Icon.danger.cold, #Cold
-	'blizzard': Icon.danger.blizzard, #Blizzard
-	'fg': Icon.danger.low_vis, #Fog/Mist
+	'skc': "FA_SUN_O", #Fair
+	 'nskc': Icon.moon.current(), #Night, Fair
+	'few': "WEATHER_DAY_SUNNY_OVERCAST", #few clouds
+	 'nfew': "WEATHER_NIGHT_ALT_PARTLY_CLOUDY", #Night, few clouds
+	'sct': "WEATHER_DAY_CLOUDY", #partly cloudy/scattered
+	 'nsct': "WEATHER_NIGHT_ALT_CLOUDY", #Night, partly/scattered
+	'bkn': "WEATHER_CLOUD", #mostly cloudy/broken
+	'ovc': "WEATHER_CLOUDY", #Overcast
+
+	'sn': "WEATHER_DAY_SNOW", #Snow
+	 'nsn': "WEATHER_NIGHT_ALT_SNOW",
+	'ra_sn': "WEATHER_RAIN_MIX", #Rain Snow
+	'raip': "WEATHER_RAIN_MIX", #Ran Ice Pellets
+	'fzra': "WEATHER_RAIN_MIX", #Freezing rain
+	'ra_fzra': "WEATHER_RAIN_MIX", #Freezing Rain + Rain
+	'fzra_sn': "WEATHER_RAIN_MIX", #Freezing rain + Snow
+	'ip': "WEATHER_RAIN_MIX", #Ice pellets
+	'snip': "WEATHER_RAIN_MIX", #Snow + Ice Pellets
+
+	'minus_ra': "WEATHER_RAINDROPS", #Light rain
+	'ra': "WEATHER_RAINDROP", #Rain
+	'shra': "WEATHER_DAY_RAIN", #Rain showers (cloudy)
+	 'nshra': "WEATHER_NIGHT_ALT_RAIN",
+	'hi_shwrs': "WEATHER_DAY_RAIN", #Rain showers (few clouds)
+	 'hi_nshwrs': "WEATHER_NIGHT_ALT_RAIN",
+
+	'tsra': "WEATHER_THUNDERSTORM", #Thunderstorm (cloudy)
+	'scttsra': "WEATHER_DAY_THUNDERSTORM", #Thunderstorm (some clouds)
+	 'nscttsra': "WEATHER_NIGHT_ALT_THUNDERSTORM",
+	'hi_tsra': "WEATHER_DAY_SNOW_THUNDERSTORM", #Thunderstorm (few clouds)
+	 'hi_ntsra': "WEATHER_NIGHT_ALT_SNOW_THUNDERSTORM",
+
+	'fc': "WEATHER_TORNADO", #Funnel Cloud
+	'tor': "WEATHER_TORNADO", #Tornado
+	'hur_warn': "WEATHER_HURRICANE_WARNING", #Hurricane Warning
+	'hur_watch': "WEATHER_STORM_WARNING", #Hurricane Watch
+	'ts_warn': "WEATHER_GALE_WARNING", #Tropical Storm Warning
+	'ts_watch': "WEATHER_SMALL_AIRCRAFT_ADVISORY", #Tropical Storm Watch
+	'ts_nowarn': "WEATHER_HURRICANE", #Tropical Storm + Hurricane
+
+	'wind_skc': "WEATHER_DAY_WINDY", #Windy, clear
+	'wind_few': "WEATHER_DAY_LIGHT_WIND", #Windy, Few clouds
+	'wind_sct': "WEATHER_DAY_CLOUDY_GUSTS", #Windy, partly cloudy
+	'wind_bkn': "WEATHER_CLOUDY_GUSTS", #Windy, mostly cloudy
+	'wind_ovc': "WEATHER_CLOUDY_WINDY", #Windy, overcast
+	'nwind_skc': "WEATHER_STRONG_WIND", #Windy, clear
+	'nwind_few': "WEATHER_STRONG_WIND", #Windy, Few clouds
+	'nwind_sct': "WEATHER_NIGHT_CLOUDY_GUSTS", #Windy, partly cloudy
+	'nwind_bkn': "WEATHER_NIGHT_CLOUDY_WINDY", #Windy, mostly cloudy
+
+	'du': "WEATHER_DUST", #Dusty
+	'fu': "WEATHER_SMOKE", #Smoke
+	'hz': "WEATHER_DAY_HAZE", #Haze
+	'hot': "WEATHER_HOT", #Hot
+	'cold': "WEATHER_SNOWFLAKE_COLD", #Cold
+	'blizzard': "WEATHER_SANDSTORM", #Blizzard
+	'fg': "WEATHER_FOG", #Fog/Mist
+	'nfg': "WEATHER_NIGHT_FOG",
 	#extras from old icon system, not in above list but go to valid images
-	'mix': Icon.precip.snow, #Wintry Mix
-	'rasn': Icon.precip.alt, #Another form of Rain-Snow?
-	'wind': Icon.windy #Windy
+	'mix': "WEATHER_RAIN_MIX", #Wintry Mix
+	'rasn': "WEATHER_RAIN_MIX", #Another form of Rain-Snow?
+	'wind': "WEATHER_WINDY" #Windy
 
 }
 
@@ -153,7 +143,7 @@ while True:
 		data = json.loads(data.read().decode())
 		output = "{title}{link_start}{icon}{link_end}{color_reset} {temp}°F".format(**{
 				'title': os.environ['C_TITLE'],
-				'icon': Icon.map(data['currentobservation']['Weatherimage']),
+				'icon': os.environ[Icon.map(data['currentobservation']['Weatherimage'])],
 				'color_reset': os.environ['C_RST'],
 				'temp': data['currentobservation']['Temp'],
 				'link_start': "%{A:"+os.path.join(os.path.dirname(os.path.realpath(__file__)),"popups/weather")+":}",

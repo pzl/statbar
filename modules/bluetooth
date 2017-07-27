@@ -18,12 +18,12 @@ main(){
 
         if echo "$info" | grep "UP RUNNING" >/dev/null 2>&1; then
             n_devices="$(hcitool con | tail -n +2 | wc -l)"
-            buf="${C_TITLE}%{A:$curdir/popups/bluetooth:}${ic_blth}%{A}${C_RST} ${n_devices}"
+            buf="${C_TITLE}%{A:$curdir/popups/bluetooth:}${MD_BLUETOOTH_CONNECTED}%{A}${C_RST} ${n_devices}"
 
         elif echo "$info" | grep "DOWN" >/dev/null 2>&1; then
-            buf="${C_DISABLE}${ic_blth}${C_RST}"
+            buf="${C_DISABLE}${MD_BLUETOOTH}${C_RST}"
         else
-            buf="${C_CAUTION}${ic_blth}${C_RST}"
+            buf="${C_CAUTION}${MD_BLUETOOTH_DISABLED}${C_RST}"
         fi
         echo -e "$buf"
         sleep 17m

@@ -32,9 +32,84 @@ def get_state():
 	del j['focusHistory']
 	return j
 
+def tiled_node(node):
+	return 0 if node['client'] and node['client']['state'] == 'floating' else 1
+
+# returns rows,columns
+def border_count(node):
+	if node['client']: return tiled_node(node)
+
+	rows,cols = 0,0
+	if node['splitType'] == 'vertical':
+		columns += border_count(node['firstChild']) + border_count(node['secondChild'])
+	else:
+		rows += border_count(node['firstChild']) + border_count(node['secondChild'])
+
+	return rows,cols
+
+
+def single_app_icon(desktop):
+	node = subprocess.run(["bspc","query","-N","-d",str(desktop['id'])],stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+	xprop = subprocess.run(["xprop","-id",node],stdout=subprocess.PIPE).stdout.decode('utf-8')
+
+	try:
+		window = re.findall("^WM_CLASS.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+	except IndexError:
+		window = ""
+	try:
+		title = re.findall("^WM_NAME.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
+	except IndexError:
+		title = ""
+
+	if window:
+		window = window.lower()
+	if title:
+		title = title.lower()
+
+	if window == "google-chrome":
+		if "reddit" in title: return "FA_REDDIT_ALIEN"
+		elif "at master" in title or "github" in title: return "FA_GITHUB_ALT"
+		elif "youtube" in title: return "FA_YOUTUBE_PLAY"
+		elif "inbox" in title or "mail" in title: return "MD_EMAIL"
+		elif "facebook" in title: return "FA_FACEBOOK_SQUARE"
+		elif "stack overflow" in title: return "FA_STACK_OVERFLOW"
+		elif "instagram" in title: return "FA_INSTAGRAM"
+		elif "bitbucket" in title: return "FA_BITBUCKET"
+		#elif "*" in title and "slack" in title: COLOR THE SLACK!
+		elif "slack" in title: return "FA_SLACK"
+		elif "google search" in title: return "FA_GOOGLE"
+		elif "codepen" in title: return "FA_CODEPEN"
+		elif "jsfiddle" in title: return "FA_JSFIDDLE"
+		elif "wikipedia" in title: return "FA_WIKIPEDIA_W"
+		elif "amazon web services" in title or "aws" in title or "management console" in title: return "MFIZZ_AWS"
+		elif "amazon" in title:	return "FA_AMAZON"
+		elif "jira" in title: return "DEV_JIRA"
+		else: return "FA_CHROME"
+	elif window == "firefox": return "FA_FIREFOX"
+	elif window == "terminator": return "MFIZZ_SHELL"
+	elif window == "blender": return "FILE_BLENDER"
+	elif window == "thunar": return "FA_FOLDER_OPEN"
+	elif window == "darktable": return "MD_CAMERA"
+	elif window == "viewnior" or window == "sxiv": return "FA_IMAGE"
+	elif window == "evince": return "OCT_FILE_PDF"
+	elif window == "openscad": return "FILE_SCAD"
+	elif window == "audacity": return "FILE_AUDACITY"
+	elif window == "kicad": return "FILE_KICAD"
+	elif window == "fontforge": return "FILE_FF"
+	elif window == "gvim": return "DEV_VIM"
+	elif window == "pronterface.py": return "MFIZZ_3DPRINT"
+	elif window == "vlc" or window == "gl": return "MD_LOCAL_MOVIES" # FA_FILM
+	elif window == "inkscape": return "MFIZZ_SVG" # a spade would work too
+
+	#did not find any app-specific icons, go with generic
+	if desktop['root']['client']['state'] == 'floating':
+		return "MD_FILTER_CENTER_FOCUS" # MD_PICTURE_IN_PICTURE_ALT
+	else:
+		return "FA_SQUARE"
+
 
 def parse_desktop(d,focused_d,focused_m):
-	s = "%%{A:bspc desktop -f "+str(d['id'])+":}%%{A3:bspc desktop "+str(d['id'])+" -r:}%s%s%s%%{A}%%{A}"
+	s = "%%{A:bspc desktop -f "+str(d['id'])+":}%%{A3:bspc desktop "+str(d['id'])+" -r:}%s%%{A}%%{A}"
 	if focused_d:
 		s = "%"+os.environ["C_RST"] + s + "%"+os.environ["C_TITLE"]
 		if focused_m:
@@ -43,95 +118,94 @@ def parse_desktop(d,focused_d,focused_m):
 
 	#empty desktop
 	if d['root'] is None:
-		return s % (os.environ["F_SIJI"],"\ue0e7",os.environ["F_RESET"])
+		return s % (os.environ["MD_CROP_FREE"],) # MD_FULLSCREEN or MD_CHECK_BOX_OUTLINE_BLANK
 
 	#single node
 	if d['root']['client'] is not None:
-		node = subprocess.run(["bspc","query","-N","-d",str(d['id'])],stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
-		xprop = subprocess.run(["xprop","-id",node],stdout=subprocess.PIPE).stdout.decode('utf-8')
-
-		try:
-			window = re.findall("^WM_CLASS.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
-		except IndexError:
-			window = ""
-		try:
-			title = re.findall("^WM_NAME.*=\s*\"([^\"]*)\"",xprop,re.MULTILINE)[0]
-		except IndexError:
-			title = ""
-
-		if window:
-			window = window.lower()
-		if title:
-			title = title.lower()
-
-		if window == "google-chrome":
-			if "reddit" in title:
-				return s % (os.environ["F_SIJI"],"\ue1e9",os.environ["F_RESET"])
-			elif "at master" in title:
-				return s % (os.environ["F_SIJI"],"\ue1d3",os.environ["F_RESET"])
-			elif "youtube" in title:
-				return s % (os.environ["F_SIJI"],"\ue1eb",os.environ["F_RESET"])
-			elif "inbox" in title or "mail" in title:
-				return s % (os.environ["F_SIJI"],"\ue229",os.environ["F_RESET"])
-			else:
-				return s % (os.environ["F_SIJI"],"\ue1a0",os.environ["F_RESET"])
-		elif window == "terminator":
-			return s % (os.environ["F_SIJI"],"\ue1ef",os.environ["F_RESET"])
-		elif window == "blender":
-			return s % (os.environ["F_SIJI"],"\ue1c0",os.environ["F_RESET"])
-		elif window == "thunar":
-			return s % (os.environ["F_SIJI"],"\ue1e1",os.environ["F_RESET"])
-		elif window == "darktable":
-			return s % (os.environ["F_SIJI"],"\ue1e7",os.environ["F_RESET"])
-		elif window == "viewnior" or window == "sxiv":
-			return s % (os.environ["F_SIJI"],"\ue1da",os.environ["F_RESET"])
-		elif window == "evince":
-			return s % (os.environ["F_SIJI"],"\ue1ed",os.environ["F_RESET"])
-		elif window == "vlc" or window == "gl": #mplayer
-			return s % (os.environ["F_SIJI"],"\ue1dd",os.environ["F_RESET"])
-		elif window == "inkscape":
-			return s % (os.environ["F_SIJI"],"\ue153",os.environ["F_RESET"])
-
-		#did not find any app-specific icons, go with generic
-		if d['root']['client']['state'] == 'floating':
-			return s % (os.environ["F_SIJI"],"\ue001",os.environ["F_RESET"])
-		else:
-			return s % (os.environ["F_SIJI"],"\ue000",os.environ["F_RESET"])
+		return s % (os.environ[single_app_icon(d)],)
 
 	n_clients = count_clients(d['root'])
 	n_floaters = count_floaters(d['root'])
 	n_horizontal = count_horiz(d['root'])
+	#borders = border_count(d['root'])
 
 	if n_clients == n_floaters:
-		return s % (os.environ["F_SIJI"],"\ue0b1",os.environ["F_RESET"])
+		return s % (os.environ["MD_FILTER_"+str(n_floaters) if n_floaters < 10 else "9_PLUS"],)
+
+
+	# MD_BURST_MODE  
+	# MD_DASHBOARD 
+	# MD_DNS  
+	# MD_FLIP_TO_BACK  
+	# MD_FLIP_TO_FRONT  
+
+	# FA_COLUMNS  
+
+	# MD_VIEW_COMPACT 
+	# MD_VIEW_COMFY  
+	# MD_VIEW_WEEK  
+	# MD_VIEW_STREAM  
+	# MD_VIEW_QUILT  
+	# MD_VIEW_MODULE  
+	# MD_VIEW_HEADLINE  
+	# MD_VIEW_DAY 
+	# MD_VIEW_COLUMN  
+	# MD_VIEW_AGENDA  
+	# MD_VIEW_ARRAY  
+
+
+	# LINEA_SOFTWARE_LAYOUT*
+
+	"""
+	   software_layout
+	   software_layout_2columns
+	   software_layout_3columns
+	   software_layout_4boxes
+	   software_layout_4columns
+	   software_layout_4lines
+	   software_layout_8boxes
+	   software_layout_header
+	   software_layout_header_2columns
+	   software_layout_header_3columns
+	   software_layout_header_4boxes
+	   software_layout_header_4columns
+	   software_layout_header_complex
+	   software_layout_header_complex2
+	   software_layout_header_complex3
+	   software_layout_header_complex4
+	   software_layout_header_sideleft
+	   software_layout_header_sideright
+	   software_layout_sidebar_left
+	   software_layout_sidebar_right
+	"""
 
 	if n_clients == 2:
 		if n_floaters == 1:
-			return s % (os.environ["F_SIJI"],"\ue006",os.environ["F_RESET"])
+			return s % (os.environ["MD_FLIP_TO_FRONT"],)
 		if n_floaters == 0:
 			if d['root']['splitType'] == 'vertical':
-				return s % (os.environ["F_SIJI"],"\ue26b",os.environ["F_RESET"])
+				return s % (os.environ["LINEA_SOFTWARE_LAYOUT_2COLUMNS"],)
 			else:
-				return s % (os.environ["F_SIJI"],"\ue004",os.environ["F_RESET"])
+				return s % (os.environ["MD_VIEW_AGENDA"],)
 
 	if n_clients == 3 and n_floaters == 0:
 		if d['root']['splitType'] == 'vertical':
 			if d['root']['firstChild']['client']:
-				return s % (os.environ["F_UUSHI"],"\u2b98",os.environ["F_RESET"])
+				return s % (os.environ["F_UUSHI"]+"\u2b98"+os.environ["F_RESET"],)
 			else:
-				return s % (os.environ["F_UUSHI"],"\u2b99",os.environ["F_RESET"])
+				return s % (os.environ["F_UUSHI"]+"\u2b99"+os.environ["F_RESET"],)
 		elif d['root']['firstChild']['client'] and d['root']['secondChild']['splitType'] == 'vertical':
-			return s % (os.environ["F_UUSHI"],"\u2b9a",os.environ["F_RESET"])
+			return s % (os.environ["F_UUSHI"]+"\u2b9a"+os.environ["F_RESET"],)
 
 	# everything below is 3+ clients, with at least some tiled
 	if d['root']['splitType'] == 'horizontal':
 		if d['root']['firstChild']['client']:
 			if d['root']['secondChild']['splitType'] == 'vertical':
-				return s % (os.environ["F_SIJI"],"\ue003",os.environ["F_RESET"])
+				return s % (os.environ["F_SIJI"]+"\ue003"+os.environ["F_RESET"],)
 			else:
-				return s % (os.environ["F_SIJI"],"\ue004",os.environ["F_RESET"])
+				return s % (os.environ["F_SIJI"]+"\ue004"+os.environ["F_RESET"],)
 		else:
-			return s % (os.environ["F_SIJI"],"\ue00a",os.environ["F_RESET"])
+			return s % (os.environ["F_SIJI"]+"\ue00a"+os.environ["F_RESET"],)
 
 	#if n_horizontal == 0:
 	#	return s % (os.environ["F_SIJI"],"\ue1de",os.environ["F_RESET"])
@@ -139,14 +213,14 @@ def parse_desktop(d,focused_d,focused_m):
 	if d['root']['splitType'] == 'vertical':
 		if d['root']['firstChild']['client']:
 			if count_horiz(d['root']['secondChild']) == count_clients(d['root']['secondChild'])-1:
-				return s % (os.environ["F_SIJI"],"\ue002",os.environ["F_RESET"])
+				return s % (os.environ["F_SIJI"]+"\ue002"+os.environ["F_RESET"],)
 			else:
-				return s % (os.environ["F_SIJI"],"\ue007",os.environ["F_RESET"])
+				return s % (os.environ["F_SIJI"]+"\ue007"+os.environ["F_RESET"],)
 		else:
-			return s % (os.environ["F_SIJI"],"\ue009",os.environ["F_RESET"])
+			return s % (os.environ["F_SIJI"]+"\ue009"+os.environ["F_RESET"],)
 
 	# grid for all other confounding cases
-	return s % (os.environ["F_SIJI"],"\ue005",os.environ["F_RESET"])
+	return s % (os.environ["F_SIJI"]+"\ue005"+os.environ["F_RESET"],)
 
 
 
@@ -174,5 +248,14 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+	while True:
+		try:
+			main()
+		except Exception as e:
+			import datetime
+			import traceback
+			f = open(os.path.expanduser("~/tmp/desktop-err.txt"),"a")
+			f.write("Exception at %s\n" % (datetime.datetime.now().strftime("%c"),))
+			traceback.print_exception(*sys.exc_info(),file=f)
+			f.close()
 

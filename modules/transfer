@@ -43,7 +43,7 @@ main(){
             dtx=0
             dtx_units="B"
         fi
-        echo -e "${C_TITLE}%{A:$curdir/popups/transfer:}${ic_transfer_vert}%{A}${C_RST} %{F#CB83BB}$(printf "%6.2f%2s" "${drx}" "${drx_units}")/s${C_RST} %{F#83C4CB}$(printf "%6.2f%2s" "${dtx}" "${dtx_units}")/s${C_RST}"
+        echo -e "${C_TITLE}%{A:$curdir/popups/transfer:}${MD_IMPORT_EXPORT}%{A}${C_RST} %{F#CB83BB}$(printf "%6.2f%2s" "${drx}" "${drx_units}")/s${C_RST} %{F#83C4CB}$(printf "%6.2f%2s" "${dtx}" "${dtx_units}")/s${C_RST}"
 
         prevrx="$rx"
         prevtx="$tx"

@@ -14,7 +14,7 @@ main(){
 			ic_color="${C_WARN}"
 		fi
 
-		echo -e "${ic_color}%{A:$curdir/popups/mem:}${ic_chip_small}%{A}${C_RST}${mem_used}%"
+		echo -e "${ic_color}%{A:$curdir/popups/mem:}${FA_MICROCHIP}%{A}${C_RST}${mem_used}%"
 
 		sleep 18
 	done

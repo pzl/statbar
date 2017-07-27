@@ -32,15 +32,15 @@ main(){
 
 			#check if VPN connection is running
 			if pgrep -x openvpn >/dev/null 2>&1; then
-				icon="${C_TITLE}${ic_network}${ic_lock}${C_RST}"
+				icon="${C_TITLE}${MD_VPN_LOCK}${C_RST}"
 			else
-				icon="${C_TITLE}${ic_network}${C_WARN}${ic_warn}${C_RST}"
+				icon="${C_TITLE}${C_WARN}${MD_SIGNAL_CELLULAR_CONNECTED_NO_INTERNET_4_BAR}${C_RST}"
 			fi
 
 			#text="$(popup_script "network" "${icon}") $(ifconfig $NET_INTERFACE | grep inet | grep -v inet6 | awk '{print $2}')"
 			text="%{A:$curdir/popups/network:}${icon}%{A} $(ifconfig $interface | grep 'inet ' | awk '{print $2}')"
 		else
-			text="${ic_fail}"
+			text="${MD_SIGNAL_CELLULAR_NULL}"
 		fi
 
 		echo -e "$text"

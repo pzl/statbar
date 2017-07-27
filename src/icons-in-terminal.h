@@ -1,4 +1,7 @@
-static const char * envs[] = {
+#ifndef ICONS_IN_TERMINAL
+# define ICONS_IN_TERMINAL
+
+const char * envs[] = {
     "POWERLINE_BRANCH", "\ue0a0",
     "POWERLINE_LINE_NUMBER", "\ue0a1",
     "POWERLINE_READONLY", "\ue0a2",
@@ -3728,5 +3731,13 @@ static const char * envs[] = {
     "FIRACODE_COLON_UC", "\uee9d",
     "FIRACODE_PLUS_LC", "\uee9e",
     "FIRACODE_PLUS_TOSF2", "\uee9f",
-    "FIRACODE_NAMEME_1114119", "\ueea0"
+    "FIRACODE_NAMEME_1114119", "\ueea0",
+    "STATBAR_EXTENSIONS_PACMAN", "\ueea1",
+    "STATBAR_EXTENSIONS_CPU", "\ueea2",
+    "STATBAR_EXTENSIONS_GPU", "\ueea3",
+    "STATBAR_EXTENSIONS_RAM", "\ueea4",
+    NULL
 };
+
+#endif // ICONS_IN_TERMINAL
+
