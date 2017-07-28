@@ -37,7 +37,7 @@ debug: $(TARGET_CLIENT) $(TARGET_DAEMON)
 
 
 #automatic recompile when makefile changes
-$(OBJ_C): Makefile
+$(OBJ_C): Makefile $(SRCDIR)/icons-in-terminal.h
 
 #automatically creates build directory if it doesn't exist
 dummy := $(shell test -d $(OBJDIR) || mkdir -p $(OBJDIR))

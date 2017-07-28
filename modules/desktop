@@ -5,6 +5,7 @@ import os
 import json
 import re
 
+e = os.environ
 
 def icon(font,codepoint):
 	return "%s%s%s" % (os.environ[font],codepoint,os.environ['F_RESET'])
@@ -20,11 +21,6 @@ def count_floaters(node):
 		return 0
 	return count_floaters(node['firstChild']) + count_floaters(node['secondChild']) + ( 1 if node['client'] and node['client']['state'] == 'floating' else 0 )
 
-def count_horiz(node):
-	if node is None or node['client']:
-		return 0
-	return count_horiz(node['firstChild']) + count_horiz(node['secondChild']) + ( 1 if node['splitType'] == 'horizontal' else 0 )
-
 def get_state():
 	wm = subprocess.run(["bspc","wm","-d"],stdout=subprocess.PIPE)
 	output = wm.stdout.decode('utf-8')
@@ -32,20 +28,9 @@ def get_state():
 	del j['focusHistory']
 	return j
 
-def tiled_node(node):
-	return 0 if node['client'] and node['client']['state'] == 'floating' else 1
 
-# returns rows,columns
-def border_count(node):
-	if node['client']: return tiled_node(node)
-
-	rows,cols = 0,0
-	if node['splitType'] == 'vertical':
-		columns += border_count(node['firstChild']) + border_count(node['secondChild'])
-	else:
-		rows += border_count(node['firstChild']) + border_count(node['secondChild'])
-
-	return rows,cols
+def borders(node):
+	return "" if node['client'] else node['splitType'][0]+ borders(node['firstChild']) + borders(node['secondChild'])
 
 
 def single_app_icon(desktop):
@@ -67,162 +52,138 @@ def single_app_icon(desktop):
 		title = title.lower()
 
 	if window == "google-chrome":
-		if "reddit" in title: return "FA_REDDIT_ALIEN"
-		elif "at master" in title or "github" in title: return "FA_GITHUB_ALT"
-		elif "youtube" in title: return "FA_YOUTUBE_PLAY"
-		elif "inbox" in title or "mail" in title: return "MD_EMAIL"
-		elif "facebook" in title: return "FA_FACEBOOK_SQUARE"
-		elif "stack overflow" in title: return "FA_STACK_OVERFLOW"
-		elif "instagram" in title: return "FA_INSTAGRAM"
-		elif "bitbucket" in title: return "FA_BITBUCKET"
-		#elif "*" in title and "slack" in title: COLOR THE SLACK!
-		#elif "!" in title and "slack" in title: COLOR THE SLACK EVEN MORE!
-		elif "slack" in title: return "FA_SLACK"
-		elif "google search" in title: return "FA_GOOGLE"
-		elif "codepen" in title: return "FA_CODEPEN"
-		elif "jsfiddle" in title: return "FA_JSFIDDLE"
-		elif "wikipedia" in title: return "FA_WIKIPEDIA_W"
-		elif "amazon web services" in title or "aws" in title or "management console" in title: return "MFIZZ_AWS"
-		elif "amazon" in title:	return "FA_AMAZON"
-		elif "jira" in title: return "DEV_JIRA"
-		else: return "FA_CHROME"
-	elif window == "firefox": return "FA_FIREFOX"
-	elif window == "terminator": return "MFIZZ_SHELL"
-	elif window == "blender": return "FILE_BLENDER"
-	elif window == "thunar": return "FA_FOLDER_OPEN"
-	elif window == "darktable": return "MD_CAMERA"
-	elif window == "viewnior" or window == "sxiv": return "FA_IMAGE"
-	elif window == "evince": return "OCT_FILE_PDF"
-	elif window == "openscad": return "FILE_SCAD"
-	elif window == "audacity": return "FILE_AUDACITY"
-	elif window == "kicad": return "FILE_KICAD"
-	elif window == "fontforge": return "FILE_FF"
-	elif window == "gvim": return "DEV_VIM"
+		if "reddit" in title: return e["FA_REDDIT_ALIEN"]
+		elif "at master" in title or "github" in title: return e["FA_GITHUB_ALT"]
+		elif "youtube" in title: return e["FA_YOUTUBE_PLAY"]
+		elif re.search(r'\(\d+\)',title) and ('mail' in title or 'inbox' in title): return e["C_CAUTION"]+e["MD_MAIL"]+e["C_TITLE"]
+		elif "inbox" in title or "mail" in title: return e["MD_EMAIL"]
+		elif re.match(r'\(\d+\).*facebook',title,re.I): return e["C_CAUTION"]+e["FA_FACEBOOK_SQUARE"]+e["C_TITLE"]
+		elif "facebook" in title: return e["FA_FACEBOOK_SQUARE"]
+		elif "stack overflow" in title: return e["FA_STACK_OVERFLOW"]
+		elif "instagram" in title: return e["FA_INSTAGRAM"]
+		elif "bitbucket" in title: return e["FA_BITBUCKET"]
+		elif "*" in title and "slack" in title: return e["C_CAUTION"]+e["FA_SLACK"]+e["C_TITLE"]
+		elif "!" in title and "slack" in title: return e["C_WARN"]+e["FA_SLACK"]+e["C_TITLE"]
+		elif "slack" in title: return e["FA_SLACK"]
+		elif "google search" in title: return e["FA_GOOGLE"]
+		elif "codepen" in title: return e["FA_CODEPEN"]
+		elif "jsfiddle" in title: return e["FA_JSFIDDLE"]
+		elif "wikipedia" in title: return e["FA_WIKIPEDIA_W"]
+		elif "amazon web services" in title or "aws" in title or "management console" in title: return e["MFIZZ_AWS"]
+		elif "amazon" in title:	return e["FA_AMAZON"]
+		elif "jira" in title: return e["DEV_JIRA"]
+		else: return e["FA_CHROME"]
+	elif window == "firefox": return e["FA_FIREFOX"]
+	elif window == "terminator": return e["MFIZZ_SHELL"]
+	elif window == "blender": return e["FILE_BLENDER"]
+	elif window == "thunar": return e["FA_FOLDER_OPEN"]
+	elif window == "darktable": return e["MD_CAMERA"]
+	elif window == "viewnior" or window == "sxiv": return e["FA_IMAGE"]
+	elif window == "evince": return e["OCT_FILE_PDF"]
+	elif window == "openscad": return e["FILE_SCAD"]
+	elif window == "audacity": return e["FILE_AUDACITY"]
+	elif window == "kicad": return e["FILE_KICAD"]
+	elif window == "fontforge": return e["FILE_FF"]
+	elif window == "gvim": return e["DEV_VIM"]
+	elif window == "steam": return e["FA_STEAM"]
 	elif window == "pronterface.py": return "MFIZZ_3DPRINT"
-	elif window == "vlc" or window == "gl": return "MD_LOCAL_MOVIES" # FA_FILM
-	elif window == "inkscape": return "MFIZZ_SVG" # a spade would work too
+	elif window == "subl3": return e["FILE_SUBLIME"]
+	elif window == "substance-designer": return e["STAT_SUB_DESIGNER"]
+	elif window == "substance-painter": return e["STAT_SUB_PAINTER"]
+	elif "slic3r" in window: return e["STAT_SLIC3R"]
+	elif window == "vlc" or window == "gl": return e["MD_LOCAL_MOVIES"] # FA_FILM
+	elif window == "inkscape": return e["STAT_INKSCAPE"]
 
 	#did not find any app-specific icons, go with generic
 	if desktop['root']['client']['state'] == 'floating':
-		return "MD_FILTER_CENTER_FOCUS" # MD_PICTURE_IN_PICTURE_ALT
+		return e["STAT_LAYOUT_SINGLE_FLOAT"]
 	else:
-		return "FA_SQUARE"
+		return e["STAT_LAYOUT_FULL"]
+
+
+def make_desktop_icon(d):
+	desktop = d['root']
+
+	#empty desktop
+	if desktop is None:
+		return e["STAT_LAYOUT_EMPTY"]
+
+	#single node
+	if desktop['client'] is not None:
+		return single_app_icon(d)
+
+	n_clients = count_clients(desktop)
+	n_floaters = count_floaters(desktop)
+	border = borders(desktop)
+
+
+	if n_clients == n_floaters:
+		return e["MD_FILTER_"+str(n_floaters) if n_floaters < 10 else "9_PLUS"]
+
+	if n_clients == 2:
+		if n_floaters == 1:
+			return e["STAT_LAYOUT_FLOATS"]
+		else:
+			return e["STAT_LAYOUT_2_"+desktop['splitType'][0].upper()]
+
+	if n_floaters > 0:
+		return e["STAT_LAYOUT_FLOATS"]
+
+	#all uniform directions, LAYOUT_3_VV, LAYOUT_3_HH, LAYOUT_4_VVV, LAYOUT_4_HHH
+	if set(border) == {'v'} or set(border) == {'h'}:
+		return e["STAT_LAYOUT_%d_%s" % (min(len(border)+1,4),border.upper()) ]
+
+	if n_clients == 3:
+		if desktop['splitType'] == 'vertical':
+			return e["STAT_LAYOUT_3_V_H"] if desktop['firstChild']['client'] else e["STAT_LAYOUT_3_HV_"]
+		else:
+			return e["STAT_LAYOUT_3_H_V"] if desktop['firstChild']['client'] else e["STAT_LAYOUT_3_VH_"]
+
+	# everything below is 4+ windows, no floaters
+	# just assume 4 and figure 5 might be inaccurate or crazy
+
+	# look for even grid
+	if ( (not desktop['firstChild']['client']) and desktop['firstChild']['splitType'] != desktop['splitType']  and
+	     (not desktop['secondChild']['client']) and desktop['secondChild']['splitType'] != desktop['splitType'] ):
+		return e["STAT_LAYOUT_4_GRID"]
+
+
+	# look for piano
+
+	"""
+	if desktop['splitType'] == 'horizontal':
+		if desktop['firstChild']['client']:
+			if desktop['secondChild']['splitType'] == 'vertical':
+				return e["F_SIJI"]+"\ue003"+e["F_RESET"]
+			else:
+				return e["F_SIJI"]+"\ue004"+e["F_RESET"]
+		else:
+			return e["F_SIJI"]+"\ue00a"+e["F_RESET"]
+
+
+	if desktop['splitType'] == 'vertical':
+		if desktop['firstChild']['client']:
+			if count_horiz(desktop['secondChild']) == count_clients(desktop['secondChild'])-1:
+				return e["F_SIJI"]+"\ue002"+e["F_RESET"]
+			else:
+				return e["F_SIJI"]+"\ue007"+e["F_RESET"]
+		else:
+			return e["F_SIJI"]+"\ue009"+e["F_RESET"]
+
+	# grid for all other confounding cases
+	return e["F_SIJI"]+"\ue005"+e["F_RESET"]
+	"""
+	return e["POM_AWAY"]
 
 
 def parse_desktop(d,focused_d,focused_m):
 	s = "%%{A:bspc desktop -f "+str(d['id'])+":}%%{A3:bspc desktop "+str(d['id'])+" -r:}%s%%{A}%%{A}"
 	if focused_d:
-		s = "%"+os.environ["C_RST"] + s + "%"+os.environ["C_TITLE"]
+		s = "%"+e["C_RST"] + s + "%"+e["C_TITLE"]
 		if focused_m:
 			s = "%%{+u}" + s + "%%{-u}"
 
-
-	#empty desktop
-	if d['root'] is None:
-		return s % (os.environ["MD_CROP_FREE"],) # MD_FULLSCREEN or MD_CHECK_BOX_OUTLINE_BLANK
-
-	#single node
-	if d['root']['client'] is not None:
-		return s % (os.environ[single_app_icon(d)],)
-
-	n_clients = count_clients(d['root'])
-	n_floaters = count_floaters(d['root'])
-	n_horizontal = count_horiz(d['root'])
-	#borders = border_count(d['root'])
-
-	if n_clients == n_floaters:
-		return s % (os.environ["MD_FILTER_"+str(n_floaters) if n_floaters < 10 else "9_PLUS"],)
-
-
-	# MD_BURST_MODE  
-	# MD_DASHBOARD 
-	# MD_DNS  
-	# MD_FLIP_TO_BACK  
-	# MD_FLIP_TO_FRONT  
-
-	# FA_COLUMNS  
-
-	# MD_VIEW_COMPACT 
-	# MD_VIEW_COMFY  
-	# MD_VIEW_WEEK  
-	# MD_VIEW_STREAM  
-	# MD_VIEW_QUILT  
-	# MD_VIEW_MODULE  
-	# MD_VIEW_HEADLINE  
-	# MD_VIEW_DAY 
-	# MD_VIEW_COLUMN  
-	# MD_VIEW_AGENDA  
-	# MD_VIEW_ARRAY  
-
-
-	# LINEA_SOFTWARE_LAYOUT*
-
-	"""
-	   software_layout
-	   software_layout_2columns
-	   software_layout_3columns
-	   software_layout_4boxes
-	   software_layout_4columns
-	   software_layout_4lines
-	   software_layout_8boxes
-	   software_layout_header
-	   software_layout_header_2columns
-	   software_layout_header_3columns
-	   software_layout_header_4boxes
-	   software_layout_header_4columns
-	   software_layout_header_complex
-	   software_layout_header_complex2
-	   software_layout_header_complex3
-	   software_layout_header_complex4
-	   software_layout_header_sideleft
-	   software_layout_header_sideright
-	   software_layout_sidebar_left
-	   software_layout_sidebar_right
-	"""
-
-	if n_clients == 2:
-		if n_floaters == 1:
-			return s % (os.environ["MD_FLIP_TO_FRONT"],)
-		if n_floaters == 0:
-			if d['root']['splitType'] == 'vertical':
-				return s % (os.environ["LINEA_SOFTWARE_LAYOUT_2COLUMNS"],)
-			else:
-				return s % (os.environ["MD_VIEW_AGENDA"],)
-
-	if n_clients == 3 and n_floaters == 0:
-		if d['root']['splitType'] == 'vertical':
-			if d['root']['firstChild']['client']:
-				return s % (os.environ["F_UUSHI"]+"\u2b98"+os.environ["F_RESET"],)
-			else:
-				return s % (os.environ["F_UUSHI"]+"\u2b99"+os.environ["F_RESET"],)
-		elif d['root']['firstChild']['client'] and d['root']['secondChild']['splitType'] == 'vertical':
-			return s % (os.environ["F_UUSHI"]+"\u2b9a"+os.environ["F_RESET"],)
-
-	# everything below is 3+ clients, with at least some tiled
-	if d['root']['splitType'] == 'horizontal':
-		if d['root']['firstChild']['client']:
-			if d['root']['secondChild']['splitType'] == 'vertical':
-				return s % (os.environ["F_SIJI"]+"\ue003"+os.environ["F_RESET"],)
-			else:
-				return s % (os.environ["F_SIJI"]+"\ue004"+os.environ["F_RESET"],)
-		else:
-			return s % (os.environ["F_SIJI"]+"\ue00a"+os.environ["F_RESET"],)
-
-	#if n_horizontal == 0:
-	#	return s % (os.environ["F_SIJI"],"\ue1de",os.environ["F_RESET"])
-
-	if d['root']['splitType'] == 'vertical':
-		if d['root']['firstChild']['client']:
-			if count_horiz(d['root']['secondChild']) == count_clients(d['root']['secondChild'])-1:
-				return s % (os.environ["F_SIJI"]+"\ue002"+os.environ["F_RESET"],)
-			else:
-				return s % (os.environ["F_SIJI"]+"\ue007"+os.environ["F_RESET"],)
-		else:
-			return s % (os.environ["F_SIJI"]+"\ue009"+os.environ["F_RESET"],)
-
-	# grid for all other confounding cases
-	return s % (os.environ["F_SIJI"]+"\ue005"+os.environ["F_RESET"],)
-
+	return s % (make_desktop_icon(d),)
 
 
 
