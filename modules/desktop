@@ -202,7 +202,7 @@ def print_state(state):
 
 def main():
 	print_state(get_state())
-	with subprocess.Popen(["bspc","subscribe","monitor_add","monitor_remove","monitor_swap","desktop_add","desktop_remove","desktop_swap","desktop_transfer","desktop_focus","desktop_layout","node_manage","node_unmanage","node_swap","node_transfer","node_geometry","node_state","node_state","node_layer"],bufsize=1,stdout=subprocess.PIPE,encoding="utf-8") as child:
+	with subprocess.Popen(["bspc","subscribe","monitor_add","monitor_remove","monitor_swap","desktop_add","desktop_remove","desktop_swap","desktop_transfer","desktop_focus","desktop_layout","node_add","node_remove","node_swap","node_transfer","node_geometry","node_state","node_state","node_layer"],bufsize=1,stdout=subprocess.PIPE,encoding="utf-8") as child:
 		while child.poll() is None:
 			child.stdout.readline()
 			print_state(get_state())
