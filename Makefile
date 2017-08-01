@@ -23,6 +23,9 @@ SRC_D = $(SRCDIR)/daemon.c $(SRCDIR)/common.c
 OBJ_C=$(SRC_C:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 OBJ_D=$(SRC_D:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
+
+VENVS = modules/dbus-venv
+
 PREFIX ?= /usr
 BINDIR = $(DESTDIR)$(PREFIX)/bin
 SHRDIR = $(DESTDIR)$(PREFIX)/share/statbar/
@@ -30,10 +33,10 @@ MANDIR = $(DESTDIR)$(PREFIX)/share/man/man1
 
 
 all: CFLAGS += -O2
-all: $(TARGET_CLIENT) $(TARGET_DAEMON)
+all: $(TARGET_CLIENT) $(TARGET_DAEMON) $(VENVS)
 
 debug: CFLAGS += -O0 -g -DDEBUG
-debug: $(TARGET_CLIENT) $(TARGET_DAEMON)
+debug: $(TARGET_CLIENT) $(TARGET_DAEMON) $(VENVS)
 
 
 #automatic recompile when makefile changes
@@ -55,6 +58,10 @@ $(OBJ_C): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 
 $(OBJ_D): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(SFLAGS) $(INCLUDES) -c -o $@ $< $(LIBS)
+
+modules/dbus-venv:
+	python -m venv $@
+	source $@/bin/activate && pip install pydbus vext.gi
 
 install:
 	install -Dm 755 $(TARGET_CLIENT) "$(BINDIR)/$(TARGET_CLIENT)"

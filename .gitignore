@@ -3,3 +3,5 @@
 build/
 statbar
 statd
+
+*-venv/

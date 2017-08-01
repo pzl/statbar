@@ -1,54 +1,122 @@
-#!/bin/bash
+#!modules/dbus-venv/bin/python
 
-curdir="$(dirname "$(readlink -f "$0")")"
+import sys, os
+from enum import Enum
+import pydbus
+from gi.repository import GLib
 
-. "$curdir/common/network"
+class State(Enum):
+	UNKNOWN, ASLEEP, DISCONNECTED, DISCONNECTING, CONNECTING, CONNECTED_LOCAL, CONNECTED_SITE, CONNECTED_GLOBAL = range(0,80,10)
 
+class ConnState(Enum):
+	UNKNOWN, NONE, PORTAL, LIMITED, FULL = range(5)
 
-net_up(){
-	if [ "$#" -lt 1 ]; then
-		echo "net_up requires interface name as an argument" >&2
-		exit 1
-	fi
+class ActiveConnState(Enum):
+	UNKNOWN, ACTIVATING, ACTIVATED, DEACTIVATING, DEACTIVATED = range(5)
 
-	local net_state=$(</sys/class/net/$1/operstate) #whether the network is connected
-
-	if [ "$net_state" = "up" ]; then
-		return 0
-	else
-		return 1
-	fi
-
-}
-
-main(){
-	local interface
-
-	while :; do
-		interface="$(get_iface)"
-
-		#print internal IP if network is running
-		if net_up "$interface"; then
-
-			#check if VPN connection is running
-			if pgrep -x openvpn >/dev/null 2>&1; then
-				icon="${C_TITLE}${MD_VPN_LOCK}${C_RST}"
-			else
-				icon="${C_TITLE}${C_WARN}${MD_SIGNAL_CELLULAR_CONNECTED_NO_INTERNET_4_BAR}${C_RST}"
-			fi
-
-			#text="$(popup_script "network" "${icon}") $(ifconfig $NET_INTERFACE | grep inet | grep -v inet6 | awk '{print $2}')"
-			text="%{A:$curdir/popups/network:}${icon}%{A} $(ifconfig $interface | grep 'inet ' | awk '{print $2}')"
-		else
-			text="${MD_SIGNAL_CELLULAR_NULL}"
-		fi
-
-		echo -e "$text"
-
-		sleep 93
-	done
-}
-
-main $@
+class ActiveConnStateReason(Enum):
+	UNKNOWN,NONE,USER_DISCONNECTED,DEVICE_DISCONNECTED,SERVICE_STOPPED,IP_CONFIG_INVALID,CONNECT_TIMEOUT,SERVICE_START_TIMEOUT,SERVICE_START_FAILED,NO_SECRETS,LOGIN_FAILED,CONNECTION_REMOVED,DEPENDENCY_FAILED,DEVICE_REALIZE_FAILED,DEVICE_REMOVED = range(15)
 
 
+def make_icon(net_status, vpn):
+	if net_status in [State.UNKNOWN,State.ASLEEP,State.DISCONNECTED,State.DISCONNECTING]:
+		return os.getenv("OCT_CIRCLE_SLASH","X"),os.getenv("C_TITLE","")
+	elif net_status == State.CONNECTING:
+		return os.getenv("OCT_SYNC","^"),os.getenv("C_TITLE","")
+	elif net_status == State.CONNECTED_LOCAL:
+		return os.getenv("MD_HOME","L"),os.getenv("C_CAUTION","--")
+	elif net_status == State.CONNECTED_SITE:
+		return os.getenv("FA_BUILDING","S"),os.getenv("C_CAUTION","--")
+	elif net_status == State.CONNECTED_GLOBAL:
+		if vpn == 1:
+			return os.getenv("MD_SYNC","^"),os.getenv("C_TITLE","")
+		elif vpn == 2:
+			return os.getenv("MD_VPN_LOCK","G"),os.getenv("C_TITLE","")
+		else:
+			return os.getenv("MD_SIGNAL_CELLULAR_CONNECTED_NO_INTERNET_4_BAR","!"),os.getenv("C_WARN","")
+	else:
+		return os.getenv("FA_QUESTION_CIRCLE","?"),os.getenv("C_TITLE","")
+
+
+def make_display(sysbus):
+	nm = sysbus.get(".NetworkManager")
+	vpn_up = 0
+	icon=""
+	color=""
+	local_ip = "x"
+	wan_ip = "x"
+
+	wan_status = State(nm.State)
+
+	# get IP info and VPN state
+	if wan_status.value < State.CONNECTING.value:
+		#short-circuit the rest @todo
+		pass
+
+	# get IPs and VPN status
+	for conn_name in nm.ActiveConnections:
+		conn = sysbus.get(".NetworkManager",conn_name)
+
+		try:
+			conn.Vpn
+		except GLib.Error:
+			continue
+
+		if conn.Vpn == True:
+			if ActiveConnState(conn.State) == ActiveConnState.ACTIVATING:
+				vpn_up = 1
+			if ActiveConnState(conn.State) == ActiveConnState.ACTIVATED:
+				vpn_up = 2
+
+		if conn.Type == 'tun':
+			continue
+
+		# @todo: more intelligent "these are the right IPs" determination
+		if conn.Ip4Config:
+			try:
+				ip4 = sysbus.get(".NetworkManager",conn.Ip4Config)
+			except KeyError:
+				continue
+			if ip4.AddressData and 'address' in ip4.AddressData[0]:
+				local_ip = ip4.AddressData[0]['address']
+			if ip4.RouteData and 'dest' in ip4.RouteData[0]:
+				wan_ip = ip4.RouteData[0]['dest']
+
+	if vpn_up == 2:
+		# the 'dest' provided is a local VPN addr (10.77.*)
+		# only have seen unsecured WAN IP in 'dest' values
+		wan_ip = "x"
+
+	if wan_ip == "x":
+		pass # @todo: look up using DNS
+
+	icon,color = make_icon(wan_status,vpn_up)
+
+	print("%s%s%s %s" % (color,icon,os.getenv("C_RST",""), local_ip.replace("192.168.1","")+" | "+wan_ip  ),file=sys.stdout)
+	sys.stdout.flush()
+
+
+def add_listener(sysbus):
+	def handle_event(updated_props):
+		trigger_props = ['ActivatingConnection','PrimaryConnection','ActiveConnections','State']
+		if any(prop in updated_props for prop in trigger_props):
+			make_display(sysbus)
+	return handle_event
+
+
+def main():
+	sysbus = pydbus.SystemBus()
+	nm = sysbus.get(".NetworkManager")
+
+	if len(sys.argv) > 1 and sys.argv[1] == 'print':
+		print_connections(sysbus)
+		return
+
+	make_display(sysbus)
+
+	nm.onPropertiesChanged = add_listener(sysbus)
+	GLib.MainLoop().run()
+
+
+if __name__ == "__main__":
+	main()
