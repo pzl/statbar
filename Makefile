@@ -10,7 +10,7 @@ CC ?= gcc
 CFLAGS += -Wall -Wextra
 CFLAGS += -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wcast-align
 CFLAGS += -Wstrict-prototypes -Wwrite-strings -ftrapv -Wpadded
-CFLAGS += -fsanitize=address
+#CFLAGS += -fsanitize=address # 'Shadow memory range interleaves ..' error?
 #CFLAGS += -march=native
 CFLAGS += -DVERSION=\"$(VERSION)\"
 SFLAGS = -std=c99 -pedantic -D_XOPEN_SOURCE=700
