@@ -2,7 +2,7 @@
 #include <sys/types.h> //pid_t
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
 #include <fcntl.h> //O_* defines
-#include <unistd.h> //ftruncate, getpid
+#include <unistd.h> //ftruncate, getpid, chdir
 #include <poll.h> //poll, pollfd
 #include <string.h> //strncpy, memset, strndup
 #include <libgen.h> //dirname
@@ -39,6 +39,7 @@ int main(int argc, char const *argv[]) {
 	}
 
 	catch_signals();
+	cwd();
 
 	n_modules = launch_modules(fds);
 
@@ -90,6 +91,14 @@ int main(int argc, char const *argv[]) {
 
 	printf("exiting\n");
 	return 0;
+}
+
+static void cwd(void){
+	char *dir = curdir();
+	if (chdir(dir) != 0){
+		perror("setting current dir");
+	}
+	free(dir);
 }
 
 static int launch_modules(struct pollfd fds[]){

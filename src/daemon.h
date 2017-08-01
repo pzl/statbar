@@ -11,6 +11,6 @@ static int launch_modules(struct pollfd[]);
 static int launch_module(int i, char *dir);
 static int spawn(char * path, const char * program);
 static void onexit(void);
-
+static void cwd(void);
 
 #endif
