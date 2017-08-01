@@ -86,7 +86,7 @@ def single_app_icon(desktop):
 	elif window == "fontforge": return e["FILE_FF"]
 	elif window == "gvim": return e["DEV_VIM"]
 	elif window == "steam": return e["FA_STEAM"]
-	elif window == "pronterface.py": return "MFIZZ_3DPRINT"
+	elif window == "pronterface.py": return e["MFIZZ_3DPRINT"]
 	elif window == "subl3": return e["FILE_SUBLIME"]
 	elif window == "substance-designer": return e["STAT_SUB_DESIGNER"]
 	elif window == "substance-painter": return e["STAT_SUB_PAINTER"]
