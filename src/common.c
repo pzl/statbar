@@ -115,6 +115,8 @@ void set_environment(void) {
 	SENV("F_TERM",_FTERM);
 	SENV("F_ICON",_FICON);
 
+	SENV("PYTHONUNBUFFERED","TRUE"); // always flush print() commands
+
 	for (icon = envs; *icon; icon+=2){
 		SENV(*icon, *(icon+1));
 	}

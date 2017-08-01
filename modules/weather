@@ -151,7 +151,6 @@ while True:
 			})
 
 		print(output)
-		sys.stdout.flush()
 
 	except Exception as e:
 		import datetime

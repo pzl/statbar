@@ -1,7 +1,6 @@
 #!modules/dbus-venv/bin/python
 
 import time
-import sys
 import os
 import signal
 from enum import Enum
@@ -68,7 +67,6 @@ def clicked():
                 tx=tx_scaled, txL = tx_label,
                 nocolor=os.getenv("C_RST","")
             ))
-        sys.stdout.flush()
 
         prevRx, prevTx = rxb, txb
         time.sleep(2)
@@ -86,7 +84,6 @@ def main():
 
     while True:
         print("%%{A:kill -SIGUSR1 %d:}%s%%{A}"%(os.getpid(),ICON))
-        sys.stdout.flush()
         signal.pause()
 
 if __name__ == "__main__":

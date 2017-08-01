@@ -92,8 +92,7 @@ def make_display(sysbus):
 
 	icon,color = make_icon(wan_status,vpn_up)
 
-	print("%s%s%s %s" % (color,icon,os.getenv("C_RST",""), local_ip.replace("192.168.1","")+" | "+wan_ip  ),file=sys.stdout)
-	sys.stdout.flush()
+	print("%s%s%s %s" % (color,icon,os.getenv("C_RST",""), local_ip.replace("192.168.1","")+" | "+wan_ip  ))
 
 
 def add_listener(sysbus):
