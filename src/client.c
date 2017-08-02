@@ -79,6 +79,7 @@ int main(int argc, char const *argv[]) {
 			//@todo verify SIGUSR1 vs other signals (which generally just exit anyway)
 			update_bar(mem,lemon_in);
 		}
+		waitpid(-1, NULL, WNOHANG); // clean up zombies spawned from clicks
 	}
 
 	return -1;

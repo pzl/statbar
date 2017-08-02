@@ -1,6 +1,7 @@
 #include <sys/mman.h> //mmap and shm functions
 #include <sys/types.h> //pid_t
 #include <sys/prctl.h> //SIGHUP on parent death, prctl
+#include <sys/wait.h> // waitpid, for zombies
 #include <fcntl.h> //O_* defines
 #include <unistd.h> //ftruncate, getpid, chdir
 #include <poll.h> //poll, pollfd
@@ -84,6 +85,7 @@ int main(int argc, char const *argv[]) {
 			}
 			update_status(mem,&stats);
 			notify_watchers();
+			waitpid(-1, NULL, WNOHANG); // clean up any kids that died. No zombies!
 		} else {
 			fprintf(stderr, "poll exited, unknown reasons\n");
 		}
