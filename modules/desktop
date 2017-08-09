@@ -90,6 +90,7 @@ def single_app_icon(desktop):
 	elif window == "subl3": return e["FILE_SUBLIME"]
 	elif window == "substance-designer": return e["STAT_SUB_DESIGNER"]
 	elif window == "substance-painter": return e["STAT_SUB_PAINTER"]
+	elif window == "krita": return e["STAT_KRITA"]
 	elif "slic3r" in window: return e["STAT_SLIC3R"]
 	elif window == "vlc" or window == "gl": return e["MD_LOCAL_MOVIES"] # FA_FILM
 	elif window == "inkscape": return e["STAT_INKSCAPE"]
