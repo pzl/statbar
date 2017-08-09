@@ -137,6 +137,8 @@ params = {
 	'type': 'json'
 }
 
+print(os.environ['WEATHER_REFRESH'])
+time.sleep(35)
 while True:
 	try:
 		data = urllib2.urlopen(NOAA_URL % params)
