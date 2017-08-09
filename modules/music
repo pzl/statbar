@@ -52,8 +52,8 @@ getinfo(){
 main(){
 	local playing
 	local desc
-	[ -p "$$MUSIC_FIFO" ] && rm "$MUSIC_FIFO"
-	mkfifo "$MUSIC_FIFO" # mocp OnSongChange and OnStop should both be configured to send info to this pipe
+	[ -p "$$MUSIC_FIFO" ] || mkfifo "$MUSIC_FIFO"
+	# mocp OnSongChange and OnStop should both be configured to send info to this pipe
 
 	playing=$(getstatus)
 	echo -e "${C_TITLE}%{A:$curdir/popups/music:}%{A3:$curdir/popups/music quit:}%{A2:$curdir/popups/music mute:}${FA_MUSIC}%{A}%{A}%{A}$(geticon $playing)${C_RST}$(getinfo $playing)"

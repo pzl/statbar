@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# mocp OnSongChange and OnStop should both be configured to send info to this pipe
 MUSIC_FIFO="/tmp/mocp_status"
 
 moc_running(){
