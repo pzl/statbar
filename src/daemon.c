@@ -107,7 +107,7 @@ static int launch_modules(struct pollfd fds[]){
 	int i;
 	char *path = curdir();
 
-	for (i=0; i<13; i++){
+	for (i=0; i<14; i++){
 		fds[i].fd = launch_module(i,path);
 		fds[i].events=POLLIN;
 	}
@@ -136,6 +136,7 @@ static int launch_module(int i, char *path){
 		case 10: module = "linux"; break;
 		case 11: module = "desktop"; break;
 		case 12: module = "music"; break;
+		case 13: module = "ups"; break;
 	}
 	return spawn(dir, module);
 }
@@ -207,6 +208,7 @@ static void read_data(status *stats, int fd, int moduleno) {
 		case 10: module_buf = stats->linux; break;
 		case 11: module_buf = stats->desktop; break;
 		case 12: module_buf = stats->music; break;
+		case 13: module_buf = stats->ups; break;
 	}
 
 	do {
@@ -242,7 +244,7 @@ static void read_data(status *stats, int fd, int moduleno) {
 
 static void update_status(shmem *mem, status *stats) {
 	int n_bytes;
-	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s%s%s%s%s%s%s%s%s%s%s%%{r}%s%s\n",
+	n_bytes = snprintf(mem->buf,BUF_SIZE, "%%{l} %s%s%s%s%s%s%s%s%s%s%s%s%%{r}%s%s\n",
 			stats->datetime,
 			stats->desktop,
 			stats->network,
@@ -251,6 +253,7 @@ static void update_status(shmem *mem, status *stats) {
 			stats->memory,
 			stats->cpu,
 			stats->gpu,
+			stats->ups,
 			stats->music,
 			stats->packages,
 			stats->runtime,

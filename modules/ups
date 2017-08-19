@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+import subprocess
+import re
+import time
+import shutil
+import sys, os
+
+
+def print_simple(status):
+	load = re.match("\s*(\d+)\s*Watt\s*\((\d+)\s*%\)",status['Load'])
+	watt = load.group(1)
+	print(f"{watt}W")
+
+def get_status():
+	cmd = subprocess.run(["sudo","pwrstat","-status"],stdout=subprocess.PIPE)
+	output = cmd.stdout.decode('utf-8')
+	lines = output.split("\n")
+	status={}
+	for line in lines:
+		if not line.startswith("\t\t"):
+			continue
+		prop,val = re.split("\.+",line.strip(),maxsplit=1)
+		status[prop] = val
+	return status
+
+
+def main():
+	if not shutil.which("pwrstat"):
+		print("pwrstat needs to be installed",file=sys.stdout)
+		return 1
+
+
+	while True:
+		stat = get_status()
+		print_simple(stat)
+		time.sleep(14.6)
+
+if __name__ == "__main__":
+	main()
